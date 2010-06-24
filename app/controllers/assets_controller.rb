@@ -2,11 +2,18 @@ class AssetsController < ApplicationController
   # GET /assets
   # GET /assets.xml
   def index
-    if search
-    find(:all, :condition => ['title LIKE?', "%#{[params[:search]}"])
-    else
-  find(:all)
-end
+  @assets = Asset.find(:all)
+  
+  respond_to do |format|
+    format.html #index.html.erb
+    format.xml { render :xml => @assets }
+  end
+  
+    #if search
+    #find(:all, :condition => ['title LIKE?', "%#{[params[:search]}"])
+    #else
+    #find(:all)
+    #end
   end
 
   # GET /assets/1

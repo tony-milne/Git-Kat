@@ -18,10 +18,10 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: upload_test_development
+  database: login_development
   pool: 5
   username: root
-  password: obelema
+  password: Larss0n7
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -31,18 +31,18 @@ test:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: upload_test_test
+  database: login_test
   pool: 5
   username: root
-  password: obelema
+  password: Larss0n7
   host: localhost
 
 production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: upload_test_production
+  database: login_production
   pool: 5
   username: root
-  password: obelema
+  password: 
   host: localhost
