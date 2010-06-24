@@ -17,4 +17,11 @@
 
 <br />
 
+<% form_tag projects_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %> <!--we are using a text_field_tag cos it's more generic-->
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <%= link_to 'New asset', new_asset_path %>

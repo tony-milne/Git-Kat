@@ -472,3 +472,26 @@ Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 10:37:25) [GET]
 Rendering template within layouts/assets
 Rendering assets/show
 Completed in 66ms (View: 14, DB: 27) | 200 OK [http://localhost/assets/4]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (207.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (488.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (130.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (208.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAssets (20100624000732)
+  [4;36;1mSQL (81.0ms)[0m   [0;1mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100624000732')[0m
+Migrating to AddAttachmentsFileToAsset (20100624000848)
+  [4;36;1mSQL (56.0ms)[0m   [0;1mALTER TABLE `assets` ADD `file_file_name` varchar(255)[0m
+  [4;35;1mSQL (74.0ms)[0m   [0mALTER TABLE `assets` ADD `file_content_type` varchar(255)[0m
+  [4;36;1mSQL (54.0ms)[0m   [0;1mALTER TABLE `assets` ADD `file_file_size` int(11)[0m
+  [4;35;1mSQL (146.0ms)[0m   [0mALTER TABLE `assets` ADD `file_updated_at` datetime[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100624000848')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (34.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mSQL (17.0ms)[0m   [0mdescribe `assets`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `assets`[0m
