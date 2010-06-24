@@ -1,0 +1,474 @@
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (116.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (273.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAssets (20100624000732)
+  [4;36;1mSQL (118.0ms)[0m   [0;1mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (42.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100624000732')[0m
+Migrating to AddAttachmentsFileToAsset (20100624000848)
+  [4;36;1mSQL (237.0ms)[0m   [0;1mALTER TABLE `assets` ADD `file_file_name` varchar(255)[0m
+  [4;35;1mSQL (231.0ms)[0m   [0mALTER TABLE `assets` ADD `file_content_type` varchar(255)[0m
+  [4;36;1mSQL (232.0ms)[0m   [0;1mALTER TABLE `assets` ADD `file_file_size` int(11)[0m
+  [4;35;1mSQL (277.0ms)[0m   [0mALTER TABLE `assets` ADD `file_updated_at` datetime[0m
+  [4;36;1mSQL (62.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100624000848')[0m
+  [4;35;1mSQL (7.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (11.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mSQL (22.0ms)[0m   [0mdescribe `assets`[0m
+  [4;36;1mSQL (13.0ms)[0m   [0;1mSHOW KEYS FROM `assets`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 01:18:01) [GET]
+  Parameters: {"id"=>"upload"}
+  [4;36;1mAsset Columns (7.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (13.0ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Asset with ID=upload):
+  app/controllers/assets_controller.rb:16:in `show'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (140.0ms)
+Rendered rescues/_request_and_response (4.0ms)
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#new (for 127.0.0.1 at 2010-06-24 01:21:01) [GET]
+  [4;36;1mAsset Columns (7.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Rendering template within layouts/assets
+Rendering assets/new
+Completed in 7497ms (View: 7476, DB: 8) | 200 OK [http://localhost/assets/upload]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#new (for 127.0.0.1 at 2010-06-24 01:21:53) [GET]
+  [4;35;1mAsset Columns (7.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+Rendering template within layouts/assets
+Rendering assets/new
+Completed in 50ms (View: 28, DB: 8) | 200 OK [http://localhost/assets/upload]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#create (for 127.0.0.1 at 2010-06-24 01:22:14) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"1MPNnbK0XQioCEYvhrnTYy2hpQxii6306O9IhS7eIaU=", "asset"=>{"title"=>"Test Image", "file"=>#<File:C:/Users/Quintus/AppData/Local/Temp/RackMultipart.5292.0>}}
+  [4;36;1mAsset Columns (6.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mAsset Create (1.0ms)[0m   [0;1mINSERT INTO `assets` (`updated_at`, `title`, `file_content_type`, `file_file_name`, `file_updated_at`, `file_file_size`, `created_at`) VALUES('2010-06-24 00:22:14', 'Test Image', 'image/pjpeg', '481.jpg', '2010-06-24 00:22:14', 33847, '2010-06-24 00:22:14')[0m
+[paperclip] Saving attachments.
+[paperclip] saving C:/Users/Quintus/Documents/Rails/upload_test/public/system/files/1/original/481.jpg
+  [4;35;1mSQL (59.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/assets/1
+Completed in 426ms (DB: 66) | 302 Found [http://localhost/assets]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 01:22:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAsset Columns (6.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (10.0ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+Rendering template within layouts/assets
+Rendering assets/show
+Completed in 48ms (View: 17, DB: 18) | 200 OK [http://localhost/assets/1]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 01:22:16) [GET]
+  [4;36;1mAsset Load (1.0ms)[0m   [0;1mSELECT * FROM `assets` [0m
+Rendering template within layouts/assets
+Rendering assets/index
+  [4;35;1mAsset Columns (8.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+Completed in 48ms (View: 24, DB: 11) | 200 OK [http://localhost/assets]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 01:22:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAsset Columns (8.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (10.0ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+Rendering template within layouts/assets
+Rendering assets/show
+Completed in 43ms (View: 8, DB: 18) | 200 OK [http://localhost/assets/1]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 01:23:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mAsset Columns (7.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (13.0ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+Rendering template within layouts/assets
+Rendering assets/show
+Completed in 54ms (View: 16, DB: 22) | 200 OK [http://localhost/assets/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 01:56:37) [GET]
+  [4;36;1mAsset Load (1.0ms)[0m   [0;1mSELECT * FROM `assets` [0m
+Rendering template within layouts/assets
+Rendering assets/index
+  [4;35;1mAsset Columns (8.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+Completed in 37ms (View: 12, DB: 9) | 200 OK [http://localhost/assets]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#new (for 127.0.0.1 at 2010-06-24 01:56:43) [GET]
+  [4;36;1mAsset Columns (7.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Rendering template within layouts/assets
+Rendering assets/new
+Completed in 41ms (View: 19, DB: 8) | 200 OK [http://localhost/assets/upload]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#create (for 127.0.0.1 at 2010-06-24 01:56:53) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"1MPNnbK0XQioCEYvhrnTYy2hpQxii6306O9IhS7eIaU=", "asset"=>{"title"=>"Another test", "file"=>#<File:C:/Users/Quintus/AppData/Local/Temp/RackMultipart.5292.0>}}
+  [4;35;1mAsset Columns (6.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mAsset Create (1.0ms)[0m   [0mINSERT INTO `assets` (`updated_at`, `title`, `file_content_type`, `file_file_name`, `file_updated_at`, `file_file_size`, `created_at`) VALUES('2010-06-24 00:56:54', 'Another test', 'image/pjpeg', 'DSC_0027.jpg', '2010-06-24 00:56:54', 388513, '2010-06-24 00:56:54')[0m
+[paperclip] Saving attachments.
+[paperclip] saving C:/Users/Quintus/Documents/Rails/upload_test/public/system/files/2/original/DSC_0027.jpg
+  [4;36;1mSQL (119.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/assets/2
+Completed in 409ms (DB: 127) | 302 Found [http://localhost/assets]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 01:56:54) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAsset Columns (6.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (10.0ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 2) [0m
+Rendering template within layouts/assets
+Rendering assets/show
+Completed in 43ms (View: 11, DB: 17) | 200 OK [http://localhost/assets/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 01:57:01) [GET]
+  [4;35;1mAsset Load (1.0ms)[0m   [0mSELECT * FROM `assets` [0m
+Rendering template within layouts/assets
+Rendering assets/index
+  [4;36;1mAsset Columns (7.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Completed in 38ms (View: 16, DB: 8) | 200 OK [http://localhost/assets]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 01:57:03) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAsset Columns (10.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (10.0ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 2) [0m
+Rendering template within layouts/assets
+Rendering assets/show
+Completed in 48ms (View: 8, DB: 20) | 200 OK [http://localhost/assets/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 01:57:17) [GET]
+  [4;35;1mAsset Load (1.0ms)[0m   [0mSELECT * FROM `assets` [0m
+Rendering template within layouts/assets
+Rendering assets/index
+  [4;36;1mAsset Columns (6.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Completed in 36ms (View: 17, DB: 7) | 200 OK [http://localhost/assets]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 02:06:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAsset Columns (10.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (14.0ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+Rendering template within layouts/assets
+Rendering assets/show
+Completed in 124ms (View: 83, DB: 25) | 200 OK [http://localhost/assets/1]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 02:06:27) [GET]
+  [4;35;1mAsset Load (1.0ms)[0m   [0mSELECT * FROM `assets` [0m
+Rendering template within layouts/assets
+Rendering assets/index
+  [4;36;1mAsset Columns (6.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Completed in 48ms (View: 24, DB: 9) | 200 OK [http://localhost/assets]
+/!\ FAILSAFE /!\  Thu Jun 24 10:19:15 +0100 2010
+  Status: 500 Internal Server Error
+  Can't connect to MySQL server on 'localhost' (10061)
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:619:in `real_connect'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:619:in `connect'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:203:in `initialize'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:75:in `new'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:75:in `mysql_connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `send'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `new_connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:245:in `checkout_new_connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:188:in `checkout'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `loop'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `checkout'
+    c:/ruby/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:183:in `checkout'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:98:in `connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `retrieve_connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:123:in `retrieve_connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:115:in `connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+/!\ FAILSAFE /!\  Thu Jun 24 10:19:17 +0100 2010
+  Status: 500 Internal Server Error
+  Can't connect to MySQL server on 'localhost' (10061)
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:619:in `real_connect'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:619:in `connect'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:203:in `initialize'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:75:in `new'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:75:in `mysql_connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `send'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `new_connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:245:in `checkout_new_connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:188:in `checkout'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `loop'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `checkout'
+    c:/ruby/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:183:in `checkout'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:98:in `connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `retrieve_connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:123:in `retrieve_connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:115:in `connection'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#new (for 127.0.0.1 at 2010-06-24 10:20:18) [GET]
+  [4;36;1mAsset Columns (46.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Rendering template within layouts/assets
+Rendering assets/new
+Completed in 11486ms (View: 11418, DB: 46) | 200 OK [http://localhost/assets/upload]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#create (for 127.0.0.1 at 2010-06-24 10:20:54) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"jPa/nV78JJlIRmUHnxEiXdd5FsFta5PH1V+vY80+LwU=", "asset"=>{"title"=>"test image", "file"=>#<File:C:/Users/Quintus/AppData/Local/Temp/RackMultipart.3240.0>}}
+  [4;35;1mAsset Columns (9.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mAsset Create (0.0ms)[0m   [0mINSERT INTO `assets` (`updated_at`, `title`, `file_content_type`, `file_file_name`, `file_updated_at`, `file_file_size`, `created_at`) VALUES('2010-06-24 09:20:55', 'test image', 'image/pjpeg', 'DSC_0001.jpg', '2010-06-24 09:20:54', 685469, '2010-06-24 09:20:55')[0m
+[paperclip] Saving attachments.
+[paperclip] saving C:/Users/Quintus/Documents/Rails/upload_test/public/system/files/3/original/DSC_0001.jpg
+  [4;36;1mSQL (42.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/assets/3
+Completed in 469ms (DB: 51) | 302 Found [http://localhost/assets]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 10:20:55) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mAsset Columns (12.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (19.0ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 3) [0m
+Rendering template within layouts/assets
+Rendering assets/show
+Completed in 190ms (View: 132, DB: 31) | 200 OK [http://localhost/assets/3]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 10:21:01) [GET]
+  [4;35;1mAsset Load (0.0ms)[0m   [0mSELECT * FROM `assets` [0m
+Rendering template within layouts/assets
+Rendering assets/index
+  [4;36;1mAsset Columns (9.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Completed in 78ms (View: 48, DB: 9) | 200 OK [http://localhost/assets]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 10:21:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mAsset Columns (9.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (13.0ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+Rendering template within layouts/assets
+Rendering assets/show
+Completed in 57ms (View: 12, DB: 22) | 200 OK [http://localhost/assets/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 10:21:04) [GET]
+  [4;35;1mAsset Load (1.0ms)[0m   [0mSELECT * FROM `assets` [0m
+Rendering template within layouts/assets
+Rendering assets/index
+  [4;36;1mAsset Columns (9.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Completed in 57ms (View: 28, DB: 10) | 200 OK [http://localhost/assets]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 10:21:05) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mAsset Columns (10.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (13.0ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 2) [0m
+Rendering template within layouts/assets
+Rendering assets/show
+Completed in 57ms (View: 12, DB: 25) | 200 OK [http://localhost/assets/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 10:21:09) [GET]
+  [4;35;1mAsset Load (1.0ms)[0m   [0mSELECT * FROM `assets` [0m
+Rendering template within layouts/assets
+Rendering assets/index
+  [4;36;1mAsset Columns (9.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Completed in 58ms (View: 29, DB: 10) | 200 OK [http://localhost/assets]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 10:21:10) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mAsset Columns (9.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (13.0ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 3) [0m
+Rendering template within layouts/assets
+Rendering assets/show
+Completed in 57ms (View: 11, DB: 23) | 200 OK [http://localhost/assets/3]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 10:21:14) [GET]
+  [4;35;1mAsset Load (1.0ms)[0m   [0mSELECT * FROM `assets` [0m
+Rendering template within layouts/assets
+Rendering assets/index
+  [4;36;1mAsset Columns (9.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Completed in 57ms (View: 27, DB: 11) | 200 OK [http://localhost/assets]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#new (for 127.0.0.1 at 2010-06-24 10:37:07) [GET]
+  [4;35;1mAsset Columns (10.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+Rendering template within layouts/assets
+Rendering assets/new
+Completed in 56ms (View: 25, DB: 12) | 200 OK [http://localhost/assets/upload]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#create (for 127.0.0.1 at 2010-06-24 10:37:24) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"jPa/nV78JJlIRmUHnxEiXdd5FsFta5PH1V+vY80+LwU=", "asset"=>{"title"=>"sdkjfhk,sjdfh", "file"=>#<File:C:/Users/Quintus/AppData/Local/Temp/RackMultipart.3240.0>}}
+  [4;36;1mAsset Columns (10.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mAsset Create (1.0ms)[0m   [0;1mINSERT INTO `assets` (`updated_at`, `title`, `file_content_type`, `file_file_name`, `file_updated_at`, `file_file_size`, `created_at`) VALUES('2010-06-24 09:37:25', 'sdkjfhk,sjdfh', 'image/pjpeg', 'Image.jpg', '2010-06-24 09:37:25', 49194, '2010-06-24 09:37:25')[0m
+[paperclip] Saving attachments.
+[paperclip] saving C:/Users/Quintus/Documents/Rails/upload_test/public/system/files/4/original/Image.jpg
+  [4;35;1mSQL (47.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/assets/4
+Completed in 343ms (DB: 60) | 302 Found [http://localhost/assets]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 10:37:25) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mAsset Columns (10.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (15.0ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 4) [0m
+Rendering template within layouts/assets
+Rendering assets/show
+Completed in 66ms (View: 14, DB: 27) | 200 OK [http://localhost/assets/4]

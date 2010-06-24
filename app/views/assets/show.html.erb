@@ -1,0 +1,10 @@
+<p>
+  <b>Title:</b>
+  <%=h @asset.title %>
+  <br />
+  <%= image_tag @asset.file.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_asset_path(@asset) %> |
+<%= link_to 'Back', assets_path %>
