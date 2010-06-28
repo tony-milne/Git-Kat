@@ -1,450 +1,721 @@
+# Logfile created on Mon Jun 28 13:03:12 +0100 2010DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+/!\ FAILSAFE /!\  Mon Jun 28 13:04:28 +0100 2010
+  Status: 500 Internal Server Error
+  Unknown database 'login_development'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:619:in `real_connect'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:619:in `connect'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:203:in `initialize'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:75:in `new'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:75:in `mysql_connection'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `send'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `new_connection'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:245:in `checkout_new_connection'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:188:in `checkout'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `loop'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `checkout'
+    c:/Ruby186/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:183:in `checkout'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:98:in `connection'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `retrieve_connection'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:123:in `retrieve_connection'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:115:in `connection'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+    c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/Ruby186/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/Ruby186/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+    c:/Ruby186/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+    c:/Ruby186/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    c:/Ruby186/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
   [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
   [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mMysql::Error: query: not connected: CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (352.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (310.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mMysql::Error: query: not connected: CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mMysql::Error: query: not connected: CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mMysql::Error: query: not connected: CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mMysql::Error: query: not connected: CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (361.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
-  [4;36;1mSQL (30.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
-  [4;35;1mSQL (370.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
-  [4;36;1mSQL (10.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateArticles (20080719200447)
+  [4;36;1mSQL (141.0ms)[0m   [0;1mCREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `content` text, `author_name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (26.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080719200447')[0m
+Migrating to CreateComments (20080719201435)
+  [4;36;1mSQL (75.0ms)[0m   [0;1mCREATE TABLE `comments` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `article_id` int(11), `author_name` varchar(255), `site_url` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (19.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080719201435')[0m
+Migrating to CreateUsers (20090502203723)
+  [4;36;1mSQL (103.0ms)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (28.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
   [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
-Migrating to CreateUsers (20100624144243)
-  [4;36;1mSQL (131.0ms)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;35;1mSQL (110.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100624144243')[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (10.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (50.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
-  [4;36;1mSQL (30.0ms)[0m   [0;1mdescribe `users`[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `users`[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mSHOW FIELDS FROM `articles`[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mdescribe `articles`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mSHOW KEYS FROM `articles`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW FIELDS FROM `comments`[0m
+  [4;35;1mSQL (7.0ms)[0m   [0mdescribe `comments`[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW KEYS FROM `comments`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSHOW KEYS FROM `users`[0m
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
   [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-  [4;36;1mSQL (350.0ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (100.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
-Migrating to CreateAssets (20100624000732)
-  [4;36;1mSQL (351.0ms)[0m   [0;1mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
-  [4;35;1mSQL (50.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100624000732')[0m
-Migrating to AddAttachmentsFileToAsset (20100624000848)
-  [4;36;1mSQL (360.0ms)[0m   [0;1mALTER TABLE `assets` ADD `file_file_name` varchar(255)[0m
-  [4;35;1mSQL (281.0ms)[0m   [0mALTER TABLE `assets` ADD `file_content_type` varchar(255)[0m
-  [4;36;1mSQL (370.0ms)[0m   [0;1mALTER TABLE `assets` ADD `file_file_size` int(11)[0m
-  [4;35;1mSQL (261.0ms)[0m   [0mALTER TABLE `assets` ADD `file_updated_at` datetime[0m
-  [4;36;1mSQL (40.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100624000848')[0m
-Migrating to CreateUsers (20100624144243)
-  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSHOW TABLES[0m
-  [4;36;1mSQL (60.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
-  [4;35;1mSQL (10.0ms)[0m   [0mdescribe `assets`[0m
-  [4;36;1mSQL (10.0ms)[0m   [0;1mSHOW KEYS FROM `assets`[0m
-  [4;35;1mSQL (10.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
-  [4;36;1mSQL (10.0ms)[0m   [0;1mdescribe `users`[0m
-  [4;35;1mSQL (10.0ms)[0m   [0mSHOW KEYS FROM `users`[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-  [4;36;1mSQL (100.0ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
-Migrating to CreateAssets (20100624000732)
-Migrating to AddAttachmentsFileToAsset (20100624000848)
-Migrating to CreateUsers (20100624144243)
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
-  [4;36;1mSQL (10.0ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `assets`[0m
-  [4;35;1mSQL (10.0ms)[0m   [0mSHOW KEYS FROM `assets`[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `users`[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 13:07:04) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;35;1mUser Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 6884ms (View: 6780, DB: 5) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
   [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
   [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing Rails::InfoController#properties (for 127.0.0.1 at 2010-06-24 19:00:00) [GET]
-  [4;36;1mSQL (190.0ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
-Completed in 440ms (View: 30, DB: 190) | 200 OK [http://127.0.0.1/rails/info/properties]
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-24 19:00:09) [GET]
-
-SyntaxError (C:/Rails/shared/app/controllers/assets_controller.rb:6: syntax error, unexpected '}', expecting ']'
-    find(:all, :condition => ['title LIKE?', "%#{[params[:search]}"])
-                                                                  ^
-C:/Rails/shared/app/controllers/assets_controller.rb:49: syntax error, unexpected tIDENTIFIER, expecting '}'
-        format.html { render :action => "new" }
-                                            ^
-C:/Rails/shared/app/controllers/assets_controller.rb:65: syntax error, unexpected tIDENTIFIER, expecting '}'
-        format.html { render :action => "edit" }
-                                             ^
-C:/Rails/shared/app/controllers/assets_controller.rb:65: unterminated string meets end of file
-C:/Rails/shared/app/controllers/assets_controller.rb:65: syntax error, unexpected $end, expecting '}'):
-  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
-
-Rendered rescues/_trace (251.0ms)
-Rendered rescues/_request_and_response (10.0ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-24 19:00:30) [GET]
-
-ActionController::RoutingError (No route matches "/assets%5Cnew" with {:method=>:get}):
-  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#new (for 127.0.0.1 at 2010-06-24 19:00:37) [GET]
-
-SyntaxError (C:/Rails/shared/app/controllers/assets_controller.rb:6: syntax error, unexpected '}', expecting ']'
-    find(:all, :condition => ['title LIKE?', "%#{[params[:search]}"])
-                                                                  ^
-C:/Rails/shared/app/controllers/assets_controller.rb:49: syntax error, unexpected tIDENTIFIER, expecting '}'
-        format.html { render :action => "new" }
-                                            ^
-C:/Rails/shared/app/controllers/assets_controller.rb:65: syntax error, unexpected tIDENTIFIER, expecting '}'
-        format.html { render :action => "edit" }
-                                             ^
-C:/Rails/shared/app/controllers/assets_controller.rb:65: unterminated string meets end of file
-C:/Rails/shared/app/controllers/assets_controller.rb:65: syntax error, unexpected $end, expecting '}'):
-  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
-  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
-
-Rendered rescues/_trace (120.0ms)
-Rendered rescues/_request_and_response (0.0ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 19:02:11) [GET]
-Rendering template within layouts/assets
-Rendering assets/index
-
-ActionView::TemplateError (You have a nil object when you didn't expect it!
-You might have expected an instance of Array.
-The error occurred while evaluating nil.each) on line #8 of app/views/assets/index.html.erb:
-5:     <th>Title</th>
-6:   </tr>
-7: 
-8: <% @assets.each do |asset| %>
-9:   <tr>
-10:     <td><%=h asset.title %></td>
-11:     <td><%= link_to 'Show', asset %></td>
-
-    app/views/assets/index.html.erb:8
-    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
-
-Rendered rescues/_trace (130.0ms)
-Rendered rescues/_request_and_response (0.0ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 19:03:26) [GET]
-Rendering template within layouts/assets
-Rendering assets/index
-
-ActionView::TemplateError (You have a nil object when you didn't expect it!
-You might have expected an instance of Array.
-The error occurred while evaluating nil.each) on line #8 of app/views/assets/index.html.erb:
-5:     <th>Title</th>
-6:   </tr>
-7: 
-8: <% @assets.each do |asset| %>
-9:   <tr>
-10:     <td><%=h asset.title %></td>
-11:     <td><%= link_to 'Show', asset %></td>
-
-    app/views/assets/index.html.erb:8
-    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
-
-Rendered rescues/_trace (440.0ms)
-Rendered rescues/_request_and_response (0.0ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 19:03:36) [GET]
-Rendering template within layouts/assets
-Rendering assets/index
-
-ActionView::TemplateError (You have a nil object when you didn't expect it!
-You might have expected an instance of Array.
-The error occurred while evaluating nil.each) on line #8 of app/views/assets/index.html.erb:
-5:     <th>Title</th>
-6:   </tr>
-7: 
-8: <% @assets.each do |asset| %>
-9:   <tr>
-10:     <td><%=h asset.title %></td>
-11:     <td><%= link_to 'Show', asset %></td>
-
-    app/views/assets/index.html.erb:8
-    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
-
-Rendered rescues/_trace (130.0ms)
-Rendered rescues/_request_and_response (0.0ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 19:03:38) [GET]
-Rendering template within layouts/assets
-Rendering assets/index
-
-ActionView::TemplateError (You have a nil object when you didn't expect it!
-You might have expected an instance of Array.
-The error occurred while evaluating nil.each) on line #8 of app/views/assets/index.html.erb:
-5:     <th>Title</th>
-6:   </tr>
-7: 
-8: <% @assets.each do |asset| %>
-9:   <tr>
-10:     <td><%=h asset.title %></td>
-11:     <td><%= link_to 'Show', asset %></td>
-
-    app/views/assets/index.html.erb:8
-    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
-
-Rendered rescues/_trace (91.0ms)
-Rendered rescues/_request_and_response (0.0ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 19:03:38) [GET]
-Rendering template within layouts/assets
-Rendering assets/index
-
-ActionView::TemplateError (You have a nil object when you didn't expect it!
-You might have expected an instance of Array.
-The error occurred while evaluating nil.each) on line #8 of app/views/assets/index.html.erb:
-5:     <th>Title</th>
-6:   </tr>
-7: 
-8: <% @assets.each do |asset| %>
-9:   <tr>
-10:     <td><%=h asset.title %></td>
-11:     <td><%= link_to 'Show', asset %></td>
-
-    app/views/assets/index.html.erb:8
-    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
-
-Rendered rescues/_trace (460.0ms)
-Rendered rescues/_request_and_response (10.0ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 19:06:15) [GET]
-  [4;36;1mAsset Load (130.0ms)[0m   [0;1mSELECT * FROM `assets` [0m
-Rendering template within layouts/assets
-Rendering assets/index
-
-ActionView::TemplateError (undefined local variable or method `new_asset_path' for #<ActionView::Base:0x4838868>) on line #22 of app/views/assets/index.html.erb:
-19: 
-20: 
-21: 
-22: <%= link_to 'New asset', new_asset_path %>
-
-    app/views/assets/index.html.erb:22
-    app/controllers/assets_controller.rb:7:in `index'
-    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
-    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
-    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
-
-Rendered rescues/_trace (401.0ms)
-Rendered rescues/_request_and_response (0.0ms)
-Rendering rescues/layout (internal_server_error)
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-28 13:07:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 93ms (View: 69, DB: 3) | 200 OK [http://localhost/login]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
   [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 19:06:45) [GET]
-  [4;35;1mAsset Load (10.0ms)[0m   [0mSELECT * FROM `assets` [0m
-Rendering template within layouts/assets
-Rendering assets/index
-Completed in 70ms (View: 30, DB: 10) | 200 OK [http://127.0.0.1/assets]
+Processing UsersController#new (for 127.0.0.1 at 2010-06-28 13:07:19) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (9.0ms)
+Completed in 45ms (View: 27, DB: 3) | 200 OK [http://localhost/users/new]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-28 13:07:21) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 29ms (View: 7, DB: 4) | 200 OK [http://localhost/login]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-06-28 13:07:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (6.0ms)
+Completed in 33ms (View: 14, DB: 4) | 200 OK [http://localhost/users/new]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
   [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (10.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing AssetsController#new (for 127.0.0.1 at 2010-06-24 19:06:51) [GET]
-  [4;36;1mAsset Columns (10.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
-Rendering template within layouts/assets
-Rendering assets/new
-Completed in 120ms (View: 80, DB: 20) | 200 OK [http://127.0.0.1/assets/new]
-  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (10.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-28 13:07:24) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 29ms (View: 8, DB: 3) | 200 OK [http://localhost/login]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (7.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing AssetsController#create (for 127.0.0.1 at 2010-06-24 19:07:04) [POST]
-  Parameters: {"commit"=>"Create", "authenticity_token"=>"ST/etj2ObJ37Vo/Ma0IIKSY6FgNUUVNZMewdX6R7Cuk=", "asset"=>{"title"=>"test", "file"=>#<File:C:/DOCUME~1/Ryan/LOCALS~1/Temp/RackMultipart.1148.0>}}
-  [4;35;1mAsset Columns (10.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
-  [4;36;1mSQL (20.0ms)[0m   [0;1mBEGIN[0m
-  [4;35;1mAsset Create (341.0ms)[0m   [0mINSERT INTO `assets` (`updated_at`, `title`, `file_content_type`, `file_file_name`, `file_updated_at`, `file_file_size`, `created_at`) VALUES('2010-06-24 18:07:04', 'test', 'image/jpeg', 'Winter.jpg', '2010-06-24 18:07:04', 105542, '2010-06-24 18:07:04')[0m
-[paperclip] Saving attachments.
-[paperclip] saving C:/Rails/shared/public/system/files/1/original/Winter.jpg
-  [4;36;1mSQL (40.0ms)[0m   [0;1mCOMMIT[0m
-Redirected to http://127.0.0.1:3000/assets/1
-Completed in 801ms (DB: 421) | 302 Found [http://127.0.0.1/assets]
-  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 14:59:40) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (78.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;35;1mUser Columns (44.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 6803ms (View: 6586, DB: 129) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 19:07:05) [GET]
-  Parameters: {"id"=>"1"}
-  [4;35;1mAsset Columns (10.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
-  [4;36;1mAsset Load (170.0ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
-Rendering template within layouts/assets
-Rendering assets/show
-Completed in 230ms (View: 20, DB: 180) | 200 OK [http://127.0.0.1/assets/1]
-  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 19:07:17) [GET]
-  [4;35;1mAsset Load (10.0ms)[0m   [0mSELECT * FROM `assets` [0m
-Rendering template within layouts/assets
-Rendering assets/index
-  [4;36;1mAsset Columns (20.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
-Completed in 70ms (View: 20, DB: 30) | 200 OK [http://127.0.0.1/assets]
+Processing UsersController#new (for 127.0.0.1 at 2010-06-28 14:59:57) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (11.0ms)
+Completed in 102ms (View: 86, DB: 4) | 200 OK [http://localhost/users/new]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
   [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing AssetsController#show (for 127.0.0.1 at 2010-06-24 19:07:19) [GET]
-  Parameters: {"id"=>"1"}
-  [4;35;1mAsset Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
-  [4;36;1mAsset Load (70.0ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
-Rendering template within layouts/assets
-Rendering assets/show
-Completed in 320ms (View: 0, DB: 70) | 200 OK [http://127.0.0.1/assets/1]
+Processing UsersController#create (for 127.0.0.1 at 2010-06-28 15:00:33) [POST]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"Graham", "password"=>"[FILTERED]", "email"=>"grahambruno@gmail.com"}, "commit"=>"Submit", "action"=>"create", "authenticity_token"=>"7bLfrlQQ8EwOBtxlUydZF/BK5vmzRKwf0MlToDRiR8E=", "controller"=>"users"}
+  [4;35;1mUser Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (61.0ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'grahambruno@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`username`) = BINARY 'graham') LIMIT 1[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'bdbf035cc822851bd078b3fb1e0954974bbb37b8a6d2860bf30dc9d90e701a7bf4ab664d7426df5869a4041de1de8eeb6f4d155c1d40ece2a92847df8b631284') LIMIT 1[0m
+  [4;36;1mUser Create (0.0ms)[0m   [0;1mINSERT INTO `users` (`updated_at`, `crypted_password`, `username`, `password_salt`, `persistence_token`, `email`, `created_at`) VALUES('2010-06-28 14:00:33', 'b9bb061a7ca1f0eef91b46052625f36471b59ea25daa6a7964c0ddc67ff78169db96b0a9ed5b30f93061ab2b955ae19afc6da9ddb63f07ac35a2d84da42d81a3', 'Graham', 'L2kvZd2h2c4SRhZa_n6M', 'bdbf035cc822851bd078b3fb1e0954974bbb37b8a6d2860bf30dc9d90e701a7bf4ab664d7426df5869a4041de1de8eeb6f4d155c1d40ece2a92847df8b631284', 'grahambruno@gmail.com', '2010-06-28 14:00:33')[0m
+  [4;35;1mSQL (34.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 350ms (DB: 98) | 302 Found [http://localhost/users]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:00:33) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;35;1mUser Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'bdbf035cc822851bd078b3fb1e0954974bbb37b8a6d2860bf30dc9d90e701a7bf4ab664d7426df5869a4041de1de8eeb6f4d155c1d40ece2a92847df8b631284') LIMIT 1[0m
+Completed in 96ms (View: 83, DB: 3) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
   [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 19:17:17) [GET]
-  [4;35;1mAsset Load (0.0ms)[0m   [0mSELECT * FROM `assets` [0m
-Rendering template within layouts/assets
-Rendering assets/index
-  [4;36;1mAsset Columns (10.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
-Completed in 961ms (View: 421, DB: 10) | 200 OK [http://127.0.0.1/assets/]
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-28 15:00:36) [GET]
+  Parameters: {"action"=>"edit", "id"=>"current", "controller"=>"users"}
+  [4;35;1mUser Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'bdbf035cc822851bd078b3fb1e0954974bbb37b8a6d2860bf30dc9d90e701a7bf4ab664d7426df5869a4041de1de8eeb6f4d155c1d40ece2a92847df8b631284') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (6.0ms)
+Completed in 47ms (View: 17, DB: 4) | 200 OK [http://localhost/users/current/edit]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
   [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing AssetsController#index (for 127.0.0.1 at 2010-06-24 19:18:10) [GET]
-  [4;35;1mAsset Load (0.0ms)[0m   [0mSELECT * FROM `assets` [0m
-Rendering template within layouts/assets
-Rendering assets/index
-  [4;36;1mAsset Columns (10.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
-Completed in 80ms (View: 30, DB: 10) | 200 OK [http://127.0.0.1/assets/]
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-28 15:00:47) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'bdbf035cc822851bd078b3fb1e0954974bbb37b8a6d2860bf30dc9d90e701a7bf4ab664d7426df5869a4041de1de8eeb6f4d155c1d40ece2a92847df8b631284') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 34ms (DB: 5) | 302 Found [http://localhost/logout]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:00:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (1.0ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 29ms (View: 18, DB: 4) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-28 15:00:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 34ms (View: 14, DB: 3) | 200 OK [http://localhost/login]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-06-28 15:00:58) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"Graham", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"7bLfrlQQ8EwOBtxlUydZF/BK5vmzRKwf0MlToDRiR8E=", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (16.0ms)[0m   [0mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'graham') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 50ms (View: 8, DB: 20) | 200 OK [http://localhost/user_sessions]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-06-28 15:01:03) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"Graham", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"7bLfrlQQ8EwOBtxlUydZF/BK5vmzRKwf0MlToDRiR8E=", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'graham') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 26ms (DB: 5) | 302 Found [http://localhost/user_sessions]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:01:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;35;1mUser Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (7.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 107ms (View: 22, DB: 10) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-28 15:01:06) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 26ms (DB: 4) | 302 Found [http://localhost/logout]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:01:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (2.0ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;36;1mUser Columns (6.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 45ms (View: 24, DB: 8) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-28 15:01:12) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 27ms (View: 7, DB: 4) | 200 OK [http://localhost/login]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-06-28 15:01:19) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"Graham", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"7bLfrlQQ8EwOBtxlUydZF/BK5vmzRKwf0MlToDRiR8E=", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'graham') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 25ms (DB: 5) | 302 Found [http://localhost/user_sessions]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:01:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;35;1mUser Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 38ms (View: 24, DB: 5) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-28 15:01:21) [GET]
+  Parameters: {"action"=>"edit", "id"=>"current", "controller"=>"users"}
+  [4;35;1mUser Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (5.0ms)
+Completed in 34ms (View: 8, DB: 5) | 200 OK [http://localhost/users/current/edit]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-28 15:01:32) [PUT]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"Graham", "password"=>"[FILTERED]", "email"=>"grahambruno@gmail.com"}, "commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"7bLfrlQQ8EwOBtxlUydZF/BK5vmzRKwf0MlToDRiR8E=", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (19.0ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '48549caf89f44b1f1fc5a358f129fb61891cf9fa85d1851539bb4bb03da0ebfc789e3497a6cffe49c62d282ef455924e5670cee7fcffd57bc34fd28ac0e423d2' AND `users`.id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (11.0ms)
+Completed in 63ms (View: 14, DB: 23) | 200 OK [http://localhost/users/1]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-28 15:01:41) [PUT]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"Graham", "password"=>"[FILTERED]", "email"=>"grahambruno@gmail.com"}, "commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"7bLfrlQQ8EwOBtxlUydZF/BK5vmzRKwf0MlToDRiR8E=", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'df1a7094604c1533ed260a1ef4af6f51da85cee3282a7812b9de044ee699a5d108d0765324193c918f68cf9e3b61c3a08d39ccb3c8c89e42ea717985b44a7281' AND `users`.id <> 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Update (44.0ms)[0m   [0mUPDATE `users` SET `persistence_token` = 'df1a7094604c1533ed260a1ef4af6f51da85cee3282a7812b9de044ee699a5d108d0765324193c918f68cf9e3b61c3a08d39ccb3c8c89e42ea717985b44a7281', `crypted_password` = '08e49c5d8fcee192639afb88fe36ffb41f4aca7338b2f5b763b1d033229c856dad091a3e8362add962d1d1211605724a617c3e6dcd6ec0987ce4c0fb78958013', `updated_at` = '2010-06-28 14:01:41', `password_salt` = 'ddsF4I_nhJ3hYK2I43mD' WHERE `id` = 1[0m
+  [4;36;1mSQL (80.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 159ms (DB: 128) | 302 Found [http://localhost/users/1]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:01:42) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (0.0ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;36;1mUser Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 34ms (View: 22, DB: 4) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-28 15:01:44) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 27ms (DB: 4) | 302 Found [http://localhost/logout]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:01:44) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;35;1mUser Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 30ms (View: 19, DB: 3) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-28 15:01:47) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 29ms (View: 7, DB: 3) | 200 OK [http://localhost/login]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-06-28 15:01:53) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"Graham", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"7bLfrlQQ8EwOBtxlUydZF/BK5vmzRKwf0MlToDRiR8E=", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'graham') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 100ms (View: 7, DB: 3) | 200 OK [http://localhost/user_sessions]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-06-28 15:01:58) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"Graham", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"7bLfrlQQ8EwOBtxlUydZF/BK5vmzRKwf0MlToDRiR8E=", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'graham') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 27ms (DB: 4) | 302 Found [http://localhost/user_sessions]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:01:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (0.0ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 35ms (View: 23, DB: 4) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-28 15:01:59) [GET]
+  Parameters: {"action"=>"edit", "id"=>"current", "controller"=>"users"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (4.0ms)
+Completed in 32ms (View: 8, DB: 5) | 200 OK [http://localhost/users/current/edit]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-28 15:02:17) [PUT]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"Graham", "password"=>"[FILTERED]", "email"=>"grahambruno@gmail.com"}, "commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"7bLfrlQQ8EwOBtxlUydZF/BK5vmzRKwf0MlToDRiR8E=", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '57736337c19dc8498f7d2e158c44a2ef784f5c9986aef921f75b8ff628f823c751cc3acb68fbdec81d1d01cd3462046010d5f1d837199e0e0173eae2fee7bc9a' AND `users`.id <> 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE `users` SET `persistence_token` = '57736337c19dc8498f7d2e158c44a2ef784f5c9986aef921f75b8ff628f823c751cc3acb68fbdec81d1d01cd3462046010d5f1d837199e0e0173eae2fee7bc9a', `crypted_password` = 'b8e0673c65ce86df63327f83eeff2e45c562a0c354800af1e1e152da614b3cb3ca6bbfb80f7159fa9974ce014017bb78622c671f1dc912b04876de4a7bc6b433', `updated_at` = '2010-06-28 14:02:18', `password_salt` = '5iKGaZV_BqG6VzznNUkV' WHERE `id` = 1[0m
+  [4;36;1mSQL (27.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 62ms (DB: 33) | 302 Found [http://localhost/users/1]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:02:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (0.0ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 39ms (View: 26, DB: 4) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-28 15:02:24) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 26ms (DB: 4) | 302 Found [http://localhost/logout]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:02:24) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;35;1mUser Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 32ms (View: 19, DB: 4) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:03:36) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;35;1mUser Columns (5.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 86ms (View: 38, DB: 5) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-28 15:03:38) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 95ms (View: 71, DB: 4) | 200 OK [http://localhost/login]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-06-28 15:03:44) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"Graham", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"7bLfrlQQ8EwOBtxlUydZF/BK5vmzRKwf0MlToDRiR8E=", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'graham') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 172ms (DB: 3) | 302 Found [http://localhost/user_sessions]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:03:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (0.0ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 35ms (View: 23, DB: 3) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-28 15:03:48) [GET]
+  Parameters: {"action"=>"edit", "id"=>"current", "controller"=>"users"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (6.0ms)
+Completed in 45ms (View: 19, DB: 4) | 200 OK [http://localhost/users/current/edit]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-28 15:04:00) [PUT]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"Graham", "password"=>"[FILTERED]", "email"=>"grahambruno@gmail.com"}, "commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"7bLfrlQQ8EwOBtxlUydZF/BK5vmzRKwf0MlToDRiR8E=", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'fbf311ab23eec389b7d593899e53ada507f420c6bcaf27b23c60696b6adb72ac2bf1d3f769a1cd259b82b175714db789fb11f8789809aae7c55d5a1473b20dd4' AND `users`.id <> 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE `users` SET `persistence_token` = 'fbf311ab23eec389b7d593899e53ada507f420c6bcaf27b23c60696b6adb72ac2bf1d3f769a1cd259b82b175714db789fb11f8789809aae7c55d5a1473b20dd4', `crypted_password` = '34f16d5d8903bfe9c453d900d85f9a581436d2d130bbac26dccfbb7a7cec25dcfac612da4b706fcbc45d60f4c8ca32f5a5b219efa645692a1f979ca565fa50d6', `updated_at` = '2010-06-28 14:04:14', `password_salt` = 'xXf63G-aF6GnpuXWRsSZ' WHERE `id` = 1[0m
+  [4;36;1mSQL (41.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 14702ms (DB: 45) | 302 Found [http://localhost/users/1]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:04:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (1.0ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;36;1mUser Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 36ms (View: 23, DB: 7) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-28 15:04:17) [GET]
+  Parameters: {"action"=>"edit", "id"=>"current", "controller"=>"users"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_form (5.0ms)
+Completed in 33ms (View: 8, DB: 3) | 200 OK [http://localhost/users/current/edit]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-28 15:04:24) [PUT]
+  Parameters: {"user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"Graham", "password"=>"[FILTERED]", "email"=>"grahambruno@gmail.com"}, "commit"=>"Submit", "action"=>"update", "_method"=>"put", "authenticity_token"=>"7bLfrlQQ8EwOBtxlUydZF/BK5vmzRKwf0MlToDRiR8E=", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'b9f18cf69a55b50f7e9644434624c0e018b098dbb32fd5f7ac337564a01b8f90cf1113dd49d78dc90c11e0439292dee02f8b9b6d6225f28cd5d7f6390f22b872' AND `users`.id <> 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE `users` SET `persistence_token` = 'b9f18cf69a55b50f7e9644434624c0e018b098dbb32fd5f7ac337564a01b8f90cf1113dd49d78dc90c11e0439292dee02f8b9b6d6225f28cd5d7f6390f22b872', `crypted_password` = '47726b3bffd41e34d924a0508500df2f98d34a3eecedfa1abec1ee01e42d6ea3f72cfa384db71a770f967629b6ad985e248f32e1fba24833f4a66ef66d22f2ec', `updated_at` = '2010-06-28 14:04:24', `password_salt` = '6e1l5SynDDErudp2peWr' WHERE `id` = 1[0m
+  [4;36;1mSQL (103.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 138ms (DB: 108) | 302 Found [http://localhost/users/1]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:04:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;35;1mArticle Load (1.0ms)[0m   [0mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;36;1mUser Columns (47.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 77ms (View: 21, DB: 49) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-28 15:04:29) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 26ms (DB: 4) | 302 Found [http://localhost/logout]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:04:29) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (0.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;35;1mUser Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 32ms (View: 20, DB: 3) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ArticlesController#index (for 127.0.0.1 at 2010-06-28 15:05:45) [GET]
+  Parameters: {"action"=>"index", "controller"=>"articles"}
+  [4;36;1mArticle Load (1.0ms)[0m   [0;1mSELECT * FROM `articles` [0m
+Rendering template within layouts/application
+Rendering articles/index
+  [4;35;1mUser Columns (4.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 32ms (View: 18, DB: 5) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/Ruby186/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-06-28 15:19:17) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (7.0ms)
+Completed in 41ms (View: 24, DB: 4) | 200 OK [http://localhost/users/new]
