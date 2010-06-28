@@ -1,4 +1,6 @@
 class AssetsController < ApplicationController
+  before_filter :verify_credentials
+  
   # GET /assets
   # GET /assets.xml
   def index

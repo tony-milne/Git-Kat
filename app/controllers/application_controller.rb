@@ -7,11 +7,21 @@ class ApplicationController < ActionController::Base
   
   # See ActionController::Base for details 
   # Uncomment this to filter the contents of submitted sensitive data parameters
-  # from your application log (in this case, all fields with names like "password"). 
+  # from your application log (in this case, all fields with names like "password").
+  
+  def verify_credentials
+    if current_user
+      return
+    else
+      flash[:notice] = "Please login to continue"
+      redirect_to login_path
+    end
+  end  
+  
   filter_parameter_logging :password
   
   helper_method :current_user
-  
+
   private
 
   def current_user_session
@@ -23,4 +33,5 @@ class ApplicationController < ActionController::Base
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.record
   end
+  
 end

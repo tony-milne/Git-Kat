@@ -1335,3 +1335,655 @@ Rendering assets/index
   [4;35;1mAsset Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
   [4;36;1mUser Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
 Completed in 78ms (View: 62, DB: 0) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+/!\ FAILSAFE /!\  Tue Jun 29 00:09:44 +0100 2010
+  Status: 500 Internal Server Error
+  c:/Users/Quintus/Documents/Rails/shared/app/controllers/application_controller.rb:33: syntax error, unexpected $end, expecting kEND
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:379:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:259:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:80:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:92:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+/!\ FAILSAFE /!\  Tue Jun 29 00:09:48 +0100 2010
+  Status: 500 Internal Server Error
+  c:/Users/Quintus/Documents/Rails/shared/app/controllers/application_controller.rb:33: syntax error, unexpected $end, expecting kEND
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:379:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:259:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:80:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:92:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+/!\ FAILSAFE /!\  Tue Jun 29 00:10:21 +0100 2010
+  Status: 500 Internal Server Error
+  c:/Users/Quintus/Documents/Rails/shared/app/controllers/application_controller.rb:34: syntax error, unexpected $end, expecting kEND
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:379:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:259:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:80:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:92:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+/!\ FAILSAFE /!\  Tue Jun 29 00:10:57 +0100 2010
+  Status: 500 Internal Server Error
+  c:/Users/Quintus/Documents/Rails/shared/app/controllers/application_controller.rb:34: syntax error, unexpected $end, expecting kEND
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:379:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:259:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:80:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:92:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+/!\ FAILSAFE /!\  Tue Jun 29 00:11:02 +0100 2010
+  Status: 500 Internal Server Error
+  c:/Users/Quintus/Documents/Rails/shared/app/controllers/application_controller.rb:34: syntax error, unexpected $end, expecting kEND
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:379:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:259:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:80:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:92:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+/!\ FAILSAFE /!\  Tue Jun 29 00:15:01 +0100 2010
+  Status: 500 Internal Server Error
+  c:/Users/Quintus/Documents/Rails/shared/app/controllers/application_controller.rb:36: syntax error, unexpected $end, expecting kEND
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:379:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:259:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:80:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:92:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+/!\ FAILSAFE /!\  Tue Jun 29 00:15:38 +0100 2010
+  Status: 500 Internal Server Error
+  c:/Users/Quintus/Documents/Rails/shared/app/controllers/application_controller.rb:36: syntax error, unexpected $end, expecting kEND
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:379:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:259:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:80:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:92:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+/!\ FAILSAFE /!\  Tue Jun 29 00:22:12 +0100 2010
+  Status: 500 Internal Server Error
+  c:/Users/Quintus/Documents/Rails/shared/app/controllers/application_controller.rb:36: syntax error, unexpected $end, expecting kEND
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:380:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:379:in `load_file'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:259:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:80:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.3.8/lib/active_support/dependencies.rb:92:in `const_missing'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:89:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rack-1.1.0/lib/rack/handler/webrick.rb:14:in `run'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-29 00:22:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"assets"}
+  [4;36;1mUser Columns (9.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+
+NameError (undefined local variable or method `login' for #<AssetsController:0x83bc72c>):
+  app/controllers/application_controller.rb:17:in `verify_credentials'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (65.0ms)
+Rendered rescues/_request_and_response (3.0ms)
+Rendering rescues/layout (internal_server_error)
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-29 00:25:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"assets"}
+  [4;36;1mUser Columns (8.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Redirected to http://localhost:3000/login
+Filter chain halted as [:verify_credentials] rendered_or_redirected.
+Completed in 38ms (DB: 9) | 302 Found [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-29 00:25:06) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (6.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 7362ms (View: 7328, DB: 6) | 200 OK [http://localhost/login]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-06-29 00:25:19) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (7.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered users/_form (19.0ms)
+Completed in 155ms (View: 126, DB: 9) | 200 OK [http://localhost/users/new]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-29 00:25:22) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (6.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 45ms (View: 11, DB: 7) | 200 OK [http://localhost/login]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-29 00:25:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"assets"}
+  [4;36;1mUser Columns (7.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Redirected to http://localhost:3000/login
+Filter chain halted as [:verify_credentials] rendered_or_redirected.
+Completed in 38ms (DB: 7) | 302 Found [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-29 00:25:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (8.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 44ms (View: 11, DB: 8) | 200 OK [http://localhost/login]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-06-29 00:25:33) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"quintus", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"iS0mp0xBi7Z8pikYm0XQ8i6kT/a15V6DqniBXXDpbDs=", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (8.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'quintus') LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (1.0ms)[0m   [0mUPDATE `users` SET `failed_login_count` = 1, `updated_at` = '2010-06-28 23:25:34' WHERE `id` = 1[0m
+  [4;36;1mSQL (77.0ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 454ms (View: 17, DB: 89) | 200 OK [http://localhost/user_sessions]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-06-29 00:25:37) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"quintus", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"iS0mp0xBi7Z8pikYm0XQ8i6kT/a15V6DqniBXXDpbDs=", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (9.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'quintus') LIMIT 1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (1.0ms)[0m   [0;1mUPDATE `users` SET `login_count` = 2, `failed_login_count` = 0, `updated_at` = '2010-06-28 23:25:37' WHERE `id` = 1[0m
+  [4;35;1mSQL (108.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 157ms (DB: 122) | 302 Found [http://localhost/user_sessions]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-29 00:25:37) [GET]
+  Parameters: {"action"=>"index", "controller"=>"assets"}
+  [4;36;1mUser Columns (6.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Load (2.0ms)[0m   [0;1mSELECT * FROM `assets` [0m
+Rendering template within layouts/application
+Rendering assets/index
+  [4;35;1mAsset Columns (6.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+Completed in 155ms (View: 25, DB: 17) | 200 OK [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-29 00:25:39) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"assets"}
+  [4;36;1mUser Columns (6.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Columns (8.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (6.0ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering assets/show
+Completed in 207ms (View: 131, DB: 21) | 200 OK [http://localhost/assets/1]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-29 00:25:41) [GET]
+  Parameters: {"action"=>"index", "controller"=>"assets"}
+  [4;36;1mUser Columns (6.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Load (1.0ms)[0m   [0;1mSELECT * FROM `assets` [0m
+Rendering template within layouts/application
+Rendering assets/index
+  [4;35;1mAsset Columns (5.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+Completed in 83ms (View: 15, DB: 14) | 200 OK [http://localhost/assets]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-29 00:25:43) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (9.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 51ms (DB: 11) | 302 Found [http://localhost/logout]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-29 00:25:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"assets"}
+  [4;36;1mUser Columns (8.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Redirected to http://localhost:3000/login
+Filter chain halted as [:verify_credentials] rendered_or_redirected.
+Completed in 39ms (DB: 8) | 302 Found [http://localhost/]
+DEPRECATION WARNING: Giving :session_key to SessionStore is deprecated, please use :key instead. (called from new at c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.3.8/lib/action_controller/middleware_stack.rb:72)
+  [4;35;1mSQL (1.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-29 00:25:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (6.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 44ms (View: 11, DB: 7) | 200 OK [http://localhost/login]
