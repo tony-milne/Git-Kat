@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090502203723) do
+ActiveRecord::Schema.define(:version => 20100628153410) do
 
   create_table "articles", :force => true do |t|
     t.string   "name"
@@ -17,6 +17,16 @@ ActiveRecord::Schema.define(:version => 20090502203723) do
     t.string   "author_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "assets", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "comments", :force => true do |t|
@@ -34,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20090502203723) do
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
+    t.integer  "login_count"
+    t.integer  "failed_login_count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

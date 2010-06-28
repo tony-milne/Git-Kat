@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Search results</title>
+</head>
+<body>
+<h1 align="center">Search results</h1>
+ 
+<ul>
+<li><i><b>Title</b></i></li>
+</ul>
+ 
+<% @assets.each do |asset| %>
+<ul>
+<li>
+<a href="
+<%=asset.id%>
+">
+<%=asset.title%> 
+</a>
+</li>
+</ul>
+<% end %>
+<br />
+
+
+<p> <a href="/assets"> Back</a> </p>
+
+
+</body>
+</html>
