@@ -1,0 +1,9 @@
+# Ignore files #
+################
+database.yml
+*.log
+
+# Ignore folders #
+##################
+public/system/
+log/
