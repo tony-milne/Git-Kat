@@ -11,13 +11,6 @@
 
 ActiveRecord::Schema.define(:version => 20100628153410) do
 
-  create_table "articles", :force => true do |t|
-    t.string   "name"
-    t.text     "content"
-    t.string   "author_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "assets", :force => true do |t|
     t.string   "title"
@@ -29,14 +22,6 @@ ActiveRecord::Schema.define(:version => 20100628153410) do
     t.datetime "file_updated_at"
   end
 
-  create_table "comments", :force => true do |t|
-    t.integer  "article_id"
-    t.string   "author_name"
-    t.string   "site_url"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", :force => true do |t|
     t.string   "username"
