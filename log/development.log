@@ -2896,3 +2896,1131 @@ Rendering user_sessions/new
   [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
   [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
 Completed in 51ms (View: 16, DB: 7) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (136.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (23.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (92.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (106.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (121.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (290.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (35.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (24.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (41.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (328.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (94.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (93.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (110.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (265.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (78.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (234.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (94.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (78.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (94.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (280.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-29 21:32:37) [GET]
+  Parameters: {"action"=>"index", "controller"=>"assets"}
+  [4;36;1mUser Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Redirected to http://localhost:3000/login
+Filter chain halted as [:verify_credentials] rendered_or_redirected.
+Completed in 6973ms (DB: 0) | 302 Found [http://localhost/]
+  [4;35;1mSQL (16.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-29 21:32:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 63ms (View: 32, DB: 16) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-06-29 21:32:50) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"test", "password"=>"[FILTERED]"}, "action"=>"create", "authenticity_token"=>"h8pnwO6WCif27AfuJReAlPiiChZyc1yCpvIfIKPpbjk=", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'test') LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.0ms)[0m   [0mUPDATE `users` SET `login_count` = 2, `updated_at` = '2010-06-29 20:32:51' WHERE `id` = 1[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 499ms (DB: 63) | 302 Found [http://localhost/user_sessions]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-29 21:32:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"assets"}
+  [4;35;1mUser Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Load (47.0ms)[0m   [0mSELECT * FROM `assets` [0m
+Rendering template within layouts/application
+Rendering assets/index
+  [4;36;1mAsset Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Completed in 202ms (View: 31, DB: 63) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#new (for 127.0.0.1 at 2010-06-29 21:32:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"assets"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+Rendering template within layouts/application
+Rendering assets/new
+Completed in 156ms (View: 94, DB: 16) | 200 OK [http://localhost/assets/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#create (for 127.0.0.1 at 2010-06-29 21:33:06) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"h8pnwO6WCif27AfuJReAlPiiChZyc1yCpvIfIKPpbjk=", "controller"=>"assets", "asset"=>{"title"=>"test", "file"=>#<File:C:/Users/Quintus/AppData/Local/Temp/RackMultipart.1592.0>}}
+  [4;36;1mUser Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mAsset Create (0.0ms)[0m   [0;1mINSERT INTO `assets` (`updated_at`, `title`, `file_content_type`, `file_file_name`, `file_updated_at`, `file_file_size`, `created_at`) VALUES('2010-06-29 20:33:06', 'test', 'image/pjpeg', 'DSC_0027.jpg', '2010-06-29 20:33:06', 388513, '2010-06-29 20:33:06')[0m
+[paperclip] Saving attachments.
+[paperclip] saving C:/Users/Quintus/Documents/Rails/shared/public/system/files/2/original/DSC_0027.jpg
+  [4;35;1mSQL (47.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/assets/2
+Completed in 453ms (DB: 63) | 302 Found [http://localhost/assets]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-29 21:33:06) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"assets"}
+  [4;36;1mUser Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (0.0ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering assets/show
+Completed in 94ms (View: 16, DB: 0) | 200 OK [http://localhost/assets/2]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (141.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (62.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (93.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (109.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (281.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2010-06-29 21:36:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"assets"}
+  [4;36;1mUser Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Load (0.0ms)[0m   [0;1mSELECT * FROM `assets` [0m
+Rendering template within layouts/application
+Rendering assets/index
+  [4;35;1mAsset Columns (31.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+Completed in 156ms (View: 15, DB: 47) | 200 OK [http://localhost/assets]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#new (for 127.0.0.1 at 2010-06-29 21:36:16) [GET]
+  Parameters: {"action"=>"new", "controller"=>"assets"}
+  [4;36;1mUser Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Rendering template within layouts/application
+Rendering assets/new
+Completed in 109ms (View: 16, DB: 16) | 200 OK [http://localhost/assets/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#create (for 127.0.0.1 at 2010-06-29 21:36:20) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "authenticity_token"=>"h8pnwO6WCif27AfuJReAlPiiChZyc1yCpvIfIKPpbjk=", "controller"=>"assets", "asset"=>{"title"=>"test 2"}}
+  [4;35;1mUser Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mAsset Create (0.0ms)[0m   [0mINSERT INTO `assets` (`updated_at`, `title`, `file_content_type`, `file_file_name`, `file_updated_at`, `file_file_size`, `created_at`) VALUES('2010-06-29 20:36:20', 'test 2', NULL, NULL, NULL, NULL, '2010-06-29 20:36:20')[0m
+[paperclip] Saving attachments.
+  [4;36;1mSQL (63.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/assets/3
+Completed in 156ms (DB: 109) | 302 Found [http://localhost/assets]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#show (for 127.0.0.1 at 2010-06-29 21:36:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"assets"}
+  [4;35;1mUser Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (15.0ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 3) [0m
+Rendering template within layouts/application
+Rendering assets/show
+Completed in 109ms (View: 16, DB: 15) | 200 OK [http://localhost/assets/3]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-29 21:36:20) [GET]
+
+ActionController::RoutingError (No route matches "/files/original/missing.png" with {:method=>:get}):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (153.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (103.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (98.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (98.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (254.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (36.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (24.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (138.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (83.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (107.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (108.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (229.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (37.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (24.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mAsset Columns (6.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (103.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (93.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (106.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (110.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (207.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (37.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (23.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (244.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (116.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (98.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (117.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (254.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (46.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (24.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (32.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (172.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (85.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (86.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (97.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (207.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (26.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (56.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (205.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (105.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (107.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (119.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (242.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (37.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (34.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (253.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (94.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (96.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (97.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (219.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (36.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (34.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (176.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (144.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (103.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (108.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (252.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (48.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (43.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (33.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (147.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (140.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (119.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (119.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (231.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (6.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (45.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (44.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (33.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (170.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (113.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (118.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (86.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (286.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (37.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (33.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (33.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (136.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (114.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (108.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (142.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (209.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (33.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (33.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (183.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (161.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (152.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (143.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (253.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (35.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (33.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (33.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (167.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (116.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (97.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (118.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (209.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (48.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (33.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (137.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (129.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (97.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (97.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (231.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (37.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (43.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (34.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (176.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (137.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (120.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (98.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (207.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (27.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (23.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (156.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (81.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (153.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (106.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (197.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (46.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (23.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (32.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (130.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (84.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (76.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (140.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (184.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (24.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (148.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (74.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (97.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (97.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (296.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (38.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (23.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (151.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (83.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (119.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (133.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (250.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (45.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (24.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (171.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (144.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (117.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (218.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (24.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (208.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (120.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (116.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (94.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (221.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (34.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (37.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (21.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (194.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (70.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (86.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (97.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (224.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (32.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (31.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (24.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (140.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (152.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (74.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (86.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (220.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (33.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (24.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (42.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (140.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (128.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (140.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (81.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (201.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (33.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (25.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (30.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (180.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (71.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (97.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (220.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (22.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (37.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (30.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (170.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (196.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (107.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (99.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (264.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (29.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (25.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (30.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (169.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (164.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (113.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (100.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (204.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (25.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (29.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (25.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (158.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (144.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (101.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (89.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (274.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (8.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (28.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (25.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (29.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (124.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (83.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (103.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (89.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (242.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (28.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (26.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (33.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (124.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (105.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (86.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (147.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (199.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (23.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (23.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (141.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (140.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (138.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (85.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (197.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (8.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (30.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (23.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (28.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (145.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (128.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (109.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (108.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (205.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (25.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (28.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (27.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (142.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (149.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (105.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (96.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (213.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (28.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (26.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (29.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (214.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (102.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (110.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (96.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (226.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (25.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (29.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (38.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (127.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (195.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (104.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (85.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (183.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (36.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (29.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (26.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (141.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (111.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (99.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (97.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (238.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (35.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (41.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (26.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (217.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (111.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (95.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (99.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (226.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (25.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (41.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (25.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (4.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (221.0ms)[0m   [0;1mDROP DATABASE IF EXISTS `shared_test`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE DATABASE `shared_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (113.0ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `created_at` datetime, `updated_at` datetime, `file_file_name` varchar(255), `file_content_type` varchar(255), `file_file_size` int(11), `file_updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (201.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `email` varchar(255), `crypted_password` varchar(255), `password_salt` varchar(255), `persistence_token` varchar(255), `login_count` int(11), `failed_login_count` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (102.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (217.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (7.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mSQL (36.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153410')[0m
+  [4;35;1mSQL (30.0ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20090502203723')[0m
+  [4;36;1mSQL (25.0ms)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20100628153310')[0m

@@ -14,7 +14,7 @@ class AssetsControllerTest < ActionController::TestCase
 
   test "should create asset" do
     assert_difference('Asset.count') do
-      post :create, :asset => { }
+      post :create, :asset => { :title => 'test', :file => File.new("test/fixtures/test.jpg") }
     end
 
     assert_redirected_to asset_path(assigns(:asset))

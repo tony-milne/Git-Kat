@@ -1,6 +1,8 @@
 require 'test_helper'
+require 'mocha'
 
 class UsersControllerTest < ActionController::TestCase
+  
   def test_new
     get :new
     assert_template 'new'
@@ -8,14 +10,14 @@ class UsersControllerTest < ActionController::TestCase
   
   def test_create_invalid
     User.any_instance.stubs(:valid?).returns(false)
-    post :create
+    post :create#, :user => { :username => 'test1' }
     assert_template 'new'
   end
   
   def test_create_valid
     User.any_instance.stubs(:valid?).returns(true)
     post :create
-    assert_redirected_to users_url
+    assert_redirected_to root_url
   end
   
   def test_edit

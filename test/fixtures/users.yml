@@ -1,9 +1,28 @@
 one:
-  username: MyString
-  email: MyString
-  password: MyString
+  username: test1
+  email: whatever@whatever.com
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("benrocks" + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
 
 two:
-  username: MyString
-  email: MyString
-  password: MyString
+  username: test2
+  email: whatever@whatever.com
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt("benrocks" + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+
+
+#one:
+#  username: MyString
+#  email: MyString
+#  crypted_password: MyString
+#  password_salt: MyString
+#  persistence_token: asdfh78h4rt7394tght29u82hy38r9hwe9rh
+
+#two:
+#  username: MyString
+#  email: MyString
+#  crypted_password: MyString
+#  password_salt: MyString
+#  persistence_token: o987c87vo3857bv0q9875098q7wv0597q034
