@@ -2,6 +2,10 @@ require 'test_helper'
 require 'mocha'
 
 class UsersControllerTest < ActionController::TestCase
+  setup do
+    u = users(:one)
+    UserSession.create(u)
+  end
   
   def test_new
     get :new
