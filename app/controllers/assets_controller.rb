@@ -15,6 +15,11 @@ class AssetsController < ApplicationController
   end
   end
     end
+  
+    def view
+    @assets = Asset.find(:all)
+    end
+  
 
   # GET /assets/1
   # GET /assets/1.xml
@@ -86,4 +91,6 @@ class AssetsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+
 end

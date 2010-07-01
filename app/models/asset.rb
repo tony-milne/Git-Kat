@@ -1,5 +1,6 @@
 class Asset < ActiveRecord::Base
-  has_attached_file :file
+  has_attached_file :file,
+      :styles => {:thumb => "230x173#"}
 
   def self.search(search)
 if search
