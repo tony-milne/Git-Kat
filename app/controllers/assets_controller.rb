@@ -16,7 +16,7 @@ class AssetsController < ApplicationController
   end
     end
   
-    def view
+    def gallery
     @assets = Asset.find(:all)
     end
   
