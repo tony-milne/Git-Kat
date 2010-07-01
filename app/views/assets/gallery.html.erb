@@ -5,6 +5,14 @@
   <body>
    
   <h1>Gallery</h1>
+  
+  <% form_tag assets_path, :method => 'get' do %> 
+ <p> 
+<%= text_field_tag :search, params[:search] %>
+ <%= submit_tag "Search", :name => nil %>
+ </p> 
+<% end %> 
+  
   <table border="0">
   <tr>
   <td width="80%"><p align="center"><i><b>Asset</b></i></td> 
@@ -15,7 +23,7 @@
   <td>
   <%= image_tag asset.file.url(:thumb) %>
   <br/>
-  <%=h asset.title %>
+  <%= link_to asset.title, asset %>
 </p>
     </td>
  
@@ -23,6 +31,7 @@
   </tr>
   <% end %> 
   </table>
+<%= will_paginate @assets %>
 
   <p><%= link_to "Create new asset", :action => "new" %> | <%= link_to 'Back', assets_path %> </p>
 
