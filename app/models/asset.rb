@@ -3,8 +3,11 @@ class Asset < ActiveRecord::Base
       :styles => {:thumb => "230x173#",
       :large => "640x480#>",
       :medium => "150x150#"}
+  
+  cattr_reader :per_page
+  @@per_page = 10
 
-  def self.search(search)
+def self.search(search)
 if search
   find(:all, :condition=>['title LIKE?', "%#{search}%"])
   else
