@@ -1,0 +1,34 @@
+<html> 
+  <head>
+    <title>Image Gallery</title>
+  </head>
+  <body>
+   
+  <h1>Gallery</h1>
+  <table border="0">
+  <tr>
+  <td width="80%"><p align="center"><i><b>Asset</b></i></td> 
+  </tr>
+    
+  <% @assets.each do |asset| %>
+  <tr>
+  <td>
+  <%= image_tag asset.file.url(:thumb) %>
+  <br/>
+  <%=h asset.title %>
+</p>
+    </td>
+ 
+ 
+  </tr>
+  <% end %> 
+  </table>
+  <p><%= link_to "Create new asset", :action => "new" %> | <%= link_to 'Back', assets_path %> </p>
+
+  </body> 
+</html>
+
+
+
+
+
