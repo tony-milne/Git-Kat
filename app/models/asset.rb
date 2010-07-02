@@ -1,6 +1,6 @@
 class Asset < ActiveRecord::Base
   has_attached_file :file,
-  :styles => {:large => "640x480>", :medium => "250x250#", :thumb => "230x173#"}
+  :styles => {:thumb => "230x173#"} #:large => "640x480>", :medium => "250x250#", 
       
   cattr_reader :per_page
   @@per_page = 10
