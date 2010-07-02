@@ -28,7 +28,7 @@ Rails::Initializer.run do |config|
   #Here we have defined the gems that we are using for the program.  $D
   config.gem "authlogic"
   config.gem "paperclip"
-  require "will_paginate"
+  
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
@@ -69,3 +69,4 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
 end
+require "will_paginate"
