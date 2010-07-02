@@ -6,11 +6,11 @@ class Asset < ActiveRecord::Base
   #@@per_page = 5
       
 
-def self.search(search)
-if search
-  find(:all, :condition=>['title LIKE?', "%#{search}%"])
-  else
-	find(:all)
-end
+
+def self.search(search, page)
+  paginate 	:per_page => 5, :page => page,
+		:conditions => ['title like ?', "%#{search}%"],
+		:order => 'title'
+
 end
 end

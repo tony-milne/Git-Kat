@@ -7,28 +7,25 @@
 </style>
 </head>
 <body>
-<h1 align="center">Search results</h1>
+<h1>Search results</h1>
  
-<ul>
-<li><i><b>Title</b></i></li>
-</ul>
- 
-<% @assets.each do |asset| %>
-<ul>
-<li>
-<a href="
-<%=asset.id%>
-">
-<%=asset.title%> 
-</a>
-</li>
-</ul>
-<% end %>
-<br />
+<div id ="imagegallery">
+<p>    
+  <% @assets.each do |asset| %>
+  <div id="image">
+  <%= image_tag asset.file.url(:thumb) %>
+  <p align="center"><%= link_to asset.title, asset %></p>
+  </div>
 
+  <% end %>
+</div>
+<div id="will_paginate">
+<div class="align-right"><%= link_to "Create new asset", :action => "new" %> | <%= link_to 'Back', assets_path %>
+<p/>
+<%= will_paginate @assets %>
+</div>
+</div>
+  
 
-<p> <a href="/assets"> Back</a> </p>
-
-
-</body>
+  </body> 
 </html>
