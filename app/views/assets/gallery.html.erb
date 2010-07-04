@@ -3,37 +3,36 @@
     <title>Image Gallery</title>
   </head>
   <body>
-   
+
+<div id = "gallery-header"> 
   <h1>Gallery</h1>
-  
-  <% form_tag assets_path, :method => 'get' do %> 
+ <% form_tag 'gallery', :method => 'get' do %> 
  <p> 
 <%= text_field_tag :search, params[:search] %>
  <%= submit_tag "Search", :name => nil %>
  </p> 
-<% end %> 
-  
-  <table border="0">
-  <tr>
-  <td width="80%"><p align="center"><i><b>Asset</b></i></td> 
-  </tr>
-    
-  <% @assets.each do |asset| %>
-  <tr>
-  <td>
-  <%= image_tag asset.file.url(:thumb) %>
-  <br/>
-  <%= link_to asset.title, asset %>
-</p>
-    </td>
- 
- 
-  </tr>
-  <% end %> 
-  </table>
-<%= will_paginate @assets %>
+<% end %>
 
-  <p><%= link_to "Create new asset", :action => "new" %> | <%= link_to 'Back', assets_path %> </p>
+</div>
+
+
+<div id ="imagegallery">
+<p>    
+  <% @assets.each do |asset| %>
+  <div id="image">
+  <%= image_tag asset.file.url(:thumb) %>
+  <p align="center"><%= link_to asset.title, asset %></p>
+  </div>
+
+  <% end %>
+</div>
+<div id="will_paginate">
+<div class="align-right"><%= link_to "Create new asset", :action => "new" %> | <%= link_to 'Back', assets_path %>
+<p/>
+<%= will_paginate @assets %>
+</div>
+</div>
+  
 
   </body> 
 </html>

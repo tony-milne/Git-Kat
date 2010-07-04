@@ -18,11 +18,13 @@
 
 <br />
 
+<%= will_paginate @assets %>
+
 <% form_tag assets_path, :method => 'get' do %> 
  <p> 
 <%= text_field_tag :search, params[:search] %>
  <%= submit_tag "Search", :name => nil %>
  </p> 
-<% end %> 
+<% end %>
 
 <%= link_to 'New asset', new_asset_path %> | <%= link_to 'Image Gallery', :action => "gallery" %>
