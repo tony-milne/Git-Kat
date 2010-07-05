@@ -28,7 +28,7 @@ Rails::Initializer.run do |config|
   #Here we have defined the gems that we are using for the program.  $D
   config.gem "authlogic"
   config.gem "paperclip"
-  
+  config.gem "exifr"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
