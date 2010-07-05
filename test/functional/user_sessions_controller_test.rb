@@ -1,30 +1,28 @@
 require 'test_helper'
-require 'mocha'
 
 class UserSessionsControllerTest < ActionController::TestCase
-  #setup :activate_authlogic
-
   def test_new
     get :new
     assert_template 'new'
   end
   
   def test_create_invalid
-    UserSession.any_instance.stubs(:valid?).returns(false)
     post :create
     assert_template 'new'
   end
   
   def test_create_valid
-    UserSession.any_instance.stubs(:valid?).returns(true)
-    post :create
-    assert_redirected_to user_sessions_url
+    u = User.find_by_username('aaron')
+    user_session = UserSession.new(u)
+    post :create, :user_session => user_session
+    assert_response :ok
   end
   
   def test_destroy
-    user_session = UserSession.first
-    delete :destroy, :id => user_session
-    assert_redirected_to user_sessions_url
-    assert !UserSession.exists?(user_session.id)
+    u = User.find_by_username('quentin')
+    UserSession.create(u)
+    delete :destroy
+    assert_redirected_to root_url
+    assert_nil UserSession.find
   end
 end

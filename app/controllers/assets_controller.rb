@@ -1,25 +1,20 @@
 class AssetsController < ApplicationController
-  #before_filter :verify_credentials
+  before_filter :verify_credentials
   
   # GET /assets
   # GET /assets.xml
   def index
-    if params[:search]
-    @assets = Asset.find(:all, :conditions => ['title LIKE?', "%#{params[:search]}%"])
-    else
-  @assets = Asset.find(:all)
-  
+    @assets = Asset.search(params[:search], params[:page])
+     
   respond_to do |format|
-    format.html #index.html.erb
-    format.xml { render :xml => @assets }
+     format.html #index.html.erb
+     format.xml { render :xml => @assets }
   end
   end
-    end
+
   
     def gallery
-    @assets = Asset.paginate(:per_page => 5,
-                             :page => params[:page],
-                             :order => 'created_at DESC')
+    @assets = Asset.search(params[:search], params[:page])
     end
   
 

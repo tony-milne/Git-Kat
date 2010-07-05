@@ -1,9 +1,10 @@
 require 'test_helper'
-require 'mocha'
 
 class UsersControllerTest < ActionController::TestCase
+#fixtures aren't needed since using transactional fixtures, looks in test database instead
+
   setup do
-    u = users(:one)
+    u = User.find_by_username('quentin')
     UserSession.create(u)
   end
   
@@ -12,32 +13,28 @@ class UsersControllerTest < ActionController::TestCase
     assert_template 'new'
   end
   
-  def test_create_invalid
-    User.any_instance.stubs(:valid?).returns(false)
-    post :create#, :user => { :username => 'test1' }
+  def test_create_invalid #is invalid since no details are specified
+    post :create, :user => { :username => 'test3' }
     assert_template 'new'
   end
   
   def test_create_valid
-    User.any_instance.stubs(:valid?).returns(true)
-    post :create
+    post :create, :user => { :username => 'test4', :email => 'test@test.com', :password => 'test_pass', :password_confirmation => 'test_pass' }
     assert_redirected_to root_url
   end
   
-  def test_edit
-    get :edit, :id => User.first
+  def test_edit #:id => :current refers to user/session used in setup
+    get :edit, :id => :current
     assert_template 'edit'
   end
   
-  def test_update_invalid
-    User.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => User.first
+  def test_update_invalid #update fails since empty username and password used
+    put :update, :id => :current, :user => { :username => '', :password => '' }
     assert_template 'edit'
   end
   
-  def test_update_valid
-    User.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => User.first
-    assert_redirected_to users_url
+  def test_update_valid #update passes since new password and confirmation is used
+    put :update, :id => :current, :user => { :password => 'test1', :password_confirmation => 'test1' }
+    assert_redirected_to root_url
   end
 end

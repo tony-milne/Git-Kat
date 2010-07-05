@@ -1,6 +1,13 @@
 require 'test_helper'
 
 class AssetsControllerTest < ActionController::TestCase
+#fixtures seem to work fine here
+
+setup do
+  u = User.find_by_username('quentin')
+  UserSession.create(u)
+end
+
   test "should get index" do
     get :index
     assert_response :success
@@ -14,7 +21,7 @@ class AssetsControllerTest < ActionController::TestCase
 
   test "should create asset" do
     assert_difference('Asset.count') do
-      post :create, :asset => { :title => 'test', :file => File.new("test/fixtures/test.jpg") }
+      post :create, :asset => { :title => 'test', :file => File.new("test/files/test.jpg") }
     end
 
     assert_redirected_to asset_path(assigns(:asset))
