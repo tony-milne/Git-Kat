@@ -4,6 +4,14 @@ body {
   font-size: 14px;
 }
 
+h1  {
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 40px;
+  text-align: auto;
+  
+  }
+  
+
 a img {
   border: none;
 }
@@ -28,8 +36,8 @@ body {
 }
 
 #image{
-  float:left;
-  margin: 20px;
+  float: left;
+  margin: 55px;
   
 }
 
@@ -53,12 +61,12 @@ body {
 
 #flash_notice, #flash_error {
   padding: 5px 8px;
-  margin: 10px 0;
-  width: 70%;
+  margin: 10px;
+  width: 50%;
 }
 
 #flash_notice {
-  background-color: #CFC;
+  background-color: #99FF66;
   border: solid 1px #6C6;
 }
 

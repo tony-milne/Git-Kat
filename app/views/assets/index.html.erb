@@ -1,9 +1,24 @@
-<h1>Listing assets</h1>
+<html>
+<head>
+<title> Image Index </title>
+<%= stylesheet_link_tag 'generallayout' %>
+</head>
+<body>
+<h1>Welcome To Your Asset Archive</h1>
+<p> In your asset archive, you can edit and delete your current assets as well as add new ones. </p>
+<p> You can also search through your archive by entering search criteria in the box below </p>
+
+<div class="search">
+<% form_tag assets_path, :method => 'get' do %> 
+<%= text_field_tag :search, params[:search] %>
+ <%= submit_tag "Search", :name => nil %> 
+</div>
 
 
+<div class="table">
 <table>
   <tr>
-    <th>Title</th>
+    <th>Your Assets:</th>
   </tr>
 
 <% @assets.each do |asset| %>
@@ -15,16 +30,19 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
+</div>
+<div class="will_paginate_assetslist">
 <%= will_paginate @assets %>
+</div>
 
-<% form_tag assets_path, :method => 'get' do %> 
- <p> 
-<%= text_field_tag :search, params[:search] %>
- <%= submit_tag "Search", :name => nil %>
- </p> 
+<h2> Add A New Asset </h2>
+<div class="assetslink">
+<%= link_to 'New asset', new_asset_path %> </div>
+<h2> View Your Image Gallery </h2>
+<div class="assetslink">
+<%= link_to 'Image Gallery', :action => "gallery" %>
+</div>
+
 <% end %>
-
-<%= link_to 'New asset', new_asset_path %> | <%= link_to 'Image Gallery', :action => "gallery" %>
+</body>
+</html>
