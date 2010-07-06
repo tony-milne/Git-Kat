@@ -1,6 +1,18 @@
-<% title "Login" %>
+<html>
+<head>
 
-<% form_for @user_session do |f| %>
+<%= stylesheet_link_tag 'generallayout' %>
+<title> Please Log In </title>
+
+</head>
+
+<body>
+<div class="header"> <br/> </div>
+<h1> Welcome To &Delta;&Gamma; Picture Gallery </h1>
+<h2> Please Login or <%= link_to "Register", new_user_path %> To Continue </h2>
+
+
+<div class="form"> <% form_for @user_session do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :username %><br />
@@ -11,6 +23,10 @@
     <%= f.password_field :password %>
   </p>
   <p><%= f.submit "Submit" %></p>
+  </div>
 <% end %>
+
+</body>
+</html>
 
 
