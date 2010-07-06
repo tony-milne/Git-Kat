@@ -10,6 +10,24 @@ def self.search(search, page)
   paginate 	:per_page => 3, :page => page,
 		:conditions => ['title like ?', "%#{search}%"],
 		:order => 'title'
-
 end
+
+def set_exif_data
+  exif = EXIFR::JPEG.new( self.file.path )
+  return if exif.nil? or not exif.exif?
+  i = Image.new
+  i.width            = exif.width
+  i.height           = exif.height
+  i.camera_brand     = exif.make
+  i.camera_model     = exif.model
+  i.exposure_time    = exif.exposure_time.to_s
+  i.f_number         = exif.f_number.to_f
+  i.iso_speed_rating = exif.iso_speed_ratings
+  i.shot_date_time   = exif.date_time
+  i.focal_length     = exif.focal_length.to_f
+  i.save
+rescue
+  false
+end
+
 end
