@@ -1,0 +1,4 @@
+authlogic --version 2.1.5
+paperclip --version 2.3.3
+exifr --version 1.0.1
+will_paginate --version 2.3.14

@@ -9,7 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100705104708) do
+ActiveRecord::Schema.define(:version => 20100706151647) do
+
+  create_table "asset_is_images", :force => true do |t|
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "assets", :force => true do |t|
     t.string   "title"
@@ -22,6 +28,25 @@ ActiveRecord::Schema.define(:version => 20100705104708) do
     t.integer  "width"
   end
 
+  create_table "images", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "camera_brand"
+    t.string   "camera_model"
+    t.string   "exposure_time"
+    t.float    "f_number"
+    t.integer  "iso_speed_rating"
+    t.float    "focal_length"
+    t.datetime "shot_date_time"
+  end
+
+  create_table "notifiers", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "username"
     t.string   "email"
@@ -32,6 +57,9 @@ ActiveRecord::Schema.define(:version => 20100705104708) do
     t.integer  "failed_login_count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "perishable_token",   :default => "", :null => false
   end
+
+  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
 
 end
