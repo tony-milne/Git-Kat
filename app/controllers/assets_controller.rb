@@ -53,6 +53,7 @@ class AssetsController < ApplicationController
     respond_to do |format|
       if @asset.save
         @asset.set_exif_data
+        
         format.html { redirect_to(@asset, :notice => 'Asset was successfully created.') }
         format.xml  { render :xml => @asset, :status => :created, :location => @asset }
       else
