@@ -29,7 +29,12 @@ class ApplicationController < ActionController::Base
   
   def verify_credentials
     if !current_user
-      flash[:notice] = "Please login to continue"
+      if flash[:notice].blank?
+        flash[:notice] = "Please login to continue"
+      else
+        flash.keep(:notice)
+      end
+      
       redirect_to login_path
     end
   end 
