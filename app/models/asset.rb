@@ -3,7 +3,8 @@ class Asset < ActiveRecord::Base
   has_one :video
   
   has_attached_file :file,
-  :styles => {:large => "600x480>", :medium => "350x350#",:thumb => "230x173#"}  
+  :styles => {:thumb => "230x173#"#,:large => "600x480>",:medium => "350x350#",
+              }  
       
   cattr_reader :per_page
   @@per_page = 10
@@ -17,7 +18,7 @@ end
 
 def set_exif_data
   if file_content_type =~ /^image.*/
-    if file_content_type =~ /pjpeg/
+    if file_content_type =~ /jpeg/
       set_image_exif_data
     end
   end
