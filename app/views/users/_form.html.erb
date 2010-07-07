@@ -1,11 +1,4 @@
-<html>
-<head>
-<title> Register Form</title>
 <%= stylesheet_link_tag 'generallayout' %>
-</head>
-
-
-<body>
 <div class="form">
 <% form_for @user do |f| %>
   <%= f.error_messages %>
@@ -30,7 +23,3 @@
   <%= link_to 'Home', root_url %>
   
 <% end %>
-</div>
-
-</body>
-</html>

@@ -1,10 +1,4 @@
-<html> 
-  <head>
-    <title>Image Gallery</title>
-    <%= stylesheet_link_tag 'application' %>
-  </head>
-  <body>
-
+<% title "Image Gallery" %>
 <div id = "gallery-header"> 
   <h1>Photo Gallery</h1>
  <% form_tag 'gallery', :method => 'get' do %> 
@@ -35,10 +29,7 @@
 <%= will_paginate @assets %>
 </div>
 </div>
-  
 
-  </body> 
-</html>
 
 
 
