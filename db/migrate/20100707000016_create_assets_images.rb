@@ -7,5 +7,6 @@ class CreateAssetsImages < ActiveRecord::Migration
   end
 
   def self.down
+    drop_table :assets_images
   end
 end
