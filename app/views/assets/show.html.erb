@@ -1,6 +1,7 @@
 <p>
   <%= image_tag @asset.file.url %>&nbsp;&nbsp;
   <%=h @asset.title %>
+  <%=h @asset.image.camera_model %>
 </p>
 
 <%= link_to 'Edit', edit_asset_path(@asset) %> |

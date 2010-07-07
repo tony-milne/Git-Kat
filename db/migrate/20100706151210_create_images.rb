@@ -1,6 +1,7 @@
 class CreateImages < ActiveRecord::Migration
   def self.up
     create_table :images do |t|
+      t.references :asset
       t.integer :width
       t.integer :height
       t.string :camera_brand
@@ -10,7 +11,6 @@ class CreateImages < ActiveRecord::Migration
       t.integer :iso_speed_rating
       t.float :focal_length
       t.datetime :shot_date_time
-      t.timestamps
     end
   end
 

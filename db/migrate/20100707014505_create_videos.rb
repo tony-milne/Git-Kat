@@ -1,9 +1,7 @@
 class CreateVideos < ActiveRecord::Migration
   def self.up
     create_table :videos do |t|
-      t.string :title
-
-      t.timestamps
+      t.references :asset
     end
   end
 

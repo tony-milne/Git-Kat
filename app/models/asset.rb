@@ -1,6 +1,6 @@
 class Asset < ActiveRecord::Base
-  has_and_belongs_to_many :videos
-  has_and_belongs_to_many :images
+  has_one :image
+  has_one :video
   
   has_attached_file :file,
   :styles => {:thumb => "230x173#"} #:large => "640x480>", :medium => "250x250#", 
@@ -25,9 +25,9 @@ end
 
 private
   def set_image_exif_data
-    exif = EXIFR::JPEG.new( self.file.path )
+    exif = EXIFR::JPEG.new(self.file.path)
     return if exif.nil? or not exif.exif?
-      i = self.images.create
+      i = self.create_image
       i.width            = exif.width
       i.height           = exif.height
       i.camera_brand     = exif.make

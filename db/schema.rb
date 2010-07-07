@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100707014721) do
+ActiveRecord::Schema.define(:version => 20100707014505) do
 
   create_table "assets", :force => true do |t|
     t.string   "title"
@@ -21,17 +21,8 @@ ActiveRecord::Schema.define(:version => 20100707014721) do
     t.datetime "file_updated_at"
   end
 
-  create_table "assets_images", :id => false, :force => true do |t|
-    t.integer "asset_id"
-    t.integer "image_id"
-  end
-
-  create_table "assets_videos", :id => false, :force => true do |t|
-    t.integer "asset_id"
-    t.integer "video_id"
-  end
-
   create_table "images", :force => true do |t|
+    t.integer  "asset_id"
     t.integer  "width"
     t.integer  "height"
     t.string   "camera_brand"
@@ -41,8 +32,6 @@ ActiveRecord::Schema.define(:version => 20100707014721) do
     t.integer  "iso_speed_rating"
     t.float    "focal_length"
     t.datetime "shot_date_time"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -58,9 +47,7 @@ ActiveRecord::Schema.define(:version => 20100707014721) do
   end
 
   create_table "videos", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "asset_id"
   end
 
 end
