@@ -56,14 +56,13 @@ class AssetsController < ApplicationController
 
     respond_to do |format|
       if @asset.save
-      
-        if @asset.save
-          format.html { redirect_to(@asset, :notice => 'Asset was successfully created.') }
-          format.xml  { render :xml => @asset, :status => :created, :location => @asset }
-        else
-          format.html { render :action => "new" }
-          format.xml  { render :xml => @asset.errors, :status => :unprocessable_entity }
-        end
+        @asset.set_exif_data
+        
+        format.html { redirect_to(@asset, :notice => 'Asset was successfully created.') }
+        format.xml  { render :xml => @asset, :status => :created, :location => @asset }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @asset.errors, :status => :unprocessable_entity }
       end
     end
   end

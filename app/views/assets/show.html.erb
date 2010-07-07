@@ -1,9 +1,9 @@
-
 <%= stylesheet_link_tag "mycss" %>
 
 
  <div id="pic">
      <%= image_tag @asset.file.url(:large) %> <br />
+     <%= @asset.image.camera_model %>
  </div>
  <div id="details">
    <span style="color:brown"><strong>Title:</strong></span> <%=h @asset.title %><br /><br />

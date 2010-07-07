@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100706144435) do
+ActiveRecord::Schema.define(:version => 20100707014505) do
 
   create_table "assets", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,19 @@ ActiveRecord::Schema.define(:version => 20100706144435) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+  end
+
+  create_table "images", :force => true do |t|
+    t.integer  "asset_id"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "camera_brand"
+    t.string   "camera_model"
+    t.string   "exposure_time"
+    t.float    "f_number"
+    t.integer  "iso_speed_rating"
+    t.float    "focal_length"
+    t.datetime "shot_date_time"
   end
 
   create_table "notifiers", :force => true do |t|
@@ -40,5 +53,9 @@ ActiveRecord::Schema.define(:version => 20100706144435) do
   end
 
   add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
+
+  create_table "videos", :force => true do |t|
+    t.integer "asset_id"
+  end
 
 end
