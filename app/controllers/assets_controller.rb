@@ -52,9 +52,7 @@ class AssetsController < ApplicationController
 
     respond_to do |format|
       if @asset.save
-        exif = EXIFR::JPEG.new(@asset.file.path)
-        @asset.width = exif.width
-  
+      
         if @asset.save
           format.html { redirect_to(@asset, :notice => 'Asset was successfully created.') }
           format.xml  { render :xml => @asset, :status => :created, :location => @asset }
