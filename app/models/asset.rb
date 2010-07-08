@@ -16,8 +16,7 @@ class Asset < ActiveRecord::Base
   validates_attachment_content_type :data, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff"]
 
   # Dealing with Multiple Uplodads
-  belongs_to :attachedfile, :polymorphic => true
-
+  
   def url(*args)
     data.url(*args)
   end
