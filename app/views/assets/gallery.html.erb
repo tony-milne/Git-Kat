@@ -5,13 +5,15 @@
     <%= submit_tag "Search", :name => nil %>
   <% end %>
 </div>
-<div id="image_gallery">
-  <% @assets.each do |asset| %>
-    <div class="thumbnail">
-      <%= image_tag asset.file.url(:thumb) %><br />
-      <%= link_to asset.title, asset %>
-    </div>
-  <% end %>
+<div id="gallery_container">
+  <div id="image_gallery">
+    <% @assets.each do |asset| %>
+      <div class="thumbnail">
+        <%= image_tag asset.file.url(:thumb) %><br />
+        <%= link_to asset.title, asset %>
+      </div>
+    <% end %>
+  </div>
 </div>
 <div class="clear">
   <div>
