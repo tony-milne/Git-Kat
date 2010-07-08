@@ -30,8 +30,19 @@ a {
   padding-left: 10px;
   padding-bottom: 10px;
 }
+.thumbnail {
+  float: left;
+  margin: 10px;
+}
+#gallery_container {
+  min-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
 
 #image_gallery {
+  
   padding: 10px;
  }
 
@@ -68,10 +79,7 @@ a {
   clear: both;
 }
 
-.thumbnail {
-  float: left;
-  margin: 10px;
-}
+
 
 #articles h2 {
   font-size: 16px;
@@ -164,10 +172,4 @@ a {
   margin-left:650px;
   margin-right: 60px;
   margin-top: 60px;
-   }
-
-#show_pic {
-  margin-top:50px;   
-  float: left;
-  margin-left:20px;
-  }
+}
