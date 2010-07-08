@@ -1,6 +1,7 @@
 class Asset < ActiveRecord::Base
-  has_one :image
-  has_one :video
+  #has_one :image
+  #has_one :video
+  belongs_to :exif, :polymorphic => true, :dependent => :destroy
   
   has_attached_file :file,
   
@@ -30,7 +31,8 @@ private
   def set_image_exif_data
     exif = EXIFR::JPEG.new(self.file.path)
     return if exif.nil? or not exif.exif?
-      i = self.create_image
+      #i = self.create_image
+      i = Image.new
       i.width            = exif.width
       i.height           = exif.height
       i.camera_brand     = exif.make
@@ -40,7 +42,9 @@ private
       i.iso_speed_rating = exif.iso_speed_ratings
       i.shot_date_time   = exif.date_time
       i.focal_length     = exif.focal_length.to_f
-      i.save
+      #i.save
+      self.exif = i
+      self.save!
     rescue
       false
   end

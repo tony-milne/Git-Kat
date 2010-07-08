@@ -1,7 +1,7 @@
 class CreateImages < ActiveRecord::Migration
   def self.up
     create_table :images do |t|
-      t.references :asset
+      #t.references :asset
       t.integer :width
       t.integer :height
       t.string :camera_brand
