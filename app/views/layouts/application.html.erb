@@ -6,9 +6,7 @@
     <%= stylesheet_link_tag 'application' %>
     <%= yield(:head) %>
   </head>
-  <body>
-  <%= render(:partial => "layouts/header") %>
-  
+  <body>  
       <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <%- end -%>
