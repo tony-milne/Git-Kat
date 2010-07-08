@@ -3,9 +3,11 @@
 
  <div id="pic">
      <%= image_tag @asset.file.url(:large) %> <br />
-     <%= @asset.exif.camera_model %>
  </div>
  <div id="details">
+   <% if @asset.exif? %>
+      Camera Model: <%= @asset.exif.camera_model %><br /><br />
+   <% end %>
    <span style="color:brown"><strong>Title:</strong></span> <%=h @asset.title %><br /><br />
    <span style="color:brown"><strong>File Name:</strong></span> <%=h @asset.file_file_name %><br /><br />
    <span style="color:brown"><strong>File Type: </strong></span><%=h @asset.file_content_type %><br /><br />
