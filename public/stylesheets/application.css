@@ -19,20 +19,24 @@ a {
   color: #0000FF;
 }
 
-#gallery-header{
-  margin:20px;
+#header {
+  padding-left: 10px;
+}
+#header_right {
+  float: right;
 }
 
-#imagegallery {
- float: left;
- background-color: #FFF;
- min-width: 900px;
+#content {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+#image_gallery {
+  padding: 10px;
  }
 
-#image{
-  float: left;
-  margin: 20px;
-  
+.image{
+  margin: 10px;
 }
 
 #container {
@@ -42,16 +46,6 @@ a {
   background-color: #FFF;
   border: solid 1px black;
   margin-top: 20px;
-}
-
-
-#will_paginate {
-  float: right;
-  width: 1024px;
-  background-color: #FFF;
-  
-
-  
 }
 
 #flash_notice, #flash_error {
@@ -74,6 +68,10 @@ a {
   clear: both;
 }
 
+.thumbnail {
+  float: left;
+  margin: 10px;
+}
 
 #articles h2 {
   font-size: 16px;
@@ -152,13 +150,14 @@ a {
 }
 
 #user_nav {
-  float: right;
   font-size: 12px;
-  margin-right: 20px;
-  margin-top: 20px;
+  margin-right: 10px;
+}
+.floatClear {
+  float: clear;
 }
 
-div#show_pic_attributes {
+#show_pic_attributes {
   width: 400px;  
   height: 550px;   
   font-size: 14px;
