@@ -1,28 +1,21 @@
-<<<<<<< HEAD
-<%= stylesheet_link_tag "mycss" %>
-=======
-<p>
-  <%= image_tag @asset.file.url %>&nbsp;&nbsp;
-  <%=h @asset.title %>
-</p>
->>>>>>> c5f253537093aa2d31b966ba63b8278976ac891c
 
-<div id="wrapper">
- <div id="pic">
-<%= image_tag @asset.file.url(:large) %> <br />
- <div>
-   
+<%= stylesheet_link_tag "application" %>
+
+
+ <div id="show_pic">
+     <%= image_tag @asset.file.url(:large) %> <br />
+ </div>
+ <div id="show_pic_attributes">
+   <span style="color:brown"><strong>Title:</strong></span> <%=h @asset.title %><br /><br />
+   <span style="color:brown"><strong>File Name:</strong></span> <%=h @asset.file_file_name %><br /><br />
+   <span style="color:brown"><strong>File Type: </strong></span><%=h @asset.file_content_type %><br /><br />
+   <span style="color:brown"><strong>Date Created: </strong></span><%=h @asset.created_at %> <br /><br />
+   <span style="color:brown"><strong>Last Updted Date:</strong></span> <%=h @asset.updated_at %><br /> <br />
+ </div>
+ </div>
+
  
- <div id="details">
-  <span style="color:brown"><strong>Title:</strong></span> <%=h @asset.title %><br /><br />
- <span style="color:brown"><strong>File Name:</strong></span> <%=h @asset.file_file_name %><br /><br />
- <span style="color:brown"><strong>File Type: </strong></span><%=h @asset.file_content_type %><br /><br />
-  <span style="color:brown"><strong>Date Created: </strong></span><%=h @asset.created_at %> <br /><br />
-  <span style="color:brown"><strong>Last Updted Date:</strong></span> <%=h @asset.updated_at %><br /> <br />
-</div>
-</div>
-<a href=medium.rthml>Medium Size</a>
-<div id="buttons">
-<%= link_to 'Edit', edit_asset_path(@asset) %> |
-<%= link_to 'Back', assets_path %>
-</div>
+   <%= link_to 'Edit', edit_asset_path(@asset) %> |
+   <%= link_to 'Back', assets_path %>
+
+   

@@ -28,6 +28,10 @@ class AssetsController < ApplicationController
       format.xml  { render :xml => @asset }
     end
   end
+  
+    def medium
+    @asset = Asset.find(params[:id])
+    end
 
   # GET /assets/new
   # GET /assets/new.xml

@@ -162,3 +162,18 @@ body {
   margin-right: 20px;
   margin-top: 20px;
 }
+
+div#show_pic_attributes {
+  width: 400px;  
+  height: 550px;   
+  font-size: 14px;
+  margin-left:650px;
+  margin-right: 60px;
+  margin-top: 60px;
+   }
+
+#show_pic {
+  margin-top:50px;   
+  float: left;
+  margin-left:20px;
+  }
