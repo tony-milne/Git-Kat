@@ -8,9 +8,7 @@ h1  {
   font-family: Verdana, Helvetica, Arial;
   font-size: 40px;
   text-align: auto;
-  
   }
-  
 
 a img {
   border: none;
@@ -32,7 +30,6 @@ body {
  float: left;
  width: 1024px;
  background-color: #FFF;
- 
 }
 
 #image{
