@@ -5,7 +5,7 @@ class Asset < ActiveRecord::Base
   
   #For windows systems, the greater than sign '>' must be escaped with the hat '^' symbol
   #The '^' is not required on *nix systems
-  :styles => {:thumb => "230x173#", :medium => "350x350#", :large => "600x480^>"}
+  :styles => {:thumb => "230x173#", :medium => "350x350#", :large => "640x480^>"}
   
   cattr_reader :per_page
   @@per_page = 10
