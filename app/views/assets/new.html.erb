@@ -1,30 +1,18 @@
-<html>
-<head>
-<title> Uploading New Assets </title>
-<%= stylesheet_link_tag 'generallayout' %>
-</head>
-<body>
-
-<h1>Adding A New Asset</h1>
-
+<% title "New Asset" %>
+<h4>Adding A New Asset</h4>
 <% form_for(@asset, :html => { :multipart => true } ) do |f| %>
   <%= f.error_messages %>
-
-<h2>Step 1: Give Your Asset a Title</h2>
-  <p>
+  <h4>Step 1: Give Your Asset a Title</h4>
+  <div>
     <%= f.text_field :title %>
-  </p>
-
-<h2>Step 2: Browse Your Files For The New Asset </h2>
-  <p>
+  </div>
+  <h4>Step 2: Browse Your Files For The New Asset </h4>
+  <div>
     <%= f.file_field :file %>
-  </p>
-<h2>Step 3: Click Upload To Submit Your Asset</h2>
-  <p>
+  </div>
+  <h4>Step 3: Click Upload To Submit Your Asset</h4>
+  <div>
     <%= f.submit 'Upload' %>
-  </p>
+  </div>
 <% end %>
-
-<p><%= link_to 'Back', assets_path %></p>
-</body>
-</html>
+<div><%= link_to 'Back', assets_path %></div>

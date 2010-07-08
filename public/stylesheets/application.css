@@ -1,7 +1,8 @@
 body {
-  background-color: #FFF;
+  background-color: #199fc4;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
+  min-width: 990px;
 }
 
 h1  {
@@ -18,29 +19,26 @@ a {
   color: #0000FF;
 }
 
-body {
-  background-color: #4B7399;
-}
-
 #gallery-header{
   margin:20px;
 }
 
 #imagegallery {
  float: left;
- width: 1024px;
  background-color: #FFF;
-}
+ min-width: 900px;
+ }
 
 #image{
   float: left;
-  margin: 55px;
+  margin: 20px;
   
 }
 
 #container {
-  width: 1024px;
-  margin: 0 auto;
+  min-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #FFF;
   border: solid 1px black;
   margin-top: 20px;
