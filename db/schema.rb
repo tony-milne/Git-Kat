@@ -12,6 +12,8 @@
 ActiveRecord::Schema.define(:version => 20100707014505) do
 
   create_table "assets", :force => true do |t|
+    t.integer  "exif_id"
+    t.string   "exif_type"
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -22,7 +24,6 @@ ActiveRecord::Schema.define(:version => 20100707014505) do
   end
 
   create_table "images", :force => true do |t|
-    t.integer  "asset_id"
     t.integer  "width"
     t.integer  "height"
     t.string   "camera_brand"
@@ -47,7 +48,6 @@ ActiveRecord::Schema.define(:version => 20100707014505) do
   end
 
   create_table "videos", :force => true do |t|
-    t.integer "asset_id"
   end
 
 end
