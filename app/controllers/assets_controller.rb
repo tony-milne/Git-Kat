@@ -29,16 +29,6 @@ class AssetsController < ApplicationController
     end
   end
   
-<<<<<<< HEAD
-    def medium
-    @asset = Asset.find(params[:id])
-    end
-=======
-   def medium
-    @asset = Asset.find(params[:id])
-  end
->>>>>>> 3ad468b4f01ccff09c273117598071c428d83553
-
   # GET /assets/new
   # GET /assets/new.xml
   def new
