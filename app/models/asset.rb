@@ -1,16 +1,45 @@
 class Asset < ActiveRecord::Base
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
   
-  has_attached_file :file,
+  # Uploading Images Using Paperclip
+  has_attached_file	:data,
+			:url => "/assets/photos/:id/:style/:basename.:extension",
+			:path => ":rails_root/public/assets/photos/:id/:style/:basename.:extension",
   
+  # Resizing Images
   #For windows systems, the greater than sign '>' must be escaped with the hat '^' symbol
   #The '^' is not required on *nix systems
   :styles => {:thumb => "230x173#", :medium => "350x350#", :large => "640x480^>"}
+
+  # Checking Filetypes 
+  validates_attachment_presence :file
+  validates_attachment_content_type :file, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff"]
+
+  # Dealing with Multiple Uplodads
+  belongs_to :attachedfile, :polymorphic => true
+
+  def url(*args)
+    data.url(*args)
+  end
+
+  def name
+    data_file_name
+  end
   
+  def content_type
+    data_content_type
+  end
+  
+  def file_size
+    data_file_size
+  end
+  
+  # Pagination
   cattr_reader :per_page
   @@per_page = 10
 
-
+  
+  # Search
   def self.search(search, page)
     paginate 	:per_page => 3, :page => page,
       :conditions => ['title like ?', "%#{search}%"],
@@ -38,7 +67,7 @@ class Asset < ActiveRecord::Base
 
   private
   def set_image_exif_data
-    exif_data = EXIFR::JPEG.new(file.path)
+    exif_data = EXIFR::JPEG.new(data.path)
     return if exif_data.nil? or not exif_data.exif?
       i = Image.new
       i.width            = exif_data.width

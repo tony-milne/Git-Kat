@@ -1,6 +1,6 @@
 <% title @asset.title %>
  <div id="pic">
-     <%= image_tag @asset.file.url(:large) %>
+     <%= image_tag @asset.data.url(:large) %>
  </div>
  <div id="details">
    <% if @asset.exif? %>
