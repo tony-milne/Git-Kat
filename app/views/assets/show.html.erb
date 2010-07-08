@@ -3,6 +3,22 @@
   <%= image_tag @asset.file.url %>&nbsp;&nbsp;
   <%=h @asset.title %>
 </div>
+ <div id="pic">
+     <%= image_tag @asset.file.url(:large) %> <br />
+ </div>
+ <div id="details">
+   <% if @asset.exif? %>
+      Camera Model: <%= @asset.exif.camera_model %><br /><br />
+   <% end %>
+   <span style="color:brown"><strong>Title:</strong></span> <%=h @asset.title %><br /><br />
+   <span style="color:brown"><strong>File Name:</strong></span> <%=h @asset.file_file_name %><br /><br />
+   <span style="color:brown"><strong>File Type: </strong></span><%=h @asset.file_content_type %><br /><br />
+   <span style="color:brown"><strong>Date Created: </strong></span><%=h @asset.created_at %> <br /><br />
+   <span style="color:brown"><strong>Last Updted Date:</strong></span> <%=h @asset.updated_at %><br /> <br />
+ </div>
 
-<%= link_to 'Edit', edit_asset_path(@asset) %> |
-<%= link_to 'Back', assets_path %>
+ <div id="buttons">
+
+   <%= link_to 'Edit', edit_asset_path(@asset) %> |
+   <%= link_to 'Back', assets_path %>
+ </div>

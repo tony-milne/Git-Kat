@@ -28,6 +28,10 @@ class AssetsController < ApplicationController
       format.xml  { render :xml => @asset }
     end
   end
+  
+   def medium
+    @asset = Asset.find(params[:id])
+  end
 
   # GET /assets/new
   # GET /assets/new.xml
@@ -52,16 +56,13 @@ class AssetsController < ApplicationController
 
     respond_to do |format|
       if @asset.save
-        exif = EXIFR::JPEG.new(@asset.file.path)
-        @asset.width = exif.width
-  
-        if @asset.save
-          format.html { redirect_to(@asset, :notice => 'Asset was successfully created.') }
-          format.xml  { render :xml => @asset, :status => :created, :location => @asset }
-        else
-          format.html { render :action => "new" }
-          format.xml  { render :xml => @asset.errors, :status => :unprocessable_entity }
-        end
+        @asset.set_exif_data
+        
+        format.html { redirect_to(@asset, :notice => 'Asset was successfully created.') }
+        format.xml  { render :xml => @asset, :status => :created, :location => @asset }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @asset.errors, :status => :unprocessable_entity }
       end
     end
   end
