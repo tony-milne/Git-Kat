@@ -1,8 +1,8 @@
 <% title @asset.title %>
- <div id="pic">
+ <div id="show_pic">
      <%= image_tag @asset.file.url(:large) %>
  </div>
- <div id="details">
+ <div id="show_pic_attributes">
    <% if @asset.exif? %>
       Camera Model: <%= @asset.exif.camera_model %><br /><br />
    <% end %>

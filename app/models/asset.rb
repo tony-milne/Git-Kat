@@ -12,7 +12,7 @@ class Asset < ActiveRecord::Base
 
 
   def self.search(search, page)
-    paginate 	:per_page => 3, :page => page,
+    paginate 	:per_page => 12, :page => page,
       :conditions => ['title like ?', "%#{search}%"],
       :order => 'title'
   end

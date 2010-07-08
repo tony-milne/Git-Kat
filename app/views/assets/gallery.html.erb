@@ -1,33 +1,23 @@
 <% title "Image Gallery" %>
-<div id = "gallery-header"> 
-  <h1>Photo Gallery</h1>
- <% form_tag 'gallery', :method => 'get' do %> 
- <p> 
-<%= text_field_tag :search, params[:search] %>
- <%= submit_tag "Search", :name => nil %>
- </p> 
-<% end %>
-
-</div>
-
-
-<div id ="imagegallery">
-<p>    
-  <% @assets.each do |asset| %>
-  <div id="image">
-  <%= image_tag asset.file.url(:thumb) %>
-  <p align="center"><%= link_to asset.title, asset %></p>
-  <br/>
-  <br/>
-  </div>
-
+<div>
+  <% form_tag 'gallery', :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
   <% end %>
 </div>
-<div id="will_paginate">
-<div class="align-right"><%= link_to "Create new asset", :action => "new" %> | <%= link_to 'Back', assets_path %>
-<p/>
-<%= will_paginate @assets %>
+<div id="image_gallery">
+  <% @assets.each do |asset| %>
+    <div class="thumbnail">
+      <%= image_tag asset.file.url(:thumb) %><br />
+      <%= link_to asset.title, asset %>
+    </div>
+  <% end %>
 </div>
+<div class="clear">
+  <div>
+    <%= will_paginate @assets %>
+  </div>
+  <%= link_to "Create new asset", :action => "new" %> | <%= link_to 'Back', assets_path %>
 </div>
 
 
