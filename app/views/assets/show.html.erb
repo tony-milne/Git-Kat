@@ -3,14 +3,15 @@
      <%= image_tag @asset.data.url(:large) %>
  </div>
  <div id="show_pic_attributes">
-   <% if @asset.exif? %>
-      Camera Model: <%= @asset.exif.camera_model %><br /><br />
-   <% end %>
+
    <span style="color:brown"><strong>Title:</strong></span> <%=h @asset.title %><br /><br />
    <span style="color:brown"><strong>File Name:</strong></span> <%=h @asset.data_file_name %><br /><br />
    <span style="color:brown"><strong>File Type: </strong></span><%=h @asset.data_content_type %><br /><br />
    <span style="color:brown"><strong>Date Created: </strong></span><%=h @asset.created_at %> <br /><br />
    <span style="color:brown"><strong>Last Updted Date:</strong></span> <%=h @asset.updated_at %><br /> <br />
+    <% if @asset.exif? %>
+    <span style="color:brown"><strong>Camera Model:</strong></span> <%= @asset.exif.camera_model %><br /><br />
+   <% end %>
  </div>
 
  <div id="buttons">
@@ -18,4 +19,3 @@
    <%= link_to 'Edit', edit_asset_path(@asset) %> |
    <%= link_to 'Back', assets_path %>
  </div>
-
