@@ -12,8 +12,8 @@ class Asset < ActiveRecord::Base
   :styles => {:thumb => "230x173#", :medium => "350x350#", :large => "640x480^>"}
 
   # Checking Filetypes 
-  validates_attachment_presence :file
-  validates_attachment_content_type :file, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff"]
+  validates_attachment_presence :data
+  validates_attachment_content_type :data, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff"]
 
   # Dealing with Multiple Uplodads
   belongs_to :attachedfile, :polymorphic => true
@@ -57,8 +57,8 @@ class Asset < ActiveRecord::Base
   end
   
   def set_exif_data
-    if file_content_type =~ /^image.*/
-      if file_content_type =~ /jpeg/
+    if data_content_type =~ /^image.*/
+      if data_content_type =~ /jpeg/
         set_image_exif_data
       end
     end
