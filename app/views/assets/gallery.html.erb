@@ -9,7 +9,7 @@
   <div id="image_gallery">
     <% @assets.each do |asset| %>
       <div class="thumbnail">
-        <%= image_tag asset.file.url(:thumb) %><br />
+        <%= image_tag asset.data.url(:thumb) %><br />
         <%= link_to asset.title, asset %>
       </div>
     <% end %>
