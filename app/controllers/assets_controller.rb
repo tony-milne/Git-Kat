@@ -20,7 +20,9 @@ class AssetsController < ApplicationController
   # GET /assets/1.xml
   def show
     @asset = Asset.find(params[:id])
-    @exif = @asset.exif.attributes
+    if @asset.exif?
+    	@exif = @asset.exif.attributes
+    end
     
     respond_to do |format|
       format.html # show.html.erb
