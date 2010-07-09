@@ -14,24 +14,6 @@ class Asset < ActiveRecord::Base
   # Checking Filetypes 
   validates_attachment_presence :data
   validates_attachment_content_type :data, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff"]
-
-  # Dealing with Multiple Uplodads
-  
-  def url(*args)
-    data.url(*args)
-  end
-
-  def name
-    data_file_name
-  end
-  
-  def content_type
-    data_content_type
-  end
-  
-  def file_size
-    data_file_size
-  end
   
   # Pagination
   cattr_reader :per_page

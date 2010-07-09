@@ -9,9 +9,11 @@
    <span style="color:brown"><strong>File Type: </strong></span><%=h @asset.data_content_type %><br /><br />
    <span style="color:brown"><strong>Date Created: </strong></span><%=h @asset.created_at %> <br /><br />
    <span style="color:brown"><strong>Last Updted Date:</strong></span> <%=h @asset.updated_at %><br /> <br />
-    <% if @asset.exif? %>
-    <span style="color:brown"><strong>Camera Model:</strong></span> <%= @asset.exif.camera_model %><br /><br />
-   <% end %>
+   
+   <% @exif.each_pair { |key, value| %>
+     <%= "#{key} : #{value}" %><br />
+      <% } %>
+   
  </div>
 
  <div id="buttons">
