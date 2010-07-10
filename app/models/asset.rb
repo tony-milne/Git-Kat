@@ -9,7 +9,7 @@ class Asset < ActiveRecord::Base
   # Resizing Images
   #For windows systems, the greater than sign '>' must be escaped with the hat '^' symbol
   #The '^' is not required on *nix systems
-  :styles => {:thumb => "230x173#", :medium => "350x350#", :large => "640x480^>"}
+  :styles => {:thumb => "230x173#", :medium => "350x350#", :large => "560x400^>"}
 
   # Checking Filetypes 
   validates_attachment_presence :data
