@@ -1,8 +1,19 @@
+/***** General style *****/
+
 body {
   background-color: #199fc4;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
   min-width: 990px;
+}
+
+#container {
+  min-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFF;
+  border: solid 1px black;
+  margin-top: 20px;
 }
 
 h1  {
@@ -19,21 +30,52 @@ a {
   color: #0000FF;
 }
 
-#header {
-  padding-left: 10px;
+.image {
+  margin: 10px;
 }
+
+/***** Header Styling *****/
+
 #header_right {
   float: right;
 }
 
+#header {
+  padding-left: 20px;
+}
+
+/***** General Content Style *****/
+
 #content {
-  padding-left: 10px;
+  padding-left: 20px;
   padding-bottom: 10px;
 }
-.thumbnail {
-  float: left;
-  margin: 10px;
+
+		/* Content: Show asset - specific styling */
+
+#show_pic_asset {
+	margin: 0px 5px 15px 0px;
 }
+
+#show_left_column {
+	float: left;
+	max-width: 570px;
+}
+
+#show_right_column {
+	margin-left: 30px;
+	float: right;
+	width: 300px;
+}
+
+.picAttributes {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+	font-size: 12px;
+}
+		/* Content: Asset Gallery Style */
+
 #gallery_container {
   min-width: 860px;
   margin-left: auto;
@@ -41,23 +83,23 @@ a {
   display: block;
 }
 
-#image_gallery {
-  
-  padding: 10px;
- }
-
-.image{
+.thumbnail {
+  float: left;
   margin: 10px;
 }
 
-#container {
-  min-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #FFF;
-  border: solid 1px black;
-  margin-top: 20px;
+#image_gallery {
+  
+  padding: 10px;
 }
+
+/***** Footer Styling *****/
+
+#footer {
+	clear: both;
+}
+
+/***** Error and Notification Style *****/
 
 #flash_notice, #flash_error {
   padding: 5px 8px;
@@ -75,52 +117,8 @@ a {
   border: solid 1px #C66;
 }
 
-.clear {
-  clear: both;
-}
-
-
-
-#articles h2 {
-  font-size: 16px;
-  margin-bottom: 2px;
-}
-
-#articles h2 .comments {
-  font-size: 12px;
-  font-weight: normal;
-}
-
-#articles .author {
-  font-style: italic;
-  color: #333;
-}
-
-#comments {
-  font-size: 12px;
-  background-color: #DDD;
-  padding: 0 20px;
-  width: 325px;
-  border: solid 1px #333;
-}
-
-.comment {
-  border-bottom: solid 1px #999;
-  margin: 15px 0;
-}
-
-.comment .author_name {
-  font-weight: bold;
-}
-
 .fieldWithErrors {
   display: inline;
-}
-
-.align-right{
-  text-align: right;
-  margin-right: 20px;
-  margin-bottom: 20px;
 }
 
 #errorExplanation {
@@ -157,6 +155,50 @@ a {
   list-style: disc;
 }
 
+/* Miscellaneous (...and possible redundant style at the moment!) */
+
+.clear {
+  clear: both;
+}
+
+.align-right{
+  text-align: right;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+#articles h2 {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+#articles h2 .comments {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+#articles .author {
+  font-style: italic;
+  color: #333;
+}
+
+#comments {
+  font-size: 12px;
+  background-color: #DDD;
+  padding: 0 20px;
+  width: 325px;
+  border: solid 1px #333;
+}
+
+.comment {
+  border-bottom: solid 1px #999;
+  margin: 15px 0;
+}
+
+.comment .author_name {
+  font-weight: bold;
+}
+
 #user_nav {
   font-size: 12px;
   margin-right: 10px;
@@ -165,11 +207,4 @@ a {
   float: clear;
 }
 
-#show_pic_attributes {
-  width: 400px;  
-  height: 550px;   
-  font-size: 14px;
-  margin-left:650px;
-  margin-right: 60px;
-  margin-top: 60px;
-}
+
