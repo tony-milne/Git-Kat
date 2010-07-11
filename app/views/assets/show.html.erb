@@ -13,7 +13,7 @@
     <li><strong>Last Updated: </strong><%=h @asset.updated_at %></li>
   <% if @asset.exif? %>
    	<% @exif.each_pair { |key, value| %>
-    <li><strong><%= "#<{key}: " %></strong><%= + "#{value}" %></li>
+    <li><strong><%= "#{key}: " %></strong><%= "#{value}" %></li>
     <% } %>
 	<% end %>
 	</ul>  
