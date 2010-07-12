@@ -64,7 +64,7 @@ a {
 
 #show_right_column {
 	margin-left: 30px;
-	float: right;
+	float: left;
 	width: 300px;
 }
 
