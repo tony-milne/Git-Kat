@@ -9,8 +9,8 @@
   <div id="image_gallery">
     <% @assets.each do |asset| %>
       <div class="thumbnail">
-        <%= link_to image_tag(asset.data.url(:thumb)), asset %><br />
-        <%= link_to asset.title, asset %>
+        <%= link_to image_tag(asset.data.url(:thumb)), asset_manager_asset_path(asset) %><br />
+        <%= link_to asset.title, asset_manager_asset_path(asset) %>
       </div>
     <% end %>
   </div>
@@ -19,7 +19,7 @@
   <div>
     <%= will_paginate @assets %>
   </div>
-  <%= link_to "Create new asset", :action => "new" %> | <%= link_to 'Back', assets_path %>
+  <%= link_to "Create new asset", :action => "new" %> | <%= link_to 'Back', asset_manager_assets_path %>
 </div>
 
 
