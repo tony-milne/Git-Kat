@@ -1,0 +1,2 @@
+module AssetManager::UserSessionsHelper
+end
