@@ -1,4 +1,4 @@
-class UserSessionsController < ApplicationController
+class AssetManager::UserSessionsController < AssetManager::ApplicationController
   def new
     @user_session = UserSession.new
   end

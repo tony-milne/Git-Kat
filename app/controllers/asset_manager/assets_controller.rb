@@ -1,4 +1,4 @@
-class AssetsController < ApplicationController
+class AssetManager::AssetsController < AssetManager::ApplicationController
   before_filter :verify_credentials
   
   # GET /assets
