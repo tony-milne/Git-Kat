@@ -1,7 +1,7 @@
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
 
-class ApplicationController < ActionController::Base
+class AssetManager::ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   #protect_from_forgery
   
@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
         flash.keep(:notice)
       end
       
-      redirect_to login_path
+      redirect_to asset_manager_login_path
     end
   end 
   

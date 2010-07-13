@@ -1,4 +1,4 @@
-class PasswordResetsController < ApplicationController
+class AssetManager::PasswordResetsController < AssetManager::ApplicationController
   before_filter :require_no_user, :load_user_using_perishable_token, :only => [:edit, :update]
   
 def new  

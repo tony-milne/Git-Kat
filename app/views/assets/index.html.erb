@@ -20,7 +20,7 @@
   <tr>
     <td><%=h asset.title %></td>
     <td><%= link_to 'Show', asset %></td>
-    <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
+    <td><%= link_to 'Edit', edit_asset_manager_asset_path(asset) %></td>
     <td><%= link_to 'Destroy', asset, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -32,7 +32,7 @@
 
 <h2> Add A New Asset </h2>
 <div class="assetslink">
-<%= link_to 'New asset', new_asset_path %> </div>
+<%= link_to 'New asset', new_asset_manager_asset_path %> </div>
 <h2> View Your Image Gallery </h2>
 <div class="assetslink">
 <%= link_to 'Image Gallery', :action => "gallery" %>
