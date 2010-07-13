@@ -1,6 +1,6 @@
 <% title "New Asset" %>
 <h4>Adding A New Asset</h4>
-<% form_for(@asset, :html => { :multipart => true } ) do |f| %>
+<% form_for([:asset_manager, @asset], :html => { :multipart => true } ) do |f| %>
   <%= f.error_messages %>
   <h4>Step 1: Give Your Asset a Title</h4>
   <div>
@@ -15,4 +15,4 @@
     <%= f.submit 'Upload' %>
   </div>
 <% end %>
-<div><%= link_to 'Back', assets_path %></div>
+<div><%= link_to 'Back', asset_manager_assets_path %></div>
