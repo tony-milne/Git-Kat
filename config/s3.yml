@@ -3,16 +3,16 @@ access_key_id: 1QHTGHD6D2FH3K1XC382
 secret_access_key: HE9iMl9Mv5iaEgiWDvn6ZX6Vdvn8jNmRLyqdNN03
 
 development:
-bucket_name: /delta-gamma-project/development
+bucket_name: delta-gamma-project/development
 <<: *login
-distribution_domain: 
+distribution_domain: delta-gamma-project.s3.amazonaws.com
 
 test:
-bucket_name: /delta-gamma-project/test
+bucket_name: delta-gamma-project/test
 <<: *login
-distribution_domain:
+distribution_domain: delta-gamma-project.s3.amazonaws.com
 
 production:
-bucket_name: /delta-gamma-project/production
+bucket_name: delta-gamma-project/production
 <<: *login
-distribution_domain:
+distribution_domain: delta-gamma-project.s3.amazonaws.com
