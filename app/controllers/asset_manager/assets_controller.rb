@@ -5,7 +5,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets.xml
   def index
     @assets = Asset.search(params[:search], params[:page])
-     
+    
     respond_to do |format|
        format.html #index.html.erb
        format.xml { render :xml => @assets }
@@ -87,7 +87,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
     @asset.destroy
     
     respond_to do |format|
-      format.html { redirect_to(assets_url) }
+      format.html { redirect_to(asset_manager_assets_path) }
       format.xml  { head :ok }
     end
   end
