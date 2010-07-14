@@ -1,18 +1,18 @@
 login: &login
-  access_key_id: 1QHTGHD6D2FH3K1XC382
-  secret_access_key: HE9iMl9Mv5iaEgiWDvn6ZX6Vdvn8jNmRLyqdNN03
- 
+access_key_id: 1QHTGHD6D2FH3K1XC382
+secret_access_key: HE9iMl9Mv5iaEgiWDvn6ZX6Vdvn8jNmRLyqdNN03
+
 development:
-  bucket_name: delta-gamma-project/development
-  <<: *login
-  distribution_domain:
- 
+bucket_name: delta-gamma-project/development
+<<: *login
+distribution_domain: 
+
 test:
-  bucket_name: delta-gamma-project/test
-  <<: *login
-  distribution_domain:
- 
+bucket_name: delta-gamma-project/test
+<<: *login
+distribution_domain:
+
 production:
-  bucket_name: delta-gamma-project/production
-  <<: *login
-  distribution_domain:
+bucket_name: delta-gamma-project/production
+<<: *login
+distribution_domain:
