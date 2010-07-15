@@ -1,6 +1,7 @@
 login: &login
 access_key_id: 1QHTGHD6D2FH3K1XC382
 secret_access_key: HE9iMl9Mv5iaEgiWDvn6ZX6Vdvn8jNmRLyqdNN03
+host: {proxy: http://proxy.abdn.ac.uk, port: 8080}
 
 development:
 bucket_name: survival-project
@@ -11,6 +12,8 @@ test:
 bucket_name: survival-project
 <<: *login
 server: survival-project.s3.amazonaws.com
+
+
 
 production:
 bucket_name: surivial-project
