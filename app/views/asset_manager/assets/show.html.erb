@@ -11,7 +11,7 @@
     <li><strong>File Type: </strong><%=h @asset.data_content_type %></li>
     <li><strong>Date Created: </strong><%=h @asset.created_at %></li>
     <li><strong>Last Updated: </strong><%=h @asset.updated_at %></li>
-  <% if @asset.exif? %>
+    <% if @asset.exif? %>
    	<% @exif.each_pair { |key, value| %>
     <li><strong><%= "#{key}: " %></strong><%= "#{value}" %></li>
     <% } %>
