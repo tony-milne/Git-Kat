@@ -4,7 +4,7 @@ class Asset < ActiveRecord::Base
   # Uploading Images Using Paperclip
   has_attached_file	:data,
 			:url => '/assets/photos/:id/:style/:basename.:extension',
-			:path => ':rails_root/public/assets/photos/:id/:style/:basename.:extension',
+			:path => '/assets/:id/:style/:basename.:extension',
   
   # Resizing Images
   #For windows systems, the greater than sign '>' must be escaped with the hat '^' symbol
@@ -15,6 +15,7 @@ class Asset < ActiveRecord::Base
   # Connection to S3
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+  :s3_options => { :proxy => { :host => 'proxy.abdn.ac.uk', :port => 8080 } },
   :bucket => "survival-project"
 
   # Checking Filetypes 
