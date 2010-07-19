@@ -53,12 +53,11 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
     
     respond_to do |format|
       if @asset.save
-        @asset.set_exif_data
         
         format.html { redirect_to(asset_manager_asset_path(@asset), :notice => 'Asset was successfully created.') }
         format.xml  { render :xml => @asset, :status => :created, :location => @asset }
       else
-        format.html { render :action => "asset_manager/new" }
+        format.html { render :action => :new, :notice => 'Asset was not created.' }
         format.xml  { render :xml => @asset.errors, :status => :unprocessable_entity }
       end
     end
