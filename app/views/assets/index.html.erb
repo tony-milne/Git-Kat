@@ -8,9 +8,7 @@
 <%= text_field_tag :search, params[:search] %>
  <%= submit_tag "Search", :name => nil %> 
 </div>
-
-
-<div class="table">
+<% end %>
 <table>
   <tr>
     <th>Your Assets:</th>
@@ -22,10 +20,11 @@
     <td><%= link_to 'Show', asset %></td>
     <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
     <td><%= link_to 'Destroy', asset, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= button_to 'Add to Stage', stages_path(:asset_id => asset) %></td>
   </tr>
 <% end %>
 </table>
-</div>
+
 <div class="will_paginate_assetslist">
 <%= will_paginate @assets %>
 </div>
@@ -33,9 +32,12 @@
 <h2> Add A New Asset </h2>
 <div class="assetslink">
 <%= link_to 'New asset', new_asset_path %> </div>
-<h2> View Your Image Gallery </h2>
+<h2> View All Images </h2>
 <div class="assetslink">
-<%= link_to 'Image Gallery', :action => "gallery" %>
-</div>
+<%= link_to "View Gallery", :action => "gallery" %>
+<h2> View List of Stages</h2>
+<%= link_to "View Stages", stages_path %>
+<h2> Drop Down of stages </h2>
+<%= select(:stage_id, :title, @stages.collect {|s|[s.title, s.id]}) %>
 
-<% end %>
+</div>
