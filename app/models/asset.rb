@@ -22,6 +22,8 @@ class Asset < ActiveRecord::Base
   validates_attachment_presence :data
   validates_attachment_content_type :data, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff", "image/pjpeg", "image/x-png"]
   
+  after_post_process :set_exif_data
+  
   # Pagination
   cattr_reader :per_page
   @@per_page = 10
@@ -55,20 +57,20 @@ class Asset < ActiveRecord::Base
 
   private
   def set_image_exif_data
-    exif_data = EXIFR::JPEG.new(data.path)
+    exif_data = EXIFR::JPEG.new(data.to_file.path)
     return if exif_data.nil? or not exif_data.exif?
       i = Image.new
       i.width            = exif_data.width
       i.height           = exif_data.height
-      i.camera_brand     = exif_data.make
-      i.camera_model     = exif_data.model
+      i.camera_brand     = exif_data.make.to_s
+      i.camera_model     = exif_data.model.to_s
       i.exposure_time    = exif_data.exposure_time.to_s
       i.f_number         = exif_data.f_number.to_f
       i.iso_speed_rating = exif_data.iso_speed_ratings
       i.shot_date_time   = exif_data.date_time
       i.focal_length     = exif_data.focal_length.to_f
       self.exif = i
-      self.save!
+      i.save!
     rescue
       false
   end
