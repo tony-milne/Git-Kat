@@ -16,6 +16,17 @@ class ApplicationController < ActionController::Base
   helper_method :verify_credentials
 
   private
+  
+  def find_or_create_stage
+    Stage.find(session[:stage_id])
+    rescue ActiveRecord::RecordNotFound
+    stage = Stage.create
+    session[:stage_name] = ["hello kitty"]
+    session[:stage_id] = :stage_id
+    stage
+    
+    end
+    
 
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
