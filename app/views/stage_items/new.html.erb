@@ -1,0 +1,19 @@
+<h1>New stage_item</h1>
+
+<% form_for(@stage_item) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :asset_id %><br />
+    <%= f.text_field :asset_id %>
+  </p>
+  <p>
+    <%= f.label :stage_id %><br />
+    <%= f.text_field :stage_id %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', stage_items_path %>

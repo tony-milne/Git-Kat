@@ -1,0 +1,13 @@
+<p>
+  <b>Asset:</b>
+  <%=h @stage_item.asset_id %>
+</p>
+
+<p>
+  <b>Stage:</b>
+  <%=h @stage_item.stage_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_stage_item_path(@stage_item) %> |
+<%= link_to 'Back', stage_items_path %>
