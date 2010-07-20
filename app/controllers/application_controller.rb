@@ -21,7 +21,6 @@ class ApplicationController < ActionController::Base
     Stage.find(session[:stage_id])
     rescue ActiveRecord::RecordNotFound
     stage = Stage.create
-    session[:stage_name] = ["hello kitty"]
     session[:stage_id] = :stage_id
     stage
     

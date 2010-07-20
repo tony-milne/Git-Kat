@@ -1,9 +1,17 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :tags
-
   map.resources :stage_items
 
   map.resources :stages
+
+  map.resources :album_items
+
+  map.resources :albums
+
+  map.resources :tags
+
+  #map.resources :stage_items
+
+  map.resources :albums
 
   map.resources :assets, :collection => {:gallery => :get}
   

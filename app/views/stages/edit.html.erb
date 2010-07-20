@@ -1,14 +1,15 @@
-<h1>Editing stage</h1>
+<% title 'Edit Asset' %>
 
 <% form_for(@stage) do |f| %>
-<h2> Enter a New Name for the Stage</h2>
-<p> <%= f.text_field :title %> </p>
   <%= f.error_messages %>
+<h2> Enter a new title for your asset </h2>
+<p><%= f.label :title %></p>
+<p><%= f.text_field :title %></p>
 
   <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
 
-<%= link_to 'View This Stage', @stage %> |
-<%= link_to 'Show All Stages', stages_path %>
+<%= link_to 'Show this Stage', @stage %> |
+<%= link_to 'List of Stages', stages_path %>

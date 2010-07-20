@@ -9,15 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100720095124) do
-
-  create_table "albums", :force => true do |t|
-    t.string   "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "asset_id"
-    t.integer  "album_id"
-  end
+ActiveRecord::Schema.define(:version => 20100720130415) do
 
   create_table "assets", :force => true do |t|
     t.integer  "exif_id"
@@ -44,6 +36,17 @@ ActiveRecord::Schema.define(:version => 20100720095124) do
   end
 
   create_table "notifiers", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stage_items", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stages", :force => true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

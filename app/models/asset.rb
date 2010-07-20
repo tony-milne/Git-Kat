@@ -1,6 +1,6 @@
 class Asset < ActiveRecord::Base
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
-  has_many :albums
+  has_many :stage_items
   has_many :tag
   # before_destroy :ensure_not_referenced_by_any_stage_item
   
