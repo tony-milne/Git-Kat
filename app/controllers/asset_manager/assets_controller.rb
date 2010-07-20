@@ -34,6 +34,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets/new.xml
   def new
     @asset = Asset.new
+    @asset.tags.build
     
     respond_to do |format|
       format.html # new.html.erb
