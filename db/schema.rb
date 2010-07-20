@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100707014505) do
+ActiveRecord::Schema.define(:version => 20100720104923) do
 
   create_table "assets", :force => true do |t|
     t.integer  "exif_id"
@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(:version => 20100707014505) do
     t.string   "data_content_type"
     t.integer  "data_file_size"
     t.datetime "data_updated_at"
+  end
+
+  create_table "assets_tags", :id => false, :force => true do |t|
+    t.integer "asset_id"
+    t.integer "tag_id"
   end
 
   create_table "images", :force => true do |t|
@@ -36,6 +41,12 @@ ActiveRecord::Schema.define(:version => 20100707014505) do
   end
 
   create_table "notifiers", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
