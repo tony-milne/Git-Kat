@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :tags
+
+  map.resources :stage_items
+
+  map.resources :stages
+
   map.resources :assets, :collection => {:gallery => :get}
   
   map.login "login", :controller => "user_sessions", :action => "new"

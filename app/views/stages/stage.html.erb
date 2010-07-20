@@ -1,0 +1,14 @@
+<h2>Your Stage</h2>
+
+
+<% for item in @stage.stage_items %>
+<p><%= link_to image_tag (asset.data.url(:thumb)) %></p>
+<p> <%= item.asset.title %></p>
+<p><%= button_to 'Delete From Stage', item, :confirm => 'Are you sure?', :method => :delete %></p>
+
+<% end %>
+
+<%= link_to 'Edit', edit_stage_path(@stage) %> |
+<%= link_to 'Back', assets_path %>
+
+<%= will_paginate %>

@@ -1,0 +1,13 @@
+ <% title "Create a new album" %>
+
+<% form_for(@album) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <h3>Give your album a name</h3>
+    <p> <%= f.text_field :title %> </p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', albums_path %>

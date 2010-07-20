@@ -5,7 +5,7 @@ class AssetsController < ApplicationController
   # GET /assets.xml
   def index
     @assets = Asset.search(params[:search], params[:page])
-     
+     @albums = Album.find(:all)
     respond_to do |format|
        format.html #index.html.erb
        format.xml { render :xml => @assets }
