@@ -1,0 +1,15 @@
+<% title "Edit Photo Album" %>
+
+
+<% form_for(@album) do |f| %>
+<h2> Enter a New Name for the Album</h2>
+<p> <%= f.text_field :title %> </p>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'View This Stage', @album %> |
+<%= link_to 'Show All Stages', albums_path %>
