@@ -1,13 +1,14 @@
-class CreateStages < ActiveRecord::Migration
+class CreateAlbums < ActiveRecord::Migration
   def self.up
-    create_table :stages do |t|
+    create_table :albums do |t|
       t.integer :id
       t.string :title
+
       t.timestamps
     end
   end
 
   def self.down
-    drop_table :stages
+    drop_table :albums
   end
 end

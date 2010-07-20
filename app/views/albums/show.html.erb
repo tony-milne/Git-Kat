@@ -1,0 +1,17 @@
+<% title "Viewing Album #{@album.id} : #{@album.title}" %>
+
+<div class="thumbnail">
+<% for asset in @albums %>
+<p><%= link_to image_tag(asset.data.url(:thumb)), asset %></p>
+<p> <%= asset.title %></p>
+<p><%= button_to 'Delete From Album', item, :confirm => 'Are you sure?', :method => :delete %></p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Home', assets_path %>
+<%= link_to 'View Stages', albums_path %>
+
+<%= will_paginate @albums %>
+
+</div>
