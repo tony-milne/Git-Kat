@@ -1,0 +1,28 @@
+ <% title "Your Albums" %>
+ 
+<table>
+  <tr>
+    <th>Your Albums:</th>
+  </tr>
+
+<% @albums.each do |album| %>
+  <tr>
+    <td><%=h album.id %></td>
+    <td><%=h album.title %></td>
+    <td><%= link_to 'Show', album %></td>
+    <td><%= link_to 'Edit', edit_album_path(album) %></td>
+    <td><%= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="will_paginate_assetslist">
+<%= will_paginate @albums %>
+</div>
+
+<h2> Add A New Stage </h2>
+<div class="assetslink">
+<%= link_to 'New stage', new_album_path %> </div>
+
+<div class="assetslink">
+</div>

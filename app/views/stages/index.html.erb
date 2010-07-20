@@ -1,0 +1,28 @@
+ <% title "Your Stages" %>
+
+<table>
+  <tr>
+    <th>Your Stages:</th>
+  </tr>
+
+<% @stages.each do |stage| %>
+  <tr>
+    <td><%=h stage.id %></td>
+    <td><%=h stage.title %></td>
+    <td><%= link_to 'Show', stage %></td>
+    <td><%= link_to 'Edit', edit_stage_path(stage) %></td>
+    <td><%= link_to 'Destroy', stage, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="will_paginate_assetslist">
+<%= will_paginate @stages %>
+</div>
+
+<h2> Add A New Stage </h2>
+<div class="assetslink">
+<%= link_to 'New stage', new_stage_path %> </div>
+
+<div class="assetslink">
+</div>

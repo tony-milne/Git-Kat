@@ -1,4 +1,4 @@
-<% title "Viewing #{@asset.title}" %>
+<%  title "Viewing #{@asset.title}" %>
 <div id="show_left_column">
 	<div id="show_pic_asset">
 		<%= image_tag @asset.data.url(:large) %>
@@ -11,6 +11,7 @@
     <li><strong>File Type: </strong><%=h @asset.data_content_type %></li>
     <li><strong>Date Created: </strong><%=h @asset.created_at %></li>
     <li><strong>Last Updated: </strong><%=h @asset.updated_at %></li>
+
   <% if @asset.exif? %>
    	<% @exif.each_pair { |key, value| %>
     <li><strong><%= "#{key}: " %></strong><%= "#{value}" %></li>
@@ -20,6 +21,7 @@
 </div>
 
 <div id="footer">
+	<%= link_to 'Tag Asset', new_tag_path(@asset) %>
 	<%= link_to 'Edit', edit_asset_path(@asset) %> |
   <%= link_to 'Back', assets_path %>
 </div>

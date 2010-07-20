@@ -1,5 +1,8 @@
 class Asset < ActiveRecord::Base
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
+  has_many :albums
+  has_many :tag
+  # before_destroy :ensure_not_referenced_by_any_stage_item
   
   # Uploading Images Using Paperclip
   has_attached_file	:data,

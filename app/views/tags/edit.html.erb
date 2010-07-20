@@ -1,0 +1,24 @@
+<h1>Editing tag</h1>
+
+<% form_for(@tag) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :asset_id %><br />
+    <%= f.text_field :asset_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @tag %> |
+<%= link_to 'Back', tags_path %>

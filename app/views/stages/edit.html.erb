@@ -1,0 +1,14 @@
+<h1>Editing stage</h1>
+
+<% form_for(@stage) do |f| %>
+<h2> Enter a New Name for the Stage</h2>
+<p> <%= f.text_field :title %> </p>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'View This Stage', @stage %> |
+<%= link_to 'Show All Stages', stages_path %>
