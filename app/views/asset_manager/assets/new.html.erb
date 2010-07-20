@@ -8,7 +8,7 @@
   </div>
   
   <div>
-    <% f.form_for :tags do |t| %>
+    <% fields_for :tags do |t| %>
     <%= t.label :tags %>
     <%= t.text_field :content %>
     <% end %>

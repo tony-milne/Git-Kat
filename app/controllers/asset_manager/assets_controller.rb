@@ -34,7 +34,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets/new.xml
   def new
     @asset = Asset.new
-    @asset.tags.build
+    #@asset.tags.build
     
     respond_to do |format|
       format.html # new.html.erb
@@ -51,6 +51,8 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # POST /assets.xml
   def create
     @asset = Asset.new(params[:asset])
+    @tag = Asset.tags.find_or_build_by_content(params[:tags][:content])
+    @asset.tags << @tag
     
     respond_to do |format|
       if @asset.save
