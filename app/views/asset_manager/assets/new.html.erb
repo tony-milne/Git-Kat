@@ -6,6 +6,14 @@
   <div>
     <%= f.text_field :title %>
   </div>
+  
+  <div>
+    <% f.form_for :tags do |t| %>
+    <%= t.label :tags %>
+    <%= t.text_field :content %>
+    <% end %>
+  </div>
+  
   <h4>Step 2: Browse Your Files For The New Asset </h4>
   <div>
     <%= f.file_field :data %>
