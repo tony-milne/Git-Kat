@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   manager.resource :password_reset
   #manager.resources :user_sessions
   manager.resources :users
-  manager.resources :tags, :has_many => :tags
+  manager.resources :tags, :has_many => :assets
   end
   
 
