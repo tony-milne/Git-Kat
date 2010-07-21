@@ -51,7 +51,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # POST /assets.xml
   def create
     @asset = Asset.new(params[:asset])
-    @tag = Asset.tags.find_or_build_by_content(params[:tags][:content])
+    @tag = Tag.find_or_create_by_content(params[:tags][:content])
     @asset.tags << @tag
     
     respond_to do |format|
