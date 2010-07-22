@@ -56,6 +56,27 @@ class Asset < ActiveRecord::Base
     end
   end
 
+  def tag_attributes=(tag_attributes)
+    tag_attributes.each do |a|
+      if a[:content].eql? ""
+        break
+      else
+        if self.tags.empty?
+          tag = Tag.find_or_create_by_content(a[:content])
+          self.tags << tag
+        else
+          self.tags.each do |t|
+            if t[:content].eql? a[:content]
+              break
+            else
+              tag = Tag.find_or_create_by_content(a[:content])
+              self.tags << tag
+            end
+          end
+        end
+      end
+    end
+  end
 
   private
   def set_image_exif_data
