@@ -7,12 +7,13 @@
     <%= f.text_field :title %>
   </div>
   
-  <div>
-    <% fields_for :tags do |t| %>
-    <%= t.label :tags %>
-    <%= t.text_field :content %>
-    <% end %>
-  </div>
+  <div id="tags">
+    <!-- is initially empty -->
+    <%= render :partial => "tag", :collection => @asset.tags %>
+  </div>  
+  <%= link_to_function "Add a tag" do |page|
+    page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new
+  end %>
   
   <h4>Step 2: Browse Your Files For The New Asset </h4>
   <div>

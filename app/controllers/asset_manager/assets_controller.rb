@@ -34,7 +34,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets/new.xml
   def new
     @asset = Asset.new
-    #@asset.tags.build
+    #3.times { @asset.tags.build }
     
     respond_to do |format|
       format.html # new.html.erb
@@ -51,12 +51,9 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # POST /assets.xml
   def create
     @asset = Asset.new(params[:asset])
-    @tag = Tag.find_or_create_by_content(params[:tags][:content])
-    @asset.tags << @tag
     
     respond_to do |format|
       if @asset.save
-        
         format.html { redirect_to(asset_manager_asset_path(@asset), :notice => 'Asset was successfully created.') }
         format.xml  { render :xml => @asset, :status => :created, :location => @asset }
       else
@@ -92,6 +89,10 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
       format.html { redirect_to(asset_manager_assets_path) }
       format.xml  { head :ok }
     end
+  end
+  
+  def add_tag
+    @tag = Tag.new
   end
 
 end
