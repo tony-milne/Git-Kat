@@ -12,10 +12,14 @@
     <li><strong>Date Created: </strong><%=h @asset.created_at %></li>
     <li><strong>Last Updated: </strong><%=h @asset.updated_at %></li>
     <% if @asset.exif? %>
-   	<% @exif.each_pair { |key, value| %>
-    <li><strong><%= "#{key}: " %></strong><%= "#{value}" %></li>
-    <% } %>
-	<% end %>
+     	<% @exif.each_pair { |key, value| %>
+      <li><strong><%= "#{key}: " %></strong><%= "#{value}" %></li>
+      <% } %>
+	  <% end %>
+	  <li><strong>Tags: </strong>
+	  <% @asset.tags.each do |tag| %>
+	    <%= tag[:content] %> 
+	  <% end %>
 	</ul>  
 </div>
 

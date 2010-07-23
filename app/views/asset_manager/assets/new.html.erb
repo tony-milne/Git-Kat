@@ -9,7 +9,6 @@
   
   <div id="tags">
     <!-- is initially empty -->
-    <%= render :partial => "tag", :collection => @asset.tags %>
   </div>  
   <%= link_to_function "Add a tag" do |page|
     page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new

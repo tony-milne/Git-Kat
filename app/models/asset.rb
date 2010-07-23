@@ -2,8 +2,6 @@ class Asset < ActiveRecord::Base
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
   has_and_belongs_to_many :tags
   
-  #accepts_nested_attributes_for :tags
-  
   # Uploading Images Using Paperclip
   has_attached_file	:data,
 			:url => '/assets/photos/:id/:style/:basename.:extension',
@@ -59,15 +57,15 @@ class Asset < ActiveRecord::Base
   def tag_attributes=(tag_attributes)
     tag_attributes.each do |a|
       if a[:content].eql? ""
-        break
+        #break
       else
         if self.tags.empty?
           tag = Tag.find_or_create_by_content(a[:content])
           self.tags << tag
         else
-          self.tags.each do |t|
+          self.tags.each do |t| #consider using collect! / map! instead
             if t[:content].eql? a[:content]
-              break
+              #break
             else
               tag = Tag.find_or_create_by_content(a[:content])
               self.tags << tag
