@@ -1,11 +1,17 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :assets, :collection => {:gallery => :get}
   
+  
+  map.namespace :asset_manager do |manager|    
+  manager.resources :assets, :collection => {:gallery => :get}
+  manager.resource :password_reset
+  #manager.resources :user_sessions
+  manager.resources :users
+  end
+  
+
+  map.resources :user_sessions
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
-  
-  map.resource :password_reset
-  map.resources :user_sessions
-  map.resources :users
-  map.root :assets
+  map.root :controller => "AssetManager::Assets"
+
 end
