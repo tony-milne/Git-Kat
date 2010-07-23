@@ -1,0 +1,24 @@
+<h1>Listing captions</h1>
+
+<table>
+  <tr>
+    <th>Caption</th>
+    <th>Asset</th>
+    <th>Language</th>
+  </tr>
+
+<% @captions.each do |caption| %>
+  <tr>
+    <td><%=h caption.caption %></td>
+    <td><%=h caption.asset %></td>
+    <td><%=h caption.language %></td>
+    <td><%= link_to 'Show', asset_manager_caption_path(caption) %></td>
+    <td><%= link_to 'Edit', edit_asset_manager_caption_path(caption) %></td>
+    <td><%= link_to 'Destroy', asset_manager_caption_path(caption), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New caption', new_asset_manager_asset_caption_path(@asset) %>
