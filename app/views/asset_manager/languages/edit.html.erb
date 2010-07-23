@@ -1,0 +1,16 @@
+<h1>Editing language</h1>
+
+<% form_for([:asset_manager, @language]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :language %><br />
+    <%= f.text_field :language %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', asset_manager_languages_path(@language) %> |
+<%= link_to 'Back', asset_manager_languages_path %>

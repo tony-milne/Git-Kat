@@ -1,0 +1,22 @@
+<h1>Listing languages</h1>
+
+<table>
+  <tr>
+    <th>Language</th>
+  </tr>
+
+<% @languages.each do |language| %>
+  <tr>
+    <td><%=h language.language %></td>
+    <td><%= link_to 'Show', asset_manager_language_path(language) %></td>
+    <td><%= link_to 'Edit', edit_asset_manager_language_path(language) %></td>
+    <td><%= link_to 'Destroy', asset_manager_language_path(language), :confirm => 'Are you sure?', :method => :delete %></td>
+
+  </tr>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New language', new_asset_manager_language_path %>

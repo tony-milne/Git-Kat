@@ -1,0 +1,24 @@
+<h1>Editing caption</h1>
+
+<% form_for([:asset_manager, @caption]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :caption %><br />
+    <%= f.text_field :caption %>
+  </p>
+  <p>
+    <%= f.label :asset %><br />
+    <%= f.text_field :asset %>
+  </p>
+  <p>
+    <%= f.label :language %><br />
+    <%= f.text_field :language %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', asset_manager_captions_path(@caption) %> |
+<%= link_to 'Back', asset_manager_captions_path %>
