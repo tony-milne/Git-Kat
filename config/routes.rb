@@ -1,10 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-  
+
   
   map.namespace :asset_manager do |manager|    
   manager.resources :assets, :collection => {:gallery => :get}
   manager.resource :password_reset
   #manager.resources :user_sessions
+  manager.resources :languages
   manager.resources :users
   end
   
