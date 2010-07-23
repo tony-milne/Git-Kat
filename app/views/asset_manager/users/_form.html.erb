@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag 'generallayout' %>
 <div class="form">
-<% form_for @user do |f| %>
+<% form_for([:asset_manager, @user])  do |f| %>
   <%= f.error_messages %>
   <p>Please fill in your details to register for an account</p>
   <p>

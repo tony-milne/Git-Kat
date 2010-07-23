@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class AssetManager::UsersController < AssetManager::ApplicationController
   def new
     @user = User.new
   end

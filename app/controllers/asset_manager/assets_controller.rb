@@ -1,11 +1,11 @@
-class AssetsController < ApplicationController
+class AssetManager::AssetsController < AssetManager::ApplicationController
   before_filter :verify_credentials
   
   # GET /assets
   # GET /assets.xml
   def index
     @assets = Asset.search(params[:search], params[:page])
-     
+    
     respond_to do |format|
        format.html #index.html.erb
        format.xml { render :xml => @assets }
@@ -55,10 +55,10 @@ class AssetsController < ApplicationController
       if @asset.save
         @asset.set_exif_data
         
-        format.html { redirect_to(@asset, :notice => 'Asset was successfully created.') }
+        format.html { redirect_to(asset_manager_asset_path(@asset), :notice => 'Asset was successfully created.') }
         format.xml  { render :xml => @asset, :status => :created, :location => @asset }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "asset_manager/new" }
         format.xml  { render :xml => @asset.errors, :status => :unprocessable_entity }
       end
     end
@@ -87,7 +87,7 @@ class AssetsController < ApplicationController
     @asset.destroy
     
     respond_to do |format|
-      format.html { redirect_to(assets_url) }
+      format.html { redirect_to(asset_manager_assets_path) }
       format.xml  { head :ok }
     end
   end
