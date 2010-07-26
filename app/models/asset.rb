@@ -1,6 +1,7 @@
 class Asset < ActiveRecord::Base
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
   has_and_belongs_to_many :tags
+  has_many :captions
   
   # Uploading Images Using Paperclip
   has_attached_file	:data,
@@ -55,24 +56,25 @@ class Asset < ActiveRecord::Base
   end
 
   def tag_attributes=(tag_attributes)
+    new_tags = Set.new
+    
     tag_attributes.each do |a|
-      if a[:content].eql? ""
-        #break
+      new_tags.add(a)
+    end
+    
+    new_tags.each do |nt|
+      if nt[:content].eql? ""
+        #do nothing
       else
-        if self.tags.empty?
-          tag = Tag.find_or_create_by_content(a[:content])
-          self.tags << tag
-        else
-          self.tags.each do |t| #consider using collect! / map! instead
-            if t[:content].eql? a[:content]
-              #break
-            else
-              tag = Tag.find_or_create_by_content(a[:content])
-              self.tags << tag
-            end
-          end
-        end
+        tag = Tag.find_or_create_by_content(nt[:content])
+        self.tags << tag
       end
+    end
+  end
+  
+  def caption_attributes=(caption_attributes)
+    caption_attributes.each do |a|
+      self.captions.build(a)
     end
   end
 
