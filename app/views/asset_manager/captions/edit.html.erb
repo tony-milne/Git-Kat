@@ -8,17 +8,20 @@
     <%= f.text_field :caption %>
   </p>
   <p>
-    <%= f.label :asset %><br />
-    <%= f.text_field :asset %>
-  </p>
-  <p>
-    <%= f.label :language %><br />
-    <%= f.text_field :language %>
+       <%= f.label :language %><br />
+    <select name="caption[language_id]">
+<% @languages.each do |language| %>
+<option value="<%= language.id %>"
+<%= ' selected' if language.id == @caption.language_id %>>
+<%= language.language %>
+</option>
+<% end %>
+</select>
   </p>
   <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
 
-<%= link_to 'Show', asset_manager_captions_path(@caption) %> |
+<%= link_to 'Show', asset_manager_caption_path(@caption) %> |
 <%= link_to 'Back', asset_manager_captions_path %>
