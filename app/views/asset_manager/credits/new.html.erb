@@ -1,0 +1,30 @@
+<% title "New credit for #{@asset.title}" %>
+
+<% form_for([:asset_manager, @credit]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :credit %><br />
+    <%= f.text_field :credit %>
+  </p>
+  <p>
+    <%= hidden_field_tag (:asset_id, @asset.id) %>
+  </p>
+  <p>
+    <%= f.label :language %><br />
+	<select name="credit[language_id]">
+	<% @languages.each do |language| %>
+	<option value="<%= language.id %>"
+	<%= ' selected' if language.id == @credit.language_id %>>
+	<%= language.language %>
+	</option>
+	<% end %>
+</select>
+  </p>
+  
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', asset_manager_asset_credits_path(@asset) %>
