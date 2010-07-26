@@ -2,8 +2,8 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions
   # GET /asset_manager_captions.xml
   def index
-    @captions = AssetManager::Caption.find(:all)
-    #@asset = Asset.find(params[:asset_id])
+    @captions = Caption.find(:all, :conditions => ["asset_id = ?", params[:asset_id]])
+    @asset = Asset.find(params[:asset_id])
     @languages = Language.find(:all)
 
     respond_to do |format|
@@ -28,7 +28,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions/new.xml
   def new
     @asset = Asset.find(params[:asset_id])
-    @caption = AssetManager::Caption.new
+    @caption = Caption.new
     @caption.asset = @asset
     @languages = Language.find(:all)
 
@@ -49,13 +49,13 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # POST /asset_manager_captions.xml
   def create
     @asset = Asset.find(params[:asset_id])
-    @caption = AssetManager::Caption.new(params[:caption])
+    @caption = Caption.new(params[:caption])
     @caption.asset = @asset
     @languages = Language.find(:all)
 
     respond_to do |format|
       if @caption.save
-        format.html { redirect_to(asset_manager_asset_caption_path, (@caption), :notice => 'Caption was successfully created.') }
+        format.html { redirect_to(asset_manager_asset_captions_path(@caption.asset_id), :notice => 'Caption was successfully created.') }
         format.xml  { render :xml => asset_manager_asset_caption_path(@caption), :status => :created, :location => @caption }
       else
         format.html { render :action => "new" }

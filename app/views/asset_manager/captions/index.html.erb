@@ -1,4 +1,4 @@
-<h1>Listing captions</h1>
+<% title "Listing captions for #{@asset.title}" %> 
 
 <table>
   <tr>
@@ -21,4 +21,5 @@
 
 <br />
 
-<%= link_to 'New caption', new_asset_manager_asset_caption_path(@asset) %>
+<%= link_to 'New caption', new_asset_manager_asset_caption_path %>
+<%= link_to 'Back', asset_manager_asset_path(params[:asset_id]) %>
