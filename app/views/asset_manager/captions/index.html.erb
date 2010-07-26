@@ -10,9 +10,15 @@
 <% @captions.each do |caption| %>
   <tr>
     <td><%=h caption.caption %></td>
+<<<<<<< HEAD
     <td><%=h caption.asset_id %></td>
     <td><%=h caption.language.language %></td>
     <td><%= link_to 'Show', asset_manager_caption_path(caption.asset_id, caption) %></td>
+=======
+    <td><%=h caption.asset %></td>
+    <td><%=h caption.language.language %></td>
+    <td><%= link_to 'Show', asset_manager_caption_path(caption) %></td>
+>>>>>>> f87ef504014493c9d7658cb50ae88c963603a075
     <td><%= link_to 'Edit', edit_asset_manager_caption_path(caption) %></td>
     <td><%= link_to 'Destroy', asset_manager_caption_path(caption), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

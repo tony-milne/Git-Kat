@@ -55,7 +55,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
 
     respond_to do |format|
       if @caption.save
-        format.html { redirect_to(asset_manager_asset_caption_path, (@caption), :notice => 'AssetManager::Caption was successfully created.') }
+        format.html { redirect_to(asset_manager_asset_caption_path, (@caption), :notice => 'Caption was successfully created.') }
         format.xml  { render :xml => asset_manager_asset_caption_path(@caption), :status => :created, :location => @caption }
       else
         format.html { render :action => "new" }
@@ -71,7 +71,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
 
     respond_to do |format|
       if @caption.update_attributes(params[:caption])
-        format.html { redirect_to(@caption.asset_id, :notice => 'AssetManager::Caption was successfully updated.') }
+        format.html { redirect_to(@caption.asset_id, :notice => 'Caption was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

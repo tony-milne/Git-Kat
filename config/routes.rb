@@ -5,7 +5,7 @@ map.resources :captions
   manager.resources :assets, :collection => {:gallery => :get}, :has_many => :captions
   manager.resource :password_reset
   #manager.resources :user_sessions
-  manager.resources :captions #:collection => {:action=>"show", :controller=>"asset_manager/captions"}
+  manager.resources :captions 
   manager.resources :languages, :has_many => :captions
   manager.resources :users
   
