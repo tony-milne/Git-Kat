@@ -2,7 +2,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions
   # GET /asset_manager_captions.xml
   def index
-    @captions = AssetManager::Caption.all
+    @captions = AssetManager::Caption.find(:all)
     @asset = Asset.find(params[:asset_id])
     @languages = Language.find(:all)
 
@@ -15,8 +15,8 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions/1
   # GET /asset_manager_captions/1.xml
   def show
+    @asset = Asset.find(params[:asset_id])
     @caption = AssetManager::Caption.find(params[:id])
-     @asset = Asset.find(params[:asset_id])
     @languages = Language.find(:all)
 
     respond_to do |format|
@@ -28,8 +28,9 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions/new
   # GET /asset_manager_captions/new.xml
   def new
-    @caption = AssetManager::Caption.new
     @asset = Asset.find(params[:asset_id])
+    @caption = AssetManager::Caption.new
+    @caption.asset = @asset
     @languages = Language.find(:all)
 
     respond_to do |format|
@@ -40,16 +41,17 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
 
   # GET /asset_manager_captions/1/edit
   def edit
+    @asset = Asset.find(params[:asset_id])
     @caption = AssetManager::Caption.find(params[:id])
-     @asset = Asset.find(params[:asset_id])
     @languages = Language.find(:all)
   end
 
   # POST /asset_manager_captions
   # POST /asset_manager_captions.xml
   def create
+    @asset = Asset.find(params[:asset_id])
     @caption = AssetManager::Caption.new(params[:caption])
-     @asset = Asset.find(params[:asset_id])
+    @caption.asset = @asset
     @languages = Language.find(:all)
 
     respond_to do |format|
@@ -70,7 +72,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
 
     respond_to do |format|
       if @caption.update_attributes(params[:caption])
-        format.html { redirect_to(@caption, :notice => 'AssetManager::Caption was successfully updated.') }
+        format.html { redirect_to(@caption.asset_id, :notice => 'AssetManager::Caption was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

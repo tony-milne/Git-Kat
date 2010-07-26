@@ -11,7 +11,7 @@
   <tr>
     <td><%=h caption.caption %></td>
     <td><%=h caption.asset %></td>
-    <td><%=h caption.language %></td>
+    <td><%=h caption.language.language %></td>
     <td><%= link_to 'Show', asset_manager_caption_path(caption) %></td>
     <td><%= link_to 'Edit', edit_asset_manager_caption_path(caption) %></td>
     <td><%= link_to 'Destroy', asset_manager_caption_path(caption), :confirm => 'Are you sure?', :method => :delete %></td>
