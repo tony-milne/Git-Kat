@@ -5,14 +5,15 @@
 
 <p>
   <b>Asset:</b>
-  <%=h @caption.asset %>
+  <%=h @caption.asset_id %>
 </p>
 
 <p>
   <b>Language:</b>
-  <%=h @caption.language %>
+  <%=h @caption.language.language %>
 </p>
 
 
 <%= link_to 'Edit', edit_asset_manager_caption_path(@caption) %> |
-<%= link_to 'Back', asset_manager_captions_path(@caption) %>
+<%= link_to 'Back', asset_manager_captions_path
+ %>
