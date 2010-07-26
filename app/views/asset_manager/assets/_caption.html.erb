@@ -1,0 +1,10 @@
+<div class="caption">
+  <% fields_for "asset[caption_attributes][]", caption do |t| %>
+    <p>  
+      <%= t.label "Caption"%>
+      <%= t.text_field :content %>
+      <%= t.select(:language_id, Language.all.collect { |l| [l.language, l.id] }, {:prompt => true}) %>
+      <%= link_to_function "Remove", "this.up('.caption').remove()" %>
+    </p>
+  <% end %>
+</div>

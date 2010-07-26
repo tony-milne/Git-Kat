@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100720104923) do
+ActiveRecord::Schema.define(:version => 20100723134731) do
 
   create_table "assets", :force => true do |t|
     t.integer  "exif_id"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(:version => 20100720104923) do
     t.integer "tag_id"
   end
 
+  create_table "captions", :force => true do |t|
+    t.text     "content"
+    t.integer  "language_id"
+    t.integer  "asset_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "images", :force => true do |t|
     t.integer  "width"
     t.integer  "height"
@@ -38,6 +46,10 @@ ActiveRecord::Schema.define(:version => 20100720104923) do
     t.integer  "iso_speed_rating"
     t.float    "focal_length"
     t.datetime "shot_date_time"
+  end
+
+  create_table "languages", :force => true do |t|
+    t.string "language"
   end
 
   create_table "notifiers", :force => true do |t|

@@ -7,6 +7,13 @@
     <%= f.text_field :title %>
   </div>
   
+  <div id="captions">
+    <!-- is intially empty -->
+  </div>
+  <%= link_to_function "Add a caption" do |page|
+    page.insert_html :bottom, :captions, :partial => "caption", :object => Caption.new
+  end %>
+    
   <div id="tags">
     <!-- is initially empty -->
   </div>  
