@@ -1,3 +1,5 @@
 class Stage < ActiveRecord::Base
-has_many :stage_items
+
+has_and_belongs_to_many :assets
+
 end
