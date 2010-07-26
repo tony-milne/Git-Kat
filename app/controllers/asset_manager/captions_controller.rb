@@ -3,9 +3,9 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions.xml
   def index
     @captions = AssetManager::Caption.all
-    @asset = Asset.find(params[:asset_id])
+    @asset = AssetManager::Asset.find(params[:asset_id])
     @languages = Language.find(:all)
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @asset_manager_captions }
@@ -16,9 +16,10 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions/1.xml
   def show
     @caption = AssetManager::Caption.find(params[:id])
-     @asset = Asset.find(params[:asset_id])
+    @asset = AssetManager::Asset.find(params[:asset_id])
     @languages = Language.find(:all)
-
+    @language = AssetManager::Language.find(params[:id])
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => asset_manager_caption_path(@caption) }
@@ -29,7 +30,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions/new.xml
   def new
     @caption = AssetManager::Caption.new
-    @asset = Asset.find(params[:asset_id])
+    @asset = AssetManager::Asset.find(params[:asset_id])
     @languages = Language.find(:all)
 
     respond_to do |format|
@@ -41,7 +42,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions/1/edit
   def edit
     @caption = AssetManager::Caption.find(params[:id])
-     @asset = Asset.find(params[:asset_id])
+     @asset = AssetManager::Asset.find(params[:asset_id])
     @languages = Language.find(:all)
   end
 
@@ -49,7 +50,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # POST /asset_manager_captions.xml
   def create
     @caption = AssetManager::Caption.new(params[:caption])
-     @asset = Asset.find(params[:asset_id])
+     @asset = AssetManager::Asset.find(params[:asset_id])
     @languages = Language.find(:all)
 
     respond_to do |format|
