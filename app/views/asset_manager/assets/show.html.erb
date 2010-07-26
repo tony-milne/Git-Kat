@@ -16,11 +16,21 @@
     <li><strong><%= "#{key}: " %></strong><%= "#{value}" %></li>
     <% } %>
 	<% end %>
-	</ul>  
+	<li><strong>Captions:</strong><br/>
+		<% @asset.captions.each do |caption| %>
+		<%= h caption.caption.capitalize %> (<%= h caption.language.language.capitalize %>)<br/>
+		<% end %></li>		
+	<li><strong>Credits:</strong><br/>
+		<% @asset.credits.each do |credit| %>
+		<%= h credit.credit.capitalize %> (<%= h credit.language.language.capitalize %>)<br/>
+		<% end %></li>
+</ul>
+	  
 </div>
 
 <div id="footer">
 	<%= link_to 'Edit', edit_asset_manager_asset_path(@asset) %> |
   <%= link_to 'Back', asset_manager_assets_path %>|
-  <%= link_to 'Caption', asset_manager_asset_captions_path(@asset) %> </div>
+  <%= link_to 'Caption', asset_manager_asset_captions_path(@asset) %>|
+  <%= link_to 'Credit', asset_manager_asset_credits_path(@asset) %> </div>
 </div>
