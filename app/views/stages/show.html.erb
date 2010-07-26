@@ -1,12 +1,14 @@
 <% title "Viewing Stage #{@stage.title}" %>
 
-<% for item in @stages.stage_items %>
+<% form_tag removed_stages_path, :method => :put do %>
+<% for asset in @stage.assets %>
 <p> <%= link_to image_tag(asset.data.url(:thumb)), asset %></p>
 <p> <%= asset.title %></p>
-<p> <%= button_to 'Delete From Stage', item , :confirm => 'Are you sure?', :method => :delete %></p>
+<p> <%= check_box_tag "asset_ids[]", asset.id %>
 <% end %>
-
-
-
+<%= hidden_field_tag 'stage', @stage.id %>
+<%= submit_tag "Delete From Stage" %>
+<% end %>
+<%= will_paginate @assets %>
 <%= link_to 'Edit This Stage', edit_stage_path(@stage) %> |
 <%= link_to 'View All Stages', stages_path %>

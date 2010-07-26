@@ -14,6 +14,7 @@ class AssetsController < ApplicationController
   
   def gallery
     @assets = Asset.search(params[:search], params[:page])
+        @stages = Stage.find(:all)
   end
 
   # GET /assets/1

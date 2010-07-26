@@ -2,7 +2,10 @@ class StagesController < ApplicationController
   # GET /stages
   # GET /stages.xml
   def index
-    @stages = Stage.all
+    @stage = Stage.all
+       @stages = Stage.paginate :per_page => 6, :page => params[:page],
+                             :conditions => ['id like ?', "%#{params[:search]}%"],
+                             :order => 'id'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,11 +15,22 @@ class StagesController < ApplicationController
 
   # GET /stages/1
   # GET /stages/1.xml
+  # SHOW PAGE TO_BE_PAGINATED!
+  
+  def stageasset
+Stage.find(params[:id])
+Asset.find(:all)
+@stageasset = Asset.paginate :per_page => 6, :page => params[:page],
+                             :conditions => ['title like ?', "%#{params[:search]}%"],
+                             :order => 'title'
+
+  end
+  
   def show
     @stage = Stage.find(params[:id])
-    @stages = Stage.find(params[:id])
-    @stage_items = StageItem.find(:all)
-
+@assets = Asset.paginate :per_page => 6, :page => params[:page],
+                             :conditions => ['title like ?', "%#{params[:search]}%"],
+                             :order => 'title'
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @stage }
@@ -82,4 +96,21 @@ class StagesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+def added
+@stage = Stage.find(params[:stage][:stage_id])
+params[:asset_ids].each { |asset|
+@stage.assets << Asset.find(asset) }
+@stage.save
+redirect_to :back, :notice =>"Successfully added to the stage."
+end
+
+def removed
+@stage = Stage.find(params[:stage])
+params[:asset_ids].each { |asset|
+@stage.assets.delete(Asset.find(asset)) }
+@stage.save
+redirect_to :back, :notice =>"Successfully deleted from stage."
+
+end
 end
