@@ -3,7 +3,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions.xml
   def index
     @captions = AssetManager::Caption.find(:all)
-    @asset = Asset.find(params[:asset_id])
+    #@asset = Asset.find(params[:asset_id])
     @languages = Language.find(:all)
 
     respond_to do |format|
@@ -15,8 +15,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions/1
   # GET /asset_manager_captions/1.xml
   def show
-    @asset = Asset.find(params[:asset_id])
-    @caption = AssetManager::Caption.find(params[:id])
+    @caption = Caption.find(params[:id])
     @languages = Language.find(:all)
 
     respond_to do |format|
