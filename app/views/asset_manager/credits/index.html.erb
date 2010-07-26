@@ -1,0 +1,25 @@
+<% title "Listing credits for #{@asset.title}" %> 
+
+<table>
+  <tr>
+    <th>Credit</th>
+    <th>Asset</th>
+    <th>Language</th>
+  </tr>
+
+<% @credits.each do |credit| %>
+  <tr>
+    <td><%=h credit.credit %></td>
+    <td><%=h credit.asset_id %></td>
+    <td><%=h credit.language.language %></td>
+    <td><%= link_to 'Show', asset_manager_credit_path(credit) %></td>
+    <td><%= link_to 'Edit', edit_asset_manager_credit_path(credit) %></td>
+    <td><%= link_to 'Destroy', asset_manager_credit_path(credit), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New credit', new_asset_manager_asset_credit_path %>
+<%= link_to 'Back', asset_manager_asset_path(params[:asset_id]) %>

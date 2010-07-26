@@ -1,0 +1,18 @@
+<p>
+  <b>Credit:</b>
+  <%=h @credit.credit %>
+</p>
+
+<p>
+  <b>Asset:</b>
+  <%=h @credit.asset_id %>
+</p>
+
+<p>
+  <b>Language:</b>
+  <%=h @credit.language.language %>
+</p>
+
+
+<%= link_to 'Edit', edit_asset_manager_credit_path(@credit) %> |
+<%= link_to 'Back', asset_manager_credit_path %>
