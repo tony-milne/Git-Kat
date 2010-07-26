@@ -44,7 +44,7 @@ class AssetManager::LanguagesController < AssetManager::ApplicationController
 
     respond_to do |format|
       if @language.save
-        format.html { redirect_to(asset_manager_language_path(@language), :notice => 'AssetManager::Language was successfully created.') }
+        format.html { redirect_to(asset_manager_language_path(@language), :notice => 'Language was successfully created.') }
         format.xml  { render :xml => asset_manager_language_path(@language), :status => :created, :location => @language }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class AssetManager::LanguagesController < AssetManager::ApplicationController
 
     respond_to do |format|
       if @language.update_attributes(params[:language])
-        format.html { redirect_to(asset_manager_language_path(@language), :notice => 'AssetManager::Language was successfully updated.') }
+        format.html { redirect_to(asset_manager_language_path(@language), :notice => 'Language was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
