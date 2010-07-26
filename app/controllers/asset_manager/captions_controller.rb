@@ -16,8 +16,8 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions/1.xml
   def show
     @caption = Caption.find(params[:id])
-    @languages = Language.find(:all)
-
+    @language = Language.find(:all)
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => asset_manager_asset_caption_path(@asset) }
@@ -40,8 +40,12 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
 
   # GET /asset_manager_captions/1/edit
   def edit
+<<<<<<< HEAD
     #@asset = Asset.find(params[:asset_id])
     @caption = AssetManager::Caption.find(params[:id])
+=======
+    @caption = Caption.find(params[:id])
+>>>>>>> 20c20967360578ffdb0e92814674c9e0ab24b419
     @languages = Language.find(:all)
   end
 
@@ -67,7 +71,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # PUT /asset_manager_captions/1
   # PUT /asset_manager_captions/1.xml
   def update
-    @caption = AssetManager::Caption.find(params[:id])
+  	@caption = Caption.find(params[:id])
 
     respond_to do |format|
       if @caption.update_attributes(params[:caption])
@@ -83,7 +87,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # DELETE /asset_manager_captions/1
   # DELETE /asset_manager_captions/1.xml
   def destroy
-    @caption = AssetManager::Caption.find(params[:id])
+  	@caption = AssetManager::Caption.find(params[:id])
     @caption.destroy
 
     respond_to do |format|

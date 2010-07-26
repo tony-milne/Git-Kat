@@ -1,0 +1,2 @@
+module AssetManager::CreditsHelper
+end

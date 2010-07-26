@@ -8,8 +8,9 @@
     <%= f.text_field :caption %>
   </p>
   <p>
-       <%= f.label :language %><br />
-    <select name="caption[language_id]">
+
+    <%= f.label :language %><br />
+   <select name="caption[language_id]">
 <% @languages.each do |language| %>
 <option value="<%= language.id %>"
 <%= ' selected' if language.id == @caption.language_id %>>
@@ -18,6 +19,7 @@
 <% end %>
 </select>
   </p>
+
   <p>
     <%= f.submit 'Update' %>
   </p>
