@@ -1,25 +1,22 @@
-<%= stylesheet_link_tag 'generallayout' %>
-<div class="form">
 <% form_for([:asset_manager, @user])  do |f| %>
   <%= f.error_messages %>
-  <p>Please fill in your details to register for an account</p>
-  <p>
-    <%= f.label :username %><br />
+  <div class="formRow">
+    <span class="labelCol"><%= f.label :username %></span>
     <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
+  </div>
+  <div class="formRow">
+    <span class="labelCol"><%= f.label :email %></span>
     <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p><%= f.submit "Submit" %></p>
-  <%= link_to 'Home', root_url %>
-  
+  </div>
+  <div class="formRow">
+    <span class="labelCol"><%= f.label :password %></span>
+    <%= f.text_field :password %>
+  </div>
+  <div class="formRow">
+    <span class="labelCol"><%= f.label :password_confirmation %></span>
+    <%= f.text_field :password_confirmation %>
+  </div>
+  <div class="formSubmit">
+    <%= f.submit "Register" %>
+  </div>
 <% end %>

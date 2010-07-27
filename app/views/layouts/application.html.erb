@@ -1,41 +1,68 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Media Manager - <%= yield :title %></title>
     <%= stylesheet_link_tag 'application' %>
     <script src= "/javascripts/prototype.js" type="text/javascript"></script>
     <script src="/javascripts/scriptaculous.js" type="text/javascript"></script>
+    <link href="/public/favicon.ico" rel="icon" type="image/x-icon" />
   </head>
   <body>
     <div id="container">
-      <div id="header">
-        <div id="header_right">
-          <div id="user_nav">
+      <div id="background_web_toolbar">
+        <div id="web_toolbar">
+          <div id="reg_nav">
+            <ul class="regNav">
             <% if current_user %>
-              <%= link_to "Edit Profile", edit_asset_manager_user_path(:current) %> |
-              <%= link_to "Logout", logout_path %>
-            <% else %>
-              <%= link_to "Register", new_asset_manager_user_path %> |
-              <%= link_to "Login", login_path %> |
-              <%= link_to "Forgot password", new_asset_manager_password_reset_path %>
+              <li><%= link_to "Edit Profile", edit_asset_manager_user_path(:current), :class => "regNav" %> |</li>
+              <li><%= link_to "Logout", logout_path, :class => "regNav" %></li>
+             <% else %>
+              <li><%= link_to "Register", new_asset_manager_user_path, :class => "regNav" %> |</li>
+              <li><%= link_to "Login", login_path, :class => "regNav" %> |</li>
+              <li><%= link_to "Forgot password", new_asset_manager_password_reset_path, :class => "regNav" %></li>
+            <% end %>
+            </ul>
+          </div>
+          <% if current_user %>
+          <div id="search_tool">
+            <% form_tag asset_manager_assets_path, :method => 'get' do %>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search", :name => nil %>
             <% end %>
           </div>
+          <% end %>
         </div>
-        <div id="header_left">
-          <div id="logo">
-            <h2>Media Manager - <%= yield :title %></h2>
+      </div>
+      <div id="background_banner">
+        <div id="banner">
+          <div id="banner_left">
+            <div id="logo">
+              <%= image_tag "banner-logo-en.png" %>
+            </div>
+          </div>
+          <div id="banner_right">
+            <h1>Media Manager - <%= yield :title %></h1>
           </div>
         </div>
-        <div class="clearFloat">
+      </div>
+      <div id="background_flash_bar">
+        <div id="flash_bar">
           <%- flash.each do |name, msg| -%>
-            <%= content_tag :div, msg, :id => "flash_#{name}" %>
+            <%= content_tag :div, msg, :id => "flash_bar_alert" %>
           <%- end -%>
         </div>
       </div>
-      <div id="content">
-        <%= yield %>
+      <div id="background-content">
+        <div id="content">
+          <%= yield %>
+        </div>
+      </div>
+      <div id="background_footer">
+        <div id="footer">
+        </div>
       </div>
     </div>
   </body>
 </html>
+
