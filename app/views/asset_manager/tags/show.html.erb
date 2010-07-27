@@ -1,0 +1,14 @@
+<% title "Showing tag"%>
+<p>
+  <b>Name:</b>
+  <%=h @tag.name %>
+</p>
+
+<p>
+  <b>Asset:</b>
+  <%=h @tag.asset_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_asset_manager_tag_path(@tag) %> |
+<%= link_to 'Back', asset_manager_asset_tags_path(@tag.asset_id) %>

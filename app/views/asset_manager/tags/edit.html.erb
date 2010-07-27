@@ -1,0 +1,15 @@
+<% title "Editing tag" %>
+
+<% form_for([:asset_manager, @tag]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', asset_manager_asset_tags_path(@tag.asset_id) %>
