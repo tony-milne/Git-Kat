@@ -1,8 +1,8 @@
 <% title "Viewing Stage #{@stage.title}" %>
 
-<% form_tag removed_stages_path, :method => :put do %>
+<% form_tag removed_asset_manager_stages_path, :method => :put do %>
 <% for asset in @stage.assets %>
-<p> <%= link_to image_tag(asset.data.url(:thumb)), asset %></p>
+<p> <%= link_to image_tag(asset.data.url(:thumb)), asset_manager_asset_path(asset) %></p>
 <p> <%= asset.title %></p>
 <p> <%= check_box_tag "asset_ids[]", asset.id %>
 <% end %>
