@@ -1,133 +1,338 @@
 /***** General style *****/
 
 body {
-  background-color: #199fc4;
-  font-family: Verdana, Helvetica, Arial;
+  background-color: #6F2A20;
+  color: #FFF;
+  font-family: Arial, Helvetica, Geneva, sans-serif;
   font-size: 14px;
-  min-width: 990px;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
 }
 
 #container {
-  width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #FFF;
-  border: solid 1px black;
-  margin-top: 20px;
+  background-color: #222222;
+  overflow: auto;
 }
 
-h1  {
-  font-family: Verdana, Helvetica, Arial;
-  font-size: 40px;
-  text-align: auto;
-  }
+/****** Header Area ******/
 
-a img {
-  border: none;
+#background_web_toolbar {
+  background-color: #362520;
+  border-bottom: solid 1px #1E1512;
+  width: 100%;
+  overflow: auto;
 }
 
-a {
-  color: #0000FF;
+#web_toolbar {
+  margin: auto;
+  padding-right: 5px;
+  padding-top: 2px;
+  width: 790px;
 }
 
-.image {
-  margin: 10px;
+#reg_nav {
+  float: left;
+  width: 450px;
+  padding-top: 5px;
+  padding-bottom: 6px;
 }
 
-/***** Header Styling *****/
+.regNav {
+  list-style: none;
+  text-decoration: none;
+  font-size: 0.9em;
+  margin: 0;
+  padding: 0;
+}
 
-#header_right {
+.regNav li {
+  display: inline;
+}
+
+.regNav li a, a:visited {
+  color: #FFF;
+}
+
+.regNav li a:hover {
+  color: #A1CFE5;
+}
+
+#search_tool {
   float: right;
+  padding-bottom: 1px;
 }
 
-#header {
-  padding-left: 20px;
+#background_banner {
+  clear: both;
+  background-color: #9A3622;
+  height: 122px;
+  width: 100%;
 }
 
-/***** General Content Style *****/
+#banner {
+  background-color: #B64525;
+  margin: auto;
+  border-top: 1px solid #963522;
+  height: 120px;
+  width: 790px;
+}
+
+#banner_left {
+  float: left;
+  height: 121px;
+  width: 200px;
+}
+
+#logo {
+  padding-bottom: 2px;
+}
+
+#banner_right {
+  float: left;
+  color: #FFF;
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+#background_flash_bar {
+  clear: both;
+  background-color: #6F2A20;
+  width: 100%;
+  height: 30px;
+}
+
+#flash_bar {
+  background-color: #873227;
+  margin: auto;
+  width: 790px;
+  height: 30px;
+}
+
+#flash_bar_alert {
+  padding-top: 7px;
+  padding-left: 5px;
+  color: #00FF66;
+}
+
+/****** General Content ******/
+
+#background-content {
+  clear: both;
+  margin: auto;
+  width: 790px;
+}
 
 #content {
-  padding-left: 20px;
+  margin: 10px 0px 10px 0px;
   padding-bottom: 10px;
 }
 
-		/* Content: Show asset - specific styling */
-
-#show_pic_asset {
-	margin: 0px 5px 15px 0px;
+#standard_container { /* adds margin to content area */
+  margin: 10px 10px;
 }
 
+#local_nav {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.localNav {
+  list-style: none;
+  font-size: 1em;
+  margin: 0;
+  padding: 5px 0 5px 0;
+}
+
+.localNav li {
+  display: inline;
+}
+
+.localNav li a, a:visited {
+  color: #FFF;
+}
+
+.localNav li a:hover {
+  color: #A1CFE5;
+}
+
+/****** Footer ******/
+
+#background_footer {
+  clear: both;
+  background-color: #6F2A20;
+  width: 100%;
+  min-height: 100px;
+}
+
+#footer {
+  background-color: #873227;
+  margin: 0 auto 0 auto;
+  width: 790px;
+  height: 100px;
+}
+
+/****** Classes ******/
+
+.centreText {
+  text-align: center;
+}
+
+.formRow {
+  height: 30px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.formSubmit {
+  margin-left: 160px;
+}
+
+.labelCol {
+  float: left;
+  width: 150px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.loginLabelCol {
+  float: left;
+  width: 100px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.lightBlue {
+  color: #A1CFE5;
+}
+
+.defaultFontSize {
+  font-size: 14px;
+}
+/****** View Specific Content ******/
+
+/* Login Page */
+
+#login_message_container {
+  margin-left: 10px;
+  margin-top: 70px;
+  margin-right: 10px;
+  float: left;
+  width: 300px;
+  height: 280px;
+}
+
+#login_message_container p {
+  line-height: 150%;
+}
+
+#login_message_container a {
+  text-decoration: none;
+  color: #A1CFE5;
+}
+#login_message_container a:hover {
+  color: #FFF;
+}
+
+#login_form_container {
+  float: left;
+  margin-top: 65px;
+  margin-bottom: 35px;
+}
+
+#login_form {
+  padding: 2px;
+  margin: 2px;
+  width: 400px;
+}
+
+#login_form_submit {
+  margin-left: 110px;
+}
+
+/* Registration Page */
+
+#registration_form {
+  padding: 2px;
+  width: 450px;
+}
+
+#reg_form_container {
+  margin: 37px auto 20px auto;
+  width: 700px;
+}
+
+/* Edit Profile Page */
+
+#edit_profile_nav {
+  margin: 10px auto 10px auto;
+  padding-bottom: 10px;
+  width: 700px;
+}
+
+/* Index Page */
+
+/* Show Asset Page */
+
 #show_left_column {
-	float: left;
-	max-width: 700px;
+  float: left;
+  width: 540px;
 }
 
 #show_right_column {
-	margin-left: 30px;
-	float: left;
-	width: 250px;
+  float: right;
+  width: 250px;
+  padding-top: 0px;
+}
+
+.showPicAsset {
+  background-color: #000;
+	width: 540px;
+	margin: 0 auto 0 auto;
+	border: 1px solid #666;
+	text-align: center;
+	height: 337px;
+	overflow: hidden;
+}
+
+.showPicAsset div {
+  display: inline;
+  vertical-align: middle;
+}
+
+#show_pic_nav {
+  width: 540px;
+  text-align: center;
 }
 
 .picAttributes {
 	list-style-type: none;
-	padding: 0px;
-	margin: 0px;
-	font-size: 12px;
-}
-		/* Content: Asset Gallery Style */
-
-#gallery_container {
-  min-width: 860px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+	padding: 0 0 5px 15px;
+	font-size: 0.9em;
+	margin: 0;
 }
 
-.thumbnail {
-  float: left;
-  margin: 10px;
+/* Add Asset Page */
+
+#new_asset_container {
+  margin: 70px auto 20px auto;
+  width: 700px;
+  height: 260px;
 }
 
-#image_gallery {
-  
-  padding: 10px;
-}
-
-/***** Footer Styling *****/
-
-#footer {
-	clear: both;
-}
-
-/***** Error and Notification Style *****/
-
-#flash_notice, #flash_error {
-  padding: 5px 8px;
-  margin: 10px;
-  width: 50%;
-}
-
-#flash_notice {
-  background-color: #99FF66;
-  border: solid 1px #6C6;
-}
-
-#flash_error {
-  background-color: #FCC;
-  border: solid 1px #C66;
-}
+/****** Error Message layout ******/
 
 .fieldWithErrors {
   display: inline;
 }
 
 #errorExplanation {
-  width: 400px;
+  width: 380px;
   border: 2px solid #CF0000;
   padding: 0px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+  padding-bottom: 20px;
+  margin: 0 10px 20px 8px;
+  background-color: #000;
 }
 
 #errorExplanation h2 {
@@ -137,74 +342,22 @@ a {
   font-size: 12px;
   margin: 0px;
   background-color: #c00;
-  color: #fff;
+  color: #FFF;
 }
 
 #errorExplanation p {
-  color: #333;
+  color: #FFF;
   margin-bottom: 0;
+  margin-left: 10px;
   padding: 8px;
 }
 
 #errorExplanation ul {
-  margin: 2px 24px;
+  margin: 0 24px;
 }
 
 #errorExplanation ul li {
   font-size: 12px;
   list-style: disc;
 }
-
-/* Miscellaneous (...and possible redundant style at the moment!) */
-
-.clear {
-  clear: both;
-}
-
-.align-right{
-  text-align: right;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
-
-#articles h2 {
-  font-size: 16px;
-  margin-bottom: 2px;
-}
-
-#articles h2 .comments {
-  font-size: 12px;
-  font-weight: normal;
-}
-
-#articles .author {
-  font-style: italic;
-  color: #333;
-}
-
-#comments {
-  font-size: 12px;
-  background-color: #DDD;
-  padding: 0 20px;
-  width: 325px;
-  border: solid 1px #333;
-}
-
-.comment {
-  border-bottom: solid 1px #999;
-  margin: 15px 0;
-}
-
-.comment .author_name {
-  font-weight: bold;
-}
-
-#user_nav {
-  font-size: 12px;
-  margin-right: 10px;
-}
-.floatClear {
-  float: clear;
-}
-
 
