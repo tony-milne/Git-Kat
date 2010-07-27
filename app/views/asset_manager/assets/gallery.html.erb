@@ -7,12 +7,22 @@
 </div>
 <div id="gallery_container">
   <div id="image_gallery">
+  <% form_tag added_stages_path, :method => :put do %>
     <% @assets.each do |asset| %>
       <div class="thumbnail">
+
         <%= link_to image_tag(asset.data.url(:thumb)), asset_manager_asset_path(asset) %><br />
         <%= link_to asset.title, asset_manager_asset_path(asset) %>
+        <%= check_box_tag "asset_ids[]", asset.id %>
+
       </div>
     <% end %>
+    <h2> Select a Stage to Add the Assets to </h2>
+    <p><%= collection_select(:stage, :stage_id, Stage.all, :id, :title, {:prompt => true}) %>
+    <p><%= submit_tag "Add To Stage" %>
+    <% end %>
+    
+    
   </div>
 </div>
 <div class="clear">
@@ -26,4 +36,4 @@
 
 
 
-
+ 

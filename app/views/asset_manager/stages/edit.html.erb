@@ -1,0 +1,15 @@
+<% title 'Edit Asset' %>
+
+<% form_for(@stage) do |f| %>
+  <%= f.error_messages %>
+<h2> Enter a new title for your asset </h2>
+<p><%= f.label :title %></p>
+<p><%= f.text_field :title %></p>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show this Stage', @stage %> |
+<%= link_to 'List of Stages', asset_manager_stages_path %>

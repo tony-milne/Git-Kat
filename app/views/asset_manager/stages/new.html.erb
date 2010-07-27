@@ -1,0 +1,14 @@
+<% title 'Create a New Stage' %>
+
+<% form_for(@stage) do |f| %>
+  <%= f.error_messages %>
+<h2> Enter a Title for your Stage </h2>
+
+<p><%= f.text_field :title %></p>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'View Your Stages', asset_manager_stages_path %>

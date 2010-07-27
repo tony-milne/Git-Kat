@@ -5,7 +5,8 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets.xml
   def index
     @assets = Asset.search(params[:search], params[:page])
-    
+     @stages = Stage.find(:all) #added by merge
+
     respond_to do |format|
        format.html #index.html.erb
        format.xml { render :xml => @assets }
@@ -14,6 +15,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   
   def gallery
     @assets = Asset.search(params[:search], params[:page])
+        @stages = Stage.find(:all)
   end
 
   # GET /assets/1

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PasswordResetControllerTest < ActionController::TestCase
+class StageTest < ActiveSupport::TestCase
   # Replace this with your real tests.
   test "the truth" do
     assert true
