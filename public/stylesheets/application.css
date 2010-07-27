@@ -9,7 +9,13 @@ body {
   padding: 0px;
   width: 100%;
 }
+a:link {
+  color: #FFF;
+}
 
+a:visited {
+  color: #FFF;
+}
 #container {
   background-color: #222222;
   overflow: auto;
