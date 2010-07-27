@@ -1,47 +1,32 @@
 <% title "Home Page" %>
-<h2>Welcome To Your Asset Archive</h2>
-<p> In your asset archive, you can edit and delete your current assets as well as add new ones. </p>
-<p> You can also search through your archive by entering search criteria in the box below </p>
-
-<div class="search">
-<% form_tag asset_manager_assets_path, :method => 'get' do %> 
-<%= text_field_tag :search, params[:search] %>
- <%= submit_tag "Search", :name => nil %> 
+<div id="standard_container">
+  <h3>Welcome To Your Asset Archive</h3>
+  <p> In your asset archive, you can edit and delete your current assets as well as add new ones.</p>
+  <div class="table">
+    <table>
+      <tr>
+        <th>Your Assets:</th>
+      </tr>
+    
+      <% @assets.each do |asset| %>
+        <tr>
+          <td><%=h asset.title %></td>
+          <td><%= link_to 'Show', asset_manager_asset_path(asset) %></td>
+          <td><%= link_to 'Edit', edit_asset_manager_asset_path(asset) %></td>
+          <td><%= link_to 'Destroy', asset_manager_asset_path(asset), :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="will_paginate_assetslist">
+    <%= will_paginate @assets %>
+  </div>
+  <div id="local_nav">
+    <ul class="localNav">
+      <li><%= link_to 'New asset', new_asset_manager_asset_path %></li>
+      <li><%= link_to 'Image Gallery', :controller => "asset_manager/assets", :action => "gallery" %></li>
+      <li><%= link_to 'New Language', asset_manager_languages_path %></li>
+      <li><%= link_to "View Stages", asset_manager_stages_path %></li>
+    </ul>
+  </div>
 </div>
-<% end %>
-<table>
-  <tr>
-    <th>Your Assets:</th>
-  </tr>
-
-<% @assets.each do |asset| %>
-  <tr>
-    <td><%=h asset.title %></td>
-    <td><%= link_to 'Show', asset_manager_asset_path(asset) %></td>
-    <td><%= link_to 'Edit', edit_asset_manager_asset_path(asset) %></td>
-    <td><%= link_to 'Destroy', asset_manager_asset_path(asset), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<div class="will_paginate_assetslist">
-<%= will_paginate @assets %>
-</div>
-
-<h2> Add A New Asset </h2>
-<div class="assetslink">
-<%= link_to 'New asset', new_asset_manager_asset_path %> </div>
-<h2> View Your Image Gallery </h2>
-<div class="assetslink">
-<%= link_to 'Image Gallery', :controller => "asset_manager/assets", :action => "gallery" %>
-</div>
-
-<h2> Add A Language </h2>
-<div class="assetslink">
-<%= link_to 'New Language', asset_manager_languages_path %> </div>
-
-<h2> View List of Stages</h2>
-<%= link_to "View Stages", asset_manager_stages_path %>
-<h2> Drop Down of Stages </h2>
-<%= select(:stage_id, :title, @stages.collect {|s|[s.title, s.id]}) %>
-
