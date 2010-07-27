@@ -8,9 +8,7 @@
 <%= text_field_tag :search, params[:search] %>
  <%= submit_tag "Search", :name => nil %> 
 </div>
-
-
-<div class="table">
+<% end %>
 <table>
   <tr>
     <th>Your Assets:</th>
@@ -25,7 +23,7 @@
   </tr>
 <% end %>
 </table>
-</div>
+
 <div class="will_paginate_assetslist">
 <%= will_paginate @assets %>
 </div>
@@ -41,4 +39,9 @@
 <h2> Add A Language </h2>
 <div class="assetslink">
 <%= link_to 'New Language', asset_manager_languages_path %> </div>
-<% end %>
+
+<h2> View List of Stages</h2>
+<%= link_to "View Stages", asset_manager_stages_path %>
+<h2> Drop Down of Stages </h2>
+<%= select(:stage_id, :title, @stages.collect {|s|[s.title, s.id]}) %>
+

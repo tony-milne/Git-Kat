@@ -1,9 +1,14 @@
 class Asset < ActiveRecord::Base
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
+
   has_many :captions 
   has_many :credits
   has_many :tags
   accepts_nested_attributes_for :captions
+
+  has_and_belongs_to_many :stages
+  # before_destroy :ensure_not_referenced_by_any_stage_item
+
   
   # Uploading Images Using Paperclip
   has_attached_file	:data,
@@ -27,12 +32,12 @@ class Asset < ActiveRecord::Base
   
   # Pagination
   cattr_reader :per_page
-  @@per_page = 10
+  @@per_page = 6
 
   
   # Search
   def self.search(search, page)
-    paginate 	:per_page => 12, :page => page,
+    paginate 	:per_page => 6, :page => page,
       :conditions => ['title like ?', "%#{search}%"],
       :order => 'title'
   end
