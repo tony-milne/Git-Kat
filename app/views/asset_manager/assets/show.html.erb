@@ -1,41 +1,50 @@
 <% title "Viewing #{@asset.title}" %>
 <div id="show_left_column">
-	<div id="show_pic_asset">
+	<div class="showPicAsset">
 		<%= image_tag @asset.data.url(:large) %>
 	</div>
-</div>
-<div id="show_right_column">
-	<ul class="picAttributes">
-  	<li><strong>Title: </strong><%=h @asset.title %></li>
-    <li><strong>File Name: </strong><%=h @asset.data_file_name %></li>
-    <li><strong>File Type: </strong><%=h @asset.data_content_type %></li>
-    <li><strong>Date Created: </strong><%=h @asset.created_at %></li>
-    <li><strong>Last Updated: </strong><%=h @asset.updated_at %></li>
-  <% if @asset.exif? %>
-   	<% @exif.each_pair { |key, value| %>
-    <li><strong><%= "#{key}: " %></strong><%= "#{value}" %></li>
-    <% } %>
-	<% end %>
-	<li><strong>Captions:</strong><br/>
-		<% @asset.captions.each do |caption| %>
-		<%= h caption.caption.capitalize %> (<%= h caption.language.language.capitalize %>)<br/>
-		<% end %></li>		
-	<li><strong>Credits:</strong><br/>
-		<% @asset.credits.each do |credit| %>
-		<%= h credit.credit.capitalize %> (<%= h credit.language.language.capitalize %>)<br/>
-		<% end %></li>
-	<li><strong>Tags:</strong><br/>
-		<% @asset.tags.each do |tag| %>
-		<%= h tag.name.capitalize %><br/>
-		<% end %></li>
-</ul>
-	  
+
+  <div id="show_pic_nav">
+    <div id="local_nav">
+      <ul class="localNav">
+        <li><%= link_to 'Edit', edit_asset_manager_asset_path(@asset) %></li>
+        <li><%= link_to 'Back', asset_manager_assets_path %></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<div id="footer">
-  <%= link_to 'Edit', edit_asset_manager_asset_path(@asset) %> |
-  <%= link_to 'Back', asset_manager_assets_path %>|
-  <%= link_to 'Caption', asset_manager_asset_captions_path(@asset) %>|
-  <%= link_to 'Credit', asset_manager_asset_credits_path(@asset) %>|
-  <%= link_to 'Tag', asset_manager_asset_tags_path(@asset) %></div>
+<div id="show_right_column">
+	<ul class="picAttributes">
+  	<li><strong>Title: </strong><em><%=h @asset.title %></em></li>
+    <li><strong>File Name: </strong><em><%=h @asset.data_file_name %></em></li>
+    <li><strong>File Type: </strong><em><%=h @asset.data_content_type %></em></li>
+    <li><strong>Date Created: </strong><em><%=h @asset.created_at %></em></li>
+    <li><strong>Last Updated: </strong><em><%=h @asset.updated_at %></em></li>
+    <% if @asset.exif? %>
+      <% @exif.each_pair { |key, value| %>
+        <li><strong><%= "#{key}: " %></strong><em><%= "#{value}" %></em></li>
+      <% } %>
+	  <% end %>
+	  <li><strong>Captions:</strong><br/>
+		<% @asset.captions.each do |caption| %>
+		  <em><%= h caption.caption.capitalize %> (<%= h caption.language.language.capitalize %>)</em><br/>
+		<% end %></li>		
+	  <li><strong>Credits:</strong><br/>
+		<% @asset.credits.each do |credit| %>
+		  <em><%= h credit.credit.capitalize %> (<%= h credit.language.language.capitalize %>)</em><br/>
+		<% end %></li>
+	  <li><strong>Tags:</strong><br/>
+		<% @asset.tags.each do |tag| %>
+		  <em><%= h tag.name.capitalize %></em><br/>
+		<% end %></li>
+	</ul>	  
+</div>
+
+<div id="local_nav">
+  <ul class="localNav">
+    <li><%= link_to 'Caption', asset_manager_asset_captions_path(@asset) %> |</li>
+    <li><%= link_to 'Credit', asset_manager_asset_credits_path(@asset) %> |</li>
+    <li><%= link_to 'Tag', asset_manager_asset_tags_path(@asset) %></li>
+  </ul>
 </div>
