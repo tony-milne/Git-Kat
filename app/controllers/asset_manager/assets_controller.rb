@@ -60,7 +60,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
         format.html { redirect_to(asset_manager_asset_path(@asset), :notice => 'Asset was successfully created.') }
         format.xml  { render :xml => @asset, :status => :created, :location => @asset }
       else
-        format.html { render :action => "asset_manager/new" }
+        format.html { render :action => :new }
         format.xml  { render :xml => @asset.errors, :status => :unprocessable_entity }
       end
     end
