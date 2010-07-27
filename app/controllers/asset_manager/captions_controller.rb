@@ -15,7 +15,6 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions/1
   # GET /asset_manager_captions/1.xml
   def show
-    #@asset = Asset.find(params[:asset_id])
     @caption = Caption.find(params[:id])
     @language = Language.find(:all)
     
@@ -83,7 +82,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # DELETE /asset_manager_captions/1
   # DELETE /asset_manager_captions/1.xml
   def destroy
-  	@caption = AssetManager::Caption.find(params[:id])
+  	@caption = Caption.find(params[:id])
     @caption.destroy
 
     respond_to do |format|

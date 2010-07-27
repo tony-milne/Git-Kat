@@ -24,13 +24,18 @@
 		<% @asset.credits.each do |credit| %>
 		<%= h credit.credit.capitalize %> (<%= h credit.language.language.capitalize %>)<br/>
 		<% end %></li>
+	<li><strong>Tags:</strong><br/>
+		<% @asset.tags.each do |tag| %>
+		<%= h tag.name.capitalize %><br/>
+		<% end %></li>
 </ul>
 	  
 </div>
 
 <div id="footer">
-	<%= link_to 'Edit', edit_asset_manager_asset_path(@asset) %> |
+  <%= link_to 'Edit', edit_asset_manager_asset_path(@asset) %> |
   <%= link_to 'Back', asset_manager_assets_path %>|
   <%= link_to 'Caption', asset_manager_asset_captions_path(@asset) %>|
-  <%= link_to 'Credit', asset_manager_asset_credits_path(@asset) %> </div>
+  <%= link_to 'Credit', asset_manager_asset_credits_path(@asset) %>|
+  <%= link_to 'Tag', asset_manager_asset_tags_path(@asset) %></div>
 </div>
