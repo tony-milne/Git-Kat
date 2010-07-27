@@ -1,7 +1,8 @@
 class Asset < ActiveRecord::Base
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
-  has_many :captions
+  has_many :captions 
   has_many :credits
+  accepts_nested_attributes_for :captions
   
   # Uploading Images Using Paperclip
   has_attached_file	:data,
