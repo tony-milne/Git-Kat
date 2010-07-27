@@ -3,14 +3,12 @@
 <table>
   <tr>
     <th>Caption</th>
-    <th>Asset</th>
     <th>Language</th>
   </tr>
 
 <% @captions.each do |caption| %>
   <tr>
     <td><%=h caption.caption %></td>
-    <td><%=h caption.asset_id %></td>
     <td><%=h caption.language.language %></td>
     <td><%= link_to 'Show', asset_manager_caption_path(caption) %></td>
     <td><%= link_to 'Edit', edit_asset_manager_caption_path(caption) %></td>

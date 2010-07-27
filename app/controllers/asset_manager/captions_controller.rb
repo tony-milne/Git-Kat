@@ -15,9 +15,8 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions/1
   # GET /asset_manager_captions/1.xml
   def show
-    
+    #@asset = Asset.find(params[:asset_id])
     @caption = Caption.find(params[:id])
-    #@asset = Caption.find(params[:asset_id])
     @language = Language.find(:all)
     
     respond_to do |format|
