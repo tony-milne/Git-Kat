@@ -1,6 +1,6 @@
 <% title 'Create a New Stage' %>
 
-<% form_for(@stage) do |f| %>
+<% form_for([:asset_manager, @stage]) do |f| %>
   <%= f.error_messages %>
 <h2> Enter a Title for your Stage </h2>
 

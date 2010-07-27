@@ -1,4 +1,4 @@
-class StagesController < ApplicationController
+class AssetManager::StagesController < ApplicationController
   # GET /stages
   # GET /stages.xml
   def index
