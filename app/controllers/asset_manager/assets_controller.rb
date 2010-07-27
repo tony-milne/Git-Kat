@@ -26,7 +26,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
     
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @asset }
+      format.xml  { render :xml => asset_manager_asset_path(@asset) }
     end
   end
   
@@ -71,7 +71,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
     
     respond_to do |format|
       if @asset.update_attributes(params[:asset])
-        format.html { redirect_to(@asset, :notice => 'Asset was successfully updated.') }
+        format.html { redirect_to(asset_manager_asset_path(@asset), :notice => 'Asset was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
