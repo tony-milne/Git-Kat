@@ -11,16 +11,16 @@
       </div>
       
    <div class="formRow">
-    <%= f.label :tribe %><br />
+    <span class="labelCol"><%= f.label :tribe %>&nbsp;&nbsp;
     <select name="asset[tribe_id]">
-<% @tribes.each do |tribe| %>
-<option value="<%= tribe.id %>"
-<%= ' selected' if tribe.id == @asset.tribe_id %>>
-<%= tribe.name %>
-</option>
-<% end %>
-</select>
-  </div>
+    <% @tribes.each do |tribe| %>
+    <option value="<%= tribe.id %>"
+    <%= ' selected' if tribe.id == @asset.tribe_id %>>
+    <%= tribe.name %>
+    </option>
+    <% end %>
+    </select></span>
+    </div>
       
       <div class="formRow">
         <span class="labelCol"><%= f.label :browse_files %></span>
