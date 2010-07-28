@@ -1,12 +1,9 @@
 class Asset < ActiveRecord::Base
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
-<<<<<<< HEAD
+
   belongs_to :tribe
   has_many :captions 
-=======
 
-  has_many :captions
->>>>>>> d1b8e47f1f22cdbeb74b5974172e154fa4b75ae8
   has_many :credits
   has_many :tags
   accepts_nested_attributes_for :captions
