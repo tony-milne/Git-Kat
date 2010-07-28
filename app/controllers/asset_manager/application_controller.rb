@@ -11,12 +11,21 @@ class AssetManager::ApplicationController < ActionController::Base
 
   filter_parameter_logging :password
   
+  helper_method :admin_restrictions
+  
   helper_method :current_user
   
   helper_method :verify_credentials
 
   private
 
+	def admin_restrictions
+		if User.count >= 1 
+			flash[:notice] = "An admin user already exists."
+			redirect_to login_path
+		end
+	end	
+			
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
     @current_user_session = UserSession.find
