@@ -22,6 +22,10 @@ a:visited {
   overflow: auto;
 }
 
+img {
+  border: 0;
+}
+
 /****** Header Area ******/
 
 #background_web_toolbar {
