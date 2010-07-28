@@ -1,6 +1,6 @@
 class Asset < ActiveRecord::Base
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
-
+  belongs_to :country
   belongs_to :tribe
   has_many :captions 
 
