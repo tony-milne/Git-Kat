@@ -7,13 +7,15 @@
   <div id="show_pic_nav">
     <div id="local_nav">
       <ul class="localNav">
-        <li><%= link_to 'Edit', edit_asset_manager_asset_path(@asset) %></li>
-        <li><%= link_to 'Back', asset_manager_assets_path %></li>
+        <li><%= link_to 'Caption', asset_manager_asset_captions_path(@asset) %> |</li>
+        <li><%= link_to 'Credit', asset_manager_asset_credits_path(@asset) %> |</li>
+        <li><%= link_to 'Tag', asset_manager_asset_tags_path(@asset) %> |</li>
+        <li><%= link_to 'Edit', edit_asset_manager_asset_path(@asset) %> |</li>
+        <li><%= link_to 'Back', :back %></li>
       </ul>
     </div>
   </div>
 </div>
-
 <div id="show_right_column">
 	<ul class="picAttributes">
   	<li><strong>Title: </strong><em><%=h @asset.title %></em></li>
@@ -30,7 +32,7 @@
 	  <li><strong>Captions:</strong><br/>
 		<% @asset.captions.each do |caption| %>
 		  <em><%= h caption.caption.capitalize %> (<%= h caption.language.language.capitalize %>)</em><br/>
-		<% end %></li>		
+		<% end %></li>
 	  <li><strong>Credits:</strong><br/>
 		<% @asset.credits.each do |credit| %>
 		  <em><%= h credit.credit.capitalize %> (<%= h credit.language.language.capitalize %>)</em><br/>
@@ -39,13 +41,6 @@
 		<% @asset.tags.each do |tag| %>
 		  <em><%= h tag.name.capitalize %></em><br/>
 		<% end %></li>
-	</ul>	  
+	</ul>
 </div>
 
-<div id="local_nav">
-  <ul class="localNav">
-    <li><%= link_to 'Caption', asset_manager_asset_captions_path(@asset) %> |</li>
-    <li><%= link_to 'Credit', asset_manager_asset_credits_path(@asset) %> |</li>
-    <li><%= link_to 'Tag', asset_manager_asset_tags_path(@asset) %></li>
-  </ul>
-</div>

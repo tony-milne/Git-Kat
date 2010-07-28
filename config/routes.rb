@@ -1,10 +1,14 @@
   ActionController::Routing::Routes.draw do |map|
+<<<<<<< HEAD
   map.resources :tribes
 
   #map.resources :tags
   #map.resources :credits
   #map.resources :captions
   
+=======
+    
+>>>>>>> d1b8e47f1f22cdbeb74b5974172e154fa4b75ae8
   map.namespace :asset_manager do |manager|    
   manager.resources :assets, :collection => {:gallery => :get}, :has_many => [:captions, :credits, :tags]
   manager.resource :password_reset
@@ -20,8 +24,5 @@
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
   map.root :controller => "AssetManager::Assets"
-  #map.resources :assets do |asset|
-  #asset.resources :captions, :credits, :tags, :collection
-  #end
-  #map.root :assets
+  
 end
