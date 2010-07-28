@@ -1,7 +1,7 @@
 class Asset < ActiveRecord::Base
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
 
-  has_many :captions 
+  has_many :captions
   has_many :credits
   has_many :tags
   accepts_nested_attributes_for :captions
@@ -9,49 +9,49 @@ class Asset < ActiveRecord::Base
   has_and_belongs_to_many :stages
   # before_destroy :ensure_not_referenced_by_any_stage_item
 
-  
+
   # Uploading Images Using Paperclip
   has_attached_file	:data,
 			:url => "/assets/photos/:id/:style/:basename.:extension",
 			:path => ":rails_root/public/assets/photos/:id/:style/:basename.:extension",
-  
+
   # Resizing Images
   #For windows systems, the greater than sign '>' must be escaped with the hat '^' symbol
   #The '^' is not required on *nix systems
 
-  :styles => {:thumb => "230x173", :medium => "350x350", :large => "540x337"}
-  
+  :styles => {:thumb => "193x120", :medium => "350x350", :large => "540x337"}
+
   # Connection to S3
   #:storage => :s3,
   #:s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
   #:bucket => "delta-gamma-project"
 
-  # Checking Filetypes 
+  # Checking Filetypes
   validates_attachment_presence :data
   validates_attachment_content_type :data, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff", "image/pjpeg", "image/x-png"]
-  
+
   # Pagination
   cattr_reader :per_page
-  @@per_page = 6
+  @@per_page = 12
 
-  
+
   # Search
   def self.search(search, page)
-    paginate 	:per_page => 6, :page => page,
+    paginate 	:per_page => 12, :page => page,
       :conditions => ['title like ?', "%#{search}%"],
       :order => 'title'
   end
-  
-  
+
+
   ## Start of EXIF code ##
-  
+
   # Returns true if asset has EXIF data associated
   def exif?
     return true if not exif_type.nil?
     rescue
       false
   end
-  
+
   def set_exif_data
     if data_content_type =~ /^image.*/
       if data_content_type =~ /jpeg/
@@ -82,3 +82,4 @@ class Asset < ActiveRecord::Base
   end
 
 end
+
