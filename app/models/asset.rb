@@ -24,7 +24,7 @@ class Asset < ActiveRecord::Base
   # Connection to S3
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-  :s3_options => {:proxy => {:host => 'proxy.abdn.ac.uk', :port => 8080} },
+  #:s3_options => {:proxy => {:host => 'proxy.abdn.ac.uk', :port => 8080} },
   :bucket => "survival-project"
 
   # Checking Filetypes
@@ -61,7 +61,6 @@ class Asset < ActiveRecord::Base
     end
   end
 
-
   private
   def set_image_exif_data
     exif_data = EXIFR::JPEG.new(data.path)
@@ -83,4 +82,3 @@ class Asset < ActiveRecord::Base
   end
 
 end
-
