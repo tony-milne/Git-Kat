@@ -8,6 +8,19 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
+  
+    <p>
+    <%= f.label :tribe %><br />
+    <select name="asset[tribe_id]">
+  <% @tribes.each do |tribe| %>
+  <option value="<%= tribe.id %>"
+  <%= ' selected' if tribe.id == @asset.tribe_id %>>
+  <%= tribe.name %>
+  </option>
+  <% end %>
+  </select>
+  </p>
+  
   <p>
     <%= f.submit 'Update' %>
   </p>

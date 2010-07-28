@@ -9,6 +9,19 @@
         <span class="labelCol"><%= f.label :asset_title %></span>
         <%= f.text_field :title %>
       </div>
+      
+   <div class="formRow">
+    <%= f.label :tribe %><br />
+    <select name="asset[tribe_id]">
+<% @tribes.each do |tribe| %>
+<option value="<%= tribe.id %>"
+<%= ' selected' if tribe.id == @asset.tribe_id %>>
+<%= tribe.name %>
+</option>
+<% end %>
+</select>
+  </div>
+      
       <div class="formRow">
         <span class="labelCol"><%= f.label :browse_files %></span>
         <%= f.file_field :data %>

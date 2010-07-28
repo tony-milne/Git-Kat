@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100727104147) do
+ActiveRecord::Schema.define(:version => 20100728112146) do
 
   create_table "assets", :force => true do |t|
     t.integer  "exif_id"
@@ -76,6 +76,12 @@ ActiveRecord::Schema.define(:version => 20100727104147) do
   create_table "tags", :force => true do |t|
     t.string   "name"
     t.integer  "asset_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tribes", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

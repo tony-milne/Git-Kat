@@ -17,6 +17,7 @@
 <div id="show_right_column">
 	<ul class="picAttributes">
   	<li><strong>Title: </strong><em><%=h @asset.title %></em></li>
+	<li><strong>Tribe:</strong><em><%= h asset.tribe.name.capitalize %></em></li>
     <li><strong>File Name: </strong><em><%=h @asset.data_file_name %></em></li>
     <li><strong>File Type: </strong><em><%=h @asset.data_content_type %></em></li>
     <li><strong>Date Created: </strong><em><%=h @asset.created_at %></em></li>
