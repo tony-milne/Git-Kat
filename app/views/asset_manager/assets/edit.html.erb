@@ -9,6 +9,18 @@
     <%= f.text_field :title %>
   </p>
   
+         <p>
+    <%= f.label :country %>&nbsp;&nbsp;
+    <select name="asset[country_id]">
+    <% @countries.each do |country| %>
+    <option value="<%= country.id %>"
+    <%= ' selected' if country.id == @asset.country_id %>>
+    <%= country.name %>
+    </option>
+    <% end %>
+    </select>
+    </p>
+  
     <p>
     <%= f.label :tribe %><br />
     <select name="asset[tribe_id]">

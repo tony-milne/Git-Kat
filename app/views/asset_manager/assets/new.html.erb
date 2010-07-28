@@ -10,6 +10,18 @@
         <%= f.text_field :title %>
       </div>
       
+         <div class="formRow">
+    <span class="labelCol"><%= f.label :country %>&nbsp;&nbsp;
+    <select name="asset[country_id]">
+    <% @countries.each do |country| %>
+    <option value="<%= country.id %>"
+    <%= ' selected' if country.id == @asset.country_id %>>
+    <%= country.name %>
+    </option>
+    <% end %>
+    </select></span>
+    </div>
+      
    <div class="formRow">
     <span class="labelCol"><%= f.label :tribe %>&nbsp;&nbsp;
     <select name="asset[tribe_id]">

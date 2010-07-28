@@ -1,7 +1,6 @@
   ActionController::Routing::Routes.draw do |map|
-  map.resources :countries
-
   map.resources :tribes
+  map.resources :countries
 
   #map.resources :tags
   #map.resources :credits
@@ -17,6 +16,7 @@
   manager.resources :users
   manager.resources :tags
   manager.resources :tribes, :has_many => :assets
+  manager.resources :countries, :has_many => :assets
   end
 
   map.resources :user_sessions
