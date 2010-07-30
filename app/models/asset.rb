@@ -24,12 +24,12 @@ class Asset < ActiveRecord::Base
   # Connection to S3
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-  #:s3_options => {:proxy => {:host => 'proxy.abdn.ac.uk', :port => 8080} },
+  :s3_options => {:proxy => {:host => 'proxy.abdn.ac.uk', :port => 8080} },
   :bucket => "survival-project"
 
   # Checking Filetypes
   validates_attachment_presence :data
-  validates_attachment_content_type :data, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff", "image/pjpeg", "image/x-png"]
+  validates_attachment_content_type :data, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff", "image/pjpeg", "image/x-png", "image/jpg"]
 
   # Pagination
   cattr_reader :per_page
