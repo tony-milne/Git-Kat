@@ -45,6 +45,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets/1/edit
   def edit
     @asset = Asset.find(params[:id])
+    @tags = @asset.tags
   end
 
   # POST /assets
