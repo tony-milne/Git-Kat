@@ -1,13 +1,14 @@
 <% title "Update Asset"  %>
 <h1>Edit Photo Properties</h1>
 
-<% form_for([:asset_manager, @asset]) do |f| %>
+<% form_for([:asset_manager, @asset], :html => { :method => :put })  do |f| %>
   <%= f.error_messages %>
+  
+  <%= @tags.each do |tag| %>  
+      
 
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
+  <%= render :partial => "fields", :locals => { :f => f } %>
+  
   <p>
     <%= f.submit 'Update' %>
   </p>

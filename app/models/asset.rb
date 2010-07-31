@@ -21,7 +21,7 @@ class Asset < ActiveRecord::Base
 
   # Checking Filetypes 
   validates_attachment_presence :data
-  validates_attachment_content_type :data, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff", "image/pjpeg", "image/x-png"]
+  validates_attachment_content_type :data, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff", "image/pjpeg", "image/x-png", "image/jpg"]
   
   after_post_process :set_exif_data
   
