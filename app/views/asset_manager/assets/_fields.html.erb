@@ -12,7 +12,10 @@
     
   <div id="tags">
     <!-- is initially empty -->
-  </div>  
+  </div>
+
+  <%= render :partial => "tag", :collection => @tags %>
+
   <%= link_to_function "Add a tag" do |page|
     page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new
   end %>

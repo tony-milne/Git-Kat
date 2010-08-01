@@ -16,7 +16,7 @@ class Asset < ActiveRecord::Base
   # Connection to S3
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-  :s3_options => { :proxy => { :host => 'proxy.abdn.ac.uk', :port => 8080 } },
+  #:s3_options => { :proxy => { :host => 'proxy.abdn.ac.uk', :port => 8080 } },
   :bucket => "survival-project"
 
   # Checking Filetypes 
@@ -70,6 +70,10 @@ class Asset < ActiveRecord::Base
         self.tags << tag
       end
     end
+  end
+
+  def update_tag_attributes=(tag_attributes)
+    
   end
   
   def caption_attributes=(caption_attributes)
