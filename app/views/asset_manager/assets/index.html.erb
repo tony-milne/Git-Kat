@@ -1,26 +1,38 @@
 <% title "Home Page" %>
-<div id="standard_container">
-  <h3>Welcome To Your Asset Archive</h3>
+<div id="welcome_container">
+<h3>Welcome To Your Asset Archive</h3>
   <p> In your asset archive, you can edit and delete your current assets as well as add new ones.</p>
-  <div class="table">
-    <table>
-      <tr>
-        <th>Your Assets:</th>
-      </tr>
-    
-      <% @assets.each do |asset| %>
-        <tr>
-          <td><%=h asset.title %></td>
-          <td><%= link_to 'View', asset_manager_asset_path(asset) %></td>
-          <td><%= link_to 'Edit', edit_asset_manager_asset_path(asset) %></td>
-          <td><%= link_to 'Delete', asset_manager_asset_path(asset), :confirm => 'Are you sure?', :method => :delete %></td>
-        </tr>
-      <% end %>
-    </table>
+</div>
+  
+
+  <div id="gallery_container">
+	<% form_tag added_asset_manager_stages_path, :method => :put do %> 
+    <% @assets.each do |asset| %>
+    <div id="image_gallery">
+      <div class="thumbnail">
+        <%= link_to image_tag(asset.data.url(:thumb)), asset_manager_asset_path(asset) %><br />
+        <%= link_to truncate(asset.title, 20, "..."), asset_manager_asset_path(asset) %><br />
+        <%= link_to 'Edit', edit_asset_manager_asset_path(asset) %>
+        <%= link_to 'Delete', asset_manager_asset_path(asset), :confirm => 'Are you sure?', :method => :delete %>
+        <%= check_box_tag "asset_ids[]", asset.id %>
+      </div>
+    <% end %>
   </div>
-  <div class="will_paginate_assetslist">
-    <%= will_paginate @assets %>
+<div class="clear">  
+    <%= will_paginate @assets %>  
+  
+ 
+ <div>
+    <h2> Select a Stage to Add the Assets to </h2>
+    <p><%= collection_select(:stage, :stage_id, Stage.all, :id, :title, {:prompt => true}) %>
+    <p><%= submit_tag "Add To Stage" %></p>
+    <% end %>
   </div>
+</div>
+
+
+
+  
   <div id="local_nav">
     <ul class="localNav">
       <li><%= link_to 'New asset', new_asset_manager_asset_path %></li>

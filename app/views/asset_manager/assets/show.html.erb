@@ -1,4 +1,4 @@
-<% title "Viewing #{@asset.title}" %>
+<% title "Viewing #{truncate(@asset.title, 25, "...")}" %>
 <div id="show_left_column">
 	<div class="showPicAsset">
 		<%= image_tag @asset.data.url(:large) %>

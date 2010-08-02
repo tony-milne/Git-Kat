@@ -13,11 +13,6 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
     end
   end
   
-  def gallery
-    @assets = Asset.search(params[:search], params[:page])
-        @stages = Stage.find(:all)
-  end
-
   # GET /assets/1
   # GET /assets/1.xml
   def show
