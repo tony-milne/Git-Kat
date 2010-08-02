@@ -332,7 +332,7 @@ img {
 #new_asset_container {
   margin: 70px auto 20px auto;
   width: 700px;
-  height: 260px;
+  min-height: 260px;
 }
 
 /* Gallery Page */
