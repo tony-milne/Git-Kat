@@ -9,12 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100728101230) do
+ActiveRecord::Schema.define(:version => 20100728133204) do
 
   create_table "assets", :force => true do |t|
     t.integer  "exif_id"
     t.string   "exif_type"
     t.string   "title"
+    t.integer  "tribe_id"
+    t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "data_file_name"
@@ -32,6 +34,12 @@ ActiveRecord::Schema.define(:version => 20100728101230) do
     t.string   "caption"
     t.integer  "asset_id"
     t.integer  "language_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -76,6 +84,12 @@ ActiveRecord::Schema.define(:version => 20100728101230) do
   create_table "tags", :force => true do |t|
     t.string   "name"
     t.integer  "asset_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tribes", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
