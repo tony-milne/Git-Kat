@@ -9,21 +9,20 @@
         <span class="labelCol"><%= f.label :asset_title %></span>
         <%= f.text_field :title %>
       </div>
-      
-    <div class="formRow">
-    <span class="labelCol"><%= f.label :country %>&nbsp;&nbsp;
-    <select name="asset[country_id]">
-    <% @countries.each do |country| %>
-    <option value="<%= country.id %>"
-    <%= ' selected' if country.id == @asset.country_id %>>
-    <%= country.name %>
-    </option>
-    <% end %>
-    </select></span>
-    </div>
+      <div class="formRow">
+        <span class="labelCol"><%= f.label :country %></span>
+        <select name="asset[country_id]">
+        <% @countries.each do |country| %>
+        <option value="<%= country.id %>"
+          <%= ' selected' if country.id == @asset.country_id %>>
+          <%= country.name %>
+        </option>
+        <% end %>
+        </select>
+      </div>
       
    <div class="formRow">
-    <span class="labelCol"><%= f.label :tribe %>&nbsp;&nbsp;
+    <span class="labelCol"><%= f.label :tribe %></span>
     <select name="asset[tribe_id]">
     <% @tribes.each do |tribe| %>
     <option value="<%= tribe.id %>"
@@ -31,7 +30,7 @@
     <%= tribe.name %>
     </option>
     <% end %>
-    </select></span>
+    </select>
     </div>
       
       <div class="formRow">
