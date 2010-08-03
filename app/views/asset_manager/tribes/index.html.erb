@@ -1,0 +1,20 @@
+<h1>Listing tribes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @tribes.each do |tribe| %>
+  <tr>
+    <td><%=h tribe.name %></td>
+    <td><%= link_to 'Edit', edit_asset_manager_tribe_path(tribe) %></td>
+    <td><%= link_to 'Destroy', asset_manager_tribe_path(tribe), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tribe', new_asset_manager_tribe_path(@tribe) %>&nbsp; |
+<%= link_to 'Assets Homepage', asset_manager_assets_path(@asset) %>
