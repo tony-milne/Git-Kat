@@ -1,6 +1,6 @@
   ActionController::Routing::Routes.draw do |map|
-  map.resources :tribes
-  map.resources :countries
+  #map.resources :tribes
+  #map.resources :countries
 
   #map.resources :tags
   #map.resources :credits
