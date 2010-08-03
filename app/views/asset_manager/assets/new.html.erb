@@ -20,19 +20,17 @@
         <% end %>
         </select>
       </div>
-      
-   <div class="formRow">
-    <span class="labelCol"><%= f.label :tribe %></span>
-    <select name="asset[tribe_id]">
-    <% @tribes.each do |tribe| %>
-    <option value="<%= tribe.id %>"
-    <%= ' selected' if tribe.id == @asset.tribe_id %>>
-    <%= tribe.name %>
-    </option>
-    <% end %>
-    </select>
-    </div>
-      
+      <div class="formRow">
+        <span class="labelCol"><%= f.label :tribe %></span>
+        <select name="asset[tribe_id]">
+        <% @tribes.each do |tribe| %>
+        <option value="<%= tribe.id %>"
+          <%= ' selected' if tribe.id == @asset.tribe_id %>>
+          <%= tribe.name %>
+        </option>
+        <% end %>
+        </select>
+      </div>
       <div class="formRow">
         <span class="labelCol"><%= f.label :browse_files %></span>
         <%= f.file_field :data %>
