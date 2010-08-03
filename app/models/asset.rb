@@ -7,6 +7,8 @@ class Asset < ActiveRecord::Base
   has_many :credits
   has_many :tags
   accepts_nested_attributes_for :captions
+  validates_presence_of :tribe
+  validates_presence_of :country
 
   has_and_belongs_to_many :stages
   # before_destroy :ensure_not_referenced_by_any_stage_item
