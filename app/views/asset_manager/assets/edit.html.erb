@@ -9,19 +9,18 @@
     <%= f.text_field :title %>
   </div>
   
+  <%= render :partial => "caption", :locals => { :prefix => "updated" }, :collection => @asset.captions %>
   <div id="captions">
     <!-- is intially empty -->
   </div>
   <%= link_to_function "Add a caption" do |page|
-    page.insert_html :bottom, :captions, :partial => "caption", :object => Caption.new
+    page.insert_html :bottom, :captions, :partial => "caption", :locals => { :prefix => "new" }, :object => Caption.new
   end %>
     
+  <%= render :partial => "tag", :locals => { :prefix => "updated" }, :collection => @asset.tags %>
   <div id="tags">
     <!-- is initially empty -->
   </div>
-
-  <%= render :partial => "tag", :locals => { :prefix => "updated" }, :collection => @asset.tags %>
-
   <%= link_to_function "Add a tag" do |page|
     page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
   end %>
