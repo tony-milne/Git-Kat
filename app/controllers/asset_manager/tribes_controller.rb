@@ -24,7 +24,7 @@ class AssetManager::TribesController < AssetManager::ApplicationController
   # GET /asset_manager_tribes/new
   # GET /asset_manager_tribes/new.xml
   def new
-    @tribe = AssetManager::Tribe.new
+    @tribe = Tribe.new
 
     respond_to do |format|
       format.html # new.html.erb
