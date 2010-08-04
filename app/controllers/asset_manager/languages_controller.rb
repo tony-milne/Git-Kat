@@ -13,7 +13,7 @@ class AssetManager::LanguagesController < AssetManager::ApplicationController
   # GET /asset_manager_languages/1
   # GET /asset_manager_languages/1.xml
   def show
-    @language = AssetManager::Language.find(params[:id])
+    @language = Language.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class AssetManager::LanguagesController < AssetManager::ApplicationController
   # GET /asset_manager_languages/new
   # GET /asset_manager_languages/new.xml
   def new
-    @language = AssetManager::Language.new
+    @language = Language.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +34,13 @@ class AssetManager::LanguagesController < AssetManager::ApplicationController
 
   # GET /asset_manager_languages/1/edit
   def edit
-    @language = AssetManager::Language.find(params[:id])
+    @language = Language.find(params[:id])
   end
 
   # POST /asset_manager_languages
   # POST /asset_manager_languages.xml
   def create
-    @language = AssetManager::Language.new(params[:language])
+    @language = Language.new(params[:language])
 
     respond_to do |format|
       if @language.save
