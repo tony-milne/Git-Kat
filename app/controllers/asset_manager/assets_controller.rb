@@ -67,6 +67,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # PUT /assets/1.xml
   def update
     params[:asset][:updated_tag_attributes] ||= {}
+    params[:asset][:updated_caption_attributes] ||= {}
     @asset = Asset.find(params[:id])
     
     respond_to do |format|

@@ -18,8 +18,12 @@
 	  <% end %>
 	  <li><strong>Tags: </strong>
 	  <% @asset.tags.each do |tag| %>
-	    <%= tag[:content] %> 
-	  <% end %>
+	    <%= tag.content %> 
+	  <% end %></li>
+	  <li><strong>Captions: </strong>
+	  <% @asset.captions.each do |caption| %>
+	    <%= caption.content %> <%= Language.find(caption[:language_id]).language %><br />
+	  <% end %></li>
 	</ul>  
 </div>
 

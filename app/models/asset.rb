@@ -25,7 +25,7 @@ class Asset < ActiveRecord::Base
   
   after_post_process :set_exif_data
 
-  after_update :save_tags
+  after_update :save_tags, :save_captions
   
   # Pagination
   cattr_reader :per_page
@@ -92,24 +92,39 @@ class Asset < ActiveRecord::Base
         #do nothing
       else
         tag = Tag.find_or_create_by_content(nt[:content])
-        if(tags.exists?(tag))
-          #do nothing
-        else
+        if !tags.exists?(tag)
           self.tags << tag
         end
       end
     end
   end
   
-  def caption_attributes=(caption_attributes)
+  def save_tags
+    tags.each do |tag|
+      tag.save(false)
+    end
+  end
+  
+  def updated_caption_attributes=(caption_attributes)
+    captions.reject(&:new_record?).each do |caption|
+      attributes = caption_attributes[caption.id.to_s]
+      if attributes
+        caption.attributes = attributes
+      else
+        captions.delete(caption)
+      end
+    end
+  end
+  
+  def new_caption_attributes=(caption_attributes)
     caption_attributes.each do |a|
       self.captions.build(a)
     end
   end
-
-  def save_tags
-    self.tags.each do |tag|
-      tag.save(false)
+  
+  def save_captions
+    captions.each do |caption|
+      caption.save(false)
     end
   end
 

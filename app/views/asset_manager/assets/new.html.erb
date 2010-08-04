@@ -12,7 +12,7 @@
     <!-- is intially empty -->
   </div>
   <%= link_to_function "Add a caption" do |page|
-    page.insert_html :bottom, :captions, :partial => "caption", :object => Caption.new
+    page.insert_html :bottom, :captions, :partial => "caption", :object => Caption.new, :locals => { :prefix => "new" }
   end %>
     
   <div id="tags">
