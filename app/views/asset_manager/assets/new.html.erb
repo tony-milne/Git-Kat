@@ -19,7 +19,7 @@
     <!-- is initially empty -->
   </div>
   <%= link_to_function "Add a tag" do |page|
-    page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new
+    page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
   end %>
   
   <h4>Step 2: Browse Your Files For The New Asset </h4>

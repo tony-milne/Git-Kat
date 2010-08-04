@@ -16,7 +16,7 @@ class Asset < ActiveRecord::Base
   # Connection to S3
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-  #:s3_options => { :proxy => { :host => 'proxy.abdn.ac.uk', :port => 8080 } },
+  :s3_options => { :proxy => { :host => 'proxy.abdn.ac.uk', :port => 8080 } },
   :bucket => "survival-project"
 
   # Checking Filetypes 
@@ -24,6 +24,8 @@ class Asset < ActiveRecord::Base
   validates_attachment_content_type :data, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff", "image/pjpeg", "image/x-png", "image/jpg"]
   
   after_post_process :set_exif_data
+
+  after_update :save_tags
   
   # Pagination
   cattr_reader :per_page
@@ -55,7 +57,30 @@ class Asset < ActiveRecord::Base
     end
   end
 
-  def tag_attributes=(tag_attributes)
+  ## Start of virtual attributes for AJAX forms ##
+
+  def updated_tag_attributes=(tag_attributes)
+    tags.reject(&:new_record?).each do |tag|
+      attributes = tag_attributes[tag.id.to_s]
+      if attributes
+        if(attributes[:content].eql? tag[:content])
+          #do nothing
+        else
+          new_tag = Tag.find_or_create_by_content(attributes[:content])
+          if(tags.exists?(new_tag))
+            #do nothing
+          else
+            tags.delete(tag)
+            tags << new_tag
+          end
+        end
+      else
+        tags.delete(tag)
+      end
+    end
+  end
+  
+  def new_tag_attributes=(tag_attributes)
     new_tags = Set.new
     
     tag_attributes.each do |a|
@@ -67,18 +92,24 @@ class Asset < ActiveRecord::Base
         #do nothing
       else
         tag = Tag.find_or_create_by_content(nt[:content])
-        self.tags << tag
+        if(tags.exists?(tag))
+          #do nothing
+        else
+          self.tags << tag
+        end
       end
     end
-  end
-
-  def update_tag_attributes=(tag_attributes)
-    
   end
   
   def caption_attributes=(caption_attributes)
     caption_attributes.each do |a|
       self.captions.build(a)
+    end
+  end
+
+  def save_tags
+    self.tags.each do |tag|
+      tag.save(false)
     end
   end
 

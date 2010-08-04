@@ -34,7 +34,6 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets/new.xml
   def new
     @asset = Asset.new
-    #3.times { @asset.tags.build }
     
     respond_to do |format|
       format.html # new.html.erb
@@ -67,6 +66,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # PUT /assets/1
   # PUT /assets/1.xml
   def update
+    params[:asset][:updated_tag_attributes] ||= {}
     @asset = Asset.find(params[:id])
     
     respond_to do |format|

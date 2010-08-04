@@ -20,16 +20,11 @@
     <!-- is initially empty -->
   </div>
 
-  <%= render :partial => "tag", :collection => @tags %>
+  <%= render :partial => "tag", :locals => { :prefix => "updated" }, :collection => @asset.tags %>
 
   <%= link_to_function "Add a tag" do |page|
-    page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new
+    page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
   end %>
-  
-  <h4>Step 2: Browse Your Files For The New Asset </h4>
-  <div>
-    <%= f.file_field :data %>
-  </div>
   
   <p>
     <%= f.submit 'Update' %>
