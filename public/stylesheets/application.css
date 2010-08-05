@@ -11,11 +11,16 @@ body {
 }
 
 a:link {
-  color: #FFF;
+  color: #A1CFE5;
+  text-decoration: none;
 }
 
 a:visited {
-  color: #FFF;
+  color: #A1CFE5;
+}
+
+a:hover {
+    color: #FFF;
 }
 #container {
   background-color: #222222;
@@ -398,6 +403,4 @@ img {
   list-style: disc;
 }
 
-a:hover {
-    color: #A1CFE5;
-}
+
