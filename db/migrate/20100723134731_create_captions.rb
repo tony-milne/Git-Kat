@@ -1,9 +1,10 @@
 class CreateCaptions < ActiveRecord::Migration
   def self.up
     create_table :captions do |t|
-      t.string :caption
-      t.references :asset
+      t.text :content
       t.references :language
+      t.references :asset
+
       t.timestamps
     end
   end

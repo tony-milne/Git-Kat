@@ -1,0 +1,9 @@
+<div class="tag">
+  <% fields_for "asset[#{prefix}_tag_attributes][]", tag do |t| %>
+    <p>  
+      <%= t.label "Tag"%>
+      <%= t.text_field :content %>
+      <%= link_to_function "Remove", "this.up('.tag').remove()" %>
+    </p>
+  <% end %>
+</div>
