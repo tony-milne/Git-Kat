@@ -1,0 +1,2 @@
+module AssetManager::CountriesHelper
+end

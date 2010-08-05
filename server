@@ -1,0 +1,304 @@
+Script started on Tue 03 Aug 2010 15:26:30 BST
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ script/a[Kserver
+=> Booting Mongrel
+=> Rails 2.3.8 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-03 15:27:19) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '937be36c9f71de1491d4dbe5c97590735b49626c82e3ad264191d07fb7948cb2b363729dca9b603a746f05ac2975a679c1e6d80c35f580ad1126992c52c84f26') LIMIT 1[0m
+  [4;36;1mAsset Load (0.2ms)[0m   [0;1mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;35;1mStage Load (0.1ms)[0m   [0mSELECT * FROM `stages` [0m
+  [4;36;1mTribe Load (0.2ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;36;1mAsset Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `stages` [0m
+Completed in 1204ms (View: 1087, DB: 4) | 200 OK [http://localhost/asset_manager/assets]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 15:27:21) [GET]
+
+ActionController::RoutingError (No route matches "/public/favicon.ico" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#new (for 127.0.0.1 at 2010-08-03 15:27:27) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '937be36c9f71de1491d4dbe5c97590735b49626c82e3ad264191d07fb7948cb2b363729dca9b603a746f05ac2975a679c1e6d80c35f580ad1126992c52c84f26') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.2ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/new
+  [4;35;1mCountry Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mTribe Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+Completed in 92ms (View: 25, DB: 5) | 200 OK [http://localhost/asset_manager/assets/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 15:27:27) [GET]
+
+ActionController::RoutingError (No route matches "/public/favicon.ico" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#create (for 127.0.0.1 at 2010-08-03 15:28:03) [POST]
+  Parameters: {"commit"=>"Upload", "action"=>"create", "controller"=>"asset_manager/assets", "asset"=>{"data"=>#<File:/tmp/RackMultipart20100803-2188-1bmlswo-0>, "title"=>"Maria", "country_id"=>"1", "tribe_id"=>"1"}}
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '937be36c9f71de1491d4dbe5c97590735b49626c82e3ad264191d07fb7948cb2b363729dca9b603a746f05ac2975a679c1e6d80c35f580ad1126992c52c84f26') LIMIT 1[0m
+  [4;35;1mAsset Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2188,0.JPG[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2188,0.JPG[0]' '-resize' '193x120' '/tmp/stream,2188,0,2188,0' 2>/dev/null
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2188,0.JPG[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2188,0.JPG[0]' '-resize' '350x350' '/tmp/stream,2188,0,2188,1' 2>/dev/null
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2188,0.JPG[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2188,0.JPG[0]' '-resize' '540x337' '/tmp/stream,2188,0,2188,2' 2>/dev/null
+  [4;36;1mTribe Load (0.2ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.2ms)[0m   [0mSELECT * FROM `countries` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mAsset Create (0.4ms)[0m   [0mINSERT INTO `assets` (`exif_id`, `created_at`, `data_updated_at`, `exif_type`, `title`, `updated_at`, `data_content_type`, `country_id`, `tribe_id`, `data_file_name`, `data_file_size`) VALUES(NULL, '2010-08-03 14:28:05', '2010-08-03 14:28:03', NULL, 'Maria', '2010-08-03 14:28:05', 'image/jpeg', 1, 1, 'pic,tures.JPG', 29597)[0m
+[paperclip] Saving attachments.
+[paperclip] saving /assets/photos/3/thumb/pic,tures.JPG
+[paperclip] saving /assets/photos/3/medium/pic,tures.JPG
+[paperclip] saving /assets/photos/3/large/pic,tures.JPG
+[paperclip] saving /assets/photos/3/original/pic,tures.JPG
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/asset_manager/assets/3
+Completed in 4260ms (DB: 6) | 302 Found [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#show (for 127.0.0.1 at 2010-08-03 15:28:07) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '937be36c9f71de1491d4dbe5c97590735b49626c82e3ad264191d07fb7948cb2b363729dca9b603a746f05ac2975a679c1e6d80c35f580ad1126992c52c84f26') LIMIT 1[0m
+  [4;35;1mAsset Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (0.4ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 3) [0m
+  [4;35;1mTribe Load (0.2ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.2ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/show
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47asset_manager47assets47show46html46erb at /home/ryan/Rails/shared/app/views/asset_manager/assets/show.html.erb:1)
+  [4;35;1mTribe Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;35;1mCountry Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;35;1mCaption Load (0.7ms)[0m   [0mSELECT * FROM `captions` WHERE (`captions`.asset_id = 3) [0m
+  [4;36;1mCredit Load (0.5ms)[0m   [0;1mSELECT * FROM `credits` WHERE (`credits`.asset_id = 3) [0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT * FROM `tags` WHERE (`tags`.asset_id = 3) [0m
+Completed in 151ms (View: 78, DB: 7) | 200 OK [http://localhost/asset_manager/assets/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 15:28:08) [GET]
+
+ActionController::RoutingError (No route matches "/public/favicon.ico" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-03 15:28:12) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '937be36c9f71de1491d4dbe5c97590735b49626c82e3ad264191d07fb7948cb2b363729dca9b603a746f05ac2975a679c1e6d80c35f580ad1126992c52c84f26') LIMIT 1[0m
+  [4;36;1mAsset Load (0.8ms)[0m   [0;1mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;35;1mStage Load (0.1ms)[0m   [0mSELECT * FROM `stages` [0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.2ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;36;1mAsset Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `stages` [0m
+Completed in 115ms (View: 45, DB: 4) | 200 OK [http://localhost/asset_manager/assets]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 15:28:12) [GET]
+
+ActionController::RoutingError (No route matches "/public/favicon.ico" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#edit (for 127.0.0.1 at 2010-08-03 15:30:46) [GET]
+  Parameters: {"action"=>"edit", "id"=>"3", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '937be36c9f71de1491d4dbe5c97590735b49626c82e3ad264191d07fb7948cb2b363729dca9b603a746f05ac2975a679c1e6d80c35f580ad1126992c52c84f26') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (0.1ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 3) [0m
+  [4;36;1mTribe Load (0.2ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.2ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/edit
+  [4;36;1mCountry Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mTribe Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+Completed in 259ms (View: 28, DB: 5) | 200 OK [http://localhost/asset_manager/assets/3/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 15:30:47) [GET]
+
+ActionController::RoutingError (No route matches "/public/favicon.ico" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-03 15:30:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '937be36c9f71de1491d4dbe5c97590735b49626c82e3ad264191d07fb7948cb2b363729dca9b603a746f05ac2975a679c1e6d80c35f580ad1126992c52c84f26') LIMIT 1[0m
+  [4;36;1mAsset Load (0.2ms)[0m   [0;1mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;35;1mStage Load (0.1ms)[0m   [0mSELECT * FROM `stages` [0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;36;1mAsset Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `stages` [0m
+Completed in 109ms (View: 48, DB: 4) | 200 OK [http://localhost/asset_manager/assets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-03 15:30:59) [GET]
+
+ActionController::RoutingError (No route matches "/public/favicon.ico" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (57.9ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#gallery (for 127.0.0.1 at 2010-08-03 15:40:39) [GET]
+  Parameters: {"action"=>"gallery", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '937be36c9f71de1491d4dbe5c97590735b49626c82e3ad264191d07fb7948cb2b363729dca9b603a746f05ac2975a679c1e6d80c35f580ad1126992c52c84f26') LIMIT 1[0m
+
+ActionController::UnknownAction (No action responded to gallery. Actions: create, destroy, edit, index, new, show, and update):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-03 15:41:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '937be36c9f71de1491d4dbe5c97590735b49626c82e3ad264191d07fb7948cb2b363729dca9b603a746f05ac2975a679c1e6d80c35f580ad1126992c52c84f26') LIMIT 1[0m
+  [4;36;1mAsset Load (1.3ms)[0m   [0;1mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;35;1mStage Load (0.1ms)[0m   [0mSELECT * FROM `stages` [0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.3ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;36;1mAsset Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `stages` [0m
+Complet

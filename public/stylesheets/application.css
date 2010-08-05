@@ -9,6 +9,7 @@ body {
   padding: 0px;
   width: 100%;
 }
+
 a:link {
   color: #FFF;
 }
@@ -19,6 +20,10 @@ a:visited {
 #container {
   background-color: #222222;
   overflow: auto;
+}
+
+img {
+  border: 0;
 }
 
 /****** Header Area ******/
@@ -180,6 +185,10 @@ a:visited {
 
 /****** Classes ******/
 
+.clear {
+  clear: both;
+}
+
 .centreText {
   text-align: center;
 }
@@ -302,7 +311,7 @@ a:visited {
 }
 
 .showPicAsset div {
-  display: inline;
+  display: inline-block;
   vertical-align: middle;
 }
 
@@ -323,8 +332,29 @@ a:visited {
 #new_asset_container {
   margin: 70px auto 20px auto;
   width: 700px;
-  height: 260px;
+  min-height: 260px;
 }
+
+/* Gallery Page */
+
+#gallery_container {
+  margin-top: 20px;
+}
+
+.thumbnail div {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 4px;
+}
+
+.thumbnail {
+  float: left;
+	width: 193px;
+	margin: 0 auto 60px auto;
+	text-align: center;
+	height: 120px;
+}
+
 
 /****** Error Message layout ******/
 
