@@ -9,7 +9,7 @@
   <tr>
     <td><%=h tag.name %></td>
     <td><%= link_to 'Edit', edit_asset_manager_tag_path(tag) %></td>
-    <td><%= link_to 'Destroy', asset_manager_tag_path(tag), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Delete', asset_manager_tag_path(tag), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

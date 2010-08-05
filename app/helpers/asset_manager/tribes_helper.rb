@@ -1,0 +1,2 @@
+module AssetManager::TribesHelper
+end

@@ -3,9 +3,9 @@ class AssetManager::StagesController < ApplicationController
   # GET /stages.xml
   def index
     @stage = Stage.all
-       @stages = Stage.paginate :per_page => 6, :page => params[:page],
-                             :conditions => ['id like ?', "%#{params[:search]}%"],
-                             :order => 'id'
+       @stages = Stage.paginate :per_page => 6, :page => params[:page]#,
+                             #:conditions => ['id like ?', "%#{params[:search]}%"],
+                             #:order => 'id'
 
     respond_to do |format|
       format.html # index.html.erb
