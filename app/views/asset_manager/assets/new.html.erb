@@ -31,22 +31,21 @@
         <% end %>
         </select>
       </div>
-      <div class="formRow">
+
           <div id="captions">
             <!-- is intially empty -->
           </div>
-          <%= link_to_function "Add a caption" do |page|
+          <div class="formRow"><span class="labelCol"><%= link_to_function "Add a caption", :class => "localNav" do |page|
             page.insert_html :bottom, :captions, :partial => "caption", :object => Caption.new, :locals => { :prefix => "new" }
-          end %>
-      </div>
-      <span class="clear"><div class="formRow">   
+          end %></span></div>
+  
           <div id="tags">
             <!-- is initially empty -->
           </div>
-          <%= link_to_function "Add a tag" do |page|
+          <div class="formRow"><span class="labelCol"><%= link_to_function "Add a tag", :class => "localNav" do |page|
             page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
-          end %>
-      </div></span>
+          end %></span></div>
+
       <div class="formRow">
         <span class="labelCol"><%= f.label :browse_files %></span>
         <%= f.file_field :data %>
