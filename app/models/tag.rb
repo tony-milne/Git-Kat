@@ -1,3 +1,3 @@
 class Tag < ActiveRecord::Base
-  belongs_to :asset
+  has_and_belongs_to_many :assets #belongs_to :asset
 end

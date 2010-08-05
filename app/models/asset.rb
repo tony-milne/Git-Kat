@@ -5,8 +5,8 @@ class Asset < ActiveRecord::Base
   has_many :captions 
 
   has_many :credits
-  has_many :tags
-  accepts_nested_attributes_for :captions
+  has_and_belongs_to_many :tags #has_many :tags
+  accepts_nested_attributes_for :captions #not present in ajax branch
   validates_presence_of :tribe
   validates_presence_of :country
 
@@ -34,6 +34,10 @@ class Asset < ActiveRecord::Base
   # Checking Filetypes
   validates_attachment_presence :data
   validates_attachment_content_type :data, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff", "image/pjpeg", "image/x-png", "image/jpg"]
+  
+  after_post_process :set_exif_data
+
+  after_update :save_tags, :save_captions
 
   # Pagination
   cattr_reader :per_page
@@ -65,22 +69,93 @@ class Asset < ActiveRecord::Base
     end
   end
 
+  ## Start of virtual attributes for AJAX forms ##
+
+  def updated_tag_attributes=(tag_attributes)
+    tags.reject(&:new_record?).each do |tag|
+      attributes = tag_attributes[tag.id.to_s]
+      if attributes
+        if(attributes[:content].eql? tag[:content])
+          #do nothing
+        else
+          new_tag = Tag.find_or_create_by_content(attributes[:content])
+          if(tags.exists?(new_tag))
+            #do nothing
+          else
+            tags.delete(tag)
+            tags << new_tag
+          end
+        end
+      else
+        tags.delete(tag)
+      end
+    end
+  end
+  
+  def new_tag_attributes=(tag_attributes)
+    new_tags = Set.new
+    
+    tag_attributes.each do |a|
+      new_tags.add(a)
+    end
+    
+    new_tags.each do |nt|
+      if nt[:content].eql? ""
+        #do nothing
+      else
+        tag = Tag.find_or_create_by_content(nt[:content])
+        if !tags.exists?(tag)
+          self.tags << tag
+        end
+      end
+    end
+  end
+  
+  def save_tags
+    tags.each do |tag|
+      tag.save(false)
+    end
+  end
+  
+  def updated_caption_attributes=(caption_attributes)
+    captions.reject(&:new_record?).each do |caption|
+      attributes = caption_attributes[caption.id.to_s]
+      if attributes
+        caption.attributes = attributes
+      else
+        captions.delete(caption)
+      end
+    end
+  end
+  
+  def new_caption_attributes=(caption_attributes)
+    caption_attributes.each do |a|
+      self.captions.build(a)
+    end
+  end
+  
+  def save_captions
+    captions.each do |caption|
+      caption.save(false)
+    end
+  end
+
   private
   def set_image_exif_data
-    exif_data = EXIFR::JPEG.new(data.path)
+    exif_data = EXIFR::JPEG.new(data.to_file.path)
     return if exif_data.nil? or not exif_data.exif?
       i = Image.new
       i.width            = exif_data.width
       i.height           = exif_data.height
-      i.camera_brand     = exif_data.make
-      i.camera_model     = exif_data.model
+      i.camera_brand     = exif_data.make.to_s
+      i.camera_model     = exif_data.model.to_s
       i.exposure_time    = exif_data.exposure_time.to_s
       i.f_number         = exif_data.f_number.to_f
       i.iso_speed_rating = exif_data.iso_speed_ratings
       i.shot_date_time   = exif_data.date_time
       i.focal_length     = exif_data.focal_length.to_f
       self.exif = i
-      self.save!
+      i.save!
     rescue
       false
   end

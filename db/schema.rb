@@ -30,10 +30,15 @@ ActiveRecord::Schema.define(:version => 20100728133204) do
     t.integer "stage_id"
   end
 
+  create_table "assets_tags", :id => false, :force => true do |t|
+    t.integer "asset_id"
+    t.integer "tag_id"
+  end
+
   create_table "captions", :force => true do |t|
-    t.string   "caption"
-    t.integer  "asset_id"
+    t.text     "content"
     t.integer  "language_id"
+    t.integer  "asset_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,9 +70,7 @@ ActiveRecord::Schema.define(:version => 20100728133204) do
   end
 
   create_table "languages", :force => true do |t|
-    t.string   "language"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "language"
   end
 
   create_table "notifiers", :force => true do |t|
@@ -82,8 +85,7 @@ ActiveRecord::Schema.define(:version => 20100728133204) do
   end
 
   create_table "tags", :force => true do |t|
-    t.string   "name"
-    t.integer  "asset_id"
+    t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,12 +1,12 @@
 login: &login
-  access_key_id: 1QHTGHD6D2FH3K1XC382
-  secret_access_key: HE9iMl9Mv5iaEgiWDvn6ZX6Vdvn8jNmRLyqdNN03
- 
+access_key_id: 1QHTGHD6D2FH3K1XC382
+secret_access_key: HE9iMl9Mv5iaEgiWDvn6ZX6Vdvn8jNmRLyqdNN03
+
 development:
   <<: *login
  
 test:
-    <<: *login
+  <<: *login
  
 production:
   <<: *login

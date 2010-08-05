@@ -88,20 +88,19 @@ class AssetManager::StagesController < ApplicationController
     end
   end
   
-def added
-@stage = Stage.find(params[:stage][:stage_id])
-params[:asset_ids].each { |asset|
-@stage.assets << Asset.find(asset) }
-@stage.save
-redirect_to :back, :notice =>"Successfully added to the stage."
-end
+  def added
+    @stage = Stage.find(params[:stage][:stage_id])
+    params[:asset_ids].each { |asset|
+    @stage.assets << Asset.find(asset) }
+    @stage.save
+    redirect_to :back, :notice =>"Successfully added to the stage."
+  end
 
-def removed
-@stage = Stage.find(params[:stage])
-params[:asset_ids].each { |asset|
-@stage.assets.delete(Asset.find(asset)) }
-@stage.save
-redirect_to :back, :notice =>"Successfully deleted from stage."
-
-end
+  def removed
+    @stage = Stage.find(params[:stage])
+    params[:asset_ids].each { |asset|
+    @stage.assets.delete(Asset.find(asset)) }
+    @stage.save
+    redirect_to :back, :notice =>"Successfully deleted from stage."
+  end
 end
