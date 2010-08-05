@@ -397,3 +397,6 @@ img {
   list-style: disc;
 }
 
+a:hover {
+    color: #A1CFE5;
+}
