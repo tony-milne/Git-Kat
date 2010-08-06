@@ -11,11 +11,16 @@ body {
 }
 
 a:link {
-  color: #FFF;
+  color: #A1CFE5;
+  text-decoration: none;
 }
 
 a:visited {
-  color: #FFF;
+  color: #A1CFE5;
+}
+
+a:hover {
+    color: #FFF;
 }
 #container {
   background-color: #222222;
@@ -137,6 +142,7 @@ img {
 #content {
   margin: 10px 0px 10px 0px;
   padding-bottom: 10px;
+  min-height: 330px;
 }
 
 #standard_container { /* adds margin to content area */
@@ -332,7 +338,7 @@ img {
 #new_asset_container {
   margin: 70px auto 20px auto;
   width: 700px;
-  min-height: 260px;
+  /* min-height: 260px; */
 }
 
 /* Gallery Page */
@@ -396,4 +402,5 @@ img {
   font-size: 12px;
   list-style: disc;
 }
+
 
