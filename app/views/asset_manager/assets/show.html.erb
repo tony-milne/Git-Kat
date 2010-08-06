@@ -31,7 +31,7 @@
 	  <% end %>
 	  <li><strong>Captions:</strong><br/>
 		<% @asset.captions.each do |caption| %>
-		  <em><%= h caption.caption.capitalize %> (<%= h caption.language.language.capitalize %>)</em><br/>
+		  <em><%= h caption.content.capitalize %> (<%= h caption.language.language.capitalize %>)</em><br/>
 		<% end %></li>
 	  <li><strong>Credits:</strong><br/>
 		<% @asset.credits.each do |credit| %>
@@ -39,7 +39,7 @@
 		<% end %></li>
 	  <li><strong>Tags:</strong><br/>
 		<% @asset.tags.each do |tag| %>
-		  <em><%= h tag.name.capitalize %></em><br/>
+		  <em><%= h tag.content.capitalize %></em><br/>
 		<% end %></li>
 	</ul>
 </div>

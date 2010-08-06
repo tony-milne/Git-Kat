@@ -1,6 +1,6 @@
 <% title "New Asset" %>
-<div id="new_asset_container">
-  <h2 class="lightBlue">Please add a new asset</h2>
+<div id="standard_container">
+  <h2>Please add a new asset</h2>
   <fieldset>
     <legend>Add asset</legend>
     <% form_for([:asset_manager, @asset], :html => { :multipart => true } ) do |f| %>
@@ -31,6 +31,21 @@
         <% end %>
         </select>
       </div>
+
+          <div id="captions">
+            <!-- is intially empty -->
+          </div>
+          <div class="formRow"><span class="labelCol"><%= link_to_function "Add a caption", :class => "localNav" do |page|
+            page.insert_html :bottom, :captions, :partial => "caption", :object => Caption.new, :locals => { :prefix => "new" }
+          end %></span></div>
+  
+          <div id="tags">
+            <!-- is initially empty -->
+          </div>
+          <div class="formRow"><span class="labelCol"><%= link_to_function "Add a tag", :class => "localNav" do |page|
+            page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
+          end %></span></div>
+
       <div class="formRow">
         <span class="labelCol"><%= f.label :browse_files %></span>
         <%= f.file_field :data %>

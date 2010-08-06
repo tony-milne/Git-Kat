@@ -1,4 +1,4 @@
 class Language < ActiveRecord::Base
- has_many :captions
- has_many :credits
+  has_one :caption #has_many :captions
+  has_many :credits
 end
