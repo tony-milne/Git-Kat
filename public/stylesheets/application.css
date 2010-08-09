@@ -10,18 +10,19 @@ body {
   width: 100%;
 }
 
-a:link {
+.blueLink:link {
   color: #A1CFE5;
   text-decoration: none;
 }
 
-a:visited {
+.blueLink:visited {
   color: #A1CFE5;
 }
 
-a:hover {
+.blueLink:hover {
     color: #FFF;
 }
+
 #container {
   background-color: #222222;
   overflow: auto;
