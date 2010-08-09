@@ -56,7 +56,7 @@ class AssetManager::CountriesController < AssetManager::ApplicationController
   # PUT /asset_manager_countries/1
   # PUT /asset_manager_countries/1.xml
   def update
-    @country = AssetManager::Country.find(params[:id])
+    @country = Country.find(params[:id])
 
     respond_to do |format|
       if @country.update_attributes(params[:country])
@@ -72,7 +72,7 @@ class AssetManager::CountriesController < AssetManager::ApplicationController
   # DELETE /asset_manager_countries/1
   # DELETE /asset_manager_countries/1.xml
   def destroy
-    @country = AssetManager::Country.find(params[:id])
+    @country = Country.find(params[:id])
     @country.destroy
 
     respond_to do |format|
