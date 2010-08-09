@@ -56,7 +56,7 @@ class AssetManager::LanguagesController < AssetManager::ApplicationController
   # PUT /asset_manager_languages/1
   # PUT /asset_manager_languages/1.xml
   def update
-    @language = AssetManager::Language.find(params[:id])
+    @language = Language.find(params[:id])
 
     respond_to do |format|
       if @language.update_attributes(params[:language])
@@ -72,7 +72,7 @@ class AssetManager::LanguagesController < AssetManager::ApplicationController
   # DELETE /asset_manager_languages/1
   # DELETE /asset_manager_languages/1.xml
   def destroy
-    @language = AssetManager::Language.find(params[:id])
+    @language = Language.find(params[:id])
     @language.destroy
 
     respond_to do |format|
