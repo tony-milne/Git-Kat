@@ -8,10 +8,14 @@
     <% @assets.each do |asset| %>
   <div class="thumbnail">
     <%= link_to image_tag(asset.data.url(:thumb)), asset_manager_asset_path(asset) %><br />
-    <%= link_to truncate(asset.title, 20, "..."), asset_manager_asset_path(asset) %><br />
-    <%= link_to 'Edit', edit_asset_manager_asset_path(asset) %>
-    <%= link_to 'Delete', asset_manager_asset_path(asset), :confirm => 'Are you sure?', :method => :delete %>
-    <%= check_box_tag "asset_ids[]", asset.id %>
+    <%= link_to truncate(asset.title, 20, "..."), asset_manager_asset_path(asset), :class => "blueLink" %><br />
+    <span id="local_nav">
+      <ul class="localNav">
+        <li><%= link_to 'Edit', edit_asset_manager_asset_path(asset) %></li>
+        <li><%= link_to 'Delete', asset_manager_asset_path(asset), :confirm => 'Are you sure?', :method => :delete %><li>
+        <li><%= check_box_tag "asset_ids[]", asset.id %></li>
+      </ul>
+    </span>
   </div>
     <% end %>
 </div>

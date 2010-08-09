@@ -2,8 +2,10 @@ class AssetManager::TagsController < AssetManager::ApplicationController
   # GET /asset_manager_tags
   # GET /asset_manager_tags.xml
   def index
-    @tags = Tag.find(:all, :conditions => ["asset_id = ?", params[:asset_id]])
-	@asset = Asset.find(params[:asset_id])
+    @asset = Asset.find(params[:asset_id])
+    @tags = @asset.tags
+    #@tags = Tag.find(:all, :conditions => ["asset_id = ?", params[:asset_id]])
+	  #@asset = Asset.find(params[:asset_id])
 	
     respond_to do |format|
       format.html # index.html.erb
@@ -26,8 +28,9 @@ class AssetManager::TagsController < AssetManager::ApplicationController
   # GET /asset_manager_tags/new.xml
   def new
     @asset = Asset.find(params[:asset_id])
-  	@tag = Tag.new
-  	@tag.asset = @asset
+  	@tag = @asset.tags.build
+  	#@tag = Tag.new
+  	#@tag.asset = @asset
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,8 +47,9 @@ class AssetManager::TagsController < AssetManager::ApplicationController
   # POST /asset_manager_tags.xml
   def create
     @asset = Asset.find(params[:asset_id])
-  	@tag = Tag.new(params[:tag])
-  	@tag.asset = @asset
+  	@tag = @asset.tags.build(params[:tag])
+  	#@tag = Tag.new(params[:tag])
+  	#@tag.asset = @asset
 
     respond_to do |format|
       if @tag.save

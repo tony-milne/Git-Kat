@@ -2,17 +2,18 @@ class Asset < ActiveRecord::Base
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
   belongs_to :country
   belongs_to :tribe
+  
   has_many :captions 
-
-  has_many :credits
-  has_and_belongs_to_many :tags #has_many :tags
   accepts_nested_attributes_for :captions #not present in ajax branch
+  has_many :credits #was has_many
+  
+  has_and_belongs_to_many :tags #has_many :tags
+  has_and_belongs_to_many :stages
+  
   validates_presence_of :tribe
   validates_presence_of :country
 
-  has_and_belongs_to_many :stages
   # before_destroy :ensure_not_referenced_by_any_stage_item
-
 
   # Uploading Images Using Paperclip
   has_attached_file	:data,
@@ -22,8 +23,7 @@ class Asset < ActiveRecord::Base
   # Resizing Images
   #For windows systems, the greater than sign '>' must be escaped with the hat '^' symbol
   #The '^' is not required on *nix systems
-
-  :styles => {:thumb => "193x120", :medium => "350x350", :large => "540x337"},
+  :styles => {:thumb => ["193x120", :jpg], :medium => ["350x350", :jpg], :large => ["540x337", :jpg]},
 
   # Connection to S3
   :storage => :s3,
@@ -35,8 +35,10 @@ class Asset < ActiveRecord::Base
   validates_attachment_presence :data
   validates_attachment_content_type :data, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff", "image/pjpeg", "image/x-png", "image/jpg"]
   
+  # Sets EXIF data for asset before uploading to Amazon S3
   after_post_process :set_exif_data
 
+  # Saves tags and captions updated in virtual attributes
   after_update :save_tags, :save_captions
 
   # Pagination
@@ -105,7 +107,7 @@ class Asset < ActiveRecord::Base
       else
         tag = Tag.find_or_create_by_content(nt[:content])
         if !tags.exists?(tag)
-          self.tags << tag
+          tags << tag #self.tags
         end
       end
     end

@@ -1,58 +1,63 @@
 <% title "Update Asset"  %>
-<h1>Edit Photo Properties</h1>
-
-<% form_for([:asset_manager, @asset]) do |f| %>
-  <%= f.error_messages %>
-  
-  <h4>Step 1: Give Your Asset a Title</h4>
-  <div>
-    <%= f.text_field :title %>
-  
-    <p>
-    <%= f.label :country %><br />
-    <select name="asset[country_id]">
+<div id="standard_container">
+  <h2>Edit Asset Properties</h2>
+  <fieldset>
+    <legend>Edit Asset</legend>
+  <% form_for([:asset_manager, @asset]) do |f| %>
+    <%= f.error_messages %>
+    <div class="formRow">
+      <span class="labelCol"><%= f.label :asset_title %></span>
+      <%= f.text_field :title %>
+    </div>  
+    <div class="formRow">
+      <span class="labelCol"><%= f.label :country %></span>
+      <select name="asset[country_id]">
     <% @countries.each do |country| %>
-    <option value="<%= country.id %>"
-    <%= ' selected' if country.id == @asset.country_id %>>
-    <%= country.name %>
-    </option>
+        <option value="<%= country.id %>"
+          <%= ' selected' if country.id == @asset.country_id %>>
+          <%= country.name %>
+        </option>
     <% end %>
-    </select>
-    </p>
-  
-    <p>
-    <%= f.label :tribe %><br />
-    <select name="asset[tribe_id]">
+      </select>
+    </div>
+    <div class="formRow">
+      <span class="labelCol"<%= f.label :tribe %></span>
+      <select name="asset[tribe_id]">
     <% @tribes.each do |tribe| %>
-    <option value="<%= tribe.id %>"
-    <%= ' selected' if tribe.id == @asset.tribe_id %>>
-    <%= tribe.name %>
-    </option>
+        <option value="<%= tribe.id %>"
+          <%= ' selected' if tribe.id == @asset.tribe_id %>>
+          <%= tribe.name %>
+        </option>
     <% end %>
-    </select>
-    </p>
-  </div>
-  
-  <%= render :partial => "caption", :locals => { :prefix => "updated" }, :collection => @asset.captions %>
-  <div id="captions">
-    <!-- is intially empty -->
-  </div>
-  <%= link_to_function "Add a caption" do |page|
-    page.insert_html :bottom, :captions, :partial => "caption", :locals => { :prefix => "new" }, :object => Caption.new
-  end %>
-    
-  <%= render :partial => "tag", :locals => { :prefix => "updated" }, :collection => @asset.tags %>
-  <div id="tags">
+      </select>
+    </div>
+    <%= render :partial => "caption", :locals => { :prefix => "updated" }, :collection => @asset.captions %>
+    <div id="captions">
+      <!-- is intially empty -->
+    </div>
+    <div class="formRow">
+      <span class="labelCol"><%= link_to_function "Add a caption", :class => "blueLink" do |page|
+      page.insert_html :bottom, :captions, :partial => "caption", :locals => { :prefix => "new" }, :object => Caption.new
+      end %></span>
+    </div>
+    <%= render :partial => "tag", :locals => { :prefix => "updated" }, :collection => @asset.tags %>
+    <div id="tags">
     <!-- is initially empty -->
+    </div>
+    <div class="formRow">
+      <span class="labelCol"><%= link_to_function "Add a tag", :class => "blueLink" do |page|
+      page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
+      end %></span>
+    </div>
+    <div class="formSubmit">
+      <%= f.submit 'Update' %>
+    </div>
+    <% end %>
+  </fieldset>
+  <div id="labelCol">
+    <ul class="localNav">
+      <li><%= link_to 'Show', asset_manager_asset_path(@asset) %></li> |
+      <li><%= link_to 'Back', asset_manager_assets_path %></li>
+    </ul>
   </div>
-  <%= link_to_function "Add a tag" do |page|
-    page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
-  end %>
-  
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', asset_manager_asset_path(@asset) %> |
-<%= link_to 'Back', asset_manager_assets_path %>
+</div>
