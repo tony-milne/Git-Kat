@@ -1,61 +1,65 @@
 <% title "New Asset" %>
 <div id="standard_container">
   <h2>Please add a new asset</h2>
-  <fieldset>
-    <legend>Add asset</legend>
-    <% form_for([:asset_manager, @asset], :html => { :multipart => true } ) do |f| %>
-      <%= f.error_messages %>
-      <div class="formRow">
-        <span class="labelCol"><%= f.label :asset_title %></span>
-        <%= f.text_field :title %>
-      </div>
-      <div class="formRow">
-        <span class="labelCol"><%= f.label :country %></span>
-        <select name="asset[country_id]">
-        <% @countries.each do |country| %>
-        <option value="<%= country.id %>"
-          <%= ' selected' if country.id == @asset.country_id %>>
-          <%= country.name %>
-        </option>
-        <% end %>
-        </select>
-      </div>
-      <div class="formRow">
-        <span class="labelCol"><%= f.label :tribe %></span>
-        <select name="asset[tribe_id]">
-        <% @tribes.each do |tribe| %>
-        <option value="<%= tribe.id %>"
-          <%= ' selected' if tribe.id == @asset.tribe_id %>>
-          <%= tribe.name %>
-        </option>
-        <% end %>
-        </select>
-      </div>
-
-          <div id="captions">
-            <!-- is intially empty -->
-          </div>
-          <div class="formRow"><span class="labelCol"><%= link_to_function "Add a caption", :class => "localNav" do |page|
+  <div>
+    <fieldset>
+      <legend>Add asset</legend>
+      <% form_for([:asset_manager, @asset], :html => { :multipart => true } ) do |f| %>
+        <%= f.error_messages %>
+        <div class="formRow">
+          <span class="labelCol"><%= f.label :asset_title %></span>
+          <%= f.text_field :title %>
+        </div>
+        <div class="formRow">
+          <span class="labelCol"><%= f.label :country %></span>
+          <select name="asset[country_id]">
+          <% @countries.each do |country| %>
+          <option value="<%= country.id %>"
+            <%= ' selected' if country.id == @asset.country_id %>>
+            <%= country.name %>
+          </option>
+          <% end %>
+          </select>
+        </div>
+        <div class="formRow">
+          <span class="labelCol"><%= f.label :tribe %></span>
+          <select name="asset[tribe_id]">
+          <% @tribes.each do |tribe| %>
+          <option value="<%= tribe.id %>"
+            <%= ' selected' if tribe.id == @asset.tribe_id %>>
+            <%= tribe.name %>
+          </option>
+          <% end %>
+          </select>
+        </div>
+        <div id="captions">
+          <!-- is intially empty -->
+        </div>
+        <div class="formRow">
+          <span class="labelCol"><%= link_to_function "Add a caption", :class => "blueLink" do |page|
             page.insert_html :bottom, :captions, :partial => "caption", :object => Caption.new, :locals => { :prefix => "new" }
-          end %></span></div>
-  
-          <div id="tags">
-            <!-- is initially empty -->
-          </div>
-          <div class="formRow"><span class="labelCol"><%= link_to_function "Add a tag", :class => "localNav" do |page|
-            page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
-          end %></span></div>
-
-      <div class="formRow">
-        <span class="labelCol"><%= f.label :browse_files %></span>
-        <%= f.file_field :data %>
-      </div>
-      <div class="formSubmit">
-        <%= f.submit 'Upload' %>
-      </div>
-    <% end %>
-  </fieldset>
-  <div class="localNav">
-    <%= link_to 'Back', asset_manager_assets_path %>
+              end %></span>
+        </div>
+        <div id="tags">
+          <!-- is initially empty -->
+        </div>
+        <div class="formRow"><span class="labelCol"><%= link_to_function "Add a tag", :class => "blueLink" do |page|
+          page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
+          end %></span>
+        </div>
+        <div class="formRow">
+          <span class="labelCol"><%= f.label :browse_files %></span>
+          <%= f.file_field :data %>
+        </div>
+        <div class="formSubmit">
+          <%= f.submit 'Upload' %>
+        </div>
+          <% end %>
+    </fieldset>
+  </div>
+  <div id="localNav">
+    <div class="localNav">
+      <li><%= link_to 'Back', asset_manager_assets_path %></li>
+    </div>
   </div>
 </div>
