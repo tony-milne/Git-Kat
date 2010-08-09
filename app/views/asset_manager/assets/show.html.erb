@@ -22,8 +22,8 @@
 	  <li><strong>Country: </strong><em><%=h @asset.country.name.capitalize %></em></li>
     <li><strong>File Name: </strong><em><%=h @asset.data_file_name %></em></li>
     <li><strong>File Type: </strong><em><%=h @asset.data_content_type %></em></li>
-    <li><strong>Date Created: </strong><em><%=h @asset.created_at %></em></li>
-    <li><strong>Last Updated: </strong><em><%=h @asset.updated_at %></em></li>
+    <li><strong>Date Created: </strong><em><%=h @asset.created_at.strftime("%d %b %Y %H:%M") %></em></li>
+    <li><strong>Last Updated: </strong><em><%=h @asset.updated_at.strftime("%d %b %Y %H:%M") %></em></li>
     <% if @asset.exif? %>
       <% @exif.each_pair { |key, value| %>
         <li><strong><%= "#{key}: " %></strong><em><%= "#{value}" %></em></li>
