@@ -23,7 +23,24 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
     @countries = Country.find(:all)
     if @asset.exif?
     	@exif = @asset.exif.attributes
-    end
+    	
+    	@exif.delete("id")
+    	@exif.delete_if { |key,value| value == 0.0 }
+    	
+    	@exif.each_pair { |key,value| 
+    	  if value.blank?
+    	    @exif.delete(key)
+  	    end }
+	    
+	    #@exif = @exif.select()
+	    @exif.each_pair { |key,value| 
+	      old_key = key.to_s.dup
+	      old_key.gsub!("_", " ")
+	      old_key.capitalize!
+	      old_value = value.to_s.dup
+	      @exif.delete(key)
+	      @exif.store(old_key, old_value) }
+   end
     
     respond_to do |format|
       format.html # show.html.erb
