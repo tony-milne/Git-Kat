@@ -7,7 +7,7 @@
 
 <% @tags.each do |tag| %>
   <tr>
-    <td><%=h tag.name %></td>
+    <td><%=h tag.content %></td>
     <td><%= link_to 'Edit', edit_asset_manager_tag_path(tag) %></td>
     <td><%= link_to 'Delete', asset_manager_tag_path(tag), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
