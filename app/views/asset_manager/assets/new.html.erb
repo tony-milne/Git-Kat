@@ -10,51 +10,43 @@
           <span class="labelCol"><%= f.label :asset_title %></span>
           <%= f.text_field :title %>
         </div>
-        <div class="formRow">
-          <span class="labelCol"><%= f.label :country %></span>
-          <select name="asset[country_id]">
-          <% @countries.each do |country| %>
-          <option value="<%= country.id %>"
-            <%= ' selected' if country.id == @asset.country_id %>>
-            <%= country.name %>
-          </option>
-          <% end %>
-          </select>
-        </div>
-        <div class="formRow">
-          <span class="labelCol"><%= f.label :tribe %></span>
-          <select name="asset[tribe_id]">
-          <% @tribes.each do |tribe| %>
-          <option value="<%= tribe.id %>"
-            <%= ' selected' if tribe.id == @asset.tribe_id %>>
-            <%= tribe.name %>
-          </option>
-          <% end %>
-          </select>
-        </div>
+              
+          <div class="formRow">
+    <span class="labelCol"><%= f.label :country %></span>
+    <%= f.collection_select :country_id, Country.find(:all), :id, :name, :input_blank => false %>
+   </div>
+   
+         <div class="formRow">
+    <span class="labelCol"><%= f.label :tribe %></span>
+    <%= f.collection_select :tribe_id, Tribe.find(:all), :id, :name, :input_blank => false %>
+   </div>
         
-        <div class="ajax_options">
-          <div id="captions">
-            <!-- is intially empty -->
-          </div>
-          <div class="formRow"><span class="labelCol"><%= link_to_function "Add a caption", :class => "blueLink" do |page|
-            page.insert_html :bottom, :captions, :partial => "caption", :object => Caption.new, :locals => { :prefix => "new" }
-            end %></span>
-          </div>
-          <div id="tags">
-            <!-- is initially empty -->
-          </div>
-          <div class="formRow"><span class="labelCol"><%= link_to_function "Add a tag", :class => "blueLink" do |page|
-            page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
-            end %></span>
-          </div>
-          <div id="credits">
-            <!-- is initially empty -->
-          </div>
-          <div class="formRow"><span class="labelCol"><%= link_to_function "Add Credit", :class => "blueLink" do |page|
-            page.insert_html :bottom, :credits, :partial => "credit", :object => Credit.new, :locals => { :prefix => "new" }
-            end %></span>
-          </div>
+      <div class="ajax_options">
+      <div id="captions">
+      <!-- is intially empty -->
+      </div>
+      <div class="formRow"><span class="labelCol"><%= link_to_function "Add a caption", :class => "blueLink" do |page|
+      page.insert_html :bottom, :captions, :partial => "caption", :object => Caption.new, :locals => { :prefix => "new" }
+      end %></span>
+      </div>
+      <div id="tags">
+      <!-- is initially empty -->
+      </div>
+      <div class="formRow"><span class="labelCol"><%= link_to_function "Add a tag", :class => "blueLink" do |page|
+      page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
+      end %></span>
+      </div>
+      <div id="credits">
+      <!-- is initially empty -->
+      </div>
+      <div class="formRow"><span class="labelCol"><%= link_to_function "Add Credit", :class => "blueLink" do |page|
+      page.insert_html :bottom, :credits, :partial => "credit", :object => Credit.new, :locals => { :prefix => "new" }
+      end %></span>
+      </div>
+        
+        
+        
+        
           <div class="formRow">
             <span class="labelCol"><%= f.label :browse_files %></span>
             <%= f.file_field :data %>
