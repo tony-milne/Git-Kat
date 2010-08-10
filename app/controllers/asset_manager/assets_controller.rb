@@ -24,22 +24,21 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
     if @asset.exif?
     	@exif = @asset.exif.attributes
     	
-    	@exif.delete("id")
-    	@exif.delete_if { |key,value| value == 0.0 }
-    	
-    	@exif.each_pair { |key,value| 
-    	  if value.blank?
-    	    @exif.delete(key)
-  	    end }
+    	@exif.reject! { |key,value| (key.eql? "id") || (value == 0.0) || (value.blank?) }
 	    
-	    #@exif = @exif.select()
 	    @exif.each_pair { |key,value| 
-	      old_key = key.to_s.dup
-	      old_key.gsub!("_", " ")
-	      old_key.capitalize!
-	      old_value = value.to_s.dup
+	      new_key = key.to_s.dup
+	      new_key.gsub!("_", " ")
+	      new_key.capitalize!
+	      
+	      if new_key.eql? "Shot date time"
+	        new_value = @asset.exif.shot_date_time.strftime("%d %b %Y %H:%M")
+        else
+          new_value = value.to_s.dup
+        end
+	      
 	      @exif.delete(key)
-	      @exif.store(old_key, old_value) }
+	      @exif.store(new_key, new_value) }
    end
     
     respond_to do |format|

@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20100728133204) do
   end
 
   create_table "credits", :force => true do |t|
-    t.string   "credit"
+    t.string   "content"
     t.integer  "asset_id"
     t.integer  "language_id"
     t.datetime "created_at"
