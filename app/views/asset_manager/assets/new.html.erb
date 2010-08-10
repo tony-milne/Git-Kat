@@ -32,25 +32,35 @@
           <% end %>
           </select>
         </div>
-        <div id="captions">
-          <!-- is intially empty -->
-        </div>
-        <div class="formRow">
-          <span class="labelCol"><%= link_to_function "Add a caption", :class => "blueLink" do |page|
+        
+        <div class="ajax_options">
+          <div id="captions">
+            <!-- is intially empty -->
+          </div>
+          <div class="formRow"><span class="labelCol"><%= link_to_function "Add a caption", :class => "blueLink" do |page|
             page.insert_html :bottom, :captions, :partial => "caption", :object => Caption.new, :locals => { :prefix => "new" }
-              end %></span>
+            end %></span>
+          </div>
+          <div id="tags">
+            <!-- is initially empty -->
+          </div>
+          <div class="formRow"><span class="labelCol"><%= link_to_function "Add a tag", :class => "blueLink" do |page|
+            page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
+            end %></span>
+          </div>
+          <div id="credits">
+            <!-- is initially empty -->
+          </div>
+          <div class="formRow"><span class="labelCol"><%= link_to_function "Add Credit", :class => "blueLink" do |page|
+            page.insert_html :bottom, :credits, :partial => "credit", :object => Credit.new, :locals => { :prefix => "new" }
+            end %></span>
+          </div>
+          <div class="formRow">
+            <span class="labelCol"><%= f.label :browse_files %></span>
+            <%= f.file_field :data %>
+          </div>
         </div>
-        <div id="tags">
-          <!-- is initially empty -->
-        </div>
-        <div class="formRow"><span class="labelCol"><%= link_to_function "Add a tag", :class => "blueLink" do |page|
-          page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
-          end %></span>
-        </div>
-        <div class="formRow">
-          <span class="labelCol"><%= f.label :browse_files %></span>
-          <%= f.file_field :data %>
-        </div>
+        
         <div class="formSubmit">
           <%= f.submit 'Upload' %>
         </div>
