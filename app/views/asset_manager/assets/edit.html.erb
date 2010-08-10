@@ -31,32 +31,35 @@
     <% end %>
       </select>
     </div>
-    <%= render :partial => "caption", :locals => { :prefix => "updated" }, :collection => @asset.captions %>
-    <div id="captions">
-      <!-- is intially empty -->
-    </div>
-    <div class="formRow">
-      <span class="labelCol"><%= link_to_function "Add a caption", :class => "blueLink" do |page|
-      page.insert_html :bottom, :captions, :partial => "caption", :locals => { :prefix => "new" }, :object => Caption.new
-      end %></span>
-    </div>
-    <%= render :partial => "tag", :locals => { :prefix => "updated" }, :collection => @asset.tags %>
-    <div id="tags">
-    <!-- is initially empty -->
-    </div>
-    <div class="formRow">
-      <span class="labelCol"><%= link_to_function "Add a tag", :class => "blueLink" do |page|
-      page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
-      end %></span>
-    </div>
-    <%= render :partial  => "credit", :locals => { :prefix => "updated" }, :collection => @asset.credits %>
-    <div id="credits">
+    <div id="ajax_options">
+      <%= render :partial => "caption", :locals => { :prefix => "updated" }, :collection => @asset.captions %>
+      <div id="captions">
+        <!-- is intially empty -->
+      </div>
+      <div class="formRow">
+        <span class="labelCol"><%= link_to_function "Add a caption", :class => "blueLink" do |page|
+        page.insert_html :bottom, :captions, :partial => "caption", :locals => { :prefix => "new" }, :object => Caption.new
+        end %></span>
+      </div>
+      <%= render :partial => "tag", :locals => { :prefix => "updated" }, :collection => @asset.tags %>
+      <div id="tags">
       <!-- is initially empty -->
+      </div>
+      <div class="formRow">
+        <span class="labelCol"><%= link_to_function "Add a tag", :class => "blueLink" do |page|
+        page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
+        end %></span>
+      </div>
+      <%= render :partial  => "credit", :locals => { :prefix => "updated" }, :collection => @asset.credits %>
+      <div id="credits">
+        <!-- is initially empty -->
+      </div>
+      <div class="formRow"><span class="labelCol"><%= link_to_function "Add Credit", :class => "blueLink" do |page|
+        page.insert_html :bottom, :credits, :partial => "credit", :object => Credit.new, :locals => { :prefix => "new" }
+        end %></span>
+      </div>
     </div>
-    <div class="formRow"><span class="labelCol"><%= link_to_function "Add Credit", :class => "blueLink" do |page|
-      page.insert_html :bottom, :credits, :partial => "credit", :object => Credit.new, :locals => { :prefix => "new" }
-      end %></span>
-    </div>
+    <%= javascript_tag "document.getElementById('ajax_options').style.display = 'inline';" %>
     <div class="formSubmit">
       <%= f.submit 'Update' %>
     </div>

@@ -33,7 +33,7 @@
           </select>
         </div>
         
-        <div class="ajax_options">
+        <div id="ajax_options">
           <div id="captions">
             <!-- is intially empty -->
           </div>
@@ -51,14 +51,14 @@
           <div id="credits">
             <!-- is initially empty -->
           </div>
-          <div class="formRow"><span class="labelCol"><%= link_to_function "Add Credit", :class => "blueLink" do |page|
+          <div class="formRow"><span class="labelCol"><%= link_to_function "Add credit", :class => "blueLink" do |page|
             page.insert_html :bottom, :credits, :partial => "credit", :object => Credit.new, :locals => { :prefix => "new" }
             end %></span>
           </div>
-          <div class="formRow">
-            <span class="labelCol"><%= f.label :browse_files %></span>
-            <%= f.file_field :data %>
-          </div>
+        </div>
+        <%= javascript_tag "document.getElementById('ajax_options').style.display = 'inline';" %>
+        <div class="formRow"><span class="labelCol"><%= f.label :browse_files %></span>
+          <%= f.file_field :data %>
         </div>
         
         <div class="formSubmit">
