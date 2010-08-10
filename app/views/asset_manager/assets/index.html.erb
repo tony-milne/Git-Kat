@@ -20,7 +20,9 @@
     <% end %>
 </div>
 <div class="clear">  
-    <%= will_paginate @assets %>  
+  <div>
+    <%= will_paginate @assets %>
+  </div>  
   <div>
     <h2> Select a Stage to Add the Assets to </h2>
     <p><%= collection_select(:stage, :stage_id, Stage.all, :id, :title, {:prompt => true}) %>
