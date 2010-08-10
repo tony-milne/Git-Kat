@@ -43,14 +43,10 @@
       page.insert_html :bottom, :credits, :partial => "credit", :object => Credit.new, :locals => { :prefix => "new" }
       end %></span>
       </div>
-        
-        
-        
-        
-          <div class="formRow">
-            <span class="labelCol"><%= f.label :browse_files %></span>
-            <%= f.file_field :data %>
-          </div>
+
+        <%= javascript_tag "document.getElementById('ajax_options').style.display = 'inline';" %>
+        <div class="formRow"><span class="labelCol"><%= f.label :browse_files %></span>
+          <%= f.file_field :data %>
         </div>
         
         <div class="formSubmit">
