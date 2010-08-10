@@ -29,13 +29,14 @@
         <li><strong><%= "#{key}: " %></strong><em><%= "#{value}" %></em></li>
       <% } %>
 	  <% end %>
+	  
 	  <li><strong>Captions:</strong><br/>
 		<% @asset.captions.each do |caption| %>
 		  <em><%= h caption.content.capitalize %> (<%= h caption.language.language.capitalize %>)</em><br/>
 		<% end %></li>
 	  <li><strong>Credits:</strong><br/>
 		<% @asset.credits.each do |credit| %>
-		  <em><%= h credit.credit.capitalize %> (<%= h credit.language.language.capitalize %>)</em><br/>
+		  <em><%= h credit.content.capitalize %> (<%= h credit.language.language.capitalize %>)</em><br/>
 		<% end %></li>
 	  <li><strong>Tags:</strong><br/>
 		<% @asset.tags.each do |tag| %>

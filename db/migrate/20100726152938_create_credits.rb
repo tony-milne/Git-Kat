@@ -1,10 +1,10 @@
 class CreateCredits < ActiveRecord::Migration
   def self.up
     create_table :credits do |t|
-		t.string :credit
+		t.string :content
 		t.references :asset
 		t.references :language
-      t.timestamps
+    t.timestamps
     end
   end
 
