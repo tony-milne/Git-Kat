@@ -23,7 +23,23 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
     @countries = Country.find(:all)
     if @asset.exif?
     	@exif = @asset.exif.attributes
-    end
+    	
+    	@exif.reject! { |key,value| (key.eql? "id") || (value == 0.0) || (value.blank?) }
+	    
+	    @exif.each_pair { |key,value| 
+	      new_key = key.to_s.dup
+	      new_key.gsub!("_", " ")
+	      new_key.capitalize!
+	      
+	      if new_key.eql? "Shot date time"
+	        new_value = @asset.exif.shot_date_time.strftime("%d %b %Y %H:%M")
+        else
+          new_value = value.to_s.dup
+        end
+	      
+	      @exif.delete(key)
+	      @exif.store(new_key, new_value) }
+   end
     
     respond_to do |format|
       format.html # show.html.erb

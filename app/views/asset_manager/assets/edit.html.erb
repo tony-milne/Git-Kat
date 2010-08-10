@@ -49,6 +49,14 @@
       page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
       end %></span>
     </div>
+    <%= render :partial  => "credit", :locals => { :prefix => "updated" }, :collection => @asset.credits %>
+    <div id="credits">
+      <!-- is initially empty -->
+    </div>
+    <div class="formRow"><span class="labelCol"><%= link_to_function "Add Credit", :class => "blueLink" do |page|
+      page.insert_html :bottom, :credits, :partial => "credit", :object => Credit.new, :locals => { :prefix => "new" }
+      end %></span>
+    </div>
     <div class="formSubmit">
       <%= f.submit 'Update' %>
     </div>

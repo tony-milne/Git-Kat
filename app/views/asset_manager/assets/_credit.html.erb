@@ -1,0 +1,10 @@
+<div class="credit">
+  <% fields_for "asset[#{prefix}_credit_attributes][]", credit do |c| %>
+    <div class="formRow">
+      <span class="labelCol"><%= c.label "Credit" %></span>
+      <%= c.text_field :content %>
+      <%= c.select(:language_id, Language.all.collect { |l| [l.language, l.id] }, {:include_blank => false}) %>
+      <%= link_to_function "Remove", "this.up('.credit').remove()" %>
+    </div>
+  <% end %>
+</div>

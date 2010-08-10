@@ -2055,4 +2055,2084 @@ Processing AssetManager::AssetsController#show (for 127.0.0.1 at 2010-08-09 12:5
 Rendering template within layouts/asset_manager/application
 Rendering asset_manager/assets/show
 DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47asset_manager47assets47show46html46erb at /home/ryan/Rails/shared/app/views/asset_manager/assets/show.html.erb:1)
-  [4;35;1mTribe Columns (1.1ms)[0m  
+  [4;35;1mTribe Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;35;1mCountry Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;35;1mCaption Load (0.2ms)[0m   [0mSELECT * FROM `captions` WHERE (`captions`.asset_id = 6) [0m
+  [4;36;1mCredit Load (0.1ms)[0m   [0;1mSELECT * FROM `credits` WHERE (`credits`.asset_id = 6) [0m
+  [4;35;1massets_tags Columns (2.4ms)[0m   [0mSHOW FIELDS FROM `assets_tags`[0m
+  [4;36;1mTag Load (0.1ms)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 6 ) [0m
+Completed in 123ms (View: 42, DB: 10) | 200 OK [http://localhost/asset_manager/assets/6]
+^CExiting
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ g[Kscript/server 
+=> Booting Mongrel
+=> Rails 2.3.8 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+^CExiting
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ git add /[K.
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ git commit -a -m "N[KLots of Cs[KSS fixes to the main view s; including so[Kortingl[K link decorations"
+[master 5c06717] Lots of CSS fixes to the main views; including sorting link decorations
+ 7 files changed, 2270 insertions(+), 430 deletions(-)
+ rewrite app/views/asset_manager/assets/edit.html.erb (89%)
+ rewrite app/views/asset_manager/assets/new.html.erb (89%)
+ create mode 100644 test/functional/asset_manager/registration_test.rb
+ create mode 100644 test/unit/registration_test.rb
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ git pull origin master
+From teamgamma.indefero.net:teamgamma/shared
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ d[Kdb[K[Krake db: mi[K[K[K[K:drop;[K
+(in /home/ryan/Rails/shared)
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ rake db:drop[K[K[K[Kcreate
+(in /home/ryan/Rails/shared)
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ rake db:create[K[K[K[K[K[Kmigrate
+(in /home/ryan/Rails/shared)
+==  CreateUsers: migrating ====================================================
+-- create_table(:users)
+   -> 0.0042s
+==  CreateUsers: migrated (0.0044s) ===========================================
+
+==  CreateAssets: migrating ===================================================
+-- create_table(:assets)
+   -> 0.0045s
+==  CreateAssets: migrated (0.0047s) ==========================================
+
+==  AddAttachmentsFileToAsset: migrating ======================================
+-- add_column(:assets, :data_file_name, :string)
+   -> 0.0054s
+-- add_column(:assets, :data_content_type, :string)
+   -> 0.0167s
+-- add_column(:assets, :data_file_size, :integer)
+   -> 0.0098s
+-- add_column(:assets, :data_updated_at, :datetime)
+   -> 0.0045s
+==  AddAttachmentsFileToAsset: migrated (0.0370s) =============================
+
+==  CreateNotifiers: migrating ================================================
+-- create_table(:notifiers)
+   -> 0.0126s
+==  CreateNotifiers: migrated (0.0128s) =======================================
+
+==  AddUsersPasswordResetFields: migrating ====================================
+-- add_column(:users, :perishable_token, :string, {:null=>false, :default=>""})
+   -> 0.0100s
+-- add_index(:users, :perishable_token)
+   -> 0.0095s
+==  AddUsersPasswordResetFields: migrated (0.0198s) ===========================
+
+==  CreateImages: migrating ===================================================
+-- create_table(:images)
+   -> 0.0088s
+==  CreateImages: migrated (0.0090s) ==========================================
+
+==  CreateVideos: migrating ===================================================
+-- create_table(:videos)
+   -> 0.0106s
+==  CreateVideos: migrated (0.0108s) ==========================================
+
+==  CreateTags: migrating =====================================================
+-- create_table(:tags)
+   -> 0.0039s
+==  CreateTags: migrated (0.0041s) ============================================
+
+==  CreateAssetsTags: migrating ===============================================
+-- create_table(:assets_tags, {:id=>false})
+   -> 0.0063s
+==  CreateAssetsTags: migrated (0.0065s) ======================================
+
+==  CreateStages: migrating ===================================================
+-- create_table(:stages)
+   -> 0.0036s
+==  CreateStages: migrated (0.0038s) ==========================================
+
+==  CreateAssetsStages: migrating =============================================
+-- create_table(:assets_stages, {:id=>false})
+   -> 0.0064s
+==  CreateAssetsStages: migrated (0.0066s) ====================================
+
+==  CreateLanguages: migrating ================================================
+-- create_table(:languages)
+   -> 0.0046s
+==  CreateLanguages: migrated (0.0048s) =======================================
+
+==  CreateCaptions: migrating =================================================
+-- create_table(:captions)
+   -> 0.0086s
+==  CreateCaptions: migrated (0.0088s) ========================================
+
+==  CreateCredits: migrating ==================================================
+-- create_table(:credits)
+   -> 0.0124s
+==  CreateCredits: migrated (0.0126s) =========================================
+
+==  AddLanguages: migrating ===================================================
+==  AddLanguages: migrated (0.2202s) ==========================================
+
+==  CreateTribes: migrating ===================================================
+-- create_table(:tribes)
+   -> 0.0035s
+==  CreateTribes: migrated (0.0037s) ==========================================
+
+==  CreateCountries: migrating ================================================
+-- create_table(:countries)
+   -> 0.0032s
+==  CreateCountries: migrated (0.0034s) =======================================
+
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ script/server
+=> Booting Mongrel
+=> Rails 2.3.8 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:04:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Filter chain halted as [:verify_credentials] rendered_or_redirected.
+Completed in 70ms (DB: 2) | 302 Found [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-08-09 13:04:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 84ms (View: 64, DB: 2) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-09 13:04:40) [GET]
+
+ActionController::RoutingError (No route matches "/public/favicon.ico" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::UsersController#new (for 127.0.0.1 at 2010-08-09 13:04:44) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/users"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSELECT count(*) AS count_all FROM `users` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/users/new
+Rendered asset_manager/users/_form (12.6ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 97ms (View: 74, DB: 3) | 200 OK [http://localhost/asset_manager/users/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::UsersController#create (for 127.0.0.1 at 2010-08-09 13:05:26) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "controller"=>"asset_manager/users", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"Ryu", "password"=>"[FILTERED]", "email"=>"ryan.glass.09@aberdeen.ac.uk"}}
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `users` [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (42.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'ryan.glass.09@aberdeen.ac.uk') LIMIT 1[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`username`) = BINARY 'ryu') LIMIT 1[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO `users` (`created_at`, `crypted_password`, `updated_at`, `perishable_token`, `username`, `failed_login_count`, `password_salt`, `persistence_token`, `login_count`, `email`) VALUES('2010-08-09 12:05:27', '38178fb48a93169d371418c2a8b4a4aea056253ef94f4dae271cda0322ae0ae017838558d9f4d9b0deb19f82f69e6a22584eee6f63ac983b8512f23ee33d033f', '2010-08-09 12:05:27', 'tFRWhzdAH4wSkifyXruq', 'Ryu', 0, 'pFGDHKqG2KVYnid5bWfC', '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5', 1, 'ryan.glass.09@aberdeen.ac.uk')[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 515ms (DB: 49) | 302 Found [http://localhost/asset_manager/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:05:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"AssetManager::Assets"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;36;1mAsset Load (0.7ms)[0m   [0;1mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;35;1mStage Load (0.4ms)[0m   [0mSELECT * FROM `stages` [0m
+  [4;36;1mTribe Load (0.3ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.4ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `stages` [0m
+Completed in 119ms (View: 18, DB: 4) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#new (for 127.0.0.1 at 2010-08-09 13:05:40) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;35;1mAsset Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/new
+  [4;36;1mCaption Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `captions`[0m
+  [4;35;1mLanguage Load (0.6ms)[0m   [0mSELECT * FROM `languages` [0m
+  [4;36;1mLanguage Columns (54.8ms)[0m   [0;1mSHOW FIELDS FROM `languages`[0m
+Rendered asset_manager/assets/_caption (77.4ms)
+  [4;35;1mTag Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered asset_manager/assets/_tag (33.3ms)
+Completed in 266ms (View: 134, DB: 61) | 200 OK [http://localhost/asset_manager/assets/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:05:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;36;1mAsset Load (0.2ms)[0m   [0;1mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;35;1mStage Load (0.1ms)[0m   [0mSELECT * FROM `stages` [0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.2ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `stages` [0m
+Completed in 76ms (View: 9, DB: 2) | 200 OK [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#index (for 127.0.0.1 at 2010-08-09 13:06:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/countries"}
+  [4;35;1mCountry Load (0.2ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/countries/index
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+Completed in 123ms (View: 108, DB: 2) | 200 OK [http://localhost/asset_manager/countries]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#new (for 127.0.0.1 at 2010-08-09 13:06:08) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/countries"}
+  [4;36;1mCountry Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/countries/new
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+Completed in 54ms (View: 40, DB: 3) | 200 OK [http://localhost/asset_manager/countries/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#create (for 127.0.0.1 at 2010-08-09 13:06:21) [POST]
+  Parameters: {"commit"=>"Create", "country"=>{"name"=>"Scotland"}, "action"=>"create", "controller"=>"asset_manager/countries"}
+  [4;35;1mCountry Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCountry Create (0.4ms)[0m   [0mINSERT INTO `countries` (`name`, `created_at`, `updated_at`) VALUES('Scotland', '2010-08-09 12:06:21', '2010-08-09 12:06:21')[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/asset_manager/countries/1
+Completed in 20ms (DB: 3) | 302 Found [http://localhost/asset_manager/countries]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#show (for 127.0.0.1 at 2010-08-09 13:06:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asset_manager/countries"}
+  [4;35;1mCountry Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mCountry Load (0.3ms)[0m   [0;1mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/countries/show
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+Completed in 238ms (View: 223, DB: 3) | 200 OK [http://localhost/asset_manager/countries/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#index (for 127.0.0.1 at 2010-08-09 13:06:25) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/countries"}
+  [4;35;1mCountry Load (0.5ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/countries/index
+  [4;36;1mCountry Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+Completed in 51ms (View: 35, DB: 3) | 200 OK [http://localhost/asset_manager/countries]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:06:27) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;35;1mAsset Load (0.2ms)[0m   [0mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;36;1mStage Load (0.1ms)[0m   [0;1mSELECT * FROM `stages` [0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `stages` [0m
+Completed in 74ms (View: 13, DB: 2) | 200 OK [http://localhost/asset_manager/assets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#index (for 127.0.0.1 at 2010-08-09 13:06:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/tribes"}
+  [4;36;1mTribe Load (0.2ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/tribes/index
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+Completed in 70ms (View: 54, DB: 2) | 200 OK [http://localhost/asset_manager/tribes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#new (for 127.0.0.1 at 2010-08-09 13:06:42) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/tribes"}
+  [4;35;1mTribe Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/tribes/new
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+Completed in 56ms (View: 42, DB: 3) | 200 OK [http://localhost/asset_manager/tribes/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#create (for 127.0.0.1 at 2010-08-09 13:06:55) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "tribe"=>{"name"=>"gammadelta"}, "controller"=>"asset_manager/tribes"}
+  [4;36;1mTribe Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTribe Create (0.4ms)[0m   [0;1mINSERT INTO `tribes` (`name`, `created_at`, `updated_at`) VALUES('gammadelta', '2010-08-09 12:06:55', '2010-08-09 12:06:55')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/asset_manager/tribes/1
+Completed in 22ms (DB: 3) | 302 Found [http://localhost/asset_manager/tribes]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#show (for 127.0.0.1 at 2010-08-09 13:06:55) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asset_manager/tribes"}
+  [4;36;1mTribe Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mTribe Load (0.3ms)[0m   [0mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/tribes/show
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+Completed in 238ms (View: 223, DB: 5) | 200 OK [http://localhost/asset_manager/tribes/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#index (for 127.0.0.1 at 2010-08-09 13:06:58) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/tribes"}
+  [4;36;1mTribe Load (0.5ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/tribes/index
+  [4;35;1mTribe Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+Completed in 55ms (View: 39, DB: 3) | 200 OK [http://localhost/asset_manager/tribes]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:07:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;36;1mAsset Load (0.2ms)[0m   [0;1mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;35;1mStage Load (0.2ms)[0m   [0mSELECT * FROM `stages` [0m
+  [4;36;1mTribe Load (0.9ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `stages` [0m
+Completed in 76ms (View: 9, DB: 3) | 200 OK [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#new (for 127.0.0.1 at 2010-08-09 13:07:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;35;1mAsset Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mTribe Load (0.2ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/new
+  [4;36;1mCountry Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mTribe Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mCaption Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `captions`[0m
+  [4;35;1mLanguage Load (0.2ms)[0m   [0mSELECT * FROM `languages` [0m
+  [4;36;1mLanguage Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `languages`[0m
+Rendered asset_manager/assets/_caption (17.5ms)
+  [4;35;1mTag Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered asset_manager/assets/_tag (4.9ms)
+Completed in 317ms (View: 75, DB: 8) | 200 OK [http://localhost/asset_manager/assets/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#create (for 127.0.0.1 at 2010-08-09 13:08:00) [POST]
+  Parameters: {"commit"=>"Upload", "action"=>"create", "controller"=>"asset_manager/assets", "asset"=>{"data"=>#<File:/tmp/RackMultipart20100809-2159-atsbuj-0>, "title"=>"Maria", "new_caption_attributes"=>[{"language_id"=>"1", "content"=>"caption"}, {"language_id"=>"1", "content"=>"caption2"}], "country_id"=>"1", "new_tag_attributes"=>[{"content"=>"tag"}, {"content"=>"tag2"}], "tribe_id"=>"1"}}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2159,0.JPG[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2159,0.JPG[0]' '-resize' '193x120' '/tmp/stream,2159,0,2159,0' 2>/dev/null
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2159,0.JPG[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2159,0.JPG[0]' '-resize' '350x350' '/tmp/stream,2159,0,2159,1' 2>/dev/null
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2159,0.JPG[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2159,0.JPG[0]' '-resize' '540x337' '/tmp/stream,2159,0,2159,2' 2>/dev/null
+  [4;35;1mImage Columns (3.5ms)[0m   [0mSHOW FIELDS FROM `images`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mImage Create (0.6ms)[0m   [0mINSERT INTO `images` (`f_number`, `shot_date_time`, `camera_brand`, `camera_model`, `iso_speed_rating`, `focal_length`, `height`, `exposure_time`, `width`) VALUES(0.0, NULL, '', '', NULL, 0.0, 605, '', 405)[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mCaption Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `captions`[0m
+  [4;36;1mTag Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT * FROM `tags` WHERE (`tags`.`content` = 'tag') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTag Create (0.3ms)[0m   [0mINSERT INTO `tags` (`created_at`, `updated_at`, `content`) VALUES('2010-08-09 12:08:04', '2010-08-09 12:08:04', 'tag')[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTag Load (0.5ms)[0m   [0mSELECT `tags`.id FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`tags`.`id` = 1) AND (`assets_tags`.asset_id = NULL ) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT * FROM `tags` WHERE (`tags`.`content` = 'tag2') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTag Create (0.2ms)[0m   [0;1mINSERT INTO `tags` (`created_at`, `updated_at`, `content`) VALUES('2010-08-09 12:08:04', '2010-08-09 12:08:04', 'tag2')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT `tags`.id FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`tags`.`id` = 2) AND (`assets_tags`.asset_id = NULL ) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTribe Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mTribe Load (0.4ms)[0m   [0mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;36;1mCountry Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mCountry Load (0.3ms)[0m   [0mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;36;1mAsset Create (0.4ms)[0m   [0;1mINSERT INTO `assets` (`exif_id`, `created_at`, `data_updated_at`, `exif_type`, `title`, `updated_at`, `data_content_type`, `country_id`, `tribe_id`, `data_file_name`, `data_file_size`) VALUES(1, '2010-08-09 12:08:04', '2010-08-09 12:08:01', 'Image', 'Maria', '2010-08-09 12:08:04', 'image/jpeg', 1, 1, 'pic,tures.JPG', 29597)[0m
+  [4;35;1mCaption Create (0.2ms)[0m   [0mINSERT INTO `captions` (`created_at`, `updated_at`, `language_id`, `content`, `asset_id`) VALUES('2010-08-09 12:08:04', '2010-08-09 12:08:04', 1, 'caption', 1)[0m
+  [4;36;1mCaption Create (1.0ms)[0m   [0;1mINSERT INTO `captions` (`created_at`, `updated_at`, `language_id`, `content`, `asset_id`) VALUES('2010-08-09 12:08:04', '2010-08-09 12:08:04', 1, 'caption2', 1)[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mdescribe `assets_tags`[0m
+  [4;36;1massets_tags Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `assets_tags`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO `assets_tags` (`tag_id`, `asset_id`) VALUES (1, 1)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mdescribe `assets_tags`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO `assets_tags` (`tag_id`, `asset_id`) VALUES (2, 1)[0m
+[paperclip] Saving attachments.
+[paperclip] saving /assets/photos/1/thumb/pic,tures.JPG
+[paperclip] saving /assets/photos/1/medium/pic,tures.JPG
+[paperclip] saving /assets/photos/1/large/pic,tures.JPG
+[paperclip] saving /assets/photos/1/original/pic,tures.JPG
+  [4;36;1mSQL (2.4ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/asset_manager/assets/1
+Completed in 6952ms (DB: 27) | 302 Found [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#show (for 127.0.0.1 at 2010-08-09 13:08:07) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;35;1mAsset Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (0.5ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+  [4;35;1mTribe Load (0.2ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` [0m
+  [4;35;1mImage Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `images`[0m
+  [4;36;1mImage Load (0.4ms)[0m   [0;1mSELECT * FROM `images` WHERE (`images`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/show
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47asset_manager47assets47show46html46erb at /home/ryan/Rails/shared/app/views/asset_manager/assets/show.html.erb:1)
+  [4;35;1mTribe Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;35;1mCountry Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;35;1mCaption Load (0.5ms)[0m   [0mSELECT * FROM `captions` WHERE (`captions`.asset_id = 1) [0m
+  [4;36;1mCaption Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `captions`[0m
+  [4;35;1mLanguage Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `languages`[0m
+  [4;36;1mLanguage Load (0.3ms)[0m   [0;1mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;36;1mCredit Load (0.5ms)[0m   [0;1mSELECT * FROM `credits` WHERE (`credits`.asset_id = 1) [0m
+  [4;35;1massets_tags Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `assets_tags`[0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 1 ) [0m
+  [4;35;1mTag Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Completed in 210ms (View: 120, DB: 13) | 200 OK [http://localhost/asset_manager/assets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TagsController#index (for 127.0.0.1 at 2010-08-09 13:08:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/tags", "asset_id"=>"1"}
+  [4;36;1mTag Load (0.0ms)[0m   [0;1mMysql::Error: Unknown column 'asset_id' in 'where clause': SELECT * FROM `tags` WHERE (asset_id = '1') [0m
+
+ActiveRecord::StatementInvalid (Mysql::Error: Unknown column 'asset_id' in 'where clause': SELECT * FROM `tags` WHERE (asset_id = '1') ):
+  app/controllers/asset_manager/tags_controller.rb:5:in `index'
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendered rescues/_trace (66.0ms)
+Rendered rescues/_request_and_response (2.2ms)
+Rendering rescues/layout (internal_server_error)
+^CExiting
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ git log
+[?1h=commit 5c06717c86b6847392ea604e4c06feb7cd0f46a5[m
+Author: Ryan Glass <ryan.glass.09@aberdeen.ac.uk>[m
+Date:   Mon Aug 9 13:02:31 2010 +0100[m
+[m
+    Lots of CSS fixes to the main views; including sorting link decorations[m
+[m
+commit 13e82a7007138e9bbcff89e27e76ae20ab6eada7[m
+Author: Ryan Glass <ryan.glass.09@aberdeen.ac.uk>[m
+Date:   Thu Aug 5 16:18:46 2010 +0100[m
+[m
+    changed layout of new asset page and changed generic styling of anchor tags[m
+[m
+commit 027ff89d7b142718568ed0f6fe52118151159469[m
+Author: Tony Milne <t.milne.09@aberdeen.ac.uk>[m
+Date:   Thu Aug 5 15:58:41 2010 +0100[m
+[m
+    minor change to css: min-height of 330px to pages[m
+[m
+commit 52c424d69eb78d434513c0c5b83f3395d48ded5b[m
+Author: Tony Milne <t.milne.09@aberdeen.ac.uk>[m
+Date:   Thu Aug 5 15:44:37 2010 +0100[m
+[m
+    ajax and css fixed; requires further testing - may be broken[m
+:[K[K[?1l>]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ 
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ c[Kscript/script
+bash: script/script: No such file or directory
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ script/script[K[K[K[K[Kerv^?[K[K[K[K[K[K[K[K[K[K[K[Kpull origin master
+No command 'pull' found, did you mean:
+ Command 'publ' from package 'atfs' (universe)
+pull: command not found
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ git piu[K[Kull origin master
+remote: Counting objects: 38, done.[K
+remote: Compressing objects:   4% (1/22)   [Kremote: Compressing objects:   9% (2/22)   [Kremote: Compressing objects:  13% (3/22)   [Kremote: Compressing objects:  18% (4/22)   [Kremote: Compressing objects:  22% (5/22)   [Kremote: Compressing objects:  27% (6/22)   [Kremote: Compressing objects:  31% (7/22)   [Kremote: Compressing objects:  36% (8/22)   [Kremote: Compressing objects:  40% (9/22)   [Kremote: Compressing objects:  45% (10/22)   [Kremote: Compressing objects:  50% (11/22)   [Kremote: Compressing objects:  54% (12/22)   [Kremote: Compressing objects:  59% (13/22)   [Kremote: Compressing objects:  63% (14/22)   [Kremote: Compressing objects:  68% (15/22)   [Kremote: Compressing objects:  72% (16/22)   [Kremote: Compressing objects:  77% (17/22)   [Kremote: Compressing objects:  81% (18/22)   [Kremote: Compressing objects:  86% (19/22)   [Kremote: Compressing objects:  90% (20/22)   [Kremote: Compressing objects:  95% (21/22)   [Kremote: Compressing objects: 100% (22/22)   [Kremote: Compressing objects: 100% (22/22), done.[K
+remote: Total 22 (delta 14), reused 0 (delta 0)[K
+Unpacking objects:   4% (1/22)   Unpacking objects:   9% (2/22)   Unpacking objects:  13% (3/22)   Unpacking objects:  18% (4/22)   Unpacking objects:  22% (5/22)   Unpacking objects:  27% (6/22)   Unpacking objects:  31% (7/22)   Unpacking objects:  36% (8/22)   Unpacking objects:  40% (9/22)   Unpacking objects:  45% (10/22)   Unpacking objects:  50% (11/22)   Unpacking objects:  54% (12/22)   Unpacking objects:  59% (13/22)   Unpacking objects:  63% (14/22)   Unpacking objects:  68% (15/22)   Unpacking objects:  72% (16/22)   Unpacking objects:  77% (17/22)   Unpacking objects:  81% (18/22)   Unpacking objects:  86% (19/22)   Unpacking objects:  90% (20/22)   Unpacking objects:  95% (21/22)   Unpacking objects: 100% (22/22)   Unpacking objects: 100% (22/22), done.
+From teamgamma.indefero.net:teamgamma/shared
+ * branch            master     -> FETCH_HEAD
+Merge made by recursive.
+ app/controllers/asset_manager/tags_controller.rb |   16 ++++++---
+ app/models/asset.rb                              |   18 ++++++-----
+ app/views/asset_manager/captions/edit.html.erb   |    4 +-
+ app/views/asset_manager/captions/index.html.erb  |    4 +-
+ app/views/asset_manager/captions/new.html.erb    |    4 +-
+ app/views/asset_manager/captions/show.html.erb   |    2 +-
+ app/views/asset_manager/tags/index.html.erb      |    4 +-
+ app/views/asset_manager/tags/new.html.erb        |    6 ++--
+ app/views/asset_manager/tags/show.html.erb       |    4 +-
+ test/unit/login_test.rb                          |   37 ++++++++++++++++++++++
+ 10 files changed, 71 insertions(+), 28 deletions(-)
+ create mode 100644 test/unit/login_test.rb
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ db[K[Krake db:mig[K[K[Kre[Ks[Kesert[K[Kt
+(in /home/ryan/Rails/shared)
+-- create_table("assets", {:force=>true})
+   -> 0.0448s
+-- create_table("assets_stages", {:force=>true, :id=>false})
+   -> 0.0276s
+-- create_table("assets_tags", {:force=>true, :id=>false})
+   -> 0.0050s
+-- create_table("captions", {:force=>true})
+   -> 0.0058s
+-- create_table("countries", {:force=>true})
+   -> 0.0093s
+-- create_table("credits", {:force=>true})
+   -> 0.0093s
+-- create_table("images", {:force=>true})
+   -> 0.0047s
+-- create_table("languages", {:force=>true})
+   -> 0.0073s
+-- create_table("notifiers", {:force=>true})
+   -> 0.0071s
+-- create_table("stages", {:force=>true})
+   -> 0.0071s
+-- create_table("tags", {:force=>true})
+   -> 0.0036s
+-- create_table("tribes", {:force=>true})
+   -> 0.0056s
+-- create_table("users", {:force=>true})
+   -> 0.0138s
+-- add_index("users", ["perishable_token"], {:name=>"index_users_on_perishable_token"})
+   -> 0.0083s
+-- create_table("videos", {:force=>true})
+   -> 0.0581s
+-- initialize_schema_migrations_table()
+   -> 0.0414s
+-- assume_migrated_upto_version(20100728133204, "db/migrate")
+   -> 0.0121s
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ script/server 
+=> Booting Mongrel
+=> Rails 2.3.8 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:12:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Filter chain halted as [:verify_credentials] rendered_or_redirected.
+Completed in 126ms (DB: 3) | 302 Found [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-08-09 13:12:14) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 57ms (View: 35, DB: 2) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-09 13:12:15) [GET]
+
+ActionController::RoutingError (No route matches "/public/favicon.ico" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-08-09 13:12:17) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"Ryu", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'ryu') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 306ms (View: 20, DB: 3) | 200 OK [http://localhost/user_sessions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-09 13:12:18) [GET]
+
+ActionController::RoutingError (No route matches "/public/favicon.ico" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::UsersController#new (for 127.0.0.1 at 2010-08-09 13:12:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/users"}
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM `users` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/users/new
+Rendered asset_manager/users/_form (18.4ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 84ms (View: 62, DB: 2) | 200 OK [http://localhost/asset_manager/users/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::UsersController#create (for 127.0.0.1 at 2010-08-09 13:12:43) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "controller"=>"asset_manager/users", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"Ryu", "password"=>"[FILTERED]", "email"=>"Ryu@ryan.co.uk"}}
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `users` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'ryu@ryan.co.uk') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`username`) = BINARY 'ryu') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '03a14296f47e6bc13f906a99785b6cc794e57264d0704229139cf3d29ae295008bc8a36e03cffc6f58ce823a014f84e2f1ed45f2b1c10bb813ae7c6ad51748f5') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Create (0.9ms)[0m   [0;1mINSERT INTO `users` (`created_at`, `crypted_password`, `updated_at`, `perishable_token`, `username`, `failed_login_count`, `password_salt`, `persistence_token`, `login_count`, `email`) VALUES('2010-08-09 12:12:43', '8e2c3e6b4262830dc65aadd8edfe9609fdafb32643327be293efc1097af0f798a9a4cdb0009b36234a63b3f9f0f46faa5250cc9f2551d67d25b6c0f99ddafef3', '2010-08-09 12:12:43', 'uYE9UGWtgDET5iK6M_OG', 'Ryu', 0, 'LeKX0OXStEqjqvMzbLJR', '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d', 1, 'Ryu@ryan.co.uk')[0m
+  [4;35;1mSQL (24.2ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 368ms (DB: 29) | 302 Found [http://localhost/asset_manager/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:12:43) [GET]
+  Parameters: {"action"=>"index", "controller"=>"AssetManager::Assets"}
+  [4;36;1mUser Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;36;1mAsset Load (0.8ms)[0m   [0;1mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;35;1mStage Load (0.6ms)[0m   [0mSELECT * FROM `stages` [0m
+  [4;36;1mTribe Load (0.6ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.6ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `stages` [0m
+Completed in 450ms (View: 23, DB: 6) | 200 OK [http://localhost/]
+  [4;35;1mSQL (46.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#index (for 127.0.0.1 at 2010-08-09 13:12:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/countries"}
+  [4;35;1mCountry Load (0.2ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/countries/index
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+Completed in 80ms (View: 61, DB: 48) | 200 OK [http://localhost/asset_manager/countries]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#new (for 127.0.0.1 at 2010-08-09 13:12:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/countries"}
+  [4;36;1mCountry Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/countries/new
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+Completed in 65ms (View: 46, DB: 3) | 200 OK [http://localhost/asset_manager/countries/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#create (for 127.0.0.1 at 2010-08-09 13:13:04) [POST]
+  Parameters: {"commit"=>"Create", "country"=>{"name"=>"Scotland"}, "action"=>"create", "controller"=>"asset_manager/countries"}
+  [4;35;1mCountry Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCountry Create (0.4ms)[0m   [0mINSERT INTO `countries` (`name`, `created_at`, `updated_at`) VALUES('Scotland', '2010-08-09 12:13:04', '2010-08-09 12:13:04')[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/asset_manager/countries/1
+Completed in 21ms (DB: 3) | 302 Found [http://localhost/asset_manager/countries]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#show (for 127.0.0.1 at 2010-08-09 13:13:04) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asset_manager/countries"}
+  [4;35;1mCountry Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mCountry Load (0.4ms)[0m   [0;1mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/countries/show
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+Completed in 64ms (View: 46, DB: 3) | 200 OK [http://localhost/asset_manager/countries/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#index (for 127.0.0.1 at 2010-08-09 13:13:07) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/countries"}
+  [4;35;1mCountry Load (0.5ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/countries/index
+  [4;36;1mCountry Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+Completed in 49ms (View: 36, DB: 3) | 200 OK [http://localhost/asset_manager/countries]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#new (for 127.0.0.1 at 2010-08-09 13:13:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/countries"}
+  [4;35;1mCountry Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/countries/new
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+Completed in 58ms (View: 39, DB: 3) | 200 OK [http://localhost/asset_manager/countries/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#index (for 127.0.0.1 at 2010-08-09 13:13:12) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/countries"}
+  [4;36;1mCountry Load (0.2ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/countries/index
+  [4;35;1mCountry Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+Completed in 60ms (View: 44, DB: 3) | 200 OK [http://localhost/asset_manager/countries]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:13:14) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;36;1mAsset Load (0.2ms)[0m   [0;1mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;35;1mStage Load (0.1ms)[0m   [0mSELECT * FROM `stages` [0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `stages` [0m
+Completed in 73ms (View: 14, DB: 2) | 200 OK [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#index (for 127.0.0.1 at 2010-08-09 13:13:17) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/tribes"}
+  [4;35;1mTribe Load (0.2ms)[0m   [0mSELECT * FROM `tribes` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/tribes/index
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+Completed in 243ms (View: 47, DB: 2) | 200 OK [http://localhost/asset_manager/tribes]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#new (for 127.0.0.1 at 2010-08-09 13:13:19) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/tribes"}
+  [4;36;1mTribe Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/tribes/new
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+Completed in 64ms (View: 48, DB: 3) | 200 OK [http://localhost/asset_manager/tribes/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#create (for 127.0.0.1 at 2010-08-09 13:13:30) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "tribe"=>{"name"=>"DeltaGamma"}, "controller"=>"asset_manager/tribes"}
+  [4;35;1mTribe Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTribe Create (0.4ms)[0m   [0mINSERT INTO `tribes` (`name`, `created_at`, `updated_at`) VALUES('DeltaGamma', '2010-08-09 12:13:30', '2010-08-09 12:13:30')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/asset_manager/tribes/1
+Completed in 19ms (DB: 3) | 302 Found [http://localhost/asset_manager/tribes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#show (for 127.0.0.1 at 2010-08-09 13:13:30) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asset_manager/tribes"}
+  [4;35;1mTribe Columns (6.6ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mTribe Load (0.6ms)[0m   [0;1mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/tribes/show
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+Completed in 253ms (View: 226, DB: 9) | 200 OK [http://localhost/asset_manager/tribes/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#index (for 127.0.0.1 at 2010-08-09 13:13:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/tribes"}
+  [4;35;1mTribe Load (0.5ms)[0m   [0mSELECT * FROM `tribes` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/tribes/index
+  [4;36;1mTribe Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+Completed in 66ms (View: 47, DB: 3) | 200 OK [http://localhost/asset_manager/tribes]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:13:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;35;1mAsset Load (0.2ms)[0m   [0mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;36;1mStage Load (0.1ms)[0m   [0;1mSELECT * FROM `stages` [0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `stages` [0m
+Completed in 76ms (View: 9, DB: 2) | 200 OK [http://localhost/asset_manager/assets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#new (for 127.0.0.1 at 2010-08-09 13:13:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mTribe Load (0.2ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/new
+  [4;35;1mCountry Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mTribe Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mCaption Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `captions`[0m
+  [4;36;1mLanguage Load (1.0ms)[0m   [0;1mSELECT * FROM `languages` [0m
+Rendered asset_manager/assets/_caption (129.1ms)
+  [4;35;1mTag Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered asset_manager/assets/_tag (5.2ms)
+Completed in 463ms (View: 217, DB: 9) | 200 OK [http://localhost/asset_manager/assets/new]
+^CExiting
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ rake db:migrate
+(in /home/ryan/Rails/shared)
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ rake db:migrate[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kscript/server 
+=> Booting Mongrel
+=> Rails 2.3.8 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#new (for 127.0.0.1 at 2010-08-09 13:15:56) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/new
+  [4;35;1mCountry Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mTribe Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mCaption Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `captions`[0m
+  [4;36;1mLanguage Load (0.2ms)[0m   [0;1mSELECT * FROM `languages` [0m
+Rendered asset_manager/assets/_caption (26.8ms)
+  [4;35;1mTag Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered asset_manager/assets/_tag (5.1ms)
+Completed in 315ms (View: 244, DB: 8) | 200 OK [http://localhost/asset_manager/assets/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#create (for 127.0.0.1 at 2010-08-09 13:16:18) [POST]
+  Parameters: {"commit"=>"Upload", "action"=>"create", "controller"=>"asset_manager/assets", "asset"=>{"title"=>"", "new_caption_attributes"=>[{"content"=>"caption"}, {"content"=>"caption2"}], "country_id"=>"1", "tribe_id"=>"1"}}
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mCaption Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `captions`[0m
+  [4;36;1mTribe Load (0.2ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTribe Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mTribe Load (0.4ms)[0m   [0;1mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;35;1mCountry Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mCountry Load (0.2ms)[0m   [0;1mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/new
+  [4;36;1mLanguage Load (0.3ms)[0m   [0;1mSELECT * FROM `languages` [0m
+Rendered asset_manager/assets/_caption (12.7ms)
+  [4;35;1mTag Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered asset_manager/assets/_tag (3.4ms)
+Completed in 1331ms (View: 57, DB: 10) | 200 OK [http://localhost/asset_manager/assets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#create (for 127.0.0.1 at 2010-08-09 13:16:47) [POST]
+  Parameters: {"commit"=>"Upload", "action"=>"create", "controller"=>"asset_manager/assets", "asset"=>{"title"=>"", "new_caption_attributes"=>[{"content"=>"caption"}, {"content"=>"caption2"}], "country_id"=>"1", "new_tag_attributes"=>[{"content"=>"tag"}], "tribe_id"=>"1"}}
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mCaption Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `captions`[0m
+  [4;36;1mTag Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT * FROM `tags` WHERE (`tags`.`content` = 'tag') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTag Create (0.3ms)[0m   [0mINSERT INTO `tags` (`created_at`, `updated_at`, `content`) VALUES('2010-08-09 12:16:47', '2010-08-09 12:16:47', 'tag')[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTag Load (0.5ms)[0m   [0mSELECT `tags`.id FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`tags`.`id` = 1) AND (`assets_tags`.asset_id = NULL ) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mTribe Load (0.2ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.2ms)[0m   [0mSELECT * FROM `countries` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTribe Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;35;1mCountry Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/new
+  [4;36;1mLanguage Load (0.2ms)[0m   [0;1mSELECT * FROM `languages` [0m
+Rendered asset_manager/assets/_caption (12.7ms)
+Rendered asset_manager/assets/_tag (2.2ms)
+Completed in 345ms (View: 50, DB: 11) | 200 OK [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#create (for 127.0.0.1 at 2010-08-09 13:17:26) [POST]
+  Parameters: {"commit"=>"Upload", "action"=>"create", "controller"=>"asset_manager/assets", "asset"=>{"data"=>#<File:/tmp/RackMultipart20100809-2282-129qzmr-0>, "title"=>"", "new_caption_attributes"=>[{"content"=>"sjfdljn"}, {"content"=>"sfdd"}], "country_id"=>"1", "new_tag_attributes"=>[{"content"=>"rerere"}, {"content"=>"jrjjrj"}], "tribe_id"=>"1"}}
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;35;1mAsset Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2282,0.JPG[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2282,0.JPG[0]' '-resize' '193x120' '/tmp/stream,2282,0,2282,0.jpg' 2>/dev/null
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2282,0.JPG[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2282,0.JPG[0]' '-resize' '350x350' '/tmp/stream,2282,0,2282,1.jpg' 2>/dev/null
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2282,0.JPG[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2282,0.JPG[0]' '-resize' '540x337' '/tmp/stream,2282,0,2282,2.jpg' 2>/dev/null
+  [4;36;1mImage Columns (4.7ms)[0m   [0;1mSHOW FIELDS FROM `images`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mImage Create (0.6ms)[0m   [0;1mINSERT INTO `images` (`f_number`, `shot_date_time`, `camera_brand`, `camera_model`, `iso_speed_rating`, `focal_length`, `height`, `exposure_time`, `width`) VALUES(0.0, NULL, '', '', NULL, 0.0, 605, '', 405)[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mCaption Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `captions`[0m
+  [4;35;1mTag Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT * FROM `tags` WHERE (`tags`.`content` = 'jrjjrj') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTag Create (0.3ms)[0m   [0;1mINSERT INTO `tags` (`created_at`, `updated_at`, `content`) VALUES('2010-08-09 12:17:28', '2010-08-09 12:17:28', 'jrjjrj')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT `tags`.id FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`tags`.`id` = 2) AND (`assets_tags`.asset_id = NULL ) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTag Load (0.2ms)[0m   [0mSELECT * FROM `tags` WHERE (`tags`.`content` = 'rerere') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTag Create (0.2ms)[0m   [0mINSERT INTO `tags` (`created_at`, `updated_at`, `content`) VALUES('2010-08-09 12:17:28', '2010-08-09 12:17:28', 'rerere')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT `tags`.id FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`tags`.`id` = 3) AND (`assets_tags`.asset_id = NULL ) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mTribe Load (0.2ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTribe Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;35;1mCountry Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/new
+  [4;36;1mLanguage Load (0.2ms)[0m   [0;1mSELECT * FROM `languages` [0m
+Rendered asset_manager/assets/_caption (190.3ms)
+Rendered asset_manager/assets/_tag (2.2ms)
+Completed in 2075ms (View: 224, DB: 20) | 200 OK [http://localhost/asset_manager/assets]
+^CExiting
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ d[Krake db:drop
+(in /home/ryan/Rails/shared)
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ rake db:drop[K[K[K[Kcreate
+(in /home/ryan/Rails/shared)
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ rake db:create[K[K[K[K[K[Kmigrate
+(in /home/ryan/Rails/shared)
+==  CreateUsers: migrating ====================================================
+-- create_table(:users)
+   -> 0.0043s
+==  CreateUsers: migrated (0.0046s) ===========================================
+
+==  CreateAssets: migrating ===================================================
+-- create_table(:assets)
+   -> 0.0092s
+==  CreateAssets: migrated (0.0094s) ==========================================
+
+==  AddAttachmentsFileToAsset: migrating ======================================
+-- add_column(:assets, :data_file_name, :string)
+   -> 0.0135s
+-- add_column(:assets, :data_content_type, :string)
+   -> 0.0052s
+-- add_column(:assets, :data_file_size, :integer)
+   -> 0.0106s
+-- add_column(:assets, :data_updated_at, :datetime)
+   -> 0.0047s
+==  AddAttachmentsFileToAsset: migrated (0.0347s) =============================
+
+==  CreateNotifiers: migrating ================================================
+-- create_table(:notifiers)
+   -> 0.0031s
+==  CreateNotifiers: migrated (0.0033s) =======================================
+
+==  AddUsersPasswordResetFields: migrating ====================================
+-- add_column(:users, :perishable_token, :string, {:null=>false, :default=>""})
+   -> 0.0060s
+-- add_index(:users, :perishable_token)
+   -> 0.0090s
+==  AddUsersPasswordResetFields: migrated (0.0153s) ===========================
+
+==  CreateImages: migrating ===================================================
+-- create_table(:images)
+   -> 0.0042s
+==  CreateImages: migrated (0.0044s) ==========================================
+
+==  CreateVideos: migrating ===================================================
+-- create_table(:videos)
+   -> 0.0087s
+==  CreateVideos: migrated (0.0089s) ==========================================
+
+==  CreateTags: migrating =====================================================
+-- create_table(:tags)
+   -> 0.0079s
+==  CreateTags: migrated (0.0081s) ============================================
+
+==  CreateAssetsTags: migrating ===============================================
+-- create_table(:assets_tags, {:id=>false})
+   -> 0.0042s
+==  CreateAssetsTags: migrated (0.0044s) ======================================
+
+==  CreateStages: migrating ===================================================
+-- create_table(:stages)
+   -> 0.0042s
+==  CreateStages: migrated (0.0044s) ==========================================
+
+==  CreateAssetsStages: migrating =============================================
+-- create_table(:assets_stages, {:id=>false})
+   -> 0.0028s
+==  CreateAssetsStages: migrated (0.0030s) ====================================
+
+==  CreateLanguages: migrating ================================================
+-- create_table(:languages)
+   -> 0.0078s
+==  CreateLanguages: migrated (0.0080s) =======================================
+
+==  CreateCaptions: migrating =================================================
+-- create_table(:captions)
+   -> 0.0083s
+==  CreateCaptions: migrated (0.0085s) ========================================
+
+==  CreateCredits: migrating ==================================================
+-- create_table(:credits)
+   -> 0.0083s
+==  CreateCredits: migrated (0.0085s) =========================================
+
+==  AddLanguages: migrating ===================================================
+==  AddLanguages: migrated (0.1739s) ==========================================
+
+==  CreateTribes: migrating ===================================================
+-- create_table(:tribes)
+   -> 0.0035s
+==  CreateTribes: migrated (0.0037s) ==========================================
+
+==  CreateCountries: migrating ================================================
+-- create_table(:countries)
+   -> 0.0087s
+==  CreateCountries: migrated (0.0089s) =======================================
+
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ script/serr[Kver 
+=> Booting Mongrel
+=> Rails 2.3.8 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:18:23) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/login
+Filter chain halted as [:verify_credentials] rendered_or_redirected.
+Completed in 30ms (DB: 2) | 302 Found [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-08-09 13:18:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (2.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 126ms (View: 103, DB: 3) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-09 13:18:24) [GET]
+
+ActionController::RoutingError (No route matches "/public/favicon.ico" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::UsersController#new (for 127.0.0.1 at 2010-08-09 13:18:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/users"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM `users` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/users/new
+Rendered asset_manager/users/_form (17.6ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 89ms (View: 58, DB: 4) | 200 OK [http://localhost/asset_manager/users/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::UsersController#create (for 127.0.0.1 at 2010-08-09 13:18:43) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "controller"=>"asset_manager/users", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"Ryu", "password"=>"[FILTERED]", "email"=>"Ryu@gnf.com"}}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `users` [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'ryu@gnf.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`username`) = BINARY 'ryu') LIMIT 1[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'd3e4193764e9aa2278783b2d903505f320e11a2c48bd68777b553b5557bb274d4f256caada9eaafa2921e62cbac167e01431f2eebc90118028ada7a54943177f') LIMIT 1[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO `users` (`created_at`, `crypted_password`, `updated_at`, `perishable_token`, `username`, `failed_login_count`, `password_salt`, `persistence_token`, `login_count`, `email`) VALUES('2010-08-09 12:18:43', '16bf9e63abc06326ea45264fc7102b382bf628b5795904f8f79b1e3da4fc7fe77da718c933bd79d70e628fa33afb6a0939ba977e8849d704744694e5bea87608', '2010-08-09 12:18:43', 'zwzviUd-GMEzFGrbQoft', 'Ryu', 0, '_91F0yEtIF7oG2de701d', 'd3e4193764e9aa2278783b2d903505f320e11a2c48bd68777b553b5557bb274d4f256caada9eaafa2921e62cbac167e01431f2eebc90118028ada7a54943177f', 1, 'Ryu@gnf.com')[0m
+  [4;35;1mSQL (45.2ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 605ms (DB: 50) | 302 Found [http://localhost/asset_manager/users]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::UsersController#create (for 127.0.0.1 at 2010-08-09 13:18:43) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "controller"=>"asset_manager/users", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"Ryu", "password"=>"[FILTERED]", "email"=>"Ryu@gnf.com"}}
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM `users` [0m
+Redirected to http://localhost:3000/login
+Filter chain halted as [:admin_restrictions] rendered_or_redirected.
+Completed in 20ms (DB: 2) | 302 Found [http://localhost/asset_manager/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-08-09 13:18:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (3.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6c9b21a3b57df712e646134655a18857fb8a66924785ebac58999a713361e8394275c29422a0086dba1be403470eb381e981d4d0d5d3fa5b389b126ade5efc5d') LIMIT 1[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 57ms (View: 29, DB: 5) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-09 13:18:44) [GET]
+
+ActionController::RoutingError (No route matches "/public/favicon.ico" with {:method=>:get}):
+  /usr/lib/ruby/1.8/mongrel.rb:159:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `each'
+  /usr/lib/ruby/1.8/mongrel.rb:158:in `process_client'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:285:in `run'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `initialize'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `new'
+  /usr/lib/ruby/1.8/mongrel.rb:268:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-08-09 13:18:46) [POST]
+  Parameters: {"commit"=>"Submit", "user_session"=>{"username"=>"Ryu", "password"=>"[FILTERED]"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (4.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (22.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.username) = 'ryu') LIMIT 1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (130.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-08-09 12:18:46', `perishable_token` = 'vztqjM8cThpVcpsyJh-j', `login_count` = 2 WHERE `id` = 1[0m
+  [4;35;1mSQL (7.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed in 277ms (DB: 165) | 302 Found [http://localhost/user_sessions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:18:46) [GET]
+  Parameters: {"action"=>"index", "controller"=>"AssetManager::Assets"}
+  [4;36;1mUser Columns (3.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (21.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Load (0.7ms)[0m   [0;1mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;35;1mStage Load (0.5ms)[0m   [0mSELECT * FROM `stages` [0m
+  [4;36;1mTribe Load (4.6ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (6.5ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `stages` [0m
+Completed in 244ms (View: 60, DB: 37) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#index (for 127.0.0.1 at 2010-08-09 13:18:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/tribes"}
+  [4;35;1mTribe Load (0.2ms)[0m   [0mSELECT * FROM `tribes` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/tribes/index
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 288ms (View: 105, DB: 2) | 200 OK [http://localhost/asset_manager/tribes]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#new (for 127.0.0.1 at 2010-08-09 13:18:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/tribes"}
+  [4;36;1mTribe Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/tribes/new
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 61ms (View: 46, DB: 3) | 200 OK [http://localhost/asset_manager/tribes/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#create (for 127.0.0.1 at 2010-08-09 13:19:00) [POST]
+  Parameters: {"commit"=>"Create", "action"=>"create", "tribe"=>{"name"=>"DeltaGamma"}, "controller"=>"asset_manager/tribes"}
+  [4;35;1mTribe Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTribe Create (0.4ms)[0m   [0mINSERT INTO `tribes` (`name`, `created_at`, `updated_at`) VALUES('DeltaGamma', '2010-08-09 12:19:00', '2010-08-09 12:19:00')[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/asset_manager/tribes/1
+Completed in 20ms (DB: 3) | 302 Found [http://localhost/asset_manager/tribes]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TribesController#show (for 127.0.0.1 at 2010-08-09 13:19:00) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asset_manager/tribes"}
+  [4;35;1mTribe Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mTribe Load (0.4ms)[0m   [0;1mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/tribes/show
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (35.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 236ms (View: 185, DB: 38) | 200 OK [http://localhost/asset_manager/tribes/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:19:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Load (0.2ms)[0m   [0mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;36;1mStage Load (0.1ms)[0m   [0;1mSELECT * FROM `stages` [0m
+  [4;35;1mTribe Load (0.5ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `stages` [0m
+Completed in 81ms (View: 9, DB: 3) | 200 OK [http://localhost/asset_manager/assets]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#index (for 127.0.0.1 at 2010-08-09 13:19:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/countries"}
+  [4;36;1mCountry Load (0.2ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/countries/index
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 113ms (View: 100, DB: 2) | 200 OK [http://localhost/asset_manager/countries]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#new (for 127.0.0.1 at 2010-08-09 13:19:08) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/countries"}
+  [4;35;1mCountry Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/countries/new
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 239ms (View: 225, DB: 3) | 200 OK [http://localhost/asset_manager/countries/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#create (for 127.0.0.1 at 2010-08-09 13:19:16) [POST]
+  Parameters: {"commit"=>"Create", "country"=>{"name"=>"Scotland"}, "action"=>"create", "controller"=>"asset_manager/countries"}
+  [4;36;1mCountry Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCountry Create (0.4ms)[0m   [0;1mINSERT INTO `countries` (`name`, `created_at`, `updated_at`) VALUES('Scotland', '2010-08-09 12:19:16', '2010-08-09 12:19:16')[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/asset_manager/countries/1
+Completed in 22ms (DB: 3) | 302 Found [http://localhost/asset_manager/countries]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::CountriesController#show (for 127.0.0.1 at 2010-08-09 13:19:16) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asset_manager/countries"}
+  [4;36;1mCountry Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mCountry Load (0.4ms)[0m   [0mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/countries/show
+  [4;36;1mUser Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 56ms (View: 39, DB: 4) | 200 OK [http://localhost/asset_manager/countries/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:19:18) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Load (0.2ms)[0m   [0;1mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;35;1mStage Load (0.2ms)[0m   [0mSELECT * FROM `stages` [0m
+  [4;36;1mTribe Load (0.2ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.5ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `stages` [0m
+Completed in 251ms (View: 12, DB: 3) | 200 OK [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#new (for 127.0.0.1 at 2010-08-09 13:19:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mTribe Load (0.2ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/new
+  [4;36;1mCountry Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mTribe Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mCaption Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `captions`[0m
+  [4;35;1mLanguage Load (0.6ms)[0m   [0mSELECT * FROM `languages` [0m
+  [4;36;1mLanguage Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `languages`[0m
+Rendered asset_manager/assets/_caption (20.3ms)
+  [4;35;1mTag Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered asset_manager/assets/_tag (4.6ms)
+Completed in 175ms (View: 102, DB: 12) | 200 OK [http://localhost/asset_manager/assets/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#create (for 127.0.0.1 at 2010-08-09 13:20:03) [POST]
+  Parameters: {"commit"=>"Upload", "action"=>"create", "controller"=>"asset_manager/assets", "asset"=>{"data"=>#<File:/tmp/RackMultipart20100809-2326-1jhwxsj-0>, "title"=>"Maria", "new_caption_attributes"=>[{"language_id"=>"1", "content"=>"Hello"}, {"language_id"=>"1", "content"=>"hi"}], "country_id"=>"1", "new_tag_attributes"=>[{"content"=>"Great"}, {"content"=>"Good"}], "tribe_id"=>"1"}}
+  [4;36;1mUser Columns (3.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2326,0.JPG[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2326,0.JPG[0]' '-resize' '193x120' '/tmp/stream,2326,0,2326,0.jpg' 2>/dev/null
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2326,0.JPG[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2326,0.JPG[0]' '-resize' '350x350' '/tmp/stream,2326,0,2326,1.jpg' 2>/dev/null
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2326,0.JPG[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2326,0.JPG[0]' '-resize' '540x337' '/tmp/stream,2326,0,2326,2.jpg' 2>/dev/null
+  [4;35;1mImage Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `images`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mImage Create (0.6ms)[0m   [0mINSERT INTO `images` (`f_number`, `shot_date_time`, `camera_brand`, `camera_model`, `iso_speed_rating`, `focal_length`, `height`, `exposure_time`, `width`) VALUES(0.0, NULL, '', '', NULL, 0.0, 605, '', 405)[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mCaption Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `captions`[0m
+  [4;36;1mTag Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT * FROM `tags` WHERE (`tags`.`content` = 'Good') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTag Create (0.3ms)[0m   [0mINSERT INTO `tags` (`created_at`, `updated_at`, `content`) VALUES('2010-08-09 12:20:06', '2010-08-09 12:20:06', 'Good')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTag Load (0.5ms)[0m   [0mSELECT `tags`.id FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`tags`.`id` = 1) AND (`assets_tags`.asset_id = NULL ) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mTag Load (0.3ms)[0m   [0;1mSELECT * FROM `tags` WHERE (`tags`.`content` = 'Great') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTag Create (0.2ms)[0m   [0;1mINSERT INTO `tags` (`created_at`, `updated_at`, `content`) VALUES('2010-08-09 12:20:06', '2010-08-09 12:20:06', 'Great')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT `tags`.id FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`tags`.`id` = 2) AND (`assets_tags`.asset_id = NULL ) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.2ms)[0m   [0;1mSELECT * FROM `countries` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTribe Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mTribe Load (0.3ms)[0m   [0mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;36;1mCountry Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mCountry Load (0.3ms)[0m   [0mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;36;1mAsset Create (0.4ms)[0m   [0;1mINSERT INTO `assets` (`exif_id`, `created_at`, `data_updated_at`, `exif_type`, `title`, `updated_at`, `data_content_type`, `country_id`, `tribe_id`, `data_file_name`, `data_file_size`) VALUES(1, '2010-08-09 12:20:06', '2010-08-09 12:20:04', 'Image', 'Maria', '2010-08-09 12:20:06', 'image/jpeg', 1, 1, 'pic,tures.JPG', 29597)[0m
+  [4;35;1mCaption Create (0.2ms)[0m   [0mINSERT INTO `captions` (`created_at`, `updated_at`, `language_id`, `content`, `asset_id`) VALUES('2010-08-09 12:20:06', '2010-08-09 12:20:06', 1, 'Hello', 1)[0m
+  [4;36;1mCaption Create (0.1ms)[0m   [0;1mINSERT INTO `captions` (`created_at`, `updated_at`, `language_id`, `content`, `asset_id`) VALUES('2010-08-09 12:20:06', '2010-08-09 12:20:06', 1, 'hi', 1)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `assets_tags`[0m
+  [4;36;1massets_tags Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `assets_tags`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO `assets_tags` (`tag_id`, `asset_id`) VALUES (1, 1)[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mdescribe `assets_tags`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO `assets_tags` (`tag_id`, `asset_id`) VALUES (2, 1)[0m
+[paperclip] Saving attachments.
+[paperclip] saving /assets/photos/1/thumb/pic,tures.jpg
+[paperclip] saving /assets/photos/1/medium/pic,tures.jpg
+[paperclip] saving /assets/photos/1/large/pic,tures.jpg
+[paperclip] saving /assets/photos/1/original/pic,tures.JPG
+  [4;36;1mSQL (1.6ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/asset_manager/assets/1
+Completed in 5020ms (DB: 23) | 302 Found [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#show (for 127.0.0.1 at 2010-08-09 13:20:08) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (0.5ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+  [4;35;1mTribe Load (0.2ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` [0m
+  [4;35;1mImage Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `images`[0m
+  [4;36;1mImage Load (0.4ms)[0m   [0;1mSELECT * FROM `images` WHERE (`images`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/show
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47asset_manager47assets47show46html46erb at /home/ryan/Rails/shared/app/views/asset_manager/assets/show.html.erb:1)
+  [4;35;1mTribe Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;35;1mCountry Columns (10.6ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mCountry Load (0.2ms)[0m   [0;1mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;35;1mCaption Load (0.6ms)[0m   [0mSELECT * FROM `captions` WHERE (`captions`.asset_id = 1) [0m
+  [4;36;1mCaption Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `captions`[0m
+  [4;35;1mLanguage Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `languages`[0m
+  [4;36;1mLanguage Load (0.3ms)[0m   [0;1mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;36;1mCredit Load (0.6ms)[0m   [0;1mSELECT * FROM `credits` WHERE (`credits`.asset_id = 1) [0m
+  [4;35;1massets_tags Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `assets_tags`[0m
+  [4;36;1mTag Load (0.4ms)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 1 ) [0m
+  [4;35;1mTag Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Completed in 405ms (View: 306, DB: 26) | 200 OK [http://localhost/asset_manager/assets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TagsController#index (for 127.0.0.1 at 2010-08-09 13:20:12) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/tags", "asset_id"=>"1"}
+  [4;36;1mAsset Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (0.2ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/tags/index
+  [4;36;1massets_tags Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `assets_tags`[0m
+  [4;35;1mTag Load (0.1ms)[0m   [0mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 1 ) [0m
+  [4;36;1mTag Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 93ms (View: 59, DB: 5) | 200 OK [http://localhost/asset_manager/assets/1/tags]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:20:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Load (0.7ms)[0m   [0mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;36;1mStage Load (0.2ms)[0m   [0;1mSELECT * FROM `stages` [0m
+  [4;35;1mTribe Load (0.2ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.2ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;35;1mAsset Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `stages` [0m
+Completed in 299ms (View: 28, DB: 4) | 200 OK [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#edit (for 127.0.0.1 at 2010-08-09 13:20:36) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (0.1ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+  [4;35;1mTribe Load (0.2ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/edit
+  [4;35;1mCountry Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mTribe Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mCaption Load (0.2ms)[0m   [0mSELECT * FROM `captions` WHERE (`captions`.asset_id = 1) [0m
+  [4;36;1mCaption Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `captions`[0m
+  [4;35;1mLanguage Load (0.2ms)[0m   [0mSELECT * FROM `languages` [0m
+  [4;36;1mLanguage Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `languages`[0m
+Rendered asset_manager/assets/_caption (14.5ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `languages` [0m
+Rendered asset_manager/assets/_caption (3.5ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `languages` [0m
+Rendered asset_manager/assets/_caption (3.4ms)
+  [4;35;1massets_tags Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `assets_tags`[0m
+  [4;36;1mTag Load (0.1ms)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 1 ) [0m
+  [4;35;1mTag Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered asset_manager/assets/_tag (3.5ms)
+Rendered asset_manager/assets/_tag (1.9ms)
+Rendered asset_manager/assets/_tag (1.9ms)
+Completed in 184ms (View: 101, DB: 10) | 200 OK [http://localhost/asset_manager/assets/1/edit]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#update (for 127.0.0.1 at 2010-08-09 13:20:47) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "id"=>"1", "controller"=>"asset_manager/assets", "asset"=>{"updated_tag_attributes"=>{"1"=>{"content"=>"Good"}, "2"=>{"content"=>"Great"}}, "updated_caption_attributes"=>{"1"=>{"language_id"=>"1", "content"=>"Hello"}, "2"=>{"language_id"=>"1", "content"=>"hi"}}, "title"=>"MariaUpdated", "country_id"=>"1", "tribe_id"=>"1"}}
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (0.1ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+  [4;36;1massets_tags Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `assets_tags`[0m
+  [4;35;1mTag Load (0.1ms)[0m   [0mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 1 ) [0m
+  [4;36;1mTag Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+  [4;35;1mCaption Load (0.2ms)[0m   [0mSELECT * FROM `captions` WHERE (`captions`.asset_id = 1) [0m
+  [4;36;1mCaption Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `captions`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTribe Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;36;1mCountry Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;36;1mAsset Update (0.6ms)[0m   [0;1mUPDATE `assets` SET `updated_at` = '2010-08-09 12:20:48', `title` = 'MariaUpdated' WHERE `id` = 1[0m
+[paperclip] Saving attachments.
+  [4;35;1mSQL (1.4ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/asset_manager/assets/1
+Completed in 333ms (DB: 11) | 302 Found [http://localhost/asset_manager/assets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#show (for 127.0.0.1 at 2010-08-09 13:20:48) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (0.4ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+  [4;36;1mImage Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `images`[0m
+  [4;35;1mImage Load (0.1ms)[0m   [0mSELECT * FROM `images` WHERE (`images`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/show
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47asset_manager47assets47show46html46erb at /home/ryan/Rails/shared/app/views/asset_manager/assets/show.html.erb:1)
+  [4;36;1mTribe Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;36;1mCountry Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;36;1mCaption Load (0.1ms)[0m   [0;1mSELECT * FROM `captions` WHERE (`captions`.asset_id = 1) [0m
+  [4;35;1mCaption Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `captions`[0m
+  [4;36;1mLanguage Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `languages`[0m
+  [4;35;1mLanguage Load (0.1ms)[0m   [0mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;35;1mCredit Load (0.2ms)[0m   [0mSELECT * FROM `credits` WHERE (`credits`.asset_id = 1) [0m
+  [4;36;1massets_tags Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `assets_tags`[0m
+  [4;35;1mTag Load (0.1ms)[0m   [0mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 1 ) [0m
+  [4;36;1mTag Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+Completed in 140ms (View: 56, DB: 13) | 200 OK [http://localhost/asset_manager/assets/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:20:51) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Load (0.7ms)[0m   [0mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;36;1mStage Load (0.2ms)[0m   [0;1mSELECT * FROM `stages` [0m
+  [4;35;1mTribe Load (0.2ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.2ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;35;1mAsset Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `stages` [0m
+Completed in 108ms (View: 28, DB: 5) | 200 OK [http://localhost/asset_manager/assets]
+^CExiting
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ git pull origin s[Kserv[K[K[K[Kmaster
+From teamgamma.indefero.net:teamgamma/shared
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ git pusth[K[Kh origin master
+Counting objects: 47, done.
+Compressing objects:   4% (1/24)   Compressing objects:   8% (2/24)   Compressing objects:  12% (3/24)   Compressing objects:  16% (4/24)   Compressing objects:  20% (5/24)   Compressing objects:  25% (6/24)   Compressing objects:  29% (7/24)   Compressing objects:  33% (8/24)   Compressing objects:  37% (9/24)   Compressing objects:  41% (10/24)   Compressing objects:  45% (11/24)   Compressing objects:  50% (12/24)   Compressing objects:  54% (13/24)   Compressing objects:  58% (14/24)   Compressing objects:  62% (15/24)   Compressing objects:  66% (16/24)   Compressing objects:  70% (17/24)   Compressing objects:  75% (18/24)   Compressing objects:  79% (19/24)   Compressing objects:  83% (20/24)   Compressing objects:  87% (21/24)   Compressing objects:  91% (22/24)   Compressing objects:  95% (23/24)   Compressing objects: 100% (24/24)   Compressing objects: 100% (24/24), done.
+Writing objects:   4% (1/25)   Writing objects:   8% (2/25)   Writing objects:  12% (3/25)   Writing objects:  16% (4/25)   Writing objects:  20% (5/25)   Writing objects:  24% (6/25)   Writing objects:  28% (7/25)   Writing objects:  32% (8/25)   Writing objects:  36% (9/25)   Writing objects:  40% (10/25)   Writing objects:  44% (11/25)   Writing objects:  48% (12/25)   Writing objects:  52% (13/25)   Writing objects:  56% (14/25)   Writing objects:  60% (15/25)   Writing objects:  64% (16/25)   Writing objects:  68% (17/25)   Writing objects:  72% (18/25)   Writing objects:  76% (19/25)   Writing objects:  80% (20/25)   Writing objects:  84% (21/25)   Writing objects:  88% (22/25)   Writing objects:  92% (23/25)   Writing objects:  96% (24/25)   Writing objects: 100% (25/25)   Writing objects: 100% (25/25), 12.72 KiB, done.
+Total 25 (delta 17), reused 0 (delta 0)
+To git@teamgamma.indefero.net:teamgamma/shared.git
+   86c6415..ef9f4d8  master -> master
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ git pull orign[Kin master
+From teamgamma.indefero.net:teamgamma/shared
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+]0;ryan@ubuntu: ~/Rails/sharedryan@ubuntu:~/Rails/shared$ script/server 
+=> Booting Mongrel
+=> Rails 2.3.8 application starting on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#show (for 127.0.0.1 at 2010-08-09 13:22:08) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (0.1ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+  [4;36;1mImage Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `images`[0m
+  [4;35;1mImage Load (0.1ms)[0m   [0mSELECT * FROM `images` WHERE (`images`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/show
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47asset_manager47assets47show46html46erb at /home/ryan/Rails/shared/app/views/asset_manager/assets/show.html.erb:1)
+  [4;36;1mTribe Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;36;1mCountry Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;36;1mCaption Load (0.2ms)[0m   [0;1mSELECT * FROM `captions` WHERE (`captions`.asset_id = 1) [0m
+  [4;35;1mCaption Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `captions`[0m
+  [4;36;1mLanguage Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `languages`[0m
+  [4;35;1mLanguage Load (0.1ms)[0m   [0mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;35;1mCredit Load (0.2ms)[0m   [0mSELECT * FROM `credits` WHERE (`credits`.asset_id = 1) [0m
+  [4;36;1massets_tags Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `assets_tags`[0m
+  [4;35;1mTag Load (0.1ms)[0m   [0mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 1 ) [0m
+  [4;36;1mTag Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+Completed in 802ms (View: 722, DB: 10) | 200 OK [http://localhost/asset_manager/assets/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:22:12) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Load (0.2ms)[0m   [0mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;36;1mStage Load (0.1ms)[0m   [0;1mSELECT * FROM `stages` [0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.2ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;35;1mAsset Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `stages` [0m
+Completed in 111ms (View: 35, DB: 4) | 200 OK [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#show (for 127.0.0.1 at 2010-08-09 13:22:52) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (0.1ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` [0m
+  [4;35;1mImage Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `images`[0m
+  [4;36;1mImage Load (0.1ms)[0m   [0;1mSELECT * FROM `images` WHERE (`images`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/show
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47asset_manager47assets47show46html46erb at /home/ryan/Rails/shared/app/views/asset_manager/assets/show.html.erb:1)
+  [4;35;1mTribe Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;35;1mCountry Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;35;1mCaption Load (0.2ms)[0m   [0mSELECT * FROM `captions` WHERE (`captions`.asset_id = 1) [0m
+  [4;36;1mCaption Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `captions`[0m
+  [4;35;1mLanguage Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `languages`[0m
+  [4;36;1mLanguage Load (0.1ms)[0m   [0;1mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;36;1mCredit Load (0.2ms)[0m   [0;1mSELECT * FROM `credits` WHERE (`credits`.asset_id = 1) [0m
+  [4;35;1massets_tags Columns (32.2ms)[0m   [0mSHOW FIELDS FROM `assets_tags`[0m
+  [4;36;1mTag Load (0.2ms)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 1 ) [0m
+  [4;35;1mTag Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Completed in 300ms (View: 189, DB: 43) | 200 OK [http://localhost/asset_manager/assets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::TagsController#index (for 127.0.0.1 at 2010-08-09 13:23:36) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/tags", "asset_id"=>"1"}
+  [4;36;1mAsset Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (0.1ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/tags/index
+  [4;36;1massets_tags Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `assets_tags`[0m
+  [4;35;1mTag Load (0.1ms)[0m   [0mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 1 ) [0m
+  [4;36;1mTag Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+Completed in 99ms (View: 64, DB: 5) | 200 OK [http://localhost/asset_manager/assets/1/tags]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#show (for 127.0.0.1 at 2010-08-09 13:23:44) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (0.1ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` [0m
+  [4;35;1mImage Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `images`[0m
+  [4;36;1mImage Load (0.1ms)[0m   [0;1mSELECT * FROM `images` WHERE (`images`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/show
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47asset_manager47assets47show46html46erb at /home/ryan/Rails/shared/app/views/asset_manager/assets/show.html.erb:1)
+  [4;35;1mTribe Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;35;1mCountry Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;35;1mCaption Load (0.2ms)[0m   [0mSELECT * FROM `captions` WHERE (`captions`.asset_id = 1) [0m
+  [4;36;1mCaption Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `captions`[0m
+  [4;35;1mLanguage Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `languages`[0m
+  [4;36;1mLanguage Load (0.1ms)[0m   [0;1mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;36;1mCredit Load (35.1ms)[0m   [0;1mSELECT * FROM `credits` WHERE (`credits`.asset_id = 1) [0m
+  [4;35;1massets_tags Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `assets_tags`[0m
+  [4;36;1mTag Load (0.1ms)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 1 ) [0m
+  [4;35;1mTag Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Completed in 311ms (View: 197, DB: 46) | 200 OK [http://localhost/asset_manager/assets/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#edit (for 127.0.0.1 at 2010-08-09 13:24:02) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (0.1ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+  [4;36;1mTribe Load (0.7ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/edit
+  [4;36;1mCountry Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mTribe Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mCaption Load (0.2ms)[0m   [0;1mSELECT * FROM `captions` WHERE (`captions`.asset_id = 1) [0m
+  [4;35;1mCaption Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `captions`[0m
+  [4;36;1mLanguage Load (0.2ms)[0m   [0;1mSELECT * FROM `languages` [0m
+  [4;35;1mLanguage Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `languages`[0m
+Rendered asset_manager/assets/_caption (15.4ms)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `languages` [0m
+Rendered asset_manager/assets/_caption (4.2ms)
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `languages` [0m
+Rendered asset_manager/assets/_caption (4.5ms)
+  [4;36;1massets_tags Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `assets_tags`[0m
+  [4;35;1mTag Load (0.1ms)[0m   [0mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 1 ) [0m
+  [4;36;1mTag Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+Rendered asset_manager/assets/_tag (5.0ms)
+Rendered asset_manager/assets/_tag (1.9ms)
+Rendered asset_manager/assets/_tag (2.7ms)
+Completed in 199ms (View: 115, DB: 10) | 200 OK [http://localhost/asset_manager/assets/1/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#update (for 127.0.0.1 at 2010-08-09 13:24:19) [PUT]
+  Parameters: {"commit"=>"Update", "action"=>"update", "_method"=>"put", "id"=>"1", "controller"=>"asset_manager/assets", "asset"=>{"updated_tag_attributes"=>{"1"=>{"content"=>"Good"}, "2"=>{"content"=>"Great"}}, "updated_caption_attributes"=>{"1"=>{"language_id"=>"1", "content"=>"Hello"}, "2"=>{"language_id"=>"1", "content"=>"hi"}}, "title"=>"MariaUpdated", "country_id"=>"1", "new_tag_attributes"=>[{"content"=>"brill"}, {"content"=>"fantastic"}], "tribe_id"=>"1"}}
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mAsset Load (0.2ms)[0m   [0;1mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+  [4;35;1massets_tags Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `assets_tags`[0m
+  [4;36;1mTag Load (0.1ms)[0m   [0;1mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 1 ) [0m
+  [4;35;1mTag Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+  [4;36;1mCaption Load (0.2ms)[0m   [0;1mSELECT * FROM `captions` WHERE (`captions`.asset_id = 1) [0m
+  [4;35;1mCaption Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `captions`[0m
+  [4;36;1mTag Load (0.6ms)[0m   [0;1mSELECT * FROM `tags` WHERE (`tags`.`content` = 'fantastic') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTag Create (0.4ms)[0m   [0;1mINSERT INTO `tags` (`created_at`, `updated_at`, `content`) VALUES('2010-08-09 12:24:19', '2010-08-09 12:24:19', 'fantastic')[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mTag Load (0.5ms)[0m   [0;1mSELECT `tags`.id FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`tags`.`id` = 3) AND (`assets_tags`.asset_id = 1 ) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mdescribe `assets_tags`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO `assets_tags` (`tag_id`, `asset_id`) VALUES (3, 1)[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTag Load (0.3ms)[0m   [0mSELECT * FROM `tags` WHERE (`tags`.`content` = 'brill') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTag Create (0.3ms)[0m   [0mINSERT INTO `tags` (`created_at`, `updated_at`, `content`) VALUES('2010-08-09 12:24:19', '2010-08-09 12:24:19', 'brill')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT `tags`.id FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`tags`.`id` = 4) AND (`assets_tags`.asset_id = 1 ) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mdescribe `assets_tags`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO `assets_tags` (`tag_id`, `asset_id`) VALUES (4, 1)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTribe Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;35;1mCountry Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `countries`[0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+[paperclip] Saving attachments.
+  [4;35;1mSQL (0.2ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/asset_manager/assets/1
+Completed in 329ms (DB: 16) | 302 Found [http://localhost/asset_manager/assets/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#show (for 127.0.0.1 at 2010-08-09 13:24:19) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (0.1ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 1) [0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+  [4;36;1mImage Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `images`[0m
+  [4;35;1mImage Load (0.1ms)[0m   [0mSELECT * FROM `images` WHERE (`images`.`id` = 1) [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/show
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47asset_manager47assets47show46html46erb at /home/ryan/Rails/shared/app/views/asset_manager/assets/show.html.erb:1)
+  [4;36;1mTribe Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;36;1mCountry Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;36;1mCaption Load (0.2ms)[0m   [0;1mSELECT * FROM `captions` WHERE (`captions`.asset_id = 1) [0m
+  [4;35;1mCaption Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `captions`[0m
+  [4;36;1mLanguage Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `languages`[0m
+  [4;35;1mLanguage Load (0.1ms)[0m   [0mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `languages` WHERE (`languages`.`id` = 1) [0m
+  [4;35;1mCredit Load (0.1ms)[0m   [0mSELECT * FROM `credits` WHERE (`credits`.asset_id = 1) [0m
+  [4;36;1massets_tags Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `assets_tags`[0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 1 ) [0m
+  [4;36;1mTag Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `tags`[0m
+Completed in 135ms (View: 59, DB: 11) | 200 OK [http://localhost/asset_manager/assets/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#index (for 127.0.0.1 at 2010-08-09 13:25:16) [GET]
+  Parameters: {"action"=>"index", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Load (0.2ms)[0m   [0mSELECT * FROM `assets` WHERE (title like '%%') ORDER BY title LIMIT 0, 12[0m
+  [4;36;1mStage Load (0.2ms)[0m   [0;1mSELECT * FROM `stages` [0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.1ms)[0m   [0;1mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/index
+  [4;35;1mAsset Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from /home/ryan/Rails/shared/app/views/asset_manager/assets/index.html.erb:11)
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `stages` [0m
+Completed in 101ms (View: 26, DB: 4) | 200 OK [http://localhost/asset_manager/assets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#new (for 127.0.0.1 at 2010-08-09 13:25:20) [GET]
+  Parameters: {"action"=>"new", "controller"=>"asset_manager/assets"}
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;35;1mAsset Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/new
+  [4;36;1mCountry Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mTribe Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `tribes`[0m
+  [4;36;1mCaption Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `captions`[0m
+  [4;35;1mLanguage Load (0.2ms)[0m   [0mSELECT * FROM `languages` [0m
+  [4;36;1mLanguage Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `languages`[0m
+Rendered asset_manager/assets/_caption (170.4ms)
+  [4;35;1mTag Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `tags`[0m
+Rendered asset_manager/assets/_tag (5.9ms)
+Completed in 565ms (View: 504, DB: 9) | 200 OK [http://localhost/asset_manager/assets/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#create (for 127.0.0.1 at 2010-08-09 13:25:44) [POST]
+  Parameters: {"commit"=>"Upload", "action"=>"create", "controller"=>"asset_manager/assets", "asset"=>{"data"=>#<File:/tmp/RackMultipart20100809-2438-h7vdbb-0>, "title"=>"Boy", "country_id"=>"1", "tribe_id"=>"1"}}
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2438,0.tif[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2438,0.tif[0]' '-resize' '193x120' '/tmp/stream,2438,0,2438,0.jpg' 2>/dev/null
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2438,0.tif[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2438,0.tif[0]' '-resize' '350x350' '/tmp/stream,2438,0,2438,1.jpg' 2>/dev/null
+[paperclip] identify '-format' '%wx%h' '/tmp/stream,2438,0.tif[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream,2438,0.tif[0]' '-resize' '540x337' '/tmp/stream,2438,0,2438,2.jpg' 2>/dev/null
+  [4;35;1mTribe Load (0.2ms)[0m   [0mSELECT * FROM `tribes` [0m
+  [4;36;1mCountry Load (0.2ms)[0m   [0;1mSELECT * FROM `countries` [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mTribe Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;36;1mCountry Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;36;1mAsset Create (0.4ms)[0m   [0;1mINSERT INTO `assets` (`exif_id`, `created_at`, `data_updated_at`, `exif_type`, `title`, `updated_at`, `data_content_type`, `country_id`, `tribe_id`, `data_file_name`, `data_file_size`) VALUES(NULL, '2010-08-09 12:25:49', '2010-08-09 12:25:45', NULL, 'Boy', '2010-08-09 12:25:49', 'image/tiff', 1, 1, 'BOTS-BUSH-SC-04-B6-005.tif', 2026850)[0m
+[paperclip] Saving attachments.
+[paperclip] saving /assets/photos/2/thumb/BOTS-BUSH-SC-04-B6-005.jpg
+[paperclip] saving /assets/photos/2/medium/BOTS-BUSH-SC-04-B6-005.jpg
+[paperclip] saving /assets/photos/2/large/BOTS-BUSH-SC-04-B6-005.jpg
+[paperclip] saving /assets/photos/2/original/BOTS-BUSH-SC-04-B6-005.tif
+  [4;35;1mSQL (1.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/asset_manager/assets/2
+Completed in 12821ms (DB: 8) | 302 Found [http://localhost/asset_manager/assets]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetManager::AssetsController#show (for 127.0.0.1 at 2010-08-09 13:25:57) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"asset_manager/assets"}
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '1') LIMIT 1[0m
+  [4;36;1mAsset Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mAsset Load (0.4ms)[0m   [0mSELECT * FROM `assets` WHERE (`assets`.`id` = 2) [0m
+  [4;36;1mTribe Load (0.1ms)[0m   [0;1mSELECT * FROM `tribes` [0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` [0m
+Rendering template within layouts/asset_manager/application
+Rendering asset_manager/assets/show
+DEPRECATION WARNING: truncate takes an option hash instead of separate length and omission arguments. (called from _run_erb_app47views47asset_manager47assets47show46html46erb at /home/ryan/Rails/shared/app/views/asset_manager/assets/show.html.erb:1)
+  [4;36;1mTribe Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `tribes`[0m
+  [4;35;1mTribe Load (0.1ms)[0m   [0mSELECT * FROM `tribes` WHERE (`tribes`.`id` = 1) [0m
+  [4;36;1mCountry Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `countries`[0m
+  [4;35;1mCountry Load (0.1ms)[0m   [0mSELECT * FROM `countries` WHERE (`countries`.`id` = 1) [0m
+  [4;36;1mCaption Load (0.5ms)[0m   [0;1mSELECT * FROM `captions` WHERE (`captions`.asset_id = 2) [0m
+  [4;35;1mCredit Load (0.4ms)[0m   [0mSELECT * FROM `credits` WHERE (`credits`.asset_id = 2) [0m
+  [4;36;1massets_tags Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `assets_tags`[0m
+  [4;35;1mTag Load (0.4ms)[0m   [0mSELECT * FROM `tags` INNER JOIN `assets_tags` ON `tags`.id = `assets_tags`.tag_id WHERE (`assets_tags`.asset_id = 2 ) [0m
+Completed in 271ms (View: 198, DB: 9) | 200 OK [http://localhost/asset_manager/assets/2]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m
