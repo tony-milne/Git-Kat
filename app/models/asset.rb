@@ -39,7 +39,7 @@ class Asset < ActiveRecord::Base
   after_post_process :set_exif_data
 
   # Saves tags and captions updated in virtual attributes
-  after_update :save_tags, :save_captions
+  after_update :save_tags, :save_captions, :save_credits
 
   # Pagination
   cattr_reader :per_page
@@ -132,13 +132,36 @@ class Asset < ActiveRecord::Base
   
   def new_caption_attributes=(caption_attributes)
     caption_attributes.each do |a|
-      self.captions.build(a)
+      captions.build(a)
     end
   end
   
   def save_captions
     captions.each do |caption|
       caption.save(false)
+    end
+  end
+  
+  def updated_credit_attributes=(credit_attributes)
+    credits.reject(&:new_record?).each do |credit|
+      attributes = credit_attributes[credit.id.to_s]
+      if attributes
+        credit.attributes = attributes
+      else
+        credits.delete(credit)
+      end
+    end
+  end
+  
+  def new_credit_attributes=(credit_attributes)
+    credit_attributes.each do |a|
+      credits.build(a)
+    end
+  end
+  
+  def save_credits
+    credits.each do |credit|
+      credit.save(false)
     end
   end
 
