@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100728133204) do
+ActiveRecord::Schema.define(:version => 20100810130640) do
 
   create_table "assets", :force => true do |t|
     t.integer  "exif_id"
