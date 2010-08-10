@@ -8,7 +8,7 @@
 
 <% @credits.each do |credit| %>
   <tr>
-    <td><%=h credit.credit %></td>
+    <td><%=h credit.content %></td>
     <td><%=h credit.language.language %></td>
     <td><%= link_to 'Edit', edit_asset_manager_credit_path(credit) %></td>
     <td><%= link_to 'Delete', asset_manager_credit_path(credit), :confirm => 'Are you sure?', :method => :delete %></td>

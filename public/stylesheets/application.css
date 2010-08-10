@@ -175,6 +175,10 @@ img {
   color: #A1CFE5;
 }
 
+#ajax_options {
+    display:none
+}
+
 /****** Footer ******/
 
 #background_footer {
@@ -234,7 +238,8 @@ img {
 }
 
 .pagination { /* Info on styling will_paginate here: http://workingwithrails.com/railsplugin/4765-will-paginate */
-  padding: 10px 0; margin: 3px 0; 
+  padding: 10px 0; 
+  margin: 3px 0; 
 } 
 
 .pagination a { 
