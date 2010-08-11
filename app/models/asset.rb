@@ -71,7 +71,7 @@ class Asset < ActiveRecord::Base
     end
   end
 
-  ## Start of virtual attributes for AJAX forms ##
+  ## Start of virtual attributes and save methods for AJAX forms ##
 
   def updated_tag_attributes=(tag_attributes)
     tags.reject(&:new_record?).each do |tag|

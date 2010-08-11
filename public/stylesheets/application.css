@@ -175,9 +175,13 @@ img {
   color: #A1CFE5;
 }
 
-#ajax_options {
+#hidden_options {
     display:none
 }
+
+/*#shown_options {
+    display: inline;
+}*/
 
 /****** Footer ******/
 
