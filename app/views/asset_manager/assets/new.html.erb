@@ -33,7 +33,7 @@
           </select>
         </div>
         
-        <div id="ajax_options">
+        <span id="hidden_options">
           <div id="captions">
             <!-- is intially empty -->
           </div>
@@ -55,8 +55,9 @@
             page.insert_html :bottom, :credits, :partial => "credit", :object => Credit.new, :locals => { :prefix => "new" }
             end %></span>
           </div>
-        </div>
-        <%= javascript_tag "document.getElementById('ajax_options').style.display = 'inline';" %>
+        </span>
+        <%= javascript_tag "document.getElementById('hidden_options').style.display = 'inline';" %>
+        
         <div class="formRow"><span class="labelCol"><%= f.label :browse_files %></span>
           <%= f.file_field :data %>
         </div>

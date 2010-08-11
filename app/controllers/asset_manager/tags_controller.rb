@@ -52,7 +52,7 @@ class AssetManager::TagsController < AssetManager::ApplicationController
   	#@tag.asset = @asset
 
     respond_to do |format|
-      if @tag.save
+      if @asset.save
         format.html { redirect_to(asset_manager_asset_tags_path(@tag.asset_id), :notice => 'Tag was successfully created.') }
         format.xml  { render :xml => asset_manager_asset_tag_path(@tag), :status => :created, :location => @tag }
       else
