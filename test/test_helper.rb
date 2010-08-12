@@ -49,11 +49,6 @@ class ActiveSupport::TestCase
     UserSession.find.destroy
   end
 
-
- 
-
-
-
 end
 
 class ActionController::TestCase
@@ -72,6 +67,15 @@ def setup_test
   @selenium.start_new_browser_session
   end
 
+  def login_test
+    @selenium.open "/login"
+    @selenium.type "user_session_username", "test"
+    @selenium.type "user_session_password", "test1"
+    @selenium.click "user_session_submit"
+    @selenium.wait_for_page_to_load "30000"
+  end
+
+
   def registration_test
   @selenium.open "/login"
   @selenium.click "link=register"
@@ -84,7 +88,7 @@ def setup_test
   @selenium.wait_for_page_to_load "30000"
   end
 
-    def teardown_test
-  @selenium.close_current_browser_session
-  assert_equal [], @verification_errors
-  end
+def teardown_test
+@selenium.close_current_browser_session
+assert_equal [], @verification_errors
+end
