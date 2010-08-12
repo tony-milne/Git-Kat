@@ -3,7 +3,7 @@
     <div class="formRow">  
       <span class="labelCol"><%= t.label "Tag"%></span>
       <%= t.text_field :content %>
-      <%= link_to_function "Remove", "this.up('.tag').remove()" %>
+      <%= link_to_function "Remove", "$(this).up('.tag').remove()" %>
     </div>
   <% end %>
 </div>
