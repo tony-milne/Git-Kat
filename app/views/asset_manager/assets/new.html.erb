@@ -11,12 +11,7 @@
           <%= f.text_field :title %>
         </div>
         
-              <div class="formRow">
-    <span class="labelCol"><%= f.label :tribe %></span>
-    <%= f.collection_select :tribe_id, Tribe.find(:all), :id, :name, :input_blank => false %>
-   </div>
-              
-          <div class="formRow">
+     <div class="formRow">
     <span class="labelCol"><%= f.label :country %></span>
     <%= f.collection_select :country_id, Country.find(:all), :id, :name, :input_blank => false %>
    </div>
@@ -39,6 +34,14 @@
       </div>
       <div class="formRow"><span class="labelCol"><%= link_to_function "Add Credit", :class => "blueLink" do |page|
       page.insert_html :bottom, :credits, :partial => "credit", :object => Credit.new, :locals => { :prefix => "new" }
+      end %></span>
+      </div>
+      
+       <div id="tribes">
+      <!-- is intially empty -->
+      </div>
+      <div class="formRow"><span class="labelCol"><%= link_to_function "Add a tribe", :class => "blueLink" do |page|
+      page.insert_html :bottom, :tribes, :partial => "tribe", :object => Tribe.new, :locals => { :prefix => "new" }
       end %></span>
       </div>
       

@@ -6,7 +6,6 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   def index
     @assets = Asset.search(params[:search], params[:page])
      @stages = Stage.find(:all) #added by merge
-     @tribes = Tribe.find(:all)
      @countries = Country.find(:all)
 
     respond_to do |format|
@@ -19,7 +18,6 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets/1.xml
   def show
     @asset = Asset.find(params[:id])
-    @tribes = Tribe.find(:all)
     @countries = Country.find(:all)
     if @asset.exif?
     	@exif = @asset.exif.attributes
@@ -51,7 +49,6 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets/new.xml
   def new
     @asset = Asset.new
-    @tribes = Tribe.find(:all)
     @countries = Country.find(:all)
     
     respond_to do |format|
@@ -63,7 +60,6 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets/1/edit
   def edit
     @asset = Asset.find(params[:id])
-    @tribes = Tribe.find(:all)
     @countries = Country.find(:all)
     @tags = @asset.tags
   end
@@ -72,7 +68,6 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # POST /assets.xml
   def create
     @asset = Asset.new(params[:asset])
-    @tribes = Tribe.find(:all)
     @countries = Country.find(:all)
     
     respond_to do |format|

@@ -15,11 +15,19 @@
    </div>
     <div class="formRow">
 
-    <span class="labelCol"><%= f.label :tribe %></span>
-    <%= f.collection_select :tribe_id, Tribe.find(:all), :id, :name, :input_blank => false %>
-   </div>
 
     <div id="ajax_options">
+    
+      <%= render :partial => "tribe", :locals => { :prefix => "updated" }, :collection => @asset.tribes %>
+      <div id="tribes">
+        <!-- is intially empty -->
+      </div>
+      <div class="formRow">
+        <span class="labelCol"><%= link_to_function "Add a tribe", :class => "blueLink" do |page|
+        page.insert_html :bottom, :tribes, :partial => "tribe", :locals => { :prefix => "new" }, :object => Tribe.new
+        end %></span>
+      </div>
+    
       <%= render :partial => "caption", :locals => { :prefix => "updated" }, :collection => @asset.captions %>
       <div id="captions">
         <!-- is intially empty -->
