@@ -1,85 +1,51 @@
 require "test/unit"
-require "test/test_helper"
 require "rubygems"
+require "test/test_helper"
 gem "selenium-client"
 require "selenium/client"
 
 class LanguageTest < Test::Unit::TestCase
 
 def setup
-setup_test
+  @verification_errors = []
+  @selenium = Selenium::Client::Driver.new \
+    :host => "localhost",
+    :port => 4444,
+    :browser => "*chrome",
+    :url => "http://localhost:3001",
+    :timeout_in_second => 60
+
+  @selenium.start_new_browser_session
+  end
+
+  def test_languages_test
 registration_test
-end
-  
-def test_addlanguage_test
-@selenium.click "link=New Language"
-@selenium.wait_for_page_to_load "30000"
-@selenium.click "link=New language"
-@selenium.wait_for_page_to_load "30000"
-@selenium.type "language_language", "Test Language"
-@selenium.click "language_submit"
-@selenium.wait_for_page_to_load "30000"
-@selenium.click "link=Back"
-@selenium.wait_for_page_to_load "30000"
-@selenium.click "link=Back"
-@selenium.wait_for_page_to_load "30000"
-end
-
-def test_editlanguage_test
-@selenium.click "link=New Language"
-@selenium.wait_for_page_to_load "30000"
-@selenium.click "//div[@id='content']/table/tbody/tr[8]/td[2]/a"
-@selenium.wait_for_page_to_load "30000"
-@selenium.type "language_language", "Test Language Edit"
-@selenium.click "language_submit"
-@selenium.wait_for_page_to_load "30000"
-@selenium.click "link=Back"
-@selenium.wait_for_page_to_load "30000"
-@selenium.click "link=Back"
-@selenium.wait_for_page_to_load "30000"
-end
-
-
-def test_deletelanguage_test
-@selenium.click "link=New Language"
-@selenium.wait_for_page_to_load "30000"
-@selenium.click "//div[@id='content']/table/tbody/tr[8]/td[3]/a"
-assert /^Are you sure[\s\S]$/ =~ @selenium.get_confirmation
-@selenium.click "link=Back"
-@selenium.wait_for_page_to_load "30000"
-end
-
-def CheckLanguageMigration_test
-@selenium.click "link=New Language"
-@selenium.wait_for_page_to_load "30000"
-begin
-assert @selenium.is_text_present("English")
-rescue Test::Unit::AssertionFailedError
-@verification_errors << $!
-end
-begin
-assert @selenium.is_text_present("Nederlands")
-rescue Test::Unit::AssertionFailedError
-@verification_errors << $!
-end
-begin
-assert @selenium.is_text_present("Deutsch")
-rescue Test::Unit::AssertionFailedError
-@verification_errors << $!
-end
-@selenium.click "link=Back"
-@selenium.wait_for_page_to_load "30000"
-begin
-assert @selenium.is_text_present("Welcome To Your Asset Archive")
-rescue Test::Unit::AssertionFailedError
-@verification_errors << $!
-end
-end
-
-def teardown
-    @selenium.close_current_browser_session
+    @selenium.open "/"
+    @selenium.click "link=View Languages"
+    @selenium.wait_for_page_to_load "30000"
+    @selenium.click "link=New language"
+    @selenium.wait_for_page_to_load "30000"
+    @selenium.type "language_language", "Test Language"
+    @selenium.click "language_submit"
     assert_equal [], @verification_errors
-end
+    @selenium.wait_for_page_to_load "30000"
+    @selenium.click "link=Edit"
+    @selenium.wait_for_page_to_load "30000"
+    @selenium.type "language_language", "Test Language 2"
+    @selenium.click "language_submit"
+    @selenium.wait_for_page_to_load "30000"
+    assert_equal [], @verification_errors
+    @selenium.click "link=Back"
+    @selenium.wait_for_page_to_load "30000"
+    @selenium.click "link=Delete"
+    assert /^Are you sure[\s\S]$/ =~ @selenium.get_confirmation
+    @selenium.click "link=Back"
+    @selenium.wait_for_page_to_load "30000"
+    assert_equal [], @verification_errors
+  end
 
+  def teardown
+teardown_test
+end
 
 end
