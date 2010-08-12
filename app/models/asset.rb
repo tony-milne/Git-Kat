@@ -121,7 +121,7 @@ class Asset < ActiveRecord::Base
   end
 
   def updated_tribe_attributes=(tribe_attributes)
-  tribes.reject(&:new_record?).each do |tribe|
+  tribe.reject(&:new_record?).each do |tribe|
     attributes = tribe_attributes[tribe.id.to_s]
     if attributes
     tribe.attributes = attributes
