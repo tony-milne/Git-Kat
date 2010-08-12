@@ -60,7 +60,7 @@ registration_test
   end
 
   def teardown
-teardown_test
-end
+	teardown_test
+	end
 
 end

@@ -40,7 +40,7 @@ class AssetManager::CreditsController < AssetManager::ApplicationController
 
   # GET /asset_manager_credits/1/edit
   def edit
-    @credit = AssetManager::Credit.find(params[:id])
+    @credit = Credit.find(params[:id])
     @languages = Language.find(:all)
     
   end
@@ -67,7 +67,7 @@ class AssetManager::CreditsController < AssetManager::ApplicationController
   # PUT /asset_manager_credits/1
   # PUT /asset_manager_credits/1.xml
   def update
-    @credit = AssetManager::Credit.find(params[:id])
+    @credit = Credit.find(params[:id])
 
     respond_to do |format|
       if @credit.update_attributes(params[:credit])
@@ -83,7 +83,7 @@ class AssetManager::CreditsController < AssetManager::ApplicationController
   # DELETE /asset_manager_credits/1
   # DELETE /asset_manager_credits/1.xml
   def destroy
-    @credit = AssetManager::Credit.find(params[:id])
+    @credit = Credit.find(params[:id])
     @credit.destroy
 
     respond_to do |format|
