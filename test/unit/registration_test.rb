@@ -1,4 +1,5 @@
 require "test/unit"
+require "test/test_helper"
 require "rubygems"
 gem "selenium-client"
 require "selenium/client"
