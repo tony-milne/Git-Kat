@@ -91,6 +91,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   def update
     params[:asset][:updated_tag_attributes] ||= {}
     params[:asset][:updated_caption_attributes] ||= {}
+    params[:asset][:updated_credit_attributes] ||= {}
     @asset = Asset.find(params[:id])
     
     respond_to do |format|
