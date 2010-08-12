@@ -8,13 +8,13 @@
     <div class="formRow">
       <span class="labelCol"><%= f.label :asset_title %></span>
       <%= f.text_field :title %>
-    </div>  
+    </div>
     <div class="formRow">
     <span class="labelCol"><%= f.label :country %></span>
     <%= f.collection_select :country_id, Country.find(:all), :id, :name, :input_blank => false %>
    </div>
     <div class="formRow">
-      <span class="labelCol"<%= f.label :tribe %></span>
+      <span class="labelCol"><%= f.label :tribe %></span>
       <select name="asset[tribe_id]">
     <% @tribes.each do |tribe| %>
         <option value="<%= tribe.id %>"
@@ -65,3 +65,4 @@
     </ul>
   </div>
 </div>
+

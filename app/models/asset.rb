@@ -2,14 +2,14 @@ class Asset < ActiveRecord::Base
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
   belongs_to :country
   belongs_to :tribe
-  
-  has_many :captions 
+
+  has_many :captions
   accepts_nested_attributes_for :captions #not present in ajax branch
   has_many :credits #was has_many
-  
+
   has_and_belongs_to_many :tags #has_many :tags
   has_and_belongs_to_many :stages
-  
+
   validates_presence_of :tribe
   validates_presence_of :country
 
@@ -19,7 +19,7 @@ class Asset < ActiveRecord::Base
   has_attached_file	:data,
 			:url => "/assets/photos/:id/:style/:basename.:extension",
 			:path => "/assets/photos/:id/:style/:basename.:extension",
-  
+
   # Resizing Images
   #For windows systems, the greater than sign '>' must be escaped with the hat '^' symbol
   #The '^' is not required on *nix systems
@@ -28,13 +28,14 @@ class Asset < ActiveRecord::Base
   # Connection to S3
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-  :s3_options => {:proxy => {:host => 'proxy.abdn.ac.uk', :port => 8080} },
+  :s3_options => {:proxy => {:host => 'proxy.abdn.ac.uk', :port => 8080} }, #note to team: if working from home
+                                                                             #comment out :s3_options then restart server
   :bucket => "survival-project"
 
   # Checking Filetypes
   validates_attachment_presence :data
   validates_attachment_content_type :data, :content_type => ["image/jpeg", "image/png", "image/bmp", "image/tiff", "image/pjpeg", "image/x-png", "image/jpg"]
-  
+
   # Sets EXIF data for asset before uploading to Amazon S3
   after_post_process :set_exif_data
 
@@ -93,14 +94,14 @@ class Asset < ActiveRecord::Base
       end
     end
   end
-  
+
   def new_tag_attributes=(tag_attributes)
     new_tags = Set.new
-    
+
     tag_attributes.each do |a|
       new_tags.add(a)
     end
-    
+
     new_tags.each do |nt|
       if nt[:content].eql? ""
         #do nothing
@@ -112,13 +113,13 @@ class Asset < ActiveRecord::Base
       end
     end
   end
-  
+
   def save_tags
     tags.each do |tag|
       tag.save(false)
     end
   end
-  
+
   def updated_caption_attributes=(caption_attributes)
     captions.reject(&:new_record?).each do |caption|
       attributes = caption_attributes[caption.id.to_s]
@@ -129,19 +130,19 @@ class Asset < ActiveRecord::Base
       end
     end
   end
-  
+
   def new_caption_attributes=(caption_attributes)
     caption_attributes.each do |a|
       captions.build(a)
     end
   end
-  
+
   def save_captions
     captions.each do |caption|
       caption.save(false)
     end
   end
-  
+
   def updated_credit_attributes=(credit_attributes)
     credits.reject(&:new_record?).each do |credit|
       attributes = credit_attributes[credit.id.to_s]
@@ -152,13 +153,13 @@ class Asset < ActiveRecord::Base
       end
     end
   end
-  
+
   def new_credit_attributes=(credit_attributes)
     credit_attributes.each do |a|
       credits.build(a)
     end
   end
-  
+
   def save_credits
     credits.each do |credit|
       credit.save(false)
@@ -186,3 +187,4 @@ class Asset < ActiveRecord::Base
   end
 
 end
+
