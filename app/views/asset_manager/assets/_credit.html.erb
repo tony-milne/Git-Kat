@@ -4,7 +4,7 @@
       <span class="labelCol"><%= c.label "Credit" %></span>
       <%= c.text_field :content %>
       <%= c.select(:language_id, Language.all.collect { |l| [l.language, l.id] }, {:include_blank => false}) %>
-      <%= link_to_function "Remove", "this.up('.credit').remove()" %>
+      <%= link_to_function "Remove", "$(this).up('.credit').remove()" %>
     </div>
   <% end %>
 </div>
