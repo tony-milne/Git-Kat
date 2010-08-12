@@ -5,16 +5,16 @@
     <legend>Edit Asset</legend>
   <% form_for([:asset_manager, @asset]) do |f| %>
     <%= f.error_messages %>
+    
     <div class="formRow">
       <span class="labelCol"><%= f.label :asset_title %></span>
       <%= f.text_field :title %>
-    </div>  
-    <div class="formRow">
-    <span class="labelCol"><%= f.label :country %></span>
-    <%= f.collection_select :country_id, Country.find(:all), :id, :name, :input_blank => false %>
-   </div>
-    <div class="formRow">
+    </div>
 
+    <div class="formRow">
+      <span class="labelCol"><%= f.label :country %></span>
+      <%= f.collection_select :country_id, Country.find(:all), :id, :name, :input_blank => false %>
+    </div>
 
     <div id="ajax_options">
     
@@ -27,7 +27,8 @@
         page.insert_html :bottom, :tribes, :partial => "tribe", :locals => { :prefix => "new" }, :object => Tribe.new
         end %></span>
       </div>
-    
+
+    <div id="to_be_shown_with_js" style="display: none;">
       <%= render :partial => "caption", :locals => { :prefix => "updated" }, :collection => @asset.captions %>
       <div id="captions">
         <!-- is intially empty -->
@@ -37,6 +38,7 @@
         page.insert_html :bottom, :captions, :partial => "caption", :locals => { :prefix => "new" }, :object => Caption.new
         end %></span>
       </div>
+      
       <%= render :partial => "tag", :locals => { :prefix => "updated" }, :collection => @asset.tags %>
       <div id="tags">
       <!-- is initially empty -->
@@ -46,6 +48,7 @@
         page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
         end %></span>
       </div>
+      
       <%= render :partial  => "credit", :locals => { :prefix => "updated" }, :collection => @asset.credits %>
       <div id="credits">
         <!-- is initially empty -->
@@ -55,16 +58,21 @@
         end %></span>
       </div>
     </div>
-    <%= javascript_tag "document.getElementById('ajax_options').style.display = 'inline';" %>
+    
+    <%= javascript_tag render(:partial => 'show.js.rjs') %>
+    
     <div class="formSubmit">
       <%= f.submit 'Update' %>
     </div>
     <% end %>
   </fieldset>
+  
   <div id="labelCol">
     <ul class="localNav">
       <li><%= link_to 'Show', asset_manager_asset_path(@asset) %></li> |
       <li><%= link_to 'Back', asset_manager_assets_path %></li>
     </ul>
   </div>
+  
 </div>
+

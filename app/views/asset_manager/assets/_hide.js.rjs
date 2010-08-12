@@ -1,0 +1,3 @@
+page.select('#to_be_hidden_with_js').collect('to_be_hidden') do |item|
+  item.hide
+end
