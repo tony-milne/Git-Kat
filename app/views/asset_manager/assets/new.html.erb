@@ -1,10 +1,16 @@
 <% title "New Asset" %>
 <div id="standard_container">
-  <h2>Please add a new asset</h2>
+  <h2>Please add a new asset</h2>  
   <div>
     <fieldset>
       <legend>Add asset</legend>
       <% form_for([:asset_manager, @asset], :html => { :multipart => true } ) do |f| %>
+          <noscript>
+            <div id="errorExplanation">
+              <h2>You have Javascript Disabled</h2>
+              <p>Further details such as tags, credits and captions can be added in the asset page.</p>
+            </div>
+          </noscript>
         <%= f.error_messages %>
         <div class="formRow">
           <span class="labelCol"><%= f.label :asset_title %></span>
@@ -54,17 +60,20 @@
       </div>
 
         <%= javascript_tag "document.getElementById('ajax_options').style.display = 'inline';" %>
-       
-        
-        <div class="formSubmit">
-          <%= f.submit 'Upload' %>
-        </div>
-          <% end %>
+
+          <div class="formSubmit">
+            <%= f.submit 'Upload' %>
+          </div>
+        <% end %>
+
     </fieldset>
   </div>
+  
   <div id="localNav">
     <div class="localNav">
       <li><%= link_to 'Back', asset_manager_assets_path %></li>
     </div>
   </div>
+  
 </div>
+

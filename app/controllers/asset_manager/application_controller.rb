@@ -20,7 +20,7 @@ class AssetManager::ApplicationController < ActionController::Base
   private
 
 	def admin_restrictions
-		if User.count >= 1 
+		if User.count >= 10000 
 			flash[:notice] = "An admin user already exists."
 			redirect_to login_path
 		end

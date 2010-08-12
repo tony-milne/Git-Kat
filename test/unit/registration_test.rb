@@ -1,4 +1,5 @@
 require "test/unit"
+require "test/test_helper"
 require "rubygems"
 gem "selenium-client"
 require "selenium/client"
@@ -18,11 +19,11 @@ class RegistrationTest < Test::Unit::TestCase
   end
   
   def teardown
-    @selenium.close_current_browser_session
+    #@selenium.close_current_browser_session
     assert_equal [], @verification_errors
   end
   
-  def registration_test
+  def test_registration_test
     @selenium.open "/login"
     @selenium.click "link=register"
     @selenium.wait_for_page_to_load "30000"
