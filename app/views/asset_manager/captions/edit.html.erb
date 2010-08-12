@@ -8,17 +8,12 @@
     <%= f.text_field :content %>
   </p>
   <p>
-
-    <%= f.label :language %><br />
-   <select name="caption[language_id]">
-<% @languages.each do |language| %>
-<option value="<%= language.id %>"
-<%= ' selected' if language.id == @caption.language_id %>>
-<%= language.language %>
-</option>
-<% end %>
-</select>
-  </p>
+  
+  
+        <div class="formRow">
+    <span class="labelCol"><%= f.label :language %></span>
+    <%= f.collection_select :language_id, Language.find(:all), :id, :language, :input_blank => false %>
+   </div>
 
   <p>
     <%= f.submit 'Update' %>

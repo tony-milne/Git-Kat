@@ -4,28 +4,23 @@
 
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :caption %><br />
+  <div class="formRow">
+    <span class="labelCol"><%= f.label :caption %></span>
     <%= f.text_field :content %>
-  </p>
-  <p>
-    <%= hidden_field_tag(:asset_id, @asset.id) %>
-  </p>
-  <p>
-    <%= f.label :language %><br />
-    <select name="caption[language_id]">
-<% @languages.each do |language| %>
-<option value="<%= language.id %>"
-<%= ' selected' if language.id == @caption.language_id %>>
-<%= language.language %>
-</option>
-<% end %>
-</select>
-  </p>
+  </div>
   
-  <p>
+
+    <%= hidden_field_tag(:asset_id, @asset.id) %>
+ 
+
+   <div class="formRow">
+    <span class="labelCol"><%= f.label :language %></span>
+    <%= f.collection_select :language_id, Language.find(:all), :id, :language, :input_blank => false %>
+   </div>
+  
+  <div class="formRow">
     <%= f.submit 'Create' %>
-  </p>
+  </div>
 <% end %>
 
 <%= link_to 'Back', asset_manager_asset_captions_path(@asset) %>
