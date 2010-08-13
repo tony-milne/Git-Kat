@@ -85,7 +85,7 @@ class AssetManager::TagsController < AssetManager::ApplicationController
     @tag.destroy
 
     respond_to do |format|
-      format.html { redirect_to(asset_manager_asset_tags_path(@tag.asset_id)) }
+      format.html { redirect_to(asset_manager_asset_path(@tag.asset_id)) }
       format.xml  { head :ok }
     end
   end

@@ -31,8 +31,8 @@
 
 	    <% @asset.captions.each do |caption| %>
 		    <em><%= h caption.content %> (<%= h caption.language.language.capitalize %>)</em> 
-		    <%= link_to "Edit", edit_asset_manager_asset_caption_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %> 
-		    <%= link_to 'Delete', asset_manager_caption_path(caption), :confirm => 'Are you sure?', :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %>
+		    <%= link_to "Edit", edit_asset_manager_asset_caption_path(@asset, caption), :class => "blueLink", :id => "to_be_hidden_with_js" %> 
+		    <%= link_to 'Delete', asset_manager_asset_caption_path(@asset, caption), :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %>
 		    <br/>
 		  <% end %>
 
@@ -43,7 +43,7 @@
 	  <li><strong>Credits:</strong> <%= link_to "Add credit", new_asset_manager_asset_credit_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %><br/>
 		<% @asset.credits.each do |credit| %>
 		  <em><%=h credit.content %> (<%=h credit.language.language.capitalize %>)</em> 
-		  <%= link_to "Edit", edit_asset_manager_asset_credit_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %> 
+		  <%= link_to "Edit", edit_asset_manager_asset_credit_path(@asset, credit), :class => "blueLink", :id => "to_be_hidden_with_js" %> 
 		  <%= link_to 'Delete', asset_manager_credit_path(credit), :confirm => 'Are you sure?', :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %><br/>
 		<% end %></li>
 		
@@ -52,7 +52,7 @@
 	  <li><strong>Tags:</strong> <%= link_to "Add tag", new_asset_manager_asset_tag_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %><br/>
 		<% @asset.tags.each do |tag| %>
 		  <em><%= h tag.content %></em> 
-		  <%= link_to "Edit", edit_asset_manager_asset_tag_path(@asset), :class => "blueLink", :id => "shown_options" %> 
+		  <%= link_to "Edit", edit_asset_manager_asset_tag_path(@asset, tag), :class => "blueLink", :id => "to_be_hidden_with_js" %> 
 		  <%= link_to 'Delete', asset_manager_tag_path(tag), :confirm => 'Are you sure?', :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %><br/>
 		<% end %></li>
 	</ul>
