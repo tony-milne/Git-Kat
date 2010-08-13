@@ -1,16 +1,16 @@
 class Asset < ActiveRecord::Base
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
   belongs_to :country
-  belongs_to :tribe
+  has_many :tribe
+  
+  has_many :captions 
 
-  has_many :captions
   accepts_nested_attributes_for :captions #not present in ajax branch
   has_many :credits #was has_many
 
   has_and_belongs_to_many :tags #has_many :tags
   has_and_belongs_to_many :stages
 
-  validates_presence_of :tribe
   validates_presence_of :country
 
   # before_destroy :ensure_not_referenced_by_any_stage_item
@@ -118,6 +118,29 @@ class Asset < ActiveRecord::Base
     tags.each do |tag|
       tag.save(false)
     end
+  end
+
+  def updated_tribe_attributes=(tribe_attributes)
+  tribe.reject(&:new_record?).each do |tribe|
+    attributes = tribe_attributes[tribe.id.to_s]
+    if attributes
+    tribe.attributes = attributes
+    else
+    tribes.delete(tribe)
+    end
+  end
+  end
+
+  def new_tribe_attributes=(tribe_attributes)
+  tribe_attributes.each do |a|
+    tribe.build(a)
+  end
+  end
+
+  def save_tribes
+  tribes.each do |tribe|
+    tribe.save(false)
+  end
   end
 
   def updated_caption_attributes=(caption_attributes)
