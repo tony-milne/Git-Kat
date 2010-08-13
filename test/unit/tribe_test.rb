@@ -9,7 +9,6 @@ class TribeTest < Test::Unit::TestCase
 def setup
   @verification_errors = []
   @selenium = Selenium::Client::Driver.new \
-
     :host => "localhost",
     :port => 4444,
     :browser => "*chrome",
