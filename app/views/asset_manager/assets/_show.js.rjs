@@ -1,0 +1,3 @@
+page.select('#to_be_shown_with_js').collect('to_be_shown') do |item|
+  item.show
+end

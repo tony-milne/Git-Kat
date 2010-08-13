@@ -9,13 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100810130640) do
+ActiveRecord::Schema.define(:version => 20100810112402) do
 
   create_table "assets", :force => true do |t|
     t.integer  "exif_id"
     t.string   "exif_type"
     t.string   "title"
-    t.integer  "tribe_id"
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -92,6 +91,7 @@ ActiveRecord::Schema.define(:version => 20100810130640) do
 
   create_table "tribes", :force => true do |t|
     t.string   "name"
+    t.integer  "asset_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
