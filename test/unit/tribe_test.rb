@@ -9,6 +9,7 @@ class TribeTest < Test::Unit::TestCase
 def setup
   @verification_errors = []
   @selenium = Selenium::Client::Driver.new \
+
     :host => "localhost",
     :port => 4444,
     :browser => "*chrome",
@@ -20,7 +21,6 @@ def setup
 
   def test_tribes_test
   registration_test 
- 
   # Adding a tribe
   @selenium.click "link=New Tribe"
   @selenium.wait_for_page_to_load "30000"
@@ -39,12 +39,12 @@ def setup
   @selenium.click "link=Assets Homepage"
   @selenium.wait_for_page_to_load "30000"
   begin
-assert @selenium.is_text_present("Welcome To Your Asset Archive")
-rescue Test::Unit::AssertionFailedError
-@verification_errors << $!
+	assert @selenium.is_text_present("Welcome To Your Asset Archive")
+  rescue Test::Unit::AssertionFailedError
+	@verification_errors << $!
 end
-  # Editing a tribe
-  
+
+  # Editing a tribe  
   @selenium.click "link=New Tribe"
   @selenium.wait_for_page_to_load "30000"
   @selenium.click "link=Edit"
@@ -59,13 +59,13 @@ end
   rescue Test::Unit::AssertionFailedError
     @verification_errors << $!
   end
-  @selenium.click "link=Assets Homepage"
-  @selenium.wait_for_page_to_load "30000"
+	@selenium.click "link=Assets Homepage"
+	@selenium.wait_for_page_to_load "30000"
   begin
-assert @selenium.is_text_present("Welcome To Your Asset Archive")
-rescue Test::Unit::AssertionFailedError
-@verification_errors << $!
-end
+	assert @selenium.is_text_present("Welcome To Your Asset Archive")
+  rescue Test::Unit::AssertionFailedError
+	@verification_errors << $!
+  end
   
   @selenium.click "link=New Tribe"
   @selenium.wait_for_page_to_load "30000"
