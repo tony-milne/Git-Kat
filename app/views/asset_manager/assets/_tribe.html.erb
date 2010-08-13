@@ -1,0 +1,9 @@
+<div class="tribe">
+  <% fields_for "asset[#{prefix}_tribe_attributes][]", tribe do |c| %>
+	<div class="formRow">
+	  <span class="labelCol"><%= c.label "Tribe" %></span>
+	  <%= c.text_field :name %>
+	  <%= link_to_function "Remove", "this.up('.tribe').remove()" %>
+	</div>
+  <% end %>
+</div>
