@@ -4,7 +4,7 @@
   <%= f.error_messages %>
   <div class="formRow">
     <span class="labelCol"><%= f.label :credit %></span>
-    <%= f.text_field :credit %>
+    <%= f.text_field :content %>
   </div>
   
     <div class="formRow">
@@ -17,4 +17,4 @@
   </div>
 <% end %>
 
-<%= link_to 'Back', asset_manager_asset_credits_path(@credit.asset_id) %>
+<%= link_to 'Back', asset_manager_asset_path(@credit.asset_id) %>

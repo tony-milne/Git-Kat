@@ -10,8 +10,8 @@
   <tr>
     <td><%=h credit.content %></td>
     <td><%=h credit.language.language %></td>
-    <td><%= link_to 'Edit', edit_asset_manager_asset_credit_path(credit) %></td>
-    <td><%= link_to 'Delete', asset_manager_asset_credit_path(credit), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_asset_manager_asset_credit_path(params[:asset_id],credit) %></td>
+    <td><%= link_to 'Delete', asset_manager_asset_credit_path(params[:asset_id], credit), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
