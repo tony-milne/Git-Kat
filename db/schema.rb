@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(:version => 20100810112402) do
     t.integer  "exif_id"
     t.string   "exif_type"
     t.string   "title"
-    t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "data_file_name"
