@@ -89,6 +89,8 @@ def setup_test
   end
 
 def teardown_test
+@user = User.find(:all, :conditions => ['username = ?', 'test'])
+@user[0].destroy
 @selenium.close_current_browser_session
 assert_equal [], @verification_errors
 end

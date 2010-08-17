@@ -69,7 +69,7 @@ assert_equal [], @verification_errors
 @selenium.click "link=New asset"
 @selenium.wait_for_page_to_load "30000"
 @selenium.type "asset_title", "Test Asset"
-@selenium.type "asset_data", "C:\\Users\\Graham\\Documents\\mastersproject\\shared\\test\\files\\test.jpg"
+@selenium.type "asset_data", "#{RAILS_ROOT}/test/files/test.jpg"
 @selenium.click "asset_submit"
 @selenium.wait_for_page_to_load "30000"
 @selenium.click "link=Back"
@@ -98,7 +98,7 @@ assert_equal [], @verification_errors
 @selenium.type "asset_title", "Test Asset"
 @selenium.click "link=Add a caption"
 @selenium.type "asset_new_caption_attributes__content", "Test Caption"
-@selenium.type "asset_data", "C:\\Users\\Graham\\Documents\\mastersproject\\shared\\test\\files\\test.jpg"
+@selenium.type "asset_data", "#{RAILS_ROOT}/test/files/test.jpg"
 @selenium.click "asset_submit"
 @selenium.wait_for_page_to_load "30000"
 assert_equal [], @verification_errors 
@@ -119,7 +119,7 @@ assert_equal [], @verification_errors
 @selenium.type "asset_title", "Test Asset"
 @selenium.click "link=Add a tag"
 @selenium.type "asset_new_tag_attributes__content", "Test Tag"
-@selenium.type "asset_data", "C:\\Users\\Graham\\Documents\\mastersproject\\shared\\test\\files\\test.jpg"
+@selenium.type "asset_data", "#{RAILS_ROOT}/test/files/test.jpg"
 @selenium.click "asset_submit"
 @selenium.wait_for_page_to_load "30000"
 assert_equal [], @verification_errors 
@@ -140,7 +140,7 @@ assert_equal [], @verification_errors
 @selenium.type "asset_title", "Test Asset"
 @selenium.click "link=Add Credit"
 @selenium.type "asset_new_credit_attributes__content", "Test Credit"
-@selenium.type "asset_data", "C:\\Users\\Graham\\Documents\\mastersproject\\shared\\test\\files\\test.jpg"
+@selenium.type "asset_data", "#{RAILS_ROOT}/test/files/test.jpg"
 @selenium.click "asset_submit"
 @selenium.wait_for_page_to_load "30000"
 begin
