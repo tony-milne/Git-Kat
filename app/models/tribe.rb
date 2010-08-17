@@ -1,3 +1,4 @@
 class Tribe < ActiveRecord::Base
-belongs_to :asset
+ has_many :assets
 end
+

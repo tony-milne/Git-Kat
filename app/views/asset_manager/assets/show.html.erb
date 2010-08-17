@@ -1,4 +1,6 @@
 <% title "Viewing #{truncate(@asset.title, 25, "...")}" %>
+<!-- Please keep the tabulation consistent, it helps to see if you have missed closing tags so that css doesn't break, Cheers! R.G  -->
+
 <div id="show_left_column">
 	<div class="showPicAsset">
 		<%= image_tag @asset.data.url(:large) %>
@@ -12,50 +14,56 @@
     </div>
   </div>
 </div>
+
 <div id="show_right_column">
 	<ul class="picAttributes">
   	<li><strong>Title: </strong><em><%=h @asset.title %></em></li>
-	  <li><strong>Tribe: </strong><em><% @asset.tribe.each do |tribe| %><%= h tribe.name.capitalize %><% end %></em></li>
-	  <li><strong>Country: </strong><em><%=h @asset.country.name.capitalize %></em></li>
+	  <li><strong>Tribe: </strong><em><%=h @asset.tribe.name %></em></li>
+	  <li><strong>Country: </strong><em><%=h @asset.country.name %></em></li>
     <li><strong>File Name: </strong><em><%=h @asset.data_file_name %></em></li>
     <li><strong>File Type: </strong><em><%=h @asset.data_content_type %></em></li>
     <li><strong>Date Created: </strong><em><%=h @asset.created_at.strftime("%d %b %Y %H:%M") %></em></li>
     <li><strong>Last Updated: </strong><em><%=h @asset.updated_at.strftime("%d %b %Y %H:%M") %></em></li>
-    <% if @asset.exif? %>
-      <% @exif.each_pair { |key, value| %>
-        <li><strong><%= "#{key}: " %></strong><em><%= "#{value}" %></em></li>
-      <% } %>
-	  <% end %>
-	  <br />
-	  <li><strong>Captions:</strong> <%= link_to "Add caption", new_asset_manager_asset_caption_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %><br/>
-
+<% if @asset.exif? %>
+  <% @exif.each_pair { |key, value| %>
+    <li><strong><%= "#{key}: " %></strong><em><%= "#{value}" %></em></li>
+  <% } %>
+<% end %>
+	  <li><strong>Captions:</strong> <%= link_to "Add caption", new_asset_manager_asset_caption_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %>
+    </li>
+    <li>
+      <ul class="picAttributes">
 	    <% @asset.captions.each do |caption| %>
-		    <em><%= h caption.content %> (<%= h caption.language.language.capitalize %>)</em> 
-		    <%= link_to "Edit", edit_asset_manager_asset_caption_path(@asset, caption), :class => "blueLink", :id => "to_be_hidden_with_js" %> 
-		    <%= link_to 'Delete', asset_manager_asset_caption_path(@asset, caption), :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %>
-		    <br/>
+		    <li><em><%= h caption.content %> (<%= h caption.language.language %>)</em>
+		      <%= link_to "Edit", edit_asset_manager_asset_caption_path(@asset, caption), :class => "blueLink", :id => "to_be_hidden_with_js" %>
+		      <%= link_to 'Delete', asset_manager_asset_caption_path(@asset, caption), :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %></li>
 		  <% end %>
-
+      </ul>
 		</li>
-		
-		<br />
-	  
-	  <li><strong>Credits:</strong> <%= link_to "Add credit", new_asset_manager_asset_credit_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %><br/>
-		<% @asset.credits.each do |credit| %>
-		  <em><%=h credit.content %> (<%=h credit.language.language.capitalize %>)</em> 
-		  <%= link_to "Edit", edit_asset_manager_asset_credit_path(@asset, credit), :class => "blueLink", :id => "to_be_hidden_with_js" %> 
-		  <%= link_to 'Delete', asset_manager_credit_path(credit), :confirm => 'Are you sure?', :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %><br/>
-		<% end %></li>
-		
-		<br />
-	  
-	  <li><strong>Tags:</strong> <%= link_to "Add tag", new_asset_manager_asset_tag_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %><br/>
-		<% @asset.tags.each do |tag| %>
-		  <em><%= h tag.content %></em> 
-		  <%= link_to "Edit", edit_asset_manager_asset_tag_path(@asset, tag), :class => "blueLink", :id => "to_be_hidden_with_js" %> 
-		  <%= link_to 'Delete', asset_manager_tag_path(tag), :confirm => 'Are you sure?', :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %><br/>
-		<% end %></li>
-	</ul>
+	  <li><strong>Credits:</strong> <%= link_to "Add credit", new_asset_manager_asset_credit_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %>
+    <li>
+      <ul class="picAttributes">
+		  <% @asset.credits.each do |credit| %>
+		    <li><em><%=h credit.content %> (<%=h credit.language.language %>)</em>
+		      <%= link_to "Edit", edit_asset_manager_asset_credit_path(@asset, credit), :class => "blueLink", :id => "to_be_hidden_with_js" %>
+		      <%= link_to 'Delete', asset_manager_credit_path(credit), :confirm => 'Are you sure?', :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %>
+        </li>
+		  <% end %>
+      </ul>
+    </li>
+	  <li><strong>Tags:</strong> <%= link_to "Add tag", new_asset_manager_asset_tag_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %>
+    </li>
+    <li>
+      <ul class="picAttributes">
+  		<% @asset.tags.each do |tag| %>
+  		  <li><em><%= h tag.content %></em>
+		      <%= link_to "Edit", edit_asset_manager_asset_tag_path(@asset, tag), :class => "blueLink", :id => "to_be_hidden_with_js" %>
+		      <%= link_to 'Delete', asset_manager_tag_path(tag), :confirm => 'Are you sure?', :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %>
+        </li>
+		  <% end %>
+	    </ul>
+    </li>
 </div>
 
 <%= javascript_tag render(:partial => 'hide.js.rjs') %>
+
