@@ -1,78 +1,81 @@
 <% title "Update Asset"  %>
+<!-- Please keep the tabulation consistent, it helps to see if you have missed closing tags so that css doesn't break, Cheers! R.G  -->
+
 <div id="standard_container">
   <h2>Edit Asset Properties</h2>
   <fieldset>
     <legend>Edit Asset</legend>
-  <% form_for([:asset_manager, @asset]) do |f| %>
-    <%= f.error_messages %>
-    
-    <div class="formRow">
-      <span class="labelCol"><%= f.label :asset_title %></span>
-      <%= f.text_field :title %>
-    </div>
+    <% form_for([:asset_manager, @asset]) do |f| %>
+      <noscript>
+        <div id="errorExplanation">
+          <h2>You have Javascript Disabled</h2>
+          <p>Further details such as tags, credits and captions can be edited in the asset page.</p>
+        </div>
+      </noscript>
+      <%= f.error_messages %>
 
-    <div class="formRow">
-      <span class="labelCol"><%= f.label :country %></span>
-      <%= f.collection_select :country_id, Country.find(:all), :id, :name, :input_blank => false %>
-    </div>
-
-    <div id="ajax_options">
-    
-      <%= render :partial => "tribe", :locals => { :prefix => "updated" }, :collection => @asset.tribe %>
-      <div id="tribes">
-        <!-- is intially empty -->
-      </div>
       <div class="formRow">
-        <span class="labelCol"><%= link_to_function "Add a tribe", :class => "blueLink" do |page|
-        page.insert_html :bottom, :tribes, :partial => "tribe", :locals => { :prefix => "new" }, :object => Tribe.new
-        end %></span>
+        <span class="labelCol"><%= f.label :asset_title %></span>
+        <%= f.text_field :title %>
       </div>
 
-    <div id="to_be_shown_with_js" style="display: none;">
-      <%= render :partial => "caption", :locals => { :prefix => "updated" }, :collection => @asset.captions %>
-      <div id="captions">
-        <!-- is intially empty -->
-      </div>
       <div class="formRow">
-        <span class="labelCol"><%= link_to_function "Add a caption", :class => "blueLink" do |page|
-        page.insert_html :bottom, :captions, :partial => "caption", :locals => { :prefix => "new" }, :object => Caption.new
-        end %></span>
+        <span class="labelCol"><%= f.label :country %></span>
+        <%= f.collection_select :country_id, Country.find(:all), :id, :name, :input_blank => false %>
       </div>
-      
-      <%= render :partial => "tag", :locals => { :prefix => "updated" }, :collection => @asset.tags %>
-      <div id="tags">
-      <!-- is initially empty -->
-      </div>
+
       <div class="formRow">
-        <span class="labelCol"><%= link_to_function "Add a tag", :class => "blueLink" do |page|
-        page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
-        end %></span>
+        <span class="labelCol"><%= f.label :tribe %></span>
+        <%= f.collection_select :tribe_id, Tribe.find(:all), :id, :name, :input_blank => false %>
       </div>
-      
-      <%= render :partial  => "credit", :locals => { :prefix => "updated" }, :collection => @asset.credits %>
-      <div id="credits">
-        <!-- is initially empty -->
+
+      <div id="to_be_shown_with_js" style="display: none;">
+        <%= render :partial => "caption", :locals => { :prefix => "updated" }, :collection => @asset.captions %>
+
+        <div id="captions">
+          <!-- is intially empty -->
+        </div>
+
+        <div class="formRow">
+          <span class="labelCol"><%= link_to_function "Add a caption", :class => "blueLink" do |page|
+              page.insert_html :bottom, :captions, :partial => "caption", :locals => { :prefix => "new" }, :object => Caption.new
+              end %></span>
+        </div>
+
+        <%= render :partial => "tag", :locals => { :prefix => "updated" }, :collection => @asset.tags %>
+        <div id="tags">
+          <!-- is initially empty -->
+        </div>
+
+        <div class="formRow">
+          <span class="labelCol"><%= link_to_function "Add a tag", :class => "blueLink" do |page|
+          page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
+          end %></span>
+        </div>
+
+        <%= render :partial  => "credit", :locals => { :prefix => "updated" }, :collection => @asset.credits %>
+        <div id="credits">
+          <!-- is initially empty -->
+        </div>
+
+        <div class="formRow"><span class="labelCol"><%= link_to_function "Add Credit", :class => "blueLink" do |page|
+          page.insert_html :bottom, :credits, :partial => "credit", :object => Credit.new, :locals => { :prefix => "new" }
+          end %></span>
+        </div>
       </div>
-      <div class="formRow"><span class="labelCol"><%= link_to_function "Add Credit", :class => "blueLink" do |page|
-        page.insert_html :bottom, :credits, :partial => "credit", :object => Credit.new, :locals => { :prefix => "new" }
-        end %></span>
+      <%= javascript_tag render(:partial => 'show.js.rjs') %>
+
+      <div class="formSubmit">
+        <%= f.submit 'Update' %>
       </div>
-    </div>
-    
-    <%= javascript_tag render(:partial => 'show.js.rjs') %>
-    
-    <div class="formSubmit">
-      <%= f.submit 'Update' %>
-    </div>
     <% end %>
   </fieldset>
-  
+
   <div id="labelCol">
     <ul class="localNav">
       <li><%= link_to 'Show', asset_manager_asset_path(@asset) %></li> |
       <li><%= link_to 'Back', asset_manager_assets_path %></li>
     </ul>
   </div>
-  
 </div>
 

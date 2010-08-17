@@ -5,6 +5,7 @@ class CreateAssets < ActiveRecord::Migration
       t.string :exif_type
       t.string :title
       t.references :country
+      t.references :tribe
       t.timestamps
     end
   end
@@ -13,3 +14,4 @@ class CreateAssets < ActiveRecord::Migration
     drop_table :assets
   end
 end
+
