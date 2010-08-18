@@ -1,6 +1,6 @@
-class CreateUsers < ActiveRecord::Migration
+class CreateAdminUsers < ActiveRecord::Migration
   def self.up
-    create_table :users do |t|
+    create_table :admin_users do |t|
       t.string :username
       t.string :email
       t.string :crypted_password
@@ -11,8 +11,8 @@ class CreateUsers < ActiveRecord::Migration
       t.timestamps
     end
   end
-  
+
   def self.down
-    drop_table :users
+    drop_table :admin_users
   end
 end

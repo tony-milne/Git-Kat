@@ -1,2 +1,0 @@
-module AssetManager::UsersHelper
-end
