@@ -1,0 +1,19 @@
+<% title "Profile Editing" %>
+<div id="reg_form_container">
+  <h2 class="lightBlue">Update Your Account</h2>
+  <h4>Please enter your updated details:</h4>
+  <fieldset>
+    <legend>Update Account</legend>
+    <div id="registration_form">
+      <%= render :partial => 'form' %>
+    </div>
+  </fieldset>
+</div>
+<div id="edit_profile_nav">
+  <div id="local_nav">
+    <ul class="localNav">
+      <li><%= link_to "Home", asset_manager_assets_path, :class => "localNav" %></li>
+    </ul>
+  </div>
+</div>
+

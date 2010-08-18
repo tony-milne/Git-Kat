@@ -27,6 +27,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   #Here we have defined the gems that we are using for the program.  $D
   config.gem "authlogic"
+  config.gem "declarative_authorization"
   config.gem "paperclip"
   config.gem "exifr"
 

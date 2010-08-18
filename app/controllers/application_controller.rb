@@ -11,25 +11,33 @@ class ApplicationController < ActionController::Base
 
   filter_parameter_logging :password
   
-  helper_method :current_user
+  helper_method :current_user, :current_user_session
   
   helper_method :verify_credentials
+  
+  before_filter :set_current_user
+
+  protected
+ 
+  def set_current_user
+    Authorization.current_user = current_user
+  end
+  
+  def permission_denied
+    flash[:error] = "Sorry, you are not allowed to access that page."
+    redirect_to asset_manager_login_url
+  end
 
   private
   
-  def find_or_create_stage
-    Stage.find(session[:stage_id])
-    rescue ActiveRecord::RecordNotFound
-    stage = Stage.create
-    session[:stage_id] = :stage_id
-    stage
-    
-    end
-    
-
   def current_user_session
-    return @current_user_session if defined?(@current_user_session)
-    @current_user_session = UserSession.find
+    if AdminUserSession.find
+      return @current_user_session if defined?(@current_user_session)
+      @current_user_session = AdminUserSession.find
+    elsif AssetUserSession.find
+      return @current_user_session if defined?(@current_user_session)
+      @current_user_session = AssetUserSession.find
+    end
   end
   
   def current_user
@@ -48,5 +56,14 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end 
+  
+#  def find_or_create_stage
+#    Stage.find(session[:stage_id])
+#    rescue ActiveRecord::RecordNotFound
+#    stage = Stage.create
+#    session[:stage_id] = :stage_id
+#    stage
+#    
+#    end
   
 end

@@ -2,14 +2,14 @@
 <div id="login_message_container">
   <h3> Welcome To Team Delta/Gamma's Media Manager!</h3>
   <p>To begin viewing adding and editing assets, please login or
-    <%= link_to "register", new_asset_manager_user_path %> to continue.
+    <%= link_to "register", new_asset_manager_asset_user_path %> to continue.
   </p>
 </div>
 <div id="login_form_container">
       <fieldset>
           <legend>Login</legend>
           <div id="login_form">
-          <% form_for @user_session do |f| %>
+          <% form_for [:asset_manager, @asset_user_session] do |f| %>
             <%= f.error_messages %>
             <div class="formRow">
               <span class="loginLabelCol"><%= f.label :username %></span>
@@ -26,4 +26,3 @@
         </div>
       </fieldset>
 </div>
-
