@@ -1,0 +1,22 @@
+<% form_for(@admin_user)  do |f| %>
+  <%= f.error_messages %>
+  <div class="formRow">
+    <span class="labelCol"><%= f.label :username %></span>
+    <%= f.text_field :username %>
+  </div>
+  <div class="formRow">
+    <span class="labelCol"><%= f.label :email %></span>
+    <%= f.text_field :email %>
+  </div>
+  <div class="formRow">
+    <span class="labelCol"><%= f.label :password %></span>
+    <%= f.password_field :password %>
+  </div>
+  <div class="formRow">
+    <span class="labelCol"><%= f.label :password_confirmation %></span>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="formSubmit">
+    <%= f.submit "Register" %>
+  </div>
+<% end %>
