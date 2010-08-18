@@ -1,12 +1,13 @@
 class AssetManager::AssetsController < AssetManager::ApplicationController
-  before_filter :verify_credentials
+  #before_filter :verify_credentials
+  filter_access_to :all
   
   # GET /assets
   # GET /assets.xml
   def index
     @assets = Asset.search(params[:search], params[:page])
-     @stages = Stage.find(:all) #added by merge
-     @countries = Country.find(:all)
+    @stages = Stage.find(:all) #added by merge
+    @countries = Country.find(:all)
 
     respond_to do |format|
        format.html #index.html.erb

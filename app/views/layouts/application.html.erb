@@ -15,12 +15,17 @@
           <div id="reg_nav">
             <ul class="regNav">
             <% if current_user %>
-              <li><%= link_to "Edit Profile", edit_asset_manager_user_path(:current), :class => "regNav" %> |</li>
-              <li><%= link_to "Logout", logout_path, :class => "regNav" %></li>
-             <% else %>
-              <li><%= link_to "Register", new_asset_manager_user_path, :class => "regNav" %> |</li>
-              <li><%= link_to "Login", login_path, :class => "regNav" %> |</li>
-              <li><%= link_to "Forgot password", new_asset_manager_password_reset_path, :class => "regNav" %></li>
+              <% if current_user.class.to_s.eql?("AdminUser") %>
+                <li><span class="regNav">Logged in as: <%= current_user.username %> (Admin)</span> |</li>
+                <li><%= link_to "Logout", logout_path, :class => "regNav" %></li>
+              <% elsif current_user.class.to_s.eql?("AssetUser") %>
+                <li><span class="regNav">Logged in as: <%= current_user.username %></span> | <%= link_to "Edit Profile", edit_asset_manager_asset_user_path(:current), :class => "regNav" %> |</li>
+                <li><%= link_to "Logout", asset_manager_logout_path, :class => "regNav" %></li>
+              <% end %>
+            <% else %>
+                <li><%= link_to "Register", new_asset_manager_asset_user_path, :class => "regNav" %> |</li>
+                <li><%= link_to "Login", asset_manager_login_path, :class => "regNav" %> |</li>
+                <li><%= link_to "Forgot password", new_asset_manager_password_reset_path, :class => "regNav" %></li>
             <% end %>
             </ul>
           </div>

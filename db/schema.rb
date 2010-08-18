@@ -9,12 +9,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100810112402) do
+ActiveRecord::Schema.define(:version => 20100817152159) do
+
+  create_table "admin_user_roles", :force => true do |t|
+    t.string  "name"
+    t.integer "admin_user_id"
+  end
+
+  create_table "admin_users", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.integer  "login_count"
+    t.integer  "failed_login_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "asset_user_roles", :force => true do |t|
+    t.string  "name"
+    t.integer "asset_user_id"
+  end
+
+  create_table "asset_users", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.integer  "login_count"
+    t.integer  "failed_login_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "assets", :force => true do |t|
     t.integer  "exif_id"
     t.string   "exif_type"
     t.string   "title"
+    t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "data_file_name"
@@ -93,6 +128,11 @@ ActiveRecord::Schema.define(:version => 20100810112402) do
     t.integer  "asset_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "user_roles", :force => true do |t|
+    t.string  "name"
+    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|
