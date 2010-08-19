@@ -1,4 +1,6 @@
 class AssetManager::CountriesController < AssetManager::ApplicationController
+  filter_resource_access
+  
   # GET /asset_manager_countries
   # GET /asset_manager_countries.xml
   def index
@@ -13,7 +15,7 @@ class AssetManager::CountriesController < AssetManager::ApplicationController
   # GET /asset_manager_countries/1
   # GET /asset_manager_countries/1.xml
   def show
-    @country = Country.find(params[:id])
+    #@country = Country.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,7 @@ class AssetManager::CountriesController < AssetManager::ApplicationController
   # GET /asset_manager_countries/new
   # GET /asset_manager_countries/new.xml
   def new
-    @country = Country.new
+    #@country = Country.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class AssetManager::CountriesController < AssetManager::ApplicationController
 
   # GET /asset_manager_countries/1/edit
   def edit
-    @country = Country.find(params[:id])
+    #@country = Country.find(params[:id])
   end
 
   # POST /asset_manager_countries
   # POST /asset_manager_countries.xml
   def create
-    @country = Country.new(params[:country])
+    #@country = Country.new(params[:country])
 
     respond_to do |format|
       if @country.save
@@ -56,7 +58,7 @@ class AssetManager::CountriesController < AssetManager::ApplicationController
   # PUT /asset_manager_countries/1
   # PUT /asset_manager_countries/1.xml
   def update
-    @country = Country.find(params[:id])
+    #@country = Country.find(params[:id])
 
     respond_to do |format|
       if @country.update_attributes(params[:country])
@@ -72,7 +74,7 @@ class AssetManager::CountriesController < AssetManager::ApplicationController
   # DELETE /asset_manager_countries/1
   # DELETE /asset_manager_countries/1.xml
   def destroy
-    @country = Country.find(params[:id])
+    #@country = Country.find(params[:id])
     @country.destroy
 
     respond_to do |format|

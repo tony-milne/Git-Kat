@@ -1,4 +1,6 @@
 class AssetManager::TagsController < AssetManager::ApplicationController
+  filter_resource_access
+  
   # GET /asset_manager_tags
   # GET /asset_manager_tags.xml
   def index
@@ -16,7 +18,7 @@ class AssetManager::TagsController < AssetManager::ApplicationController
   # GET /asset_manager_tags/1
   # GET /asset_manager_tags/1.xml
   def show
-    @tag = Tag.find(params[:id])
+    #@tag = Tag.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,7 +42,7 @@ class AssetManager::TagsController < AssetManager::ApplicationController
 
   # GET /asset_manager_tags/1/edit
   def edit
-    @tag = Tag.find(params[:id])
+    #@tag = Tag.find(params[:id])
   end
 
   # POST /asset_manager_tags
@@ -65,7 +67,7 @@ class AssetManager::TagsController < AssetManager::ApplicationController
   # PUT /asset_manager_tags/1
   # PUT /asset_manager_tags/1.xml
   def update
-    @tag = Tag.find(params[:id])
+    #@tag = Tag.find(params[:id])
 
     respond_to do |format|
       if @tag.update_attributes(params[:tag])
@@ -81,7 +83,7 @@ class AssetManager::TagsController < AssetManager::ApplicationController
   # DELETE /asset_manager_tags/1
   # DELETE /asset_manager_tags/1.xml
   def destroy
-    @tag = Tag.find(params[:id])
+    #@tag = Tag.find(params[:id])
     @tag.destroy
 
     respond_to do |format|
