@@ -1,4 +1,6 @@
 class AssetManager::CreditsController < AssetManager::ApplicationController
+  filter_resource_access
+  
   # GET /asset_manager_credits
   # GET /asset_manager_credits.xml
   def index
@@ -15,8 +17,8 @@ class AssetManager::CreditsController < AssetManager::ApplicationController
   # GET /asset_manager_credits/1
   # GET /asset_manager_credits/1.xml
   def show
-    @credit = Credit.find(params[:id])
-	@language = Language.find(:all)
+    #@credit = Credit.find(params[:id])
+	  @language = Language.find(:all)
     
     respond_to do |format|
       format.html # show.html.erb
@@ -27,8 +29,8 @@ class AssetManager::CreditsController < AssetManager::ApplicationController
   # GET /asset_manager_credits/new
   # GET /asset_manager_credits/new.xml
   def new
+    #@credit = Credit.new
   	@asset = Asset.find(params[:asset_id])
-    @credit = Credit.new
     @credit.asset = @asset
     @languages = Language.find(:all) 
     
@@ -40,7 +42,7 @@ class AssetManager::CreditsController < AssetManager::ApplicationController
 
   # GET /asset_manager_credits/1/edit
   def edit
-    @credit = Credit.find(params[:id])
+    #@credit = Credit.find(params[:id])
     @languages = Language.find(:all)
     
   end
@@ -48,8 +50,8 @@ class AssetManager::CreditsController < AssetManager::ApplicationController
   # POST /asset_manager_credits
   # POST /asset_manager_credits.xml
   def create
+  	#@credit = Credit.new(params[:credit])
     @asset = Asset.find(params[:asset_id])
-  	@credit = Credit.new(params[:credit])
   	@credit.asset = @asset
   	@languages = Language.find(:all)
 
@@ -67,7 +69,7 @@ class AssetManager::CreditsController < AssetManager::ApplicationController
   # PUT /asset_manager_credits/1
   # PUT /asset_manager_credits/1.xml
   def update
-    @credit = Credit.find(params[:id])
+    #@credit = Credit.find(params[:id])
 
     respond_to do |format|
       if @credit.update_attributes(params[:credit])
@@ -83,7 +85,7 @@ class AssetManager::CreditsController < AssetManager::ApplicationController
   # DELETE /asset_manager_credits/1
   # DELETE /asset_manager_credits/1.xml
   def destroy
-    @credit = Credit.find(params[:id])
+    #@credit = Credit.find(params[:id])
     @credit.destroy
 
     respond_to do |format|

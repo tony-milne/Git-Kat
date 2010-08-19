@@ -1,5 +1,6 @@
 class AssetManager::AssetUserSessionsController < ApplicationController
-  before_filter :check_logged_in, :only => [:new, :create]
+  #before_filter :check_logged_in, :only => [:new, :create]
+  #filter_access_to :all
   
   def new
     @asset_user_session = AssetUserSession.new

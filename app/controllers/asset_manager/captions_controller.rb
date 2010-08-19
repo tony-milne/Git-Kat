@@ -1,4 +1,6 @@
 class AssetManager::CaptionsController < AssetManager::ApplicationController
+  filter_resource_access
+  
   # GET /asset_manager_captions
   # GET /asset_manager_captions.xml
   def index
@@ -15,7 +17,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions/1
   # GET /asset_manager_captions/1.xml
   def show
-    @caption = Caption.find(params[:id])
+    #@caption = Caption.find(params[:id])
     @language = Language.find(:all)
     
     respond_to do |format|
@@ -27,8 +29,8 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # GET /asset_manager_captions/new
   # GET /asset_manager_captions/new.xml
   def new
+    #@caption = Caption.new
     @asset = Asset.find(params[:asset_id])
-    @caption = Caption.new
     @caption.asset = @asset
     @languages = Language.find(:all)
 
@@ -40,15 +42,15 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
 
   # GET /asset_manager_captions/1/edit
   def edit
-    @caption = Caption.find(params[:id])
+    #@caption = Caption.find(params[:id])
     @languages = Language.find(:all)
   end
 
   # POST /asset_manager_captions
   # POST /asset_manager_captions.xml
   def create
+    #@caption = Caption.new(params[:caption])
     @asset = Asset.find(params[:asset_id])
-    @caption = Caption.new(params[:caption])
     @caption.asset = @asset
     @languages = Language.find(:all)
 
@@ -66,7 +68,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # PUT /asset_manager_captions/1
   # PUT /asset_manager_captions/1.xml
   def update
-  	@caption = Caption.find(params[:id])
+  	#@caption = Caption.find(params[:id])
 
     respond_to do |format|
       if @caption.update_attributes(params[:caption])
@@ -82,7 +84,7 @@ class AssetManager::CaptionsController < AssetManager::ApplicationController
   # DELETE /asset_manager_captions/1
   # DELETE /asset_manager_captions/1.xml
   def destroy
-  	@caption = Caption.find(params[:id])
+  	#@caption = Caption.find(params[:id])
     @caption.destroy
 
     respond_to do |format|

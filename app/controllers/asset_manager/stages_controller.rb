@@ -1,4 +1,6 @@
 class AssetManager::StagesController < ApplicationController
+  filter_resource_access
+  
   # GET /stages
   # GET /stages.xml
   def index
@@ -18,8 +20,8 @@ class AssetManager::StagesController < ApplicationController
   # SHOW PAGE TO_BE_PAGINATED!
   
   def show
-    @stage = Stage.find(params[:id])
-@assets = Asset.paginate :per_page => 6, :page => params[:page],
+    #@stage = Stage.find(params[:id])
+    @assets = Asset.paginate :per_page => 6, :page => params[:page],
                              :conditions => ['title like ?', "%#{params[:search]}%"],
                              :order => 'title'
     respond_to do |format|
@@ -31,7 +33,7 @@ class AssetManager::StagesController < ApplicationController
   # GET /stages/new
   # GET /stages/new.xml
   def new
-    @stage = Stage.new
+    #@stage = Stage.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,13 +43,13 @@ class AssetManager::StagesController < ApplicationController
 
   # GET /stages/1/edit
   def edit
-    @stage = Stage.find(params[:id])
+    #@stage = Stage.find(params[:id])
   end
 
   # POST /stages
   # POST /stages.xml
   def create
-    @stage = Stage.new(params[:stage])
+    #@stage = Stage.new(params[:stage])
 
     respond_to do |format|
       if @stage.save
@@ -63,7 +65,7 @@ class AssetManager::StagesController < ApplicationController
   # PUT /stages/1
   # PUT /stages/1.xml
   def update
-    @stage = Stage.find(params[:id])
+    #@stage = Stage.find(params[:id])
 
     respond_to do |format|
       if @stage.update_attributes(params[:stage])
@@ -79,7 +81,7 @@ class AssetManager::StagesController < ApplicationController
   # DELETE /stages/1
   # DELETE /stages/1.xml
   def destroy
-    @stage = Stage.find(params[:id])
+    #@stage = Stage.find(params[:id])
     @stage.destroy
 
     respond_to do |format|

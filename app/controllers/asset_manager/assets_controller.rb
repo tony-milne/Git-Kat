@@ -1,13 +1,14 @@
 class AssetManager::AssetsController < AssetManager::ApplicationController
   #before_filter :verify_credentials
-  filter_access_to :all
+  #filter_access_to :all
+  filter_resource_access
   
   # GET /assets
   # GET /assets.xml
   def index
     @assets = Asset.search(params[:search], params[:page])
     @stages = Stage.find(:all) #added by merge
-    @countries = Country.find(:all)
+    #@countries = Country.find(:all)
 
     respond_to do |format|
        format.html #index.html.erb
@@ -18,8 +19,8 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets/1
   # GET /assets/1.xml
   def show
-    @asset = Asset.find(params[:id])
-    @countries = Country.find(:all)
+    #@asset = Asset.find(params[:id])
+    #@countries = Country.find(:all)
     if @asset.exif?
     	@exif = @asset.exif.attributes
     	
@@ -49,7 +50,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets/new
   # GET /assets/new.xml
   def new
-    @asset = Asset.new
+    #@asset = Asset.new
     @countries = Country.find(:all)
     
     respond_to do |format|
@@ -60,7 +61,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
 
   # GET /assets/1/edit
   def edit
-    @asset = Asset.find(params[:id])
+    #@asset = Asset.find(params[:id])
     @countries = Country.find(:all)
     @tags = @asset.tags
   end
@@ -68,7 +69,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # POST /assets
   # POST /assets.xml
   def create
-    @asset = Asset.new(params[:asset])
+    #@asset = Asset.new(params[:asset])
     @countries = Country.find(:all)
     
     respond_to do |format|
@@ -88,7 +89,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
     params[:asset][:updated_tag_attributes] ||= {}
     params[:asset][:updated_caption_attributes] ||= {}
     params[:asset][:updated_credit_attributes] ||= {}
-    @asset = Asset.find(params[:id])
+    #@asset = Asset.find(params[:id])
     
     respond_to do |format|
       if @asset.update_attributes(params[:asset])
@@ -104,7 +105,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # DELETE /assets/1
   # DELETE /assets/1.xml
   def destroy
-    @asset = Asset.find(params[:id])
+    #@asset = Asset.find(params[:id])
     @asset.destroy
     
     respond_to do |format|
