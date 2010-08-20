@@ -1,4 +1,6 @@
 class Credit < ActiveRecord::Base
- belongs_to :asset
- belongs_to :language
+  using_access_control
+
+  belongs_to :asset
+  belongs_to :language
 end

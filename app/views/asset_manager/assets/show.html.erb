@@ -43,7 +43,7 @@
 		      <% permitted_to? :edit, :asset_manager_captions do %>
   		      <%= link_to "Edit", edit_asset_manager_asset_caption_path(@asset, caption), :class => "blueLink", :id => "to_be_hidden_with_js" %>
 	        <% end %>
-	        <% permitted_to? :delete, :asset_manager_captions do %>
+	        <% permitted_to? :destroy, :asset_manager_captions do %>
   		      <%= link_to 'Delete', asset_manager_asset_caption_path(@asset, caption), :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %></li>
 		      <% end %>
 		  <% end %>
@@ -60,7 +60,7 @@
 		      <% permitted_to? :edit, :asset_manager_credits do %>
 		        <%= link_to "Edit", edit_asset_manager_asset_credit_path(@asset, credit), :class => "blueLink", :id => "to_be_hidden_with_js" %>
 	        <% end %>
-	        <% permitted_to? :delete, :asset_manager_credits do %>
+	        <% permitted_to? :destroy, :asset_manager_credits do %>
 		        <%= link_to 'Delete', asset_manager_credit_path(credit), :confirm => 'Are you sure?', :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %>
 	        <% end %>
         </li>
@@ -79,7 +79,7 @@
   		    <% permitted_to? :edit, :asset_manager_tags do %>
   		      <%= link_to "Edit", edit_asset_manager_asset_tag_path(@asset, tag), :class => "blueLink", :id => "to_be_hidden_with_js" %>
 		      <% end %>
-		      <% permitted_to? :delete, :asset_manager_tags do %>
+		      <% permitted_to? :destroy, :asset_manager_tags do %>
   		      <%= link_to 'Delete', asset_manager_tag_path(tag), :confirm => 'Are you sure?', :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %>
 		      <% end %>
         </li>
