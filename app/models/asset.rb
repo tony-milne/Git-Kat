@@ -1,4 +1,6 @@
 class Asset < ActiveRecord::Base
+  using_access_control
+  
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
   belongs_to :country
   belongs_to :tribe

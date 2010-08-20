@@ -11,10 +11,10 @@
     <%= link_to truncate(asset.title, 20, "..."), asset_manager_asset_path(asset), :class => "blueLink" %><br />
     <span id="local_nav">
       <ul class="localNav">
-        <% permitted_to? :update, :asset_manager_assets do %>
+        <% permitted_to? :edit, :asset_manager_assets do %>
           <li><%= link_to 'Edit', edit_asset_manager_asset_path(asset) %></li>
         <% end %>
-        <% permitted_to? :delete, :asset_manager_assets do %>
+        <% permitted_to? :destroy, :asset_manager_assets do %>
           <li><%= link_to 'Delete', asset_manager_asset_path(asset), :confirm => "Are you sure?", :method => :delete %><li>
         <% end %>
         <li><%= check_box_tag "asset_ids[]", asset.id %></li>
@@ -36,7 +36,7 @@
 </div>
 <div id="local_nav">
     <ul class="localNav">
-      <% permitted_to? :create, :asset_manager_assets do %>
+      <% permitted_to? :new, :asset_manager_assets do %>
         <li><%= link_to 'New asset', new_asset_manager_asset_path %></li> |
       <% end %>
       <li><%= link_to 'View Languages', asset_manager_languages_path %></li> |

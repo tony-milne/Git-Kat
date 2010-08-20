@@ -1,4 +1,5 @@
 class Tribe < ActiveRecord::Base
- has_many :assets
+  using_access_control
+  has_many :assets
 end
 

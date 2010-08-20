@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100817115008) do
+ActiveRecord::Schema.define(:version => 20100817114959) do
 
   create_table "admin_user_roles", :force => true do |t|
     t.string  "name"
@@ -26,11 +26,6 @@ ActiveRecord::Schema.define(:version => 20100817115008) do
     t.integer  "failed_login_count"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "asset_user_roles", :force => true do |t|
-    t.string  "name"
-    t.integer "asset_user_id"
   end
 
   create_table "asset_users", :force => true do |t|
@@ -105,11 +100,6 @@ ActiveRecord::Schema.define(:version => 20100817115008) do
 
   create_table "languages", :force => true do |t|
     t.string "language"
-  end
-
-  create_table "notifiers", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "stages", :force => true do |t|

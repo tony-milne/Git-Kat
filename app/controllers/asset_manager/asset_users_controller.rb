@@ -1,13 +1,13 @@
 class AssetManager::AssetUsersController < ApplicationController
   #add before filter to check user is logged out before trying to create new user
-  filter_access_to :all
+  filter_resource_access
   
   def new
-    @asset_user = AssetUser.new
+    #@asset_user = AssetUser.new
   end
   
   def create
-    @asset_user = AssetUser.new(params[:asset_user])
+    #@asset_user = AssetUser.new(params[:asset_user])
     if @asset_user.save
       flash[:notice] = "Registration successful."
       redirect_to asset_manager_root_url
