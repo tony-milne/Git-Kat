@@ -8,9 +8,9 @@ class Asset < ActiveRecord::Base
   belongs_to :country
   belongs_to :tribe
 
-  has_many :captions
+  has_many :captions, :dependent => :destroy
   accepts_nested_attributes_for :captions
-  has_many :credits
+  has_many :credits, :dependent => :destroy
 
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :stages
@@ -35,7 +35,7 @@ class Asset < ActiveRecord::Base
                                                                              #comment out :s3_options then restart server
   
   :s3_permissions => 'authenticated-read',
-  :s3_protocol => 'http',
+  #:s3_protocol => 'http',
   :bucket => "survival-project"
 
   # Checking Filetypes
