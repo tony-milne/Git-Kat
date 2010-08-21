@@ -1,3 +1,6 @@
+# Asset model handles storage of assets using Paperclip, extraction of EXIF data using exifr,
+# processes virtual attributes for AJAX forms, contains search method and settings for
+# pagination of asset collections 
 class Asset < ActiveRecord::Base
   using_access_control
   
@@ -6,21 +9,19 @@ class Asset < ActiveRecord::Base
   belongs_to :tribe
 
   has_many :captions
-  accepts_nested_attributes_for :captions #not present in ajax branch
-  has_many :credits #was has_many
+  accepts_nested_attributes_for :captions
+  has_many :credits
 
-  has_and_belongs_to_many :tags #has_many :tags
+  has_and_belongs_to_many :tags
   has_and_belongs_to_many :stages
 
   validates_presence_of :tribe
   validates_presence_of :country
 
-  # before_destroy :ensure_not_referenced_by_any_stage_item
-
   # Uploading Images Using Paperclip
   has_attached_file	:data,
-			:url => "/assets/photos/:id/:style/:basename.:extension",
-			:path => "/assets/photos/:id/:style/:basename.:extension",
+			:url => "/assets/:id/:style/:basename.:extension",
+			:path => "/assets/:id/:style/:basename.:extension",
 
   # Resizing Images
   #For windows systems, the greater than sign '>' must be escaped with the hat '^' symbol
@@ -30,8 +31,11 @@ class Asset < ActiveRecord::Base
   # Connection to S3
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-  :s3_options => {:proxy => {:host => 'proxy.abdn.ac.uk', :port => 8080} }, #note to team: if working from home
+  #:s3_options => {:proxy => {:host => 'proxy.abdn.ac.uk', :port => 8080} }, #note to team: if working from home
                                                                              #comment out :s3_options then restart server
+  
+  :s3_permissions => 'authenticated-read',
+  :s3_protocol => 'http',
   :bucket => "survival-project"
 
   # Checking Filetypes
@@ -47,7 +51,6 @@ class Asset < ActiveRecord::Base
   # Pagination
   cattr_reader :per_page
   @@per_page = 12
-
 
   # Search
   def self.search(search, page)
@@ -169,6 +172,7 @@ class Asset < ActiveRecord::Base
   end
 
   private
+  ## When asset is found to be an image, attempts to extract EXIF data
   def set_image_exif_data
     exif_data = EXIFR::JPEG.new(data.to_file.path)
     return if exif_data.nil? or not exif_data.exif?

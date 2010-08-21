@@ -3,7 +3,7 @@
 
 <div id="show_left_column">
 	<div class="showPicAsset">
-		<%= image_tag @asset.data.url(:large) %>
+		<%= image_tag s3_authenticated_url(@asset, :large) %>
 	</div>
   <div id="show_pic_nav">
     <div id="local_nav">

@@ -2,6 +2,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   #before_filter :verify_credentials
   #filter_access_to :all
   filter_resource_access
+  helper AssetManager::AssetsHelper
   
   # GET /assets
   # GET /assets.xml

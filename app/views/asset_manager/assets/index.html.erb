@@ -7,7 +7,7 @@
 	<% form_tag added_asset_manager_stages_path, :method => :put do %> 
     <% @assets.each do |asset| %>
   <div class="thumbnail">
-    <%= link_to image_tag(asset.data.url(:thumb)), asset_manager_asset_path(asset) %><br />
+    <%= link_to image_tag(s3_authenticated_url(asset, :thumb)), asset_manager_asset_path(asset) %><br />
     <%= link_to truncate(asset.title, 20, "..."), asset_manager_asset_path(asset), :class => "blueLink" %><br />
     <span id="local_nav">
       <ul class="localNav">
