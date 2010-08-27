@@ -53,8 +53,12 @@
       </div>
       <div id="background_flash_bar">
         <div id="flash_bar">
-          <%- flash.each do |name, msg| -%>
-            <%= content_tag :div, msg, :id => "flash_bar_alert" %>
+        <!-- Code referenced from a discussion on: http://handyrailstips.com/tips/3-hiding-the-flash-message-after-a-time-delay (26/08/2010) -->
+          <%- flash.each do |flash_type, message| -%>
+            <%= content_tag :div, message, :id => "flash_bar_alert" %>
+            <% content_tag :script, :type => "text/javascript" do %>
+              setTimeout("new Effect.Fade('flash_bar_alert');", 5000);
+            <% end %>
           <%- end -%>
         </div>
       </div>

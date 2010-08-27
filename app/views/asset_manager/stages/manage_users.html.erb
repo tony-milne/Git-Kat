@@ -1,0 +1,13 @@
+<h1>Manage users for <%= @stage.title %></h1>
+<% form_tag remove_user_asset_manager_stage_path, :method => :post do %>
+  <ul>
+    <% @users.each do |user| %>
+    <li><%= check_box_tag "user_ids[]", user.id %><%= user.username %></li>
+    <% end %>
+  </ul>
+  <%= submit_tag "Remove selected users" %>
+<% end %>
+<% form_tag add_user_asset_manager_stage_path, :method => :post do %>
+  <%= collection_select(:user, :id, AssetUser.all, :id, :username, {:prompt => true}) %>
+  <%= submit_tag "Add user to stage" %>
+<% end %>

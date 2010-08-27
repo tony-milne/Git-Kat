@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  #protect_from_forgery
+  protect_from_forgery
   
   # See ActionController::Base for details 
   # Uncomment this to filter the contents of submitted sensitive data parameters
@@ -45,25 +45,24 @@ class ApplicationController < ActionController::Base
     @current_user = current_user_session && current_user_session.record
   end
   
-  def verify_credentials
-    if !current_user
+  def require_user
+    unless current_user
       if flash[:notice].blank?
         flash[:notice] = "Please login to continue"
       else
         flash.keep(:notice)
       end
       
-      redirect_to login_path
+      redirect_to asset_manager_login_path
     end
-  end 
+  end
   
-#  def find_or_create_stage
-#    Stage.find(session[:stage_id])
-#    rescue ActiveRecord::RecordNotFound
-#    stage = Stage.create
-#    session[:stage_id] = :stage_id
-#    stage
-#    
-#    end
+  def require_no_user
+    if current_user
+      flash[:notice] = "You must be logged out to view this page"
+      redirect_to asset_manager_assets_path
+      return false
+    end
+  end
   
 end

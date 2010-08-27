@@ -10,6 +10,7 @@
     <td><%=h stage.title %></td>
     <td><%= link_to 'View', asset_manager_stage_path(stage) %></td>
     <td><%= link_to 'Edit', edit_asset_manager_stage_path(stage) %></td>
+    <td><%= link_to 'Assign users to stage', manage_users_asset_manager_stage_path(stage) %>
     <td><%= link_to 'Delete', asset_manager_stage_path(stage), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

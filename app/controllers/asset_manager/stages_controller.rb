@@ -1,11 +1,13 @@
 class AssetManager::StagesController < ApplicationController
-  filter_resource_access
+  filter_access_to :show, :attribute_check => true
+  filter_access_to :all
+  helper AssetManager::AssetsHelper
   
   # GET /stages
   # GET /stages.xml
   def index
     @stage = Stage.all
-       @stages = Stage.paginate :per_page => 6, :page => params[:page]#,
+    @stages = Stage.paginate :per_page => 6, :page => params[:page]#,
                              #:conditions => ['id like ?', "%#{params[:search]}%"],
                              #:order => 'id'
 
@@ -20,7 +22,7 @@ class AssetManager::StagesController < ApplicationController
   # SHOW PAGE TO_BE_PAGINATED!
   
   def show
-    #@stage = Stage.find(params[:id])
+    @stage = Stage.find(params[:id])
     @assets = Asset.paginate :per_page => 6, :page => params[:page],
                              :conditions => ['title like ?', "%#{params[:search]}%"],
                              :order => 'title'
@@ -33,7 +35,7 @@ class AssetManager::StagesController < ApplicationController
   # GET /stages/new
   # GET /stages/new.xml
   def new
-    #@stage = Stage.new
+    @stage = Stage.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,13 +45,13 @@ class AssetManager::StagesController < ApplicationController
 
   # GET /stages/1/edit
   def edit
-    #@stage = Stage.find(params[:id])
+    @stage = Stage.find(params[:id])
   end
 
   # POST /stages
   # POST /stages.xml
   def create
-    #@stage = Stage.new(params[:stage])
+    @stage = Stage.new(params[:stage])
 
     respond_to do |format|
       if @stage.save
@@ -65,7 +67,7 @@ class AssetManager::StagesController < ApplicationController
   # PUT /stages/1
   # PUT /stages/1.xml
   def update
-    #@stage = Stage.find(params[:id])
+    @stage = Stage.find(params[:id])
 
     respond_to do |format|
       if @stage.update_attributes(params[:stage])
@@ -81,7 +83,7 @@ class AssetManager::StagesController < ApplicationController
   # DELETE /stages/1
   # DELETE /stages/1.xml
   def destroy
-    #@stage = Stage.find(params[:id])
+    @stage = Stage.find(params[:id])
     @stage.destroy
 
     respond_to do |format|
@@ -90,19 +92,78 @@ class AssetManager::StagesController < ApplicationController
     end
   end
   
-  def added
-    @stage = Stage.find(params[:stage][:stage_id])
-    params[:asset_ids].each { |asset|
-    @stage.assets << Asset.find(asset) }
-    @stage.save
-    redirect_to :back, :notice =>"Successfully added to the stage."
+  def added    
+    if !params[:asset_ids].nil?
+      @stage = Stage.find(session[:stage_id])
+      asset_set = Set.new
+      params[:asset_ids].each do |asset_id|
+        asset_set.add(Asset.find(asset_id.to_i))
+      end
+      asset_set.each do |new_asset|
+        @stage.assets.each do |current_asset|
+          if current_asset.id == new_asset.id
+            asset_set.delete(new_asset)
+            break
+          end
+        end
+      end
+      
+      asset_set.each do |asset|
+        @stage.assets << asset
+      end
+      
+      if @stage.save
+        redirect_to :back, :notice =>"Successfully added to the stage."
+      else
+        redirect_to :back, :error => "Assets were not added to the stage."
+      end
+    else
+      redirect_to :back, :alert => "No assets were selected"
+    end
   end
 
   def removed
     @stage = Stage.find(params[:stage])
     params[:asset_ids].each { |asset|
     @stage.assets.delete(Asset.find(asset)) }
-    @stage.save
-    redirect_to :back, :notice =>"Successfully deleted from stage."
+    if @stage.save
+      redirect_to :back, :notice =>"Successfully deleted from stage."
+    else
+      redirect_to :back, :notice => "An error occured"
+    end
+  end
+  
+  def manage_users
+    @stage = Stage.find(params[:id])
+    @users = @stage.asset_users
+  end
+  
+  def add_user
+    stage = Stage.find(params[:id])
+    user = AssetUser.find(params[:user][:id])
+    stage.asset_users << user
+    
+    if stage.save
+      redirect_to :back, :notice => "#{user.username} was added to #{stage.title}"
+    else
+      redirect_to :back, :alert => "Action could not be completed"
+    end
+  end
+  
+  def remove_user
+    if !params[:user_ids].nil?
+      stage = Stage.find(params[:id])
+      params[:user_ids].each do |user_id|
+        user = AssetUser.find(user_id.to_i)
+        stage.asset_users.delete(user)
+      end
+      if stage.save
+        redirect_to :back, :notice => "Users successfully were removed from #{stage.title}"
+      else
+        redirect_to :back, :alert => "Action could not be completed"
+      end
+    else
+      redirect_to :back, :alert => "No users were selected"
+    end
   end
 end

@@ -1,6 +1,6 @@
 class AssetManager::AssetUserSessionsController < ApplicationController
-  #before_filter :check_logged_in, :only => [:new, :create]
-  #filter_access_to :all
+  before_filter :require_user, :only => :destroy
+  before_filter :require_no_user, :only => [:new, :create]
   
   def new
     @asset_user_session = AssetUserSession.new
@@ -21,14 +21,5 @@ class AssetManager::AssetUserSessionsController < ApplicationController
     @asset_user_session.destroy
     flash[:notice] = "Successfully logged out."
     redirect_to asset_manager_login_url
-  end
-  
-  private
-  
-  def check_logged_in
-    if current_user
-      flash[:notice] = "You are already logged in"
-      redirect_to asset_manager_root_url
-    end
   end
 end

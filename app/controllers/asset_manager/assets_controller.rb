@@ -1,7 +1,7 @@
 class AssetManager::AssetsController < AssetManager::ApplicationController
   #before_filter :verify_credentials
-  #filter_access_to :all
-  filter_resource_access
+  filter_access_to :all
+  #filter_resource_access
   helper AssetManager::AssetsHelper
   
   # GET /assets
@@ -20,26 +20,11 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets/1
   # GET /assets/1.xml
   def show
-    #@asset = Asset.find(params[:id])
+    @asset = Asset.find(params[:id])
     #@countries = Country.find(:all)
     if @asset.exif?
     	@exif = @asset.exif.attributes
-    	
-    	@exif.reject! { |key,value| (key.eql? "id") || (value == 0.0) || (value.blank?) }
-	    
-	    @exif.each_pair { |key,value| 
-	      new_key = key.to_s.dup
-	      new_key.gsub!("_", " ")
-	      new_key.capitalize!
-	      
-	      if new_key.eql? "Shot date time"
-	        new_value = @asset.exif.shot_date_time.strftime("%d %b %Y %H:%M")
-        else
-          new_value = value.to_s.dup
-        end
-	      
-	      @exif.delete(key)
-	      @exif.store(new_key, new_value) }
+    	@exif = format_exif(@exif)
    end
     
     respond_to do |format|
@@ -51,7 +36,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets/new
   # GET /assets/new.xml
   def new
-    #@asset = Asset.new
+    @asset = Asset.new
     @countries = Country.find(:all)
     
     respond_to do |format|
@@ -70,7 +55,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # POST /assets
   # POST /assets.xml
   def create
-    #@asset = Asset.new(params[:asset])
+    @asset = Asset.new(params[:asset])
     @countries = Country.find(:all)
     
     respond_to do |format|
@@ -90,7 +75,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
     params[:asset][:updated_tag_attributes] ||= {}
     params[:asset][:updated_caption_attributes] ||= {}
     params[:asset][:updated_credit_attributes] ||= {}
-    #@asset = Asset.find(params[:id])
+    @asset = Asset.find(params[:id])
     
     respond_to do |format|
       if @asset.update_attributes(params[:asset])
@@ -106,7 +91,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # DELETE /assets/1
   # DELETE /assets/1.xml
   def destroy
-    #@asset = Asset.find(params[:id])
+    @asset = Asset.find(params[:id])
     @asset.destroy
     
     respond_to do |format|
@@ -114,9 +99,41 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def select_stage
+    if !params[:stage][:id].empty?
+      session[:stage_id] = params[:stage][:id].to_i
+      redirect_to :back, :notice => "You can now add assets to #{Stage.find(session[:stage_id]).title}"
+    else
+      redirect_to :back, :notice => "No stage was selected"
+    end
+  end
   
-  def add_tag
-    @tag = Tag.new
+  def deselect_stage
+    session[:stage_id] = nil
+    redirect_to :back, :notice => "Please select a different stage"
+  end
+  
+  private
+  
+  def format_exif(exif)
+    exif.reject! { |key,value| (key.eql? "id") || (value == 0.0) || (value.blank?) }
+	    
+    exif.each_pair { |key,value| 
+    new_key = key.to_s.dup
+    new_key.gsub!("_", " ")
+    new_key.capitalize!
+
+    if new_key.eql? "Shot date time"
+      new_value = @asset.exif.shot_date_time.strftime("%d %b %Y %H:%M")
+    else
+      new_value = value.to_s.dup
+    end
+
+    exif.delete(key)
+    exif.store(new_key, new_value) }
+    
+    return exif
   end
 
 end

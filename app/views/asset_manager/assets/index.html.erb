@@ -28,10 +28,17 @@
     <%= will_paginate @assets %>
   </div>  
   <div>
-    <h2> Select a Stage to Add the Assets to </h2>
-    <p><%= collection_select(:stage, :stage_id, Stage.all, :id, :title, {:prompt => true}) %>
-    <p><%= submit_tag "Add To Stage" %></p>
+  <% if !session[:stage_id].nil? %>
+    <p><%= Stage.find(session[:stage_id]).title %> <%= submit_tag "Add To Stage" %> <%= link_to "Select another stage", deselect_stage_asset_manager_assets_path, :method => :post %></p>
   <% end %>
+  <% end %>
+  <% if session[:stage_id].nil? %>  
+    <% form_tag select_stage_asset_manager_assets_path, :method => :post do %>
+      <h2> Select a Stage to Add the Assets to </h2>
+      <p><%= collection_select(:stage, :id, Stage.all, :id, :title, {:prompt => true}) %>
+      <%= submit_tag "Select stage" %></p>
+    <% end %>
+  <% end %>  
   </div>
 </div>
 <div id="local_nav">
