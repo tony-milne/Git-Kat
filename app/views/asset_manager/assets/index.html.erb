@@ -4,7 +4,7 @@
   <p> In your asset archive, you can edit and delete your current assets as well as add new ones.</p>
 </div>
 <div id="gallery_container">
-	<% form_tag added_asset_manager_stages_path, :method => :put do %> 
+	<% form_tag add_asset_to_stage_asset_manager_stages_path, :method => :put do %> 
     <% @assets.each do |asset| %>
   <div class="thumbnail">
     <%= link_to image_tag(s3_authenticated_url(asset, :thumb)), asset_manager_asset_path(asset) %><br />

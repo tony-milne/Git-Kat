@@ -1,9 +1,11 @@
   ActionController::Routing::Routes.draw do |map|
     
   map.namespace :asset_manager do |manager|    
-    manager.resources :assets, :collection => { :select_stage => :post, :deselect_stage => :post }, :has_many => [:captions, :credits, :tags]
+    manager.resources :assets, :collection => { :select_stage => :post, :deselect_stage => :post },
+                      :has_many => [:captions, :credits, :tags]
     manager.resource :password_reset
-    manager.resources :stages, :collection => {:added => :put, :removed => :put }, :member => { :contract => :get, :manage_users => :get, :add_user => :post, :remove_user => :post }
+    manager.resources :stages, :collection => {:add_asset_to_stage => :put, :remove_asset_from_stage => :put },
+                      :member => { :contract => :get, :manage_users => :get, :add_user => :post, :remove_user => :post }
     manager.resources :captions
     manager.resources :credits 
     manager.resources :languages, :has_many => :captions

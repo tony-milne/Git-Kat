@@ -1,15 +1,12 @@
 class AssetManager::AssetsController < AssetManager::ApplicationController
-  #before_filter :verify_credentials
   filter_access_to :all
-  #filter_resource_access
   helper AssetManager::AssetsHelper
   
   # GET /assets
   # GET /assets.xml
   def index
     @assets = Asset.search(params[:search], params[:page])
-    @stages = Stage.find(:all) #added by merge
-    #@countries = Country.find(:all)
+    @stages = Stage.find(:all)
 
     respond_to do |format|
        format.html #index.html.erb
@@ -21,7 +18,6 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # GET /assets/1.xml
   def show
     @asset = Asset.find(params[:id])
-    #@countries = Country.find(:all)
     if @asset.exif?
     	@exif = @asset.exif.attributes
     	@exif = format_exif(@exif)
@@ -47,7 +43,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
 
   # GET /assets/1/edit
   def edit
-    #@asset = Asset.find(params[:id])
+    @asset = Asset.find(params[:id])
     @countries = Country.find(:all)
     @tags = @asset.tags
   end

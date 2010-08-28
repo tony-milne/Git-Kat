@@ -16,7 +16,7 @@ authorization do
     has_permission_on :asset_manager_asset_users, :to => [:edit, :update]
     has_permission_on :asset_manager_assets, :to => [:index, :show]
     
-    has_permission_on :asset_manager_stages, :to => [:index]
+    has_permission_on :asset_manager_stages, :to => [:index, :contract]
     has_permission_on :asset_manager_stages do
       to :show
       if_attribute :asset_users => contains { user }

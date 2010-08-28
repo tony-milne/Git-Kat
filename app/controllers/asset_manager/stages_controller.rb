@@ -1,6 +1,7 @@
 class AssetManager::StagesController < ApplicationController
   filter_access_to :show, :attribute_check => true
   filter_access_to :all
+  before_filter :agreed_to_contract?, :only => :show
   helper AssetManager::AssetsHelper
   
   # GET /stages
@@ -92,7 +93,7 @@ class AssetManager::StagesController < ApplicationController
     end
   end
   
-  def added    
+  def add_asset_to_stage
     if !params[:asset_ids].nil?
       @stage = Stage.find(session[:stage_id])
       asset_set = Set.new
@@ -122,7 +123,11 @@ class AssetManager::StagesController < ApplicationController
     end
   end
 
-  def removed
+  def contract
+    
+  end
+
+  def remove_asset_from_stage
     @stage = Stage.find(params[:stage])
     params[:asset_ids].each { |asset|
     @stage.assets.delete(Asset.find(asset)) }
@@ -165,5 +170,17 @@ class AssetManager::StagesController < ApplicationController
     else
       redirect_to :back, :alert => "No users were selected"
     end
+  end
+  
+  private
+  
+  def agreed_to_contract?
+    #if current_user.class.eql? "asset_user"
+      stage = Stage.find(params[:id])
+      stage_user = StageUser.find(:first, :conditions => ["stage_id = ? AND asset_user_id = ?", stage.id, current_user.id])
+      if stage_user.has_agreed_to_contract == false
+        redirect_to contract_asset_manager_stage_path(stage)
+      end
+    #end
   end
 end

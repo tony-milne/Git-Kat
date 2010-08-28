@@ -1,6 +1,4 @@
-
-
-<% form_tag removed_asset_manager_stages_path, :method => :put do %>
+<% form_tag remove_asset_from_stage_asset_manager_stages_path, :method => :put do %>
 <% for asset in @stage.assets %>
 <p> <%= link_to image_tag(s3_authenticated_url asset, :thumb), asset_manager_asset_path(asset) %></p>
 <p> <%= asset.title %></p>
