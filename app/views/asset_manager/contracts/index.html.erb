@@ -1,0 +1,14 @@
+<h1>AssetManager::Contracts#index</h1>
+<p>Find me in app/views/asset_manager/contracts/index.html.erb</p>
+<div>
+  <ul>
+  <% @contracts.each do |contract| %>
+    <li>
+      <%= contract.title %> <%= link_to "View", asset_manager_contract_path(contract) %> 
+      <%= link_to "Edit", edit_asset_manager_contract_path(contract) %> 
+      <%= link_to "Delete", asset_manager_contract_path(contract), :confirm => "Are you sure?", :method => :delete %>
+    </li>
+  <% end %>
+  </ul>
+</div>
+<div><%= link_to "Create a new contract", new_asset_manager_contract_path %></div>

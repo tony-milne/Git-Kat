@@ -5,10 +5,10 @@ authorization do
     has_permission_on :asset_manager_asset_users, :to => [:index, :show, :edit, :all_privileges]
     has_permission_on :asset_manager_assets, :to => [:index, :show, :new, :edit, :search, :destroy, :update, :create, :select_stage, :deselect_stage]
     has_permission_on [:asset_manager_tags, :asset_manager_tribes, :asset_manager_credits, :asset_manager_captions, :asset_manager_countries, :asset_manager_languages], :to => [:index, :show, :new, :edit, :destroy, :update, :create]
-    has_permission_on :asset_manager_stages, :to => [:index, :show, :edit, :new, :create, :update, :added, :removed, :manage_users, :add_user, :remove_user]
+    has_permission_on :asset_manager_stages, :to => [:index, :show, :edit, :new, :create, :update, :added, :removed, :manage_users, :add_user, :remove_user, :manage_contract, :set_contract]
     
     # Model permissions    
-    has_permission_on [:assets, :tags, :captions, :images, :countries, :credits, :tribes, :stages], :to => :all_privileges
+    has_permission_on [:assets, :tags, :captions, :images, :countries, :credits, :tribes, :stages, :contracts], :to => :all_privileges
   end
   
   role :asset_user do

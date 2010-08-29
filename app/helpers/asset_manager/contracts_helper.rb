@@ -1,0 +1,2 @@
+module AssetManager::ContractsHelper
+end

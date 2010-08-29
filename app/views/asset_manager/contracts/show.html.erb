@@ -1,0 +1,13 @@
+<h1>AssetManager::Contracts#show</h1>
+<p>Find me in app/views/asset_manager/contracts/show.html.erb</p>
+<div>
+  <p>
+    Title: <%= @contract.title %>
+  </p>
+  <p>
+    Contract: <%= @contract.content %>
+  </p>
+</div>
+<%= link_to "Edit", edit_asset_manager_contract_path(@contract) %> | 
+<%= link_to "Back", asset_manager_contracts_path %>
+

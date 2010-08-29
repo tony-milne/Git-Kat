@@ -123,8 +123,27 @@ class AssetManager::StagesController < ApplicationController
     end
   end
 
-  def contract
+  def manage_contract
+    @stage = Stage.find(params[:id])
+    @contract = @stage.contract
+  end
+  
+  def set_contract
+    @stage = Stage.find(params[:id])
+    @stage.contract = Contract.find(params[:contract][:id])
     
+    respond_to do |format|
+      if @stage.save
+        redirect_to :manage_contract_asset_manager_stage_path, :notice => "Stage successfully updated"
+      else
+        redirect_to :manage_contract_asset_manager_stage_path
+      end
+    end
+  end
+
+  def contract
+    @stage = Stage.find(params[:id])
+    @contract = @stage.contract
   end
 
   def remove_asset_from_stage
@@ -179,7 +198,9 @@ class AssetManager::StagesController < ApplicationController
       stage = Stage.find(params[:id])
       stage_user = StageUser.find(:first, :conditions => ["stage_id = ? AND asset_user_id = ?", stage.id, current_user.id])
       if stage_user.has_agreed_to_contract == false
-        redirect_to contract_asset_manager_stage_path(stage)
+        if stage.contract
+          redirect_to asset_manager_stage_contract_path(stage)
+        end
       end
     #end
   end
