@@ -1,10 +1,14 @@
 <% title "Home Page" %>
 <div id="welcome_container">
-  <h3>Welcome To Your Asset Archive</h3>
-  <p> In your asset archive, you can edit and delete your current assets as well as add new ones.</p>
+  <h3>Welcome to the DeltaGamma Media Manager!</h3>
+<% if permitted_to? :new, :asset_manager_assets %>
+  <p>In your Media Manager you can upload, edit, delete assets, as well as assign them to stages by checking the asset tick box.</p>
+<% else %>
+  <p>Feel free to browse our image archive.</p>
+<% end %>
 </div>
 <div id="gallery_container">
-	<% form_tag add_asset_to_stage_asset_manager_stages_path, :method => :put do %> 
+	<% form_tag add_asset_to_stage_asset_manager_stages_path, :method => :put do %>
     <% @assets.each do |asset| %>
   <div class="thumbnail">
     <%= link_to image_tag(s3_authenticated_url(asset, :thumb)), asset_manager_asset_path(asset) %><br />
@@ -17,38 +21,39 @@
         <% permitted_to? :destroy, :asset_manager_assets do %>
           <li><%= link_to 'Delete', asset_manager_asset_path(asset), :confirm => "Are you sure?", :method => :delete %><li>
         <% end %>
-        <li><%= check_box_tag "asset_ids[]", asset.id %></li>
+        <% permitted_to? :new, :asset_manager_assets do %>
+          <li><%= check_box_tag "asset_ids[]", asset.id %></li>
+        <% end %>
       </ul>
     </span>
   </div>
     <% end %>
 </div>
-<div class="clear">  
-  <div>
-    <%= will_paginate @assets %>
-  </div>  
-  <div>
-  <% if !session[:stage_id].nil? %>
-    <p><%= Stage.find(session[:stage_id]).title %> <%= submit_tag "Add To Stage" %> <%= link_to "Select another stage", deselect_stage_asset_manager_assets_path, :method => :post %></p>
-  <% end %>
-  <% end %>
-  <% if session[:stage_id].nil? %>  
-    <% form_tag select_stage_asset_manager_assets_path, :method => :post do %>
-      <h2> Select a Stage to Add the Assets to </h2>
-      <p><%= collection_select(:stage, :id, Stage.all, :id, :title, {:prompt => true}) %>
-      <%= submit_tag "Select stage" %></p>
-    <% end %>
-  <% end %>  
-  </div>
+<div class="clear">
+  <%= will_paginate @assets %>
 </div>
+<% permitted_to? :new, :asset_manager_assets do %>
 <div id="local_nav">
     <ul class="localNav">
-      <% permitted_to? :new, :asset_manager_assets do %>
         <li><%= link_to 'New asset', new_asset_manager_asset_path %></li> |
-      <% end %>
-      <li><%= link_to 'View Languages', asset_manager_languages_path %></li> |
-      <li><%= link_to "View Stages", asset_manager_stages_path %></li> |
-      <li><%= link_to 'New Country', asset_manager_countries_path %></li> |
-      <li><%= link_to 'New Tribe', asset_manager_tribes_path %></li>
+        <li><%= link_to 'View Languages', asset_manager_languages_path %></li> |
+        <li><%= link_to "View Stages", asset_manager_stages_path %></li> |
+        <li><%= link_to 'New Country', asset_manager_countries_path %></li> |
+        <li><%= link_to 'New Tribe', asset_manager_tribes_path %></li>
     </ul>
 </div>
+<% end %>
+<div id="stage_background">
+<% if !session[:stage_id].nil? %>
+  <p><%= Stage.find(session[:stage_id]).title %> <%= submit_tag "Add To Stage" %> <%= link_to "Select another stage", deselect_stage_asset_manager_assets_path, :method => :post, :class => "blueLink" %></p>
+<% end %>
+<% end %>
+<% if session[:stage_id].nil? %>
+  <% form_tag select_stage_asset_manager_assets_path, :method => :post do %>
+    <h3>Please select a stage to add assets to:</h3>
+    <p><%= collection_select(:stage, :id, Stage.all, :id, :title, {:prompt => true}) %>
+    <%= submit_tag "Select stage" %></p>
+  <% end %>
+<% end %>
+</div>
+

@@ -29,6 +29,10 @@ body {
   overflow: auto;
 }
 
+legend {
+  color: #FFF;
+}
+
 img {
   border: 0;
 }
@@ -63,7 +67,7 @@ img {
   margin: 0;
   padding: 0;
 }
-  
+
 .regNav li {
   display: inline;
 }
@@ -137,13 +141,12 @@ img {
 
 #background-content {
   clear: both;
-  margin: auto;
+  margin: 0 auto 0 auto;
   width: 790px;
 }
 
 #content {
-  margin: 10px 0px 10px 0px;
-  padding-bottom: 10px;
+  margin: 10px 0 0 0;
   min-height: 330px;
 }
 
@@ -229,44 +232,49 @@ img {
   color: #A1CFE5;
 }
 
+.lightGreySubAtts {
+  color:#CCC;
+  font-size: 0.9em;
+}
+
 .defaultFontSize {
   font-size: 14px;
 }
 
 .pagination { /* Info on styling will_paginate here: http://workingwithrails.com/railsplugin/4765-will-paginate */
-  padding: 10px 0; 
-  margin: 3px 0; 
-} 
-
-.pagination a { 
-  padding: 2px 5px 2px 5px; 
-  margin: 2px; 
-  border: 1px solid #222; 
-  background-color: #222; 
-  text-decoration: none; 
-  color: #FFF; 
-} 
-.pagination a:hover, .pagination a:active { 
-  border: 1px solid #B64525; 
-  color: #FFF; 
-  background-color: #873227; 
-} 
-
-.pagination span.current { 
-  padding: 2px 5px 2px 5px; 
-  margin: 2px; 
-  border: 1px solid #B64525; 
-  font-weight: bold; 
-  background-color: #873227; 
-  color: #FFF; 
+  padding: 10px 0;
+  margin: 3px 0;
 }
- 
-.pagination span.disabled { 
-  padding: 2px 5px 2px 5px; 
-  margin: 2px; 
-  border: 1px solid #A8A8A8; 
-  background-color: #858585; 
-  color: #BABABA; 
+
+.pagination a {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #222;
+  background-color: #222;
+  text-decoration: none;
+  color: #FFF;
+}
+.pagination a:hover, .pagination a:active {
+  border: 1px solid #B64525;
+  color: #FFF;
+  background-color: #873227;
+}
+
+.pagination span.current {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #B64525;
+  font-weight: bold;
+  background-color: #873227;
+  color: #FFF;
+}
+
+.pagination span.disabled {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #A8A8A8;
+  background-color: #858585;
+  color: #BABABA;
 }
 
 /****** View Specific Content ******/
@@ -372,15 +380,20 @@ img {
 	margin: 0;
 }
 
+.picSubAttributes {
+  margin-left:16px;
+  line-height:100%;
+}
+
 /* Add Asset Page */
 
 #new_asset_container {
   margin: 70px auto 20px auto;
   width: 700px;
-  /* min-height: 260px; */
+  min-height: 260px;
 }
 
-/* Gallery Page */
+/*Assets Index Page */
 
 #gallery_container {
   margin-top: 20px;
@@ -398,6 +411,15 @@ img {
 	margin: 0 auto 60px auto;
 	text-align: center;
 	height: 120px;
+}
+
+#stage_background {
+  border-top: 1px solid #666;
+  border-left: 1px solid #666;
+  border-right: 1px solid #666;
+  border-bottom: 1px solid #C50;
+  background-color: #000;
+  padding: 0px 0px 5px 10px;
 }
 
 
@@ -441,5 +463,4 @@ img {
   font-size: 12px;
   list-style: disc;
 }
-
 
