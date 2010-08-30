@@ -1,4 +1,4 @@
-<%= title "Viewing stage: #{@stage.title}" %>
+<%= title "Viewing stage: #{truncate(@stage.title, :length => 17, :omission => "...")}" %>
 <div id="welcome_container">
 <% if permitted_to? :new, :asset_manager_assets %>
   <p>As an Adminstrator, you can view and delete assets from this stage (by checking the asset tick box).</p>
@@ -11,7 +11,7 @@
     <% @assets.each do |asset| %>
   <div class="thumbnail">
     <%= link_to image_tag(s3_authenticated_url(asset, :thumb)), asset_manager_asset_path(asset) %><br />
-    <span class="blueLink"><%= link_to truncate(asset.title, 20, "..."), asset_manager_asset_path(asset) %></span><br />
+    <span class="blueLink"><%= link_to truncate(asset.title, :length => 20, :omission => "..."), asset_manager_asset_path(asset) %></span><br />
     
 
       <ul class="localNav">
