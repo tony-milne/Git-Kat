@@ -1,12 +1,13 @@
 <% form_tag remove_asset_from_stage_asset_manager_stage_path, :method => :put do %>
-<% for asset in @assets %>
-<p> <%= link_to image_tag(s3_authenticated_url asset, :thumb), asset_manager_asset_path(asset) %></p>
-<p> <%= asset.title %></p>
-<p> <%= check_box_tag "asset_ids[]", asset.id %>
+  <% for asset in @assets %>
+    <p> <%= link_to image_tag(s3_authenticated_url asset, :thumb), asset_manager_asset_path(asset) %></p>
+    <p> <%= asset.title %></p>
+    <p> <%= check_box_tag "asset_ids[]", asset.id, false, :id => "asset_id_#{asset.id}" %></p>
+    <p> <%= link_to "Download Asset", s3_authenticated_url(asset, :original, 10.minutes, true) %></p>
+  <% end %>
+  <%= submit_tag "Delete From Stage" %>
 <% end %>
 
-<%= submit_tag "Delete From Stage" %>
-<% end %>
 <%= will_paginate @assets %>
 <%= link_to 'Edit This Stage', edit_asset_manager_stage_path(@stage) %> |
 <%= link_to 'View All Stages', asset_manager_stages_path %>
