@@ -37,7 +37,7 @@
      <% end -%>
     </ul>
 </div>
-<% permitted_to? :remove_asset_from_stage, :asset_manager_assets do -%>
+<% permitted_to? :remove_asset_from_stage, :asset_manager_stages do -%>
   <div id="stage_background">
   <%= submit_tag "Delete From Stage" %>
   <% end -%>
