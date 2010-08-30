@@ -2,9 +2,13 @@
 
 <% form_for([:asset_manager, @stage]) do |f| %>
   <%= f.error_messages %>
-<h2> Enter a Title for your Stage </h2>
+  <h2> Enter a Title for your Stage </h2>
 
-<p><%= f.text_field :title %></p>
+  <p><%= f.text_field :title %></p>
+
+  <p>
+    <%= f.collection_select :contract_id, Contract.find(:all), :id, :title, :input_blank => false %>
+  </p>
 
   <p>
     <%= f.submit 'Create' %>

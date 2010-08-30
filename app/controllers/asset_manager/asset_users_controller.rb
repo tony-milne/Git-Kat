@@ -1,5 +1,6 @@
 class AssetManager::AssetUsersController < ApplicationController
   #add before filter to check user is logged out before trying to create new user
+  #filter_resource_access
   filter_access_to :all
   
   def new

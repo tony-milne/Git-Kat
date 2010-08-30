@@ -1,10 +1,14 @@
-<% title 'Edit Asset' %>
+<% title 'Edit Stage' %>
 
 <% form_for([:asset_manager, @stage]) do |f| %>
   <%= f.error_messages %>
 <h2> Enter a new title for your asset </h2>
 <p><%= f.label :title %></p>
 <p><%= f.text_field :title %></p>
+
+  <p>
+    <%= f.collection_select :contract_id, Contract.find(:all), :id, :title, :input_blank => false %>
+  </p>
 
   <p>
     <%= f.submit 'Update' %>
