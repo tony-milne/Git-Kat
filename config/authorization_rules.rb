@@ -37,9 +37,6 @@ authorization do
     # Controller permissions
     has_permission_on :asset_manager_login, :to => :all_privileges
     has_permission_on :asset_manager_asset_users, :to => [:new, :edit, :create, :read]
-
-    # Permissions required when migrating. Uncomment when migrating.
-    #has_permission_on [:languages, :countries, :tribes], :to => :all_privileges
   end
 
 end
