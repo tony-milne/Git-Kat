@@ -1,4 +1,4 @@
-<%= title "Viewing stage: #{truncate(@stage.title, :length => 17, :omission => "...")}" %>
+<% title "Viewing stage: #{truncate(@stage.title, :length => 17, :omission => "...")}" %>
 <div id="welcome_container">
 <% if permitted_to? :new, :asset_manager_assets %>
   <p>As an Adminstrator, you can view and delete assets from this stage (by checking the asset tick box).</p>
