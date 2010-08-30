@@ -8,10 +8,18 @@
   <tr>
     <td><%=h stage.id %></td>
     <td><%=h stage.title %></td>
-    <td><%= link_to 'View', asset_manager_stage_path(stage) %></td>
-    <td><%= link_to 'Edit', edit_asset_manager_stage_path(stage) %></td>
-    <td><%= link_to 'Assign users to stage', manage_users_asset_manager_stage_path(stage) %>
-    <td><%= link_to 'Delete', asset_manager_stage_path(stage), :confirm => 'Are you sure?', :method => :delete %></td>
+    <% permitted_to? :show, :asset_manager_stages do %>
+      <td><%= link_to 'View', asset_manager_stage_path(stage) %></td>
+    <% end %>
+    <% permitted_to? :edit, :asset_manager_stages do %>
+      <td><%= link_to 'Edit', edit_asset_manager_stage_path(stage) %></td>
+    <% end %>
+    <% permitted_to? :manage_users, :asset_manager_stages do %>
+      <td><%= link_to 'Manage Users', manage_users_asset_manager_stage_path(stage) %>
+    <% end %>
+    <% permitted_to? :destroy, :asset_manager_stages do %>
+      <td><%= link_to 'Delete', asset_manager_stage_path(stage), :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

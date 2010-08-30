@@ -12,7 +12,7 @@
     <% @assets.each do |asset| %>
   <div class="thumbnail">
     <%= link_to image_tag(s3_authenticated_url(asset, :thumb)), asset_manager_asset_path(asset) %><br />
-    <span class="blueLink"><%= link_to truncate(asset.title, 20, "..."), asset_manager_asset_path(asset) %></span><br />
+    <span class="blueLink"><%= link_to truncate(asset.title, :length => 20, :omission => "..."), asset_manager_asset_path(asset) %></span><br />
     <% permitted_to? :new, :asset_manager_assets do %>
       <ul class="localNav">
           <li><%= link_to 'Edit', edit_asset_manager_asset_path(asset) %></li>
@@ -39,7 +39,7 @@
      <% end -%>
     </ul>
 </div>
-<% permitted_to? :select_stage, :asset_manager_assets do -%>
+<% permitted_to? :add_asset_to_stage, :asset_manager_stages do -%>
   <div id="stage_background">
   <% if !session[:stage_id].nil? %>
 
@@ -48,13 +48,15 @@
   <% end %>
 <% end %>
 <% end %>
-<% if session[:stage_id].nil? %>
+<% permitted_to? :select_stage, :asset_manager_assets do %>
+  <% if session[:stage_id].nil? %>
     <% form_tag select_stage_asset_manager_assets_path, :method => :post do %>
       <h3>Please select a stage to add assets to:</h3>
       <p><%= collection_select(:stage, :id, Stage.all, :id, :title, {:prompt => true}) %>
       <%= submit_tag "Select stage" %></p>
     <% end %>
-    <% end %>
+  <% end %>
+<% end %>
   </div>
 
 
