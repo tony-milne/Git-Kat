@@ -1,5 +1,5 @@
 class AdminUsersController < ApplicationController
-  #before_filter :admin_restrictions, :only => [:new, :create]
+  before_filter :admin_restrictions, :only => [:new, :create]
 
  def new
     @admin_user = AdminUser.new
@@ -27,6 +27,14 @@ class AdminUsersController < ApplicationController
       redirect_to root_url
     else
       render :action => :edit
+    end
+  end
+  
+  private
+  
+  def admin_restrictions
+    unless AdminUser.find(:all).empty?
+      redirect_to login_path, :notice => "Admin user already exists"
     end
   end
 end
