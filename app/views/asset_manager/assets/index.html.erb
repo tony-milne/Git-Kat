@@ -21,7 +21,7 @@
           <li><%= link_to 'Delete', asset_manager_asset_path(asset), :confirm => "Are you sure?", :method => :delete %></li>
         <% end %>
         <% permitted_to? :new, :asset_manager_assets do %>
-          <li><%= check_box_tag "asset_ids[]", asset.id %></li>
+          <li><%= check_box_tag "asset_ids[]", asset.id, false, :id => "asset_id_#{asset.id}" %></li>
         <% end %>
       </ul>
   </div>
