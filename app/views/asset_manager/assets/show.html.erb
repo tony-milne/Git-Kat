@@ -19,16 +19,16 @@
 
 <div id="show_right_column">
 	<ul class="picAttributes">
-  	<li><strong>Title: </strong><%=h @asset.title %></li>
-	  <li><strong>Tribe: </strong><%=h @asset.tribe.name %></li>
-	  <li><strong>Country: </strong><%=h @asset.country.name %></li>
-    <li><strong>File Name: </strong><%=h @asset.data_file_name %></li>
-    <li><strong>File Type: </strong><%=h @asset.data_content_type %></li>
-    <li><strong>Date Created: </strong><%=h @asset.created_at.strftime("%d %b %Y %H:%M") %></li>
-    <li><strong>Last Updated: </strong><%=h @asset.updated_at.strftime("%d %b %Y %H:%M") %></li>
+  	<li><strong>Title: </strong><span class="lightGrey"><%=h @asset.title %></span></li>
+	  <li><strong>Tribe: </strong><span class="lightGrey"><%=h @asset.tribe.name %></span></li>
+	  <li><strong>Country: </strong><span class="lightGrey"><%=h @asset.country.name %></span></li>
+    <li><strong>File Name: </strong><span class="lightGrey"><%=h @asset.data_file_name %></span></li>
+    <li><strong>File Type: </strong><span class="lightGrey"><%=h @asset.data_content_type %></span></li>
+    <li><strong>Date Created: </strong><span class="lightGrey"><%=h @asset.created_at.strftime("%d %b %Y %H:%M") %></span></li>
+    <li><strong>Last Updated: </strong><span class="lightGrey"><%=h @asset.updated_at.strftime("%d %b %Y %H:%M") %></span></li>
 <% if @asset.exif? %>
   <% @exif.each_pair { |key, value| %>
-    <li><strong><%= "#{key}: " %></strong><%= "#{value}" %></li>
+    <li><strong><%= "#{key}: " %></strong><span class="lightGrey"><%= "#{value}" %></span></li>
   <% } %>
 <% end %>
 	  <li><strong>Captions:</strong>
@@ -36,11 +36,11 @@
   	  <%= link_to "Add caption", new_asset_manager_asset_caption_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %>
 	  <% end %>
     </li>
-    <% if @asset.captions.first.nil? %>
-      <li class="picSubAttributes"><span class="lightGreySubAtts">There are currently no captions associated to this asset.</span></li>
+    <% if @asset.captions.empty? %>
+      <li class="picSubAttributes"><span class="lightGrey"><em>There are currently no captions associated to this asset.</em></span></li>
     <% else %>
 	    <% @asset.captions.each do |caption| %>
-		    <li class="picSubAttributes"><%= h caption.content %> (<%= h caption.language.language %>)
+		    <li class="picSubAttributes"><span class="lightGrey"><%= h caption.content %> (<%= h caption.language.language %>)</span>
 		      <% permitted_to? :edit, :asset_manager_captions do %>
   		      <%= link_to "Edit", edit_asset_manager_asset_caption_path(@asset, caption), :class => "blueLink", :id => "to_be_hidden_with_js" %>
 	        <% end %>
@@ -56,11 +56,11 @@
   	  <%= link_to "Add credit", new_asset_manager_asset_credit_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %>
 	  <% end %>
     </li>
-    <% if @asset.credits.first.nil? %>
-      <li class="picSubAttributes"><span class="lightGreySubAtts">There are currently no credits associated to this asset.</span></li>
+    <% if @asset.credits.empty? %>
+      <li class="picSubAttributes"><span class="lightGrey"><em>There are currently no credits associated to this asset.</em></span></li>
     <% else %>
 		  <% @asset.credits.each do |credit| %>
-		    <li class="picSubAttributes"><%=h credit.content %> (<%=h credit.language.language %>)
+		    <li class="picSubAttributes"><span class="lightGrey"><%=h credit.content %> (<%=h credit.language.language %>)</span>
 		      <% permitted_to? :edit, :asset_manager_credits do %>
 		        <%= link_to "Edit", edit_asset_manager_asset_credit_path(@asset, credit), :class => "blueLink", :id => "to_be_hidden_with_js" %>
 	        <% end %>
@@ -77,11 +77,11 @@
 	  <% end %>
     </li>
     <li>
-    <% if @asset.tags.first.nil? %>
-      <li class="picSubAttributes"><span class="lightGreySubAtts">There are currently no tags associated to this asset.</span></li>
+    <% if @asset.tags.empty? %>
+      <li class="picSubAttributes"><span class="lightGrey"><em>There are currently no tags associated to this asset.</em></span></li>
     <% else %>
   		<% @asset.tags.each do |tag| %>
-  		  <li class="picSubAttributes"><%= h tag.content %>
+  		  <li class="picSubAttributes"><span class="lightGrey"><%= h tag.content %></span>
   		    <% permitted_to? :edit, :asset_manager_tags do %>
   		      <%= link_to "Edit", edit_asset_manager_asset_tag_path(@asset, tag), :class => "blueLink", :id => "to_be_hidden_with_js" %>
 		      <% end %>

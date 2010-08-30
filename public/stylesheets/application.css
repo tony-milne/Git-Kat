@@ -10,18 +10,18 @@ body {
   width: 100%;
 }
 
-.blueLink:link {
+.blueLink a:link {
   color: #A1CFE5;
   text-decoration: none;
 }
 
-.blueLink:visited {
+.blueLink a:visited {
   color: #A1CFE5;
   text-decoration: none;
 }
 
-.blueLink:hover {
-    color: #FFF;
+.blueLink a:hover {
+  color: #FFF;
 }
 
 #container {
@@ -68,9 +68,11 @@ img {
   padding: 0;
 }
 
-.regNav li {
+.regNav li, a {
   display: inline;
+  text-decoration: none;
 }
+
 
 .regNav li a, a:visited {
   color: #FFF;
@@ -232,9 +234,8 @@ img {
   color: #A1CFE5;
 }
 
-.lightGreySubAtts {
+.lightGrey {
   color:#CCC;
-  font-size: 0.9em;
 }
 
 .defaultFontSize {

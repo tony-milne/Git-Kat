@@ -40,11 +40,6 @@ ActiveRecord::Schema.define(:version => 20100828150556) do
     t.datetime "updated_at"
   end
 
-  create_table "asset_users_stages", :id => false, :force => true do |t|
-    t.integer "asset_user_id"
-    t.integer "stage_id"
-  end
-
   create_table "assets", :force => true do |t|
     t.integer  "exif_id"
     t.string   "exif_type"
