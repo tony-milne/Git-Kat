@@ -30,17 +30,19 @@
 <div class="clear">
   <%= will_paginate @assets %>
 </div>
-<% permitted_to? :new, :asset_manager_assets do %>
 <div id="local_nav">
     <ul class="localNav">
+    <% permitted_to? :new, :asset_manager_assets do -%>
         <li><%= link_to 'New asset', new_asset_manager_asset_path %> |</li>
         <li><%= link_to 'View Languages', asset_manager_languages_path %> |</li>
-        <li><%= link_to "View Stages", asset_manager_stages_path %> |</li>
         <li><%= link_to 'New Country', asset_manager_countries_path %> |</li>
-        <li><%= link_to 'New Tribe', asset_manager_tribes_path %></li>
+        <li><%= link_to 'New Tribe', asset_manager_tribes_path %> |</li>
+     <% end -%>
+     <% if (current_user.class.to_s.eql? "AdminUser") || (!current_user.stages.empty?)  -%>
+        <li><%= link_to "View Stages", asset_manager_stages_path %></li>
+     <% end -%>
     </ul>
 </div>
-<% end %>
 <% permitted_to? :select_stage, :asset_manager_assets do -%>
   <div id="stage_background">
   <% if !session[:stage_id].nil? %>
