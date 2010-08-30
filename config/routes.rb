@@ -3,9 +3,10 @@
   map.namespace :asset_manager do |manager|    
     manager.resources :assets, :collection => { :select_stage => :post, :deselect_stage => :post },
                       :has_many => [:captions, :credits, :tags]
-    manager.resources :stages, :collection => {:add_asset_to_stage => :put, :remove_asset_from_stage => :put },
+    manager.resources :stages, :collection => {:add_asset_to_stage => :put },
                       :member => { :manage_users => :get, :add_user => :post, :remove_user => :post,
-                                   :manage_contract => :get, :set_contract => :post }
+                      :contract => :get, :agree => :get,
+                      :remove_asset_from_stage => :put }
     manager.resources :languages
     manager.resources :tribes
     manager.resources :countries

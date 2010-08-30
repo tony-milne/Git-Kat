@@ -1,10 +1,10 @@
-<% form_tag remove_asset_from_stage_asset_manager_stages_path, :method => :put do %>
-<% for asset in @stage.assets %>
+<% form_tag remove_asset_from_stage_asset_manager_stage_path, :method => :put do %>
+<% for asset in @assets %>
 <p> <%= link_to image_tag(s3_authenticated_url asset, :thumb), asset_manager_asset_path(asset) %></p>
 <p> <%= asset.title %></p>
 <p> <%= check_box_tag "asset_ids[]", asset.id %>
 <% end %>
-<%= hidden_field_tag 'stage', @stage.id %>
+
 <%= submit_tag "Delete From Stage" %>
 <% end %>
 <%= will_paginate @assets %>
