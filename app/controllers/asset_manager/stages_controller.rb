@@ -24,7 +24,7 @@ class AssetManager::StagesController < ApplicationController
   
   def show
     @stage = Stage.find(params[:id])
-    @assets = @stage.assets.paginate :per_page => 6, :page => params[:page],
+    @assets = @stage.assets.paginate :per_page => 12, :page => params[:page],
                                      :conditions => ['title like ?', "%#{params[:search]}%"],
                                      :order => 'title'
     respond_to do |format|

@@ -1,13 +1,49 @@
-<% form_tag remove_asset_from_stage_asset_manager_stage_path, :method => :put do %>
-<% for asset in @assets %>
-<p> <%= link_to image_tag(s3_authenticated_url asset, :thumb), asset_manager_asset_path(asset) %></p>
-<p> <%= asset.title %></p>
-<p> <%= check_box_tag "asset_ids[]", asset.id %>
+<%= title "Viewing stage: #{@stage.title.pluralize}" %>
+<div id="welcome_container">
+<% if permitted_to? :new, :asset_manager_assets %>
+  <p>As an Adminstrator, you can view and delete assets from this stage (by checking the asset tick box).</p>
+<% else %>
+  <p>This is your stage, you may browse and view images. By clicking on an image you will have the option to download the image in its highest resolution (subject to terms and conditions)</p>
+<% end %>
+</div>
+<div id="gallery_container">
+	<% form_tag remove_asset_from_stage_asset_manager_stage_path, :method => :put do %>
+    <% @assets.each do |asset| %>
+  <div class="thumbnail">
+    <%= link_to image_tag(s3_authenticated_url(asset, :thumb)), asset_manager_asset_path(asset) %><br />
+    <span class="blueLink"><%= link_to truncate(asset.title, 20, "..."), asset_manager_asset_path(asset) %></span><br />
+    <% permitted_to? :new, :asset_manager_assets do %>
+      <ul class="localNav">
+          <li><%= check_box_tag "asset_ids[]", asset.id, false, :id => "asset_id_#{asset.id}" %></li>
+      </ul>
+    <% end %>
+  </div>
+  <% end %>
+</div>
+<div class="clear">
+  <%= will_paginate @assets %>
+</div>
+<div id="local_nav">
+    <ul class="localNav">
+    <% permitted_to? :new, :asset_manager_assets do -%>
+        <li><%= link_to 'Edit This Stage', edit_asset_manager_stage_path(@stage) %> |</li>
+        <li><%= link_to 'View All Stages', asset_manager_stages_path %> |</li>
+     <% end -%>
+     <% if (current_user.class.to_s.eql? "AdminUser") || (!current_user.stages.empty?)  -%>
+        <li><%= link_to "Home", asset_manager_root_path %></li>
+     <% end -%>
+    </ul>
+</div>
+<% permitted_to? :remove_asset_from_stage, :asset_manager_assets do -%>
+  <div id="stage_background">
+  <%= submit_tag "Delete From Stage" %>
+  <% end -%>
+  </div>
 <% end %>
 
-<%= submit_tag "Delete From Stage" %>
-<% end %>
-<%= will_paginate @assets %>
-<%= link_to 'Edit This Stage', edit_asset_manager_stage_path(@stage) %> |
-<%= link_to 'View All Stages', asset_manager_stages_path %>
-<%= link_to "Back", asset_manager_stages_path %>
+
+
+
+
+
+

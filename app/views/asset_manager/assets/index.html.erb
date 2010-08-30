@@ -13,19 +13,15 @@
   <div class="thumbnail">
     <%= link_to image_tag(s3_authenticated_url(asset, :thumb)), asset_manager_asset_path(asset) %><br />
     <span class="blueLink"><%= link_to truncate(asset.title, 20, "..."), asset_manager_asset_path(asset) %></span><br />
+    <% permitted_to? :new, :asset_manager_assets do %>
       <ul class="localNav">
-        <% permitted_to? :edit, :asset_manager_assets do %>
           <li><%= link_to 'Edit', edit_asset_manager_asset_path(asset) %></li>
-        <% end %>
-        <% permitted_to? :destroy, :asset_manager_assets do %>
           <li><%= link_to 'Delete', asset_manager_asset_path(asset), :confirm => "Are you sure?", :method => :delete %></li>
-        <% end %>
-        <% permitted_to? :new, :asset_manager_assets do %>
           <li><%= check_box_tag "asset_ids[]", asset.id, false, :id => "asset_id_#{asset.id}" %></li>
-        <% end %>
       </ul>
-  </div>
     <% end %>
+  </div>
+  <% end %>
 </div>
 <div class="clear">
   <%= will_paginate @assets %>
@@ -58,7 +54,8 @@
       <p><%= collection_select(:stage, :id, Stage.all, :id, :title, {:prompt => true}) %>
       <%= submit_tag "Select stage" %></p>
     <% end %>
-  <% end %>
+    <% end %>
   </div>
+
 
 
