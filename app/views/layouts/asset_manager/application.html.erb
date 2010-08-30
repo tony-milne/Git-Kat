@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Media Manager - <%= yield :title %></title>
+    <%= stylesheet_link_tag 'application' %>
+    <script src= "/javascripts/prototype.js" type="text/javascript"></script>
+    <script src="/javascripts/scriptaculous.js" type="text/javascript"></script>
+    <link href="/public/favicon.ico" rel="icon" type="image/x-icon" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="background_web_toolbar">
+        <div id="web_toolbar">
+          <div id="reg_nav">
+            <ul class="regNav">
+            <% if current_user %>
+              <% if current_user.class.to_s.eql?("AdminUser") %>
+                <li class="regNav">Logged in as: <span class="blueLink"><%= link_to current_user.username, edit_admin_user_path(:current) %></span> (Admin)| </li>
+                <li><%= link_to "Edit Profile", edit_admin_user_path(:current), :class => "regNav" %> |</li>
+                <li><%= link_to "Logout", logout_path, :class => "regNav" %></li>
+              <% elsif current_user.class.to_s.eql?("AssetUser") %>
+                <li class="regNav">Logged in as: <span class="blueLink"><%= link_to current_user.username, edit_asset_manager_asset_user_path(:current)%></span> |</li>
+                <li><%= link_to "Edit Profile", edit_asset_manager_asset_user_path(:current), :class => "regNav" %> |</li>
+                <li><%= link_to "Logout", asset_manager_logout_path, :class => "regNav" %></li>
+              <% end %>
+            <% else %>
+                <li><%= link_to "Register", new_asset_manager_asset_user_path, :class => "regNav" %> |</li>
+                <li><%= link_to "Login", asset_manager_login_path, :class => "regNav" %></li>
+            <% end %>
+            </ul>
+          </div>
+          <% if current_user %>
+          <div id="search_tool">
+            <% form_tag asset_manager_assets_path, :method => 'get' do %>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search", :name => nil %>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div id="background_banner">
+        <div id="banner">
+          <div id="banner_left">
+            <div id="logo">
+              <%= link_to image_tag("banner-logo-en.png"), asset_manager_assets_path %>
+            </div>
+          </div>
+          <div id="banner_right">
+             <h1><%= yield :title %></h1>
+          </div>
+        </div>
+      </div>
+      <div id="background_flash_bar">
+        <div id="flash_bar">
+        <!-- Code referenced from a discussion on: http://handyrailstips.com/tips/3-hiding-the-flash-message-after-a-time-delay (26/08/2010) -->
+          <%- flash.each do |flash_type, message| -%>
+            <%= content_tag :div, message, :id => "flash_bar_alert" %>
+            <% content_tag :script, :type => "text/javascript" do %>
+              setTimeout("new Effect.Fade('flash_bar_alert');", 5000);
+            <% end %>
+          <%- end -%>
+        </div>
+      </div>
+      <div id="background-content">
+        <div id="content">
+          <%= yield %>
+        </div>
+      </div>
+      <div id="background_footer">
+        <div id="footer">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
