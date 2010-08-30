@@ -9,7 +9,7 @@
     <div id="local_nav">
       <ul class="localNav">
         <% permitted_to? :edit, :asset_manager_assets do %>
-          <li><%= link_to 'Edit asset details', edit_asset_manager_asset_path(@asset) %> |</li>
+          <li><%= link_to 'Edit', edit_asset_manager_asset_path(@asset) %> |</li>
         <% end %>
         <li><%= link_to 'Back', asset_manager_assets_path %></li>
       </ul>
