@@ -1,4 +1,4 @@
-<%= title "Viewing stage: #{@stage.title.pluralize}" %>
+<%= title "Viewing stage: #{@stage.title}" %>
 <div id="welcome_container">
 <% if permitted_to? :new, :asset_manager_assets %>
   <p>As an Adminstrator, you can view and delete assets from this stage (by checking the asset tick box).</p>
@@ -12,6 +12,7 @@
   <div class="thumbnail">
     <%= link_to image_tag(s3_authenticated_url(asset, :thumb)), asset_manager_asset_path(asset) %><br />
     <span class="blueLink"><%= link_to truncate(asset.title, 20, "..."), asset_manager_asset_path(asset) %></span><br />
+    <%= link_to "Download Asset", s3_authenticated_url(asset, :original, 10.minutes, true) %>
     <% permitted_to? :new, :asset_manager_assets do %>
       <ul class="localNav">
           <li><%= check_box_tag "asset_ids[]", asset.id, false, :id => "asset_id_#{asset.id}" %></li>
@@ -40,10 +41,4 @@
   <% end -%>
   </div>
 <% end %>
-
-
-
-
-
-
 
