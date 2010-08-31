@@ -9,9 +9,9 @@
     <div id="local_nav">
       <ul class="localNav">
         <% permitted_to? :edit, :asset_manager_assets do %>
-          <li><%= link_to 'Edit', edit_asset_manager_asset_path(@asset) %> |</li>
+          <li><%= link_to 'Edit', edit_asset_manager_asset_path(@asset), :class => "lightBlue" %> |</li>
         <% end %>
-        <li><%= link_to 'Back', asset_manager_assets_path %></li>
+        <li><%= link_to 'Back', asset_manager_assets_path, :class => "lightBlue" %></li>
       </ul>
     </div>
   </div>
@@ -33,7 +33,7 @@
 <% end %>
 	  <li><strong>Captions:</strong>
 	  <% permitted_to? :new, :asset_manager_captions do %>
-  	  <%= link_to "Add caption", new_asset_manager_asset_caption_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %>
+  	  <%= link_to "Add caption", new_asset_manager_asset_caption_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js", :class => "lightBlue" %>
 	  <% end %>
     </li>
     <% if @asset.captions.empty? %>
@@ -42,10 +42,10 @@
 	    <% @asset.captions.each do |caption| %>
 		    <li class="picSubAttributes"><span class="lightGrey"><%= h caption.content %> (<%= h caption.language.language %>)</span>
 		      <% permitted_to? :edit, :asset_manager_captions do %>
-  		      <%= link_to "Edit", edit_asset_manager_asset_caption_path(@asset, caption), :class => "blueLink", :id => "to_be_hidden_with_js" %>
+  		      <%= link_to "Edit", edit_asset_manager_asset_caption_path(@asset, caption), :class => "blueLink", :id => "to_be_hidden_with_js", :class => "lightBlue" %>
 	        <% end %>
 	        <% permitted_to? :destroy, :asset_manager_captions do %>
-  		      <%= link_to 'Delete', asset_manager_asset_caption_path(@asset, caption), :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %>
+  		      <%= link_to 'Delete', asset_manager_asset_caption_path(@asset, caption), :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js", :class => "lightBlue" %>
 		      <% end %>
 		    </li>
 		  <% end %>
@@ -62,10 +62,10 @@
 		  <% @asset.credits.each do |credit| %>
 		    <li class="picSubAttributes"><span class="lightGrey"><%=h credit.content %> (<%=h credit.language.language %>)</span>
 		      <% permitted_to? :edit, :asset_manager_credits do %>
-		        <%= link_to "Edit", edit_asset_manager_asset_credit_path(@asset, credit), :class => "blueLink", :id => "to_be_hidden_with_js" %>
+		        <%= link_to "Edit", edit_asset_manager_asset_credit_path(@asset, credit), :class => "blueLink", :id => "to_be_hidden_with_js", :class => "lightBlue" %>
 	        <% end %>
 	        <% permitted_to? :destroy, :asset_manager_credits do %>
-		        <%= link_to 'Delete', asset_manager_credit_path(credit), :confirm => 'Are you sure?', :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %>
+		        <%= link_to 'Delete', asset_manager_credit_path(credit), :confirm => 'Are you sure?', :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js", :class => "lightBlue" %>
 	        <% end %>
         </li>
 		  <% end %>
@@ -73,7 +73,7 @@
     </li>
 	  <li><strong>Tags:</strong>
 	  <% permitted_to? :new, :asset_manager_tags do %>
-  	  <%= link_to "Add tag", new_asset_manager_asset_tag_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js" %>
+  	  <%= link_to "Add tag", new_asset_manager_asset_tag_path(@asset), :class => "blueLink", :id => "to_be_hidden_with_js", :class => "lightBlue" %>
 	  <% end %>
     </li>
     <li>
@@ -83,10 +83,10 @@
   		<% @asset.tags.each do |tag| %>
   		  <li class="picSubAttributes"><span class="lightGrey"><%= h tag.content %></span>
   		    <% permitted_to? :edit, :asset_manager_tags do %>
-  		      <%= link_to "Edit", edit_asset_manager_asset_tag_path(@asset, tag), :class => "blueLink", :id => "to_be_hidden_with_js" %>
+  		      <%= link_to "Edit", edit_asset_manager_asset_tag_path(@asset, tag), :class => "blueLink", :id => "to_be_hidden_with_js",:class => "lightBlue" %>
 		      <% end %>
 		      <% permitted_to? :destroy, :asset_manager_tags do %>
-  		      <%= link_to 'Delete', asset_manager_tag_path(tag), :confirm => 'Are you sure?', :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js" %>
+  		      <%= link_to 'Delete', asset_manager_tag_path(tag), :confirm => 'Are you sure?', :method => :delete, :class => "blueLink", :id => "to_be_hidden_with_js", :class => "lightBlue" %>
 		      <% end %>
         </li>
 		  <% end %>

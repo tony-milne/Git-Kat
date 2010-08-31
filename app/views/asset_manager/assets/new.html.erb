@@ -33,7 +33,7 @@
         <!-- is initially empty -->
       </div>
 
-      <div class="formRow"><span class="labelCol"><%= link_to_function "Add a tag", :class => "blueLink" do |page|
+      <div class="formRow"><span class="labelCol"><%= link_to_function "Add a tag", :class => "lightBlue" do |page|
             page.insert_html :bottom, :tags, :partial => "tag", :object => Tag.new, :locals => { :prefix => "new" }
             end %></span>
       </div>
@@ -42,7 +42,7 @@
         <!-- is initially empty -->
       </div>
 
-      <div class="formRow"><span class="labelCol"><%= link_to_function "Add Credit", :class => "blueLink" do |page|
+      <div class="formRow"><span class="labelCol"><%= link_to_function "Add Credit", :class => "lightBlue" do |page|
           page.insert_html :bottom, :credits, :partial => "credit", :object => Credit.new, :locals => { :prefix => "new" }
           end %></span>
       </div>
@@ -51,7 +51,7 @@
         <!-- is intially empty -->
       </div>
 
-      <div class="formRow"><span class="labelCol"><%= link_to_function "Add a caption", :class => "blueLink" do |page|
+      <div class="formRow"><span class="labelCol"><%= link_to_function "Add a caption", :class => "lightBlue" do |page|
           page.insert_html :bottom, :captions, :partial => "caption", :object => Caption.new, :locals => { :prefix => "new" }
           end %></span>
       </div>
@@ -70,7 +70,7 @@
 
   <div id="localNav">
     <div class="localNav">
-      <li><%= link_to 'Back', asset_manager_assets_path %></li>
+      <li><%= link_to 'Back', asset_manager_assets_path , :class => "lightBlue" %></li>
     </div>
   </div>
 </div>

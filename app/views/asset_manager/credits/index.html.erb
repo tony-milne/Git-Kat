@@ -10,13 +10,13 @@
   <tr>
     <td><%=h credit.content %></td>
     <td><%=h credit.language.language %></td>
-    <td><%= link_to 'Edit', edit_asset_manager_asset_credit_path(params[:asset_id],credit) %></td>
-    <td><%= link_to 'Delete', asset_manager_asset_credit_path(params[:asset_id], credit), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_asset_manager_asset_credit_path(params[:asset_id],credit), :class => "lightBlue" %></td>
+    <td><%= link_to 'Delete', asset_manager_asset_credit_path(params[:asset_id], credit), :confirm => 'Are you sure?', :method => :delete, :class => "lightBlue" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New credit', new_asset_manager_asset_credit_path %>
-<%= link_to 'Back', asset_manager_asset_path(params[:asset_id]) %>
+<%= link_to 'New credit', new_asset_manager_asset_credit_path, :class => "lightBlue" %>
+<%= link_to 'Back', asset_manager_asset_path(params[:asset_id]), :class => "lightBlue" %>
