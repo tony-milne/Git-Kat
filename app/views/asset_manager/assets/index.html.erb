@@ -12,7 +12,7 @@
     <% @assets.each do |asset| %>
   <div class="thumbnail">
     <%= link_to image_tag(s3_authenticated_url(asset, :thumb)), asset_manager_asset_path(asset) %><br />
-    <span class="lightBlue"><%= link_to truncate(asset.title, :length => 20, :omission => "..."), asset_manager_asset_path(asset) %></span><br />
+    <span class="lightBlue"><%= link_to truncate(asset.title, :length => 20, :omission => "..."), asset_manager_asset_path(asset), :class => "lightBlue" %></span><br />
     <% permitted_to? :new, :asset_manager_assets do %>
       <ul class="localNav">
           <li><%= link_to 'Edit', edit_asset_manager_asset_path(asset), :class => "lightBlue" %></li>
