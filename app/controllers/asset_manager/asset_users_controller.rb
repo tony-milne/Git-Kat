@@ -3,6 +3,14 @@ class AssetManager::AssetUsersController < ApplicationController
   #filter_resource_access
   filter_access_to :all
   
+  def index
+    @asset_users = AssetUsers.find(:all)
+  end
+  
+  def show
+    @asset_user = AssetUser.find(params[:id])
+  end
+  
   def new
     @asset_user = AssetUser.new
   end

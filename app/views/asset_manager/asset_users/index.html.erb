@@ -1,0 +1,11 @@
+<h2>Displaying all asset users</h2>
+<ul>
+<% @asset_users.each do |asset_user| %>
+  <li>
+    <%= asset_user.username %>
+    <%= link_to "View details", asset_manager_asset_user_path(asset_user) %>
+    <%= link_to "Edit user", edit_asset_manager_asset_user_path(asset_user) %>
+    <%= link_to "Delete user", asset_manager_asset_user_path, :confirm => "Are you sure?", :method => :delete %>
+  </li>
+<% end %>
+</ul>
