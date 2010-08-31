@@ -11,11 +11,11 @@
     <% @assets.each do |asset| %>
   <div class="thumbnail">
     <%= link_to image_tag(s3_authenticated_url(asset, :thumb)), asset_manager_asset_path(asset) %><br />
-    <span class="blueLink"><%= link_to truncate(asset.title, :length => 20, :omission => "..."), asset_manager_asset_path(asset) %></span><br />
+    <span class="blueLink"><%= link_to truncate(asset.title, :length => 20, :omission => "..."), asset_manager_asset_path(asset), :class => "lightBlue" %></span><br />
     
 
       <ul class="localNav">
-          <li><%= link_to "Download Asset", s3_authenticated_url(asset, :original, 10.minutes, true)%></li>
+          <li><%= link_to "Download Asset", s3_authenticated_url(asset, :original, 10.minutes, true), :class => "lightBlue" %></li>
         <% permitted_to? :new, :asset_manager_assets do %>
           <li><%= check_box_tag "asset_ids[]", asset.id, false, :id => "asset_id_#{asset.id}" %></li>
         <% end %>
@@ -29,8 +29,8 @@
 <div id="local_nav">
     <ul class="localNav">
     <% permitted_to? :new, :asset_manager_assets do -%>
-        <li><%= link_to 'Edit This Stage', edit_asset_manager_stage_path(@stage) %> |</li>
-        <li><%= link_to 'View All Stages', asset_manager_stages_path %> |</li>
+        <li><%= link_to 'Edit This Stage', edit_asset_manager_stage_path(@stage), :class => "lightBlue" %> |</li>
+        <li><%= link_to 'View All Stages', asset_manager_stages_path, :class => "lightBlue" %> |</li>
      <% end -%>
      <% if (current_user.class.to_s.eql? "AdminUser") || (!current_user.stages.empty?)  -%>
         <li><%= link_to "Home", asset_manager_root_path %></li>

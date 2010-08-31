@@ -9,16 +9,16 @@
     <td><%=h stage.id %></td>
     <td><%=h stage.title %></td>
     <% permitted_to? :show, :asset_manager_stages do %>
-      <td><%= link_to 'View', asset_manager_stage_path(stage) %></td>
+      <td><%= link_to 'View', asset_manager_stage_path(stage), :class => "lightBlue" %></td>
     <% end %>
     <% permitted_to? :edit, :asset_manager_stages do %>
-      <td><%= link_to 'Edit', edit_asset_manager_stage_path(stage) %></td>
+      <td><%= link_to 'Edit', edit_asset_manager_stage_path(stage), :class => "lightBlue" %></td>
     <% end %>
     <% permitted_to? :manage_users, :asset_manager_stages do %>
-      <td><%= link_to 'Manage Users', manage_users_asset_manager_stage_path(stage) %>
+      <td><%= link_to 'Manage Users', manage_users_asset_manager_stage_path(stage), :class => "lightBlue" %>
     <% end %>
     <% permitted_to? :destroy, :asset_manager_stages do %>
-      <td><%= link_to 'Delete', asset_manager_stage_path(stage), :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to 'Delete', asset_manager_stage_path(stage), :confirm => 'Are you sure?', :method => :delete, :class => "lightBlue" %></td>
     <% end %>
   </tr>
 <% end %>
@@ -26,5 +26,5 @@
 
 <br />
 <%= will_paginate @stages %>
-<%= link_to 'New stage', new_asset_manager_stage_path %>
-<%= link_to 'Back', asset_manager_assets_path %>
+<%= link_to 'New stage', new_asset_manager_stage_path , :class => "lightBlue" %>
+<%= link_to 'Back', asset_manager_assets_path, :class => "lightBlue" %>
