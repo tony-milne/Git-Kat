@@ -26,11 +26,11 @@
 
 <br />
 <%= will_paginate @stages %>
-<% permitted_to? :new, :asset_manager_stages -%>
-  <% if Contract.find(:all).nil? -%>
+<% permitted_to? :new, :asset_manager_stages do %>
+  <% if Contract.find(:all).nil? %>
     <p>Please create at least one contract first: <%= link_to 'Manage contracts', asset_manager_contracts_path %></p>
-  <% else -%>
+  <% else %>
     <%= link_to 'New stage', new_asset_manager_stage_path , :class => "lightBlue" %>
-  <% end -%>
-<% end -%>
+  <% end %>
+<% end %>
 <%= link_to 'Back', asset_manager_assets_path, :class => "lightBlue" %>
