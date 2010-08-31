@@ -11,6 +11,9 @@
     manager.resources :tribes
     manager.resources :countries
     manager.resources :contracts
+    manager.resources :credits
+    manager.resources :captions
+    manager.resources :tags
     
     manager.resources :asset_users
     manager.resources :asset_user_sessions
