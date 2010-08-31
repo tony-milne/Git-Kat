@@ -8,8 +8,8 @@
 <% @countries.each do |country| %>
   <tr>
     <td><%=h country.name %></td>
-    <td><%= link_to 'Edit', edit_asset_manager_country_path(country) %></td>
-    <td><%= link_to 'Destroy', asset_manager_country_path(country), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_asset_manager_country_path(country), :class => "lightBlue" %></td>
+    <td><%= link_to 'Destroy', asset_manager_country_path(country), :confirm => 'Are you sure?', :method => :delete, :class => "lightBlue" %></td>
   </tr>
 <% end %>
 </table>

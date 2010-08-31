@@ -12,11 +12,11 @@
     <% @assets.each do |asset| %>
   <div class="thumbnail">
     <%= link_to image_tag(s3_authenticated_url(asset, :thumb)), asset_manager_asset_path(asset) %><br />
-    <span class="blueLink"><%= link_to truncate(asset.title, :length => 20, :omission => "..."), asset_manager_asset_path(asset) %></span><br />
+    <span class="lightBlue"><%= link_to truncate(asset.title, :length => 20, :omission => "..."), asset_manager_asset_path(asset), :class => "lightBlue" %></span><br />
     <% permitted_to? :new, :asset_manager_assets do %>
       <ul class="localNav">
-          <li><%= link_to 'Edit', edit_asset_manager_asset_path(asset) %></li>
-          <li><%= link_to 'Delete', asset_manager_asset_path(asset), :confirm => "Are you sure?", :method => :delete %></li>
+          <li><%= link_to 'Edit', edit_asset_manager_asset_path(asset), :class => "lightBlue" %></li>
+          <li><%= link_to 'Delete', asset_manager_asset_path(asset), :confirm => "Are you sure?", :method => :delete, :class => "lightBlue" %></li>
           <li><%= check_box_tag "asset_ids[]", asset.id, false, :id => "asset_id_#{asset.id}" %></li>
       </ul>
     <% end %>
@@ -29,12 +29,12 @@
 <div id="local_nav">
     <ul class="localNav">
     <% permitted_to? :new, :asset_manager_assets do -%>
-        <li><%= link_to 'New asset', new_asset_manager_asset_path %> |</li>
-        <li><%= link_to 'View Languages', asset_manager_languages_path %> |</li>
-        <li><%= link_to 'Manage Countries', asset_manager_countries_path %> |</li>
-        <li><%= link_to 'Manage Tribes', asset_manager_tribes_path %> |</li>
-        <li><%= link_to 'Manage Contracts', asset_manager_contracts_path %> | </li>
-        <li><%= link_to 'Manage users', asset_manager_asset_users_path %> | </li>
+        <li><%= link_to 'New asset', new_asset_manager_asset_path, :class => "lightBlue" %> |</li>
+        <li><%= link_to 'View Languages', asset_manager_languages_path, :class => "lightBlue" %> |</li>
+        <li><%= link_to 'Manage Countries', asset_manager_countries_path, :class => "lightBlue" %> |</li>
+        <li><%= link_to 'Manage Tribes', asset_manager_tribes_path, :class => "lightBlue" %> |</li>
+        <li><%= link_to 'Manage Contracts', asset_manager_contracts_path, :class => "lightBlue" %> | </li>
+        <li><%= link_to 'Manage users', asset_manager_asset_users_path, :class => "lightBlue" %> | </li>
      <% end -%>
      <% if (current_user.class.to_s.eql? "AdminUser") || (!current_user.stages.empty?) -%>
         <li><%= link_to "View Stages", asset_manager_stages_path %></li>

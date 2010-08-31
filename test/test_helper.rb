@@ -66,26 +66,41 @@ def setup_test
 
   @selenium.start_new_browser_session
   end
+  
+  
+  def adminregistration_test
+   @selenium.open "/login"
+    @selenium.click "link=register"
+    @selenium.wait_for_page_to_load "30000"
+    @selenium.type "admin_user_username", "admintest"
+    @selenium.type "admin_user_email", "admintest@admintest.com"
+    @selenium.type "admin_user_password", "admintest1"
+    @selenium.type "admin_user_password_confirmation", "admintest1"
+    @selenium.click "admin_user_submit"
+    @selenium.wait_for_page_to_load "30000"
+    @selenium.click "link=Logout"
+    @selenium.wait_for_page_to_load "30000"
+  end
 
-  def login_test
-    @selenium.open "/login"
-    @selenium.type "user_session_username", "test"
-    @selenium.type "user_session_password", "test1"
-    @selenium.click "user_session_submit"
+  def assetlogin_test
+ @selenium.open "/asset_manager/login"
+    @selenium.type "asset_user_session_username", "test"
+    @selenium.type "asset_user_session_password", "test1"
+    @selenium.click "asset_user_session_submit"
     @selenium.wait_for_page_to_load "30000"
   end
 
 
-  def registration_test
-  @selenium.open "/login"
-  @selenium.click "link=register"
-  @selenium.wait_for_page_to_load "30000"
-  @selenium.type "user_username", "test"
-  @selenium.type "user_email", "test@test.com"
-  @selenium.type "user_password", "test1"
-  @selenium.type "user_password_confirmation", "test1"
-  @selenium.click "user_submit"
-  @selenium.wait_for_page_to_load "30000"
+  def assetregistration_test
+    @selenium.open "/asset_manager/login"
+    @selenium.click "link=register"
+    @selenium.wait_for_page_to_load "30000"
+    @selenium.type "asset_user_username", "test"
+    @selenium.type "asset_user_email", "test@test.com"
+    @selenium.type "asset_user_password", "test1"
+    @selenium.type "asset_user_password_confirmation", "test1"
+    @selenium.click "asset_user_submit"
+    @selenium.wait_for_page_to_load "30000"
   end
 
 def teardown_test

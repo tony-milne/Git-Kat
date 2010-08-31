@@ -1,5 +1,4 @@
-<h1>AssetManager::Contracts#edit</h1>
-<p>Find me in app/views/asset_manager/contracts/edit.html.erb</p>
+<p> Edit Contract </p>
 <% form_for [:asset_manager, @contract] do |f| -%>
   <p>
     <%= f.label :title %><br />
@@ -13,4 +12,4 @@
     <%= f.submit "Edit" %>
   </p>
 <% end -%>
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back , :class => "lightBlue" %>

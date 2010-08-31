@@ -10,13 +10,13 @@
   <tr>
     <td><%=h caption.content %></td>
     <td><%=h caption.language.language %></td>
-    <td><%= link_to 'Edit', edit_asset_manager_caption_path(caption) %></td>
-    <td><%= link_to 'Delete', asset_manager_caption_path(caption), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_asset_manager_caption_path(caption), :class => "lightBlue" %></td>
+    <td><%= link_to 'Delete', asset_manager_caption_path(caption), :confirm => 'Are you sure?', :method => :delete, :class => "lightBlue" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New caption', new_asset_manager_asset_caption_path %>
-<%= link_to 'Back', asset_manager_asset_path(params[:asset_id]) %>
+<%= link_to 'New caption', new_asset_manager_asset_caption_path. :class => "lightBlue" %>
+<%= link_to 'Back', asset_manager_asset_path(params[:asset_id]), :class => "lightBlue" %>

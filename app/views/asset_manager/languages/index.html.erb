@@ -8,8 +8,8 @@
 <% @languages.each do |language| %>
   <tr>
     <td><%=h language.language %></td>
-    <td><%= link_to 'Edit', edit_asset_manager_language_path(language) %></td>
-    <td><%= link_to 'Delete', asset_manager_language_path(language), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_asset_manager_language_path(language), :class => "lightBlue" %></td>
+    <td><%= link_to 'Delete', asset_manager_language_path(language), :confirm => 'Are you sure?', :method => :delete , :class => "lightBlue" %></td>
 
   </tr>
   </tr>
@@ -18,5 +18,5 @@
 
 <br />
 
-<%= link_to 'New language', new_asset_manager_language_path %>
-<%= link_to 'Back', asset_manager_assets_path %>
+<%= link_to 'New language', new_asset_manager_language_path, :class => "lightBlue" %>
+<%= link_to 'Back', asset_manager_assets_path, :class => "lightBlue" %>
