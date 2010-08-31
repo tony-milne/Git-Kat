@@ -8,7 +8,7 @@ authorization do
     has_permission_on :asset_manager_stages, :to => [:index, :show, :edit, :new, :create, :update, :destroy, :add_asset_to_stage, :remove_asset_from_stage, :manage_users, :add_user, :remove_user, :manage_contract, :set_contract]
     
     # Model permissions    
-    has_permission_on [:assets, :tags, :captions, :images, :countries, :credits, :tribes, :contracts], :to => :all_privileges
+    has_permission_on [:assets, :tags, :captions, :images, :countries, :credits, :tribes, :contracts, :languages], :to => :all_privileges
     has_permission_on :stages do
       to :all_privileges
     end
