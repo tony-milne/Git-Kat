@@ -19,9 +19,7 @@ class AssetManager::StagesController < ApplicationController
   end
 
   # GET /stages/1
-  # GET /stages/1.xml
-  # SHOW PAGE TO_BE_PAGINATED!
-  
+  # GET /stages/1.xml  
   def show
     @stage = Stage.find(params[:id])
     @assets = @stage.assets.paginate :per_page => 12, :page => params[:page],
@@ -86,6 +84,7 @@ class AssetManager::StagesController < ApplicationController
   def destroy
     @stage = Stage.find(params[:id])
     @stage.destroy
+    session[:stage_id] = nil
 
     respond_to do |format|
       format.html { redirect_to(asset_manager_stages_url) }

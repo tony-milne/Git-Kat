@@ -2,10 +2,9 @@
 <ul>
 <% @asset_users.each do |asset_user| %>
   <li>
-    <%= asset_user.username %>
-    <%= link_to "View details", asset_manager_asset_user_path(asset_user) %>
-    <%= link_to "Edit user", edit_asset_manager_asset_user_path(asset_user) %>
-    <%= link_to "Delete user", asset_manager_asset_user_path, :confirm => "Are you sure?", :method => :delete %>
+    <%= asset_user.username %> <%= asset_user.email %><br/>
+    <%= link_to "Edit user", edit_asset_manager_asset_user_path(asset_user), :class => "lightBlue" %> | 
+    <%= link_to "Delete user", asset_manager_asset_user_path(asset_user), :confirm => "Are you sure?", :method => :delete, :class => "lightBlue" %>
   </li>
 <% end %>
 </ul>

@@ -4,7 +4,7 @@ class AssetManager::AssetUsersController < ApplicationController
   filter_access_to :all
   
   def index
-    @asset_users = AssetUsers.find(:all)
+    @asset_users = AssetUser.find(:all)
   end
   
   def show
@@ -26,7 +26,11 @@ class AssetManager::AssetUsersController < ApplicationController
   end
   
   def edit
-    @asset_user = current_user
+    if current_user.class.to_s.eql? "AdminUser"
+      @asset_user = AssetUser.find(params[:id])
+    else
+      @asset_user = current_user
+    end
   end
   
   def update
@@ -36,6 +40,16 @@ class AssetManager::AssetUsersController < ApplicationController
       redirect_to asset_manager_root_url
     else
       render :action => :edit
+    end
+  end
+  
+  def destroy
+    @asset_user = AssetUser.find(params[:id])
+    @asset_user.destroy
+    if @asset_user.save
+      redirect_to asset_manager_asset_users_path, :notice => "User successfully deleted"
+    else
+      redirect_to asset_manager_asset_user_path(@asset_user)
     end
   end
 end

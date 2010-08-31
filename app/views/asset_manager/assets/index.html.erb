@@ -34,6 +34,7 @@
         <li><%= link_to 'Manage Countries', asset_manager_countries_path %> |</li>
         <li><%= link_to 'Manage Tribes', asset_manager_tribes_path %> |</li>
         <li><%= link_to 'Manage Contracts', asset_manager_contracts_path %> | </li>
+        <li><%= link_to 'Manage users', asset_manager_asset_users_path %> | </li>
      <% end -%>
      <% if (current_user.class.to_s.eql? "AdminUser") || (!current_user.stages.empty?) -%>
         <li><%= link_to "View Stages", asset_manager_stages_path %></li>
