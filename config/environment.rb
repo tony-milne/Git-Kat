@@ -30,8 +30,7 @@ Rails::Initializer.run do |config|
   config.gem "declarative_authorization"
   config.gem "paperclip"
   config.gem "exifr"
-  config.gem "selenium-client"
-  config.gem "selenium-webdriver"
+  
   config.gem "mysql"
   
   # Only load the plugins named here, in the order given. By default, all plugins 
