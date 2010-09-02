@@ -29,7 +29,6 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.gem "declarative_authorization"
   config.gem "paperclip"
-  config.gem "aws-s3"
   config.gem "exifr" 
   config.gem "mysql"
   config.gem "will_paginate"
