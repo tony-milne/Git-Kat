@@ -4,11 +4,5 @@
   <%=h @tag.content %>
 </p>
 
-<p>
-  <b>Asset:</b>
-  <%=h @tag.asset_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_asset_manager_tag_path(@tag) %> |
-<%= link_to 'Back', asset_manager_asset_tags_path(@tag.asset_id) %>
+<%= link_to 'Edit', edit_asset_manager_asset_tag_path(@asset, @tag) %> |
+<%= link_to 'Back', asset_manager_asset_tags_path(@asset) %>

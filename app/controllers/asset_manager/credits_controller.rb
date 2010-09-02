@@ -1,95 +1,97 @@
+# Credits controller handles actions relating to credits when javascript is
+# disabled
+
 class AssetManager::CreditsController < AssetManager::ApplicationController
-  filter_resource_access
+  # Declarative authorization method to enable permissions based filtering of
+  # actions. Doesn't automatically load credits.
+  filter_access_to :all
   
-  # GET /asset_manager_credits
-  # GET /asset_manager_credits.xml
+  # GET /credits
+  # GET /credits.xml
   def index
-    @credits = Credit.find(:all, :conditions => ["asset_id = ?", params[:asset_id]])
     @asset = Asset.find(params[:asset_id])
-    @languages = Language.find(:all)
+    @credits = @asset.credits
     
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @asset_manager_credits }
+      format.xml  { render :xml => @credits }
     end
   end
 
-  # GET /asset_manager_credits/1
-  # GET /asset_manager_credits/1.xml
+  # GET /credits/1
+  # GET /credits/1.xml
   def show
-    #@credit = Credit.find(params[:id])
-	  @language = Language.find(:all)
+    @asset = Asset.find(params[:asset_id])
+    @credit = Credit.find(params[:id])
     
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => asset_manager_credit_path(@credit) }
+      format.xml  { render :xml => asset_manager_asset_credit_path(@asset, @credit) }
     end
   end
 
-  # GET /asset_manager_credits/new
-  # GET /asset_manager_credits/new.xml
+  # GET /credits/new
+  # GET /credits/new.xml
   def new
-    #@credit = Credit.new
   	@asset = Asset.find(params[:asset_id])
-    @credit.asset = @asset
-    @languages = Language.find(:all) 
+    @credit = @asset.credits.build
+    #@languages = Language.find(:all) 
     
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => asset_manager_credit_path(@credit) }
+      format.xml  { render :xml => asset_manager_asset_credit_path(@asset, @credit) }
     end
   end
 
-  # GET /asset_manager_credits/1/edit
+  # GET /credits/1/edit
   def edit
-    #@credit = Credit.find(params[:id])
-    @languages = Language.find(:all)
-    
+    @asset = Asset.find(params[:asset_id])
+    @credit = @asset.credits.find(params[:id])
   end
 
-  # POST /asset_manager_credits
-  # POST /asset_manager_credits.xml
+  # POST /credits
+  # POST /credits.xml
   def create
-  	#@credit = Credit.new(params[:credit])
     @asset = Asset.find(params[:asset_id])
-  	@credit.asset = @asset
-  	@languages = Language.find(:all)
+    @credit = @asset.credits.build(params[:credit])
 
     respond_to do |format|
       if @credit.save
-        format.html { redirect_to(asset_manager_asset_credits_path(@credit.asset_id), :notice => 'Credit was successfully created.') }
-        format.xml  { render :xml => asset_manager_asset_credit_path(@credit), :status => :created, :location => @credit }
+        format.html { redirect_to(asset_manager_asset_credit_path(@asset, @credit), :notice => 'Credit was successfully created.') }
+        format.xml  { render :xml => asset_manager_asset_credit_path(@asset, @credit), :status => :created, :location => @credit }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => asset_manager_asset_credit_path(@credit.errors), :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /asset_manager_credits/1
-  # PUT /asset_manager_credits/1.xml
-  def update
-    #@credit = Credit.find(params[:id])
-
-    respond_to do |format|
-      if @credit.update_attributes(params[:credit])
-        format.html { redirect_to(asset_manager_asset_credits_path(@credit.asset_id), :notice => 'Credit was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
+        format.html { render :action => :new }
         format.xml  { render :xml => @credit.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /asset_manager_credits/1
-  # DELETE /asset_manager_credits/1.xml
+  # PUT /credits/1
+  # PUT /credits/1.xml
+  def update
+    @asset = Asset.find(params[:asset_id])
+    @credit = @asset.credits.find(params[:id])
+
+    respond_to do |format|
+      if @credit.update_attributes(params[:credit])
+        format.html { redirect_to(asset_manager_asset_credit_path(@asset, @credit), :notice => 'Credit was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => :edit }
+        format.xml  { render :xml => @credit.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /credits/1
+  # DELETE /credits/1.xml
   def destroy
-    #@credit = Credit.find(params[:id])
+    @asset = Asset.find(params[:asset_id])
+    @credit = @asset.credits.find(params[:id])
     @credit.destroy
 
     respond_to do |format|
-      format.html { redirect_to(asset_manager_asset_credits_path(@credit.asset.id)) }
+      format.html { redirect_to(asset_manager_asset_credits_path(@asset)) }
       format.xml  { head :ok }
     end
   end

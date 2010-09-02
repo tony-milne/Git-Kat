@@ -1,38 +1,39 @@
+# Tags controller handles actions relating to tags when javascript is disabled
+
 class AssetManager::TagsController < AssetManager::ApplicationController
-  filter_resource_access
+  # Declarative authorization method to enable permissions based filtering of
+  # actions.  Doesn't automatically load tags.
+  filter_access_to :all
   
-  # GET /asset_manager_tags
-  # GET /asset_manager_tags.xml
+  # GET /tags
+  # GET /tags.xml
   def index
     @asset = Asset.find(params[:asset_id])
     @tags = @asset.tags
-    #@tags = Tag.find(:all, :conditions => ["asset_id = ?", params[:asset_id]])
-	  #@asset = Asset.find(params[:asset_id])
 	
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @asset_manager_tags }
+      format.xml  { render :xml => @tags }
     end
   end
 
-  # GET /asset_manager_tags/1
-  # GET /asset_manager_tags/1.xml
+  # GET /tags/1
+  # GET /tags/1.xml
   def show
-    #@tag = Tag.find(params[:id])
+    @asset = Asset.find(params[:asset_id])
+    @tag = @asset.tags.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => asset_manager_asset_tag_path(@tag) }
+      format.xml  { render :xml => asset_manager_asset_tag_path(@asset, @tag) }
     end
   end
 
-  # GET /asset_manager_tags/new
-  # GET /asset_manager_tags/new.xml
+  # GET /tags/new
+  # GET /tags/new.xml
   def new
     @asset = Asset.find(params[:asset_id])
   	@tag = @asset.tags.build
-  	#@tag = Tag.new
-  	#@tag.asset = @asset
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,54 +41,55 @@ class AssetManager::TagsController < AssetManager::ApplicationController
     end
   end
 
-  # GET /asset_manager_tags/1/edit
+  # GET /tags/1/edit
   def edit
-    #@tag = Tag.find(params[:id])
+    @asset = Asset.find(params[:asset_id])
+    @tag = @asset.tags.find(params[:id])
   end
 
-  # POST /asset_manager_tags
-  # POST /asset_manager_tags.xml
+  # POST /tags
+  # POST /tags.xml
   def create
     @asset = Asset.find(params[:asset_id])
   	@tag = @asset.tags.build(params[:tag])
-  	#@tag = Tag.new(params[:tag])
-  	#@tag.asset = @asset
 
     respond_to do |format|
       if @asset.save
-        format.html { redirect_to(asset_manager_asset_tags_path(@tag.asset_id), :notice => 'Tag was successfully created.') }
-        format.xml  { render :xml => asset_manager_asset_tag_path(@tag), :status => :created, :location => @tag }
+        format.html { redirect_to(asset_manager_asset_tag_path(@asset, @tag), :notice => 'Tag was successfully created.') }
+        format.xml  { render :xml => asset_manager_asset_tag_path(@asset, @tag), :status => :created, :location => @tag }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => asset_manager_asset_tag_path(@tag.errors), :status => :unprocessable_entity }
+        format.html { render :action => :new }
+        format.xml  { render :xml => @tag.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /asset_manager_tags/1
-  # PUT /asset_manager_tags/1.xml
+  # PUT /tags/1
+  # PUT /tags/1.xml
   def update
-    #@tag = Tag.find(params[:id])
+    @asset = Asset.find(params[:asset_id])
+    @tag = @asset.tags.find(params[:id])
 
     respond_to do |format|
       if @tag.update_attributes(params[:tag])
         format.html { redirect_to(asset_manager_asset_tags_path(@tag.asset_id), :notice => 'Tag was successfully updated.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => :new }
         format.xml  { render :xml => @tag.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /asset_manager_tags/1
-  # DELETE /asset_manager_tags/1.xml
+  # DELETE /tags/1
+  # DELETE /tags/1.xml
   def destroy
-    #@tag = Tag.find(params[:id])
+    @asset = Asset.find(params[:asset_id])
+    @tag = @asset.tags.find(params[:id])
     @tag.destroy
 
     respond_to do |format|
-      format.html { redirect_to(asset_manager_asset_path(@tag.asset_id)) }
+      format.html { redirect_to(asset_manager_asset_tags_path(@asset)) }
       format.xml  { head :ok }
     end
   end

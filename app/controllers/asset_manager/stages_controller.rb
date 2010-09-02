@@ -1,16 +1,28 @@
+# Languages controller handles actions relating to languages
+# Contains additional actions for adding/removing users from a stage,
+# adding/removing assets from a stage and viewing and agreeing to the contract
+
 class AssetManager::StagesController < ApplicationController
+  # Declarative authorization method to enable permissions based filtering of
+  # show action.  Allows checking of the @stage variable to see if stage is
+  # associated with currently logged in user
   filter_access_to :show, :attribute_check => true
+  
+  # Declarative authorization method to enable permissions based filtering of
+  # actions. Doesn't automatically load stages.
   filter_access_to :all
+  
+  # Before filter check to see if current asset user has agreed to contract
+  # before viewing stage
   before_filter :agreed_to_contract?, :only => :show
+  
+  # Provides access to s3_authenticated_url in views
   helper AssetManager::AssetsHelper
   
   # GET /stages
   # GET /stages.xml
   def index
     @stages = Stage.with_permissions_to(:read).paginate :per_page => 6, :page => params[:page]
-    #@stages = Stage.paginate :per_page => 6, :page => params[:page]#,
-                             #:conditions => ['id like ?', "%#{params[:search]}%"],
-                             #:order => 'id'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -57,7 +69,7 @@ class AssetManager::StagesController < ApplicationController
         format.html { redirect_to(asset_manager_stage_path(@stage), :notice => 'Stage was successfully created.') }
         format.xml  { render :xml => @stage, :status => :created, :location => @stage }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => :new }
         format.xml  { render :xml => @stage.errors, :status => :unprocessable_entity }
       end
     end
@@ -73,7 +85,7 @@ class AssetManager::StagesController < ApplicationController
         format.html { redirect_to(asset_manager_stage_path(@stage), :notice => 'Stage was successfully updated.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => :edit }
         format.xml  { render :xml => @stage.errors, :status => :unprocessable_entity }
       end
     end
@@ -94,6 +106,10 @@ class AssetManager::StagesController < ApplicationController
   
   ## Asset index stage code
   
+  # PUT /stages/add_asset_to_stage
+  #
+  # Action that adds assets passed in asset_ids array from asset index view.
+  # Adds only assets which are not currently in the stage.
   def add_asset_to_stage
     if !params[:asset_ids].nil?
       @stage = Stage.find(session[:stage_id])
@@ -124,6 +140,9 @@ class AssetManager::StagesController < ApplicationController
     end
   end
   
+  # PUT /stages/1/remove_asset_from_stage
+  #
+  # Action removes assets passed in asset_ids from stage show view.
   def remove_asset_from_stage
     @stage = Stage.find(params[:id])
     params[:asset_ids].each { |asset|
@@ -137,11 +156,17 @@ class AssetManager::StagesController < ApplicationController
 
   ## Contract code
 
+  # GET /stages/1/contract
+  #
+  # Action displays contact associated with current stage
   def contract
     @stage = Stage.find(params[:id])
     @contract = @stage.contract
   end
   
+  # GET /stages/1/agree
+  #
+  # Action sets agree condition in StageUser record to true
   def agree
     stage = Stage.find(params[:id])
     user = StageUser.find(:first, :conditions => ["asset_user_id = ? AND stage_id =?", current_user.id, stage.id])
@@ -155,11 +180,17 @@ class AssetManager::StagesController < ApplicationController
   
   # Stage user code
   
+  # GET /stages/1/manage_users
+  #
+  # Action displays users currently allowed to view the current stage
   def manage_users
     @stage = Stage.find(params[:id])
     @users = @stage.asset_users
   end
   
+  # POST /stages/1/add_user
+  #
+  # Action that adds user to current stage
   def add_user
     stage = Stage.find(params[:id])
     user = AssetUser.find(params[:user][:id])
@@ -172,6 +203,9 @@ class AssetManager::StagesController < ApplicationController
     end
   end
   
+  # POST /stages/1/remove_user
+  #
+  # Action that removes user(s) from current stage
   def remove_user
     if !params[:user_ids].nil?
       stage = Stage.find(params[:id])
@@ -191,6 +225,9 @@ class AssetManager::StagesController < ApplicationController
   
   private
   
+  # Method called as before filter that checks if current asset user has
+  # agreed to an associated contract (if available,) before allowing stage to
+  # be viewed.
   def agreed_to_contract?
     if current_user.class.to_s.eql? "AssetUser"
       stage = Stage.find(params[:id])

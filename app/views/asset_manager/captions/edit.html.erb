@@ -1,6 +1,6 @@
 <% title "Editing caption" %>
 
-<% form_for([:asset_manager, @caption]) do |f| %>
+<% form_for([:asset_manager, @caption], :url => asset_manager_asset_caption_path(@asset, @caption)) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -10,7 +10,7 @@
   <p>
   
   
-        <div class="formRow">
+   <div class="formRow">
     <span class="labelCol"><%= f.label :language %></span>
     <%= f.collection_select :language_id, Language.find(:all), :id, :language, :input_blank => false %>
    </div>

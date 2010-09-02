@@ -1,6 +1,6 @@
 <% title "Editing tag" %>
 
-<% form_for([:asset_manager, @tag]) do |f| %>
+<% form_for([:asset_manager, @tag], :url => asset_manager_asset_tag_path(@asset, @tag)) do |f| %>
   <%= f.error_messages %>
 
   <p>

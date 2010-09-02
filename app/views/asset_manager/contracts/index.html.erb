@@ -5,10 +5,12 @@
     <li>
       <%= contract.title %> <%= link_to "View", asset_manager_contract_path(contract), :class => "lightBlue" %> 
       <%= link_to "Edit", edit_asset_manager_contract_path(contract), :class => "lightBlue" %> 
-      <%= link_to "Delete", asset_manager_contract_path(contract), :confirm => "Are you sure?", :method => :delete, :class => "lightBlue" %>
-      <%= link_to "Home", asset_manager_assets_path, :class => "lightBlue" %>   
+      <%= link_to "Delete", asset_manager_contract_path(contract), :confirm => "Are you sure?", :method => :delete, :class => "lightBlue" %>   
     </li>
   <% end %>
   </ul>
 </div>
-<div><%= link_to "Create a new contract", new_asset_manager_contract_path , :class => "lightBlue" %></div>
+<div>
+  <%= link_to "Create a new contract", new_asset_manager_contract_path , :class => "lightBlue" %> | 
+  <%= link_to "Home", asset_manager_assets_path, :class => "lightBlue" %>
+</div>

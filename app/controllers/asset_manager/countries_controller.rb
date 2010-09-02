@@ -1,8 +1,12 @@
+# Countries controller handles actions relating to countries
+
 class AssetManager::CountriesController < AssetManager::ApplicationController
+  # Declarative authorization method to enable permissions based filtering of
+  # actions. Automatically loads countries based on params[:id]
   filter_resource_access
   
-  # GET /asset_manager_countries
-  # GET /asset_manager_countries.xml
+  # GET /countries
+  # GET /countries.xml
   def index
     @countries = Country.all
 
@@ -12,69 +16,60 @@ class AssetManager::CountriesController < AssetManager::ApplicationController
     end
   end
 
-  # GET /asset_manager_countries/1
-  # GET /asset_manager_countries/1.xml
+  # GET /countries/1
+  # GET /countries/1.xml
   def show
-    #@country = Country.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @country }
     end
   end
 
-  # GET /asset_manager_countries/new
-  # GET /asset_manager_countries/new.xml
+  # GET /countries/new
+  # GET /countries/new.xml
   def new
-    #@country = Country.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => asset_manager_country_path(@country) }
     end
   end
 
-  # GET /asset_manager_countries/1/edit
+  # GET /countries/1/edit
   def edit
-    #@country = Country.find(params[:id])
+    
   end
 
-  # POST /asset_manager_countries
-  # POST /asset_manager_countries.xml
+  # POST /countries
+  # POST /countries.xml
   def create
-    #@country = Country.new(params[:country])
-
     respond_to do |format|
       if @country.save
         format.html { redirect_to(asset_manager_country_path(@country), :notice => 'Country was successfully created.') }
         format.xml  { render :xml => asset_manager_country_path(@country), :status => :created, :location => @country }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => :new }
         format.xml  { render :xml => asset_manager_country_path(@country.errors), :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /asset_manager_countries/1
-  # PUT /asset_manager_countries/1.xml
+  # PUT /countries/1
+  # PUT /countries/1.xml
   def update
-    #@country = Country.find(params[:id])
-
     respond_to do |format|
       if @country.update_attributes(params[:country])
         format.html { redirect_to(asset_manager_country_path(@country), :notice => 'Country was successfully updated.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => asset_manager_country_path(@country.errors), :status => :unprocessable_entity }
+        format.html { render :action => :edit }
+        format.xml  { render :xml => @country.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /asset_manager_countries/1
-  # DELETE /asset_manager_countries/1.xml
+  # DELETE /countries/1
+  # DELETE /countries/1.xml
   def destroy
-    #@country = Country.find(params[:id])
     @country.destroy
 
     respond_to do |format|

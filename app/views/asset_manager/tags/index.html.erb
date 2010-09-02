@@ -8,8 +8,8 @@
 <% @tags.each do |tag| %>
   <tr>
     <td><%=h tag.content %></td>
-    <td><%= link_to 'Edit', edit_asset_manager_tag_path(tag) %></td>
-    <td><%= link_to 'Delete', asset_manager_tag_path(tag), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_asset_manager_asset_tag_path(@asset, tag) %></td>
+    <td><%= link_to 'Delete', asset_manager_asset_tag_path(@asset, tag), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -17,4 +17,4 @@
 <br />
 
 <%= link_to 'New tag', new_asset_manager_asset_tag_path %>
-<%= link_to 'Back', asset_manager_asset_path(params[:asset_id]) %>
+<%= link_to 'Back', asset_manager_asset_path(@asset) %>

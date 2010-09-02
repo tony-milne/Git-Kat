@@ -1,5 +1,13 @@
+# Assets controller handles actions relating to assets, actions for
+# selecting and deselecting stages and a method for filtering out
+# extraneous EXIF data before it is displayed on a show page
+
 class AssetManager::AssetsController < AssetManager::ApplicationController
+  # Declarative authorization method to enable permissions based filtering of
+  # actions.  Doesn't automatically load assets.
   filter_access_to :all
+  
+  # Provides access to s3_authenticated_url in views
   helper AssetManager::AssetsHelper
   
   # GET /assets
@@ -68,6 +76,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   # PUT /assets/1
   # PUT /assets/1.xml
   def update
+    # If attributes are empty i.e. all removed, returns empty hash
     params[:asset][:updated_tag_attributes] ||= {}
     params[:asset][:updated_caption_attributes] ||= {}
     params[:asset][:updated_credit_attributes] ||= {}
@@ -78,7 +87,7 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
         format.html { redirect_to(asset_manager_asset_path(@asset), :notice => 'Asset was successfully updated.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => :edit }
         format.xml  { render :xml => @asset.errors, :status => :unprocessable_entity }
       end
     end
@@ -95,7 +104,11 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
       format.xml  { head :ok }
     end
   end
-
+  
+  # POST /assets/select_stage
+  #
+  # Action that, provided a stage ID has been passed, assigns that stage ID
+  # to a session which is stored locally on the user's system
   def select_stage
     if !params[:stage][:id].empty?
       session[:stage_id] = params[:stage][:id].to_i
@@ -105,6 +118,9 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
     end
   end
   
+  # POST /assets/deselect_stage
+  #
+  # Action that sets the stage ID in session to nil
   def deselect_stage
     session[:stage_id] = nil
     redirect_to :back, :notice => "Please select a different stage"
@@ -112,6 +128,14 @@ class AssetManager::AssetsController < AssetManager::ApplicationController
   
   private
   
+  # Method that filters EXIF data:
+  #
+  # * Removes the ID field, fields with values equal to 0.0 
+  #   (specifically the focal length,) and blank values.
+  #
+  # * Humanizes the output by replacing underscores and capitalizing.
+  #
+  # * Formats time string to a more readable format.
   def format_exif(exif)
     exif.reject! { |key,value| (key.eql? "id") || (value == 0.0) || (value.blank?) }
 	    

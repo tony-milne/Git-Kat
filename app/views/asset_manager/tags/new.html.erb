@@ -1,14 +1,11 @@
 <% title "New tag for #{@asset.title}" %> 
 
-<% form_for([:asset_manager, @tag]) do |f| %>
+<% form_for([:asset_manager, @tag], :url => asset_manager_asset_tags_path(@asset)) do |f| %>
   <%= f.error_messages %>
 
   <p>
     <%= f.label :tag %><br />
     <%= f.text_field :content %>
-  </p>
-  <p>
-    <%= hidden_field_tag(:asset_id, @asset.id) %>
   </p>
   <p>
     <%= f.submit 'Create' %>

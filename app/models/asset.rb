@@ -1,10 +1,17 @@
 # Asset model handles storage of assets using Paperclip, extraction of EXIF data using exifr,
 # processes virtual attributes for AJAX forms, contains search method and settings for
-# pagination of asset collections 
+# pagination of asset collections
+ 
 class Asset < ActiveRecord::Base
+  # Method from declarative authorization that allows permission based filtering
+  # for models.
   using_access_control
   
+  # Polymorphic association between asset and image models allows for
+  # Asset#exif to be called regardless is asset exif/metadata is stored in
+  # different tables.
   belongs_to :exif, :polymorphic => true, :dependent => :destroy
+  
   belongs_to :country
   belongs_to :tribe
 
@@ -34,8 +41,9 @@ class Asset < ActiveRecord::Base
   :s3_options => {:proxy => {:host => 'proxy.abdn.ac.uk', :port => 8080} }, #note to team: if working from home
                                                                              #comment out :s3_options then restart server
   
+  # A "canned" S3 access policy, authenticated read prevents unauthenticated
+  # users from viewing assets.
   :s3_permissions => 'authenticated-read',
-  #:s3_protocol => 'http',
   :bucket => "survival-project"
 
   # Checking Filetypes
@@ -48,11 +56,11 @@ class Asset < ActiveRecord::Base
   # Saves tags and captions updated in virtual attributes
   after_update :save_tags, :save_captions, :save_credits
 
-  # Pagination
+  # Pagination: assets per page
   cattr_reader :per_page
   @@per_page = 12
 
-  # Search
+  # Asset search function
   def self.search(search, page)
     paginate 	:per_page => 12, :page => page,
       :conditions => ['title like ?', "%#{search}%"],
@@ -69,6 +77,8 @@ class Asset < ActiveRecord::Base
       false
   end
 
+  # Method called by paperclip callback.  Looks at asset type and determines
+  # which method to use to set EXIF data
   def set_exif_data
     if data_content_type =~ /^image.*/
       if data_content_type =~ /jpeg/
@@ -79,6 +89,8 @@ class Asset < ActiveRecord::Base
 
   ## Start of virtual attributes and save methods for AJAX forms ##
 
+  # Virtual attribute setter method for updating tags via AJAX forms.
+  # Only updates tags currently associated to asset.
   def updated_tag_attributes=(tag_attributes)
     tags.reject(&:new_record?).each do |tag|
       attributes = tag_attributes[tag.id.to_s]
@@ -100,6 +112,9 @@ class Asset < ActiveRecord::Base
     end
   end
 
+  # Virtual attribute setter method for associating new tags to asset via
+  # AJAX forms.  Prevents user from associating the same tag multiple times
+  # to an asset.
   def new_tag_attributes=(tag_attributes)
     new_tags = Set.new
 
@@ -119,12 +134,16 @@ class Asset < ActiveRecord::Base
     end
   end
 
+  # Method used in ActiveRecord callback to ensure new and updated tags are
+  # saved.
   def save_tags
     tags.each do |tag|
       tag.save(false)
     end
   end
 
+  # Virtual attribute setter method for updating captions via AJAX forms.
+  # Only updates captions currently associated to asset.
   def updated_caption_attributes=(caption_attributes)
     captions.reject(&:new_record?).each do |caption|
       attributes = caption_attributes[caption.id.to_s]
@@ -136,18 +155,24 @@ class Asset < ActiveRecord::Base
     end
   end
 
+  # Virtual attribute setter method for associating new captions to asset via
+  # AJAX forms.
   def new_caption_attributes=(caption_attributes)
     caption_attributes.each do |a|
       captions.build(a)
     end
   end
 
+  # Method used in ActiveRecord callback to ensure new and updated captions are
+  # saved.
   def save_captions
     captions.each do |caption|
       caption.save(false)
     end
   end
 
+  # Virtual attribute setter method for updating credits via AJAX forms.
+  # Only updates credits currently associated to asset.
   def updated_credit_attributes=(credit_attributes)
     credits.reject(&:new_record?).each do |credit|
       attributes = credit_attributes[credit.id.to_s]
@@ -159,12 +184,16 @@ class Asset < ActiveRecord::Base
     end
   end
 
+  # Virtual attribute setter method for associating new credits to asset via
+  # AJAX forms.
   def new_credit_attributes=(credit_attributes)
     credit_attributes.each do |a|
       credits.build(a)
     end
   end
 
+  # Method used in ActiveRecord callback to ensure new and updated credits are
+  # saved.
   def save_credits
     credits.each do |credit|
       credit.save(false)
@@ -172,7 +201,8 @@ class Asset < ActiveRecord::Base
   end
 
   private
-  ## When asset is found to be an image, attempts to extract EXIF data
+  
+  ## When asset is found to be a JPEG image, attempts to extract EXIF data
   def set_image_exif_data
     exif_data = EXIFR::JPEG.new(data.to_file.path)
     return if exif_data.nil? or not exif_data.exif?

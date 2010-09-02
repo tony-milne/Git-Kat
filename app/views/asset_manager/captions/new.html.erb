@@ -1,6 +1,6 @@
 <% title "New caption for #{@asset.title}" %> 
 
-<% form_for([:asset_manager, @caption]) do |f| %>
+<% form_for([:asset_manager, @caption], :url => asset_manager_asset_captions_path(@asset)) do |f| %>
 
   <%= f.error_messages %>
 
@@ -8,10 +8,6 @@
     <span class="labelCol"><%= f.label :caption %></span>
     <%= f.text_field :content %>
   </div>
-  
-
-    <%= hidden_field_tag(:asset_id, @asset.id) %>
- 
 
    <div class="formRow">
     <span class="labelCol"><%= f.label :language %></span>
