@@ -1,6 +1,6 @@
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
-# Contains methods related to authlogic and declarative authorization.
+# Contains helper methods related to authlogic and declarative authorization.
 # Also provides methods used in before filters to ensure the user is logged in
 # or logged out on appropriate pages.
 
