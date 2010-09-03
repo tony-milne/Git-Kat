@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: AssetManager::StagesController</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">AssetManager::StagesController</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/app/controllers/asset_manager/stages_controller_rb.html">
+                app/controllers/asset_manager/stages_controller.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="ApplicationController.html">
+                ApplicationController
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Languages controller handles actions relating to languages Contains
+additional actions for adding/removing users from a stage, adding/removing
+assets from a stage and viewing and agreeing to the <a
+href="StagesController.html#M000113">contract</a>
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000111">add_asset_to_stage</a>&nbsp;&nbsp;
+      <a href="#M000116">add_user</a>&nbsp;&nbsp;
+      <a href="#M000114">agree</a>&nbsp;&nbsp;
+      <a href="#M000118">agreed_to_contract?</a>&nbsp;&nbsp;
+      <a href="#M000113">contract</a>&nbsp;&nbsp;
+      <a href="#M000108">create</a>&nbsp;&nbsp;
+      <a href="#M000110">destroy</a>&nbsp;&nbsp;
+      <a href="#M000107">edit</a>&nbsp;&nbsp;
+      <a href="#M000104">index</a>&nbsp;&nbsp;
+      <a href="#M000115">manage_users</a>&nbsp;&nbsp;
+      <a href="#M000106">new</a>&nbsp;&nbsp;
+      <a href="#M000112">remove_asset_from_stage</a>&nbsp;&nbsp;
+      <a href="#M000117">remove_user</a>&nbsp;&nbsp;
+      <a href="#M000105">show</a>&nbsp;&nbsp;
+      <a href="#M000109">update</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000111" class="method-detail">
+        <a name="M000111"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000111.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000111.html');return false;">
+          <span class="method-name">add_asset_to_stage</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+PUT /stages/add_asset_to_stage
+</p>
+<p>
+Action that adds assets passed in asset_ids array from asset <a
+href="StagesController.html#M000104">index</a> view. Adds only assets which
+are not currently in the stage.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000116" class="method-detail">
+        <a name="M000116"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000116.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000116.html');return false;">
+          <span class="method-name">add_user</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+POST /stages/1/add_user
+</p>
+<p>
+Action that adds user to current stage
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000114" class="method-detail">
+        <a name="M000114"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000114.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000114.html');return false;">
+          <span class="method-name">agree</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+GET /stages/1/agree
+</p>
+<p>
+Action sets <a href="StagesController.html#M000114">agree</a> condition in
+<a href="../StageUser.html">StageUser</a> record to true
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000113" class="method-detail">
+        <a name="M000113"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000113.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000113.html');return false;">
+          <span class="method-name">contract</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+GET /stages/1/contract
+</p>
+<p>
+Action displays contact associated with current stage
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000108" class="method-detail">
+        <a name="M000108"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000108.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000108.html');return false;">
+          <span class="method-name">create</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+POST /stages POST /stages.xml
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000110" class="method-detail">
+        <a name="M000110"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000110.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000110.html');return false;">
+          <span class="method-name">destroy</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+DELETE /stages/1 DELETE /stages/1.xml
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000107" class="method-detail">
+        <a name="M000107"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000107.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000107.html');return false;">
+          <span class="method-name">edit</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+GET /stages/1/edit
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000104" class="method-detail">
+        <a name="M000104"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000104.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000104.html');return false;">
+          <span class="method-name">index</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+GET /stages GET /stages.xml
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000115" class="method-detail">
+        <a name="M000115"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000115.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000115.html');return false;">
+          <span class="method-name">manage_users</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+GET /stages/1/manage_users
+</p>
+<p>
+Action displays users currently allowed to view the current stage
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000106" class="method-detail">
+        <a name="M000106"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000106.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000106.html');return false;">
+          <span class="method-name">new</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+GET /stages/new GET /stages/new.xml
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000112" class="method-detail">
+        <a name="M000112"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000112.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000112.html');return false;">
+          <span class="method-name">remove_asset_from_stage</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+PUT /stages/1/remove_asset_from_stage
+</p>
+<p>
+Action removes assets passed in asset_ids from stage <a
+href="StagesController.html#M000105">show</a> view.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000117" class="method-detail">
+        <a name="M000117"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000117.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000117.html');return false;">
+          <span class="method-name">remove_user</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+POST /stages/1/remove_user
+</p>
+<p>
+Action that removes user(s) from current stage
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000105" class="method-detail">
+        <a name="M000105"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000105.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000105.html');return false;">
+          <span class="method-name">show</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+GET /stages/1 GET /stages/1.xml
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000109" class="method-detail">
+        <a name="M000109"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000109.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000109.html');return false;">
+          <span class="method-name">update</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+PUT /stages/1 PUT /stages/1.xml
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Private Instance methods</h3>
+
+      <div id="method-M000118" class="method-detail">
+        <a name="M000118"></a>
+
+        <div class="method-heading">
+          <a href="StagesController.src/M000118.html" target="Code" class="method-signature"
+            onclick="popupCode('StagesController.src/M000118.html');return false;">
+          <span class="method-name">agreed_to_contract?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Method called as before filter that checks if current asset user has agreed
+to an associated <a href="StagesController.html#M000113">contract</a> (if
+available,) before allowing stage to be viewed.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

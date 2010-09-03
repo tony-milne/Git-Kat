@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>set_image_exif_data (Asset)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/models/asset.rb, line 206</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_image_exif_data</span>
+    <span class="ruby-identifier">exif_data</span> = <span class="ruby-constant">EXIFR</span><span class="ruby-operator">::</span><span class="ruby-constant">JPEG</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_file</span>.<span class="ruby-identifier">path</span>)
+    <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">exif_data</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-keyword kw">or</span> <span class="ruby-keyword kw">not</span> <span class="ruby-identifier">exif_data</span>.<span class="ruby-identifier">exif?</span>
+      <span class="ruby-identifier">i</span> = <span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">width</span>            = <span class="ruby-identifier">exif_data</span>.<span class="ruby-identifier">width</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">height</span>           = <span class="ruby-identifier">exif_data</span>.<span class="ruby-identifier">height</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">camera_brand</span>     = <span class="ruby-identifier">exif_data</span>.<span class="ruby-identifier">make</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">camera_model</span>     = <span class="ruby-identifier">exif_data</span>.<span class="ruby-identifier">model</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">exposure_time</span>    = <span class="ruby-identifier">exif_data</span>.<span class="ruby-identifier">exposure_time</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">f_number</span>         = <span class="ruby-identifier">exif_data</span>.<span class="ruby-identifier">f_number</span>.<span class="ruby-identifier">to_f</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">iso_speed_rating</span> = <span class="ruby-identifier">exif_data</span>.<span class="ruby-identifier">iso_speed_ratings</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">shot_date_time</span>   = <span class="ruby-identifier">exif_data</span>.<span class="ruby-identifier">date_time</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">focal_length</span>     = <span class="ruby-identifier">exif_data</span>.<span class="ruby-identifier">focal_length</span>.<span class="ruby-identifier">to_f</span>
+      <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">exif</span> = <span class="ruby-identifier">i</span>
+      <span class="ruby-identifier">i</span>.<span class="ruby-identifier">save!</span>
+    <span class="ruby-keyword kw">rescue</span>
+      <span class="ruby-keyword kw">false</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

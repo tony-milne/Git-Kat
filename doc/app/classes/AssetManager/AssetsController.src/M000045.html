@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>format_exif (AssetManager::AssetsController)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File app/controllers/asset_manager/assets_controller.rb, line 139</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">format_exif</span>(<span class="ruby-identifier">exif</span>)
+    <span class="ruby-identifier">exif</span>.<span class="ruby-identifier">reject!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>,<span class="ruby-identifier">value</span><span class="ruby-operator">|</span> (<span class="ruby-identifier">key</span>.<span class="ruby-identifier">eql?</span> <span class="ruby-value str">&quot;id&quot;</span>) <span class="ruby-operator">||</span> (<span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span><span class="ruby-value">.0</span>) <span class="ruby-operator">||</span> (<span class="ruby-identifier">value</span>.<span class="ruby-identifier">blank?</span>) }
+            
+    <span class="ruby-identifier">exif</span>.<span class="ruby-identifier">each_pair</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>,<span class="ruby-identifier">value</span><span class="ruby-operator">|</span> 
+    <span class="ruby-identifier">new_key</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-identifier">new_key</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-value str">&quot;_&quot;</span>, <span class="ruby-value str">&quot; &quot;</span>)
+    <span class="ruby-identifier">new_key</span>.<span class="ruby-identifier">capitalize!</span>
+
+    <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">new_key</span>.<span class="ruby-identifier">eql?</span> <span class="ruby-value str">&quot;Shot date time&quot;</span>
+      <span class="ruby-identifier">new_value</span> = <span class="ruby-ivar">@asset</span>.<span class="ruby-identifier">exif</span>.<span class="ruby-identifier">shot_date_time</span>.<span class="ruby-identifier">strftime</span>(<span class="ruby-value str">&quot;%d %b %Y %H:%M&quot;</span>)
+    <span class="ruby-keyword kw">else</span>
+      <span class="ruby-identifier">new_value</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword kw">end</span>
+
+    <span class="ruby-identifier">exif</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">exif</span>.<span class="ruby-identifier">store</span>(<span class="ruby-identifier">new_key</span>, <span class="ruby-identifier">new_value</span>) }
+    
+    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">exif</span>
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
