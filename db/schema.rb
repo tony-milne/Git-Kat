@@ -137,7 +137,4 @@ ActiveRecord::Schema.define(:version => 20100828150556) do
     t.datetime "updated_at"
   end
 
-  create_table "videos", :force => true do |t|
-  end
-
 end
