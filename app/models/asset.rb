@@ -38,7 +38,7 @@ class Asset < ActiveRecord::Base
   # Connection to S3
   :storage => :s3,
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
-  :s3_options => {:proxy => {:host => 'proxy.abdn.ac.uk', :port => 8080} }, #note to team: if working from home
+  #:s3_options => {:proxy => {:host => 'proxy.abdn.ac.uk', :port => 8080} }, #note to team: if working from home
                                                                              #comment out :s3_options then restart server
   
   # A "canned" S3 access policy, authenticated read prevents unauthenticated
