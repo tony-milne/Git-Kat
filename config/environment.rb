@@ -30,7 +30,6 @@ Rails::Initializer.run do |config|
   config.gem "declarative_authorization"
   config.gem "paperclip"
   config.gem "exifr" 
-  config.gem "mysql"
   config.gem "will_paginate"
   
   # Only load the plugins named here, in the order given. By default, all plugins 
@@ -72,6 +71,3 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
 end
-require "will_paginate"
-require "aws/s3"
-require "declarative_authorization/maintenance"
