@@ -27,24 +27,24 @@ class Asset < ActiveRecord::Base
 
   # Uploading Images Using Paperclip
   has_attached_file	:data,
-			:url => "/assets/:id/:style/:basename.:extension",
-			:path => "/assets/:id/:style/:basename.:extension",
+			:url => "/assets/images/:id/:style/:basename.:extension",
+			#:path => "#{RAILS_ROOT}/public/images/:id/:style/:basename.:extension",
 
   # Resizing Images
   #For windows systems, the greater than sign '>' must be escaped with the hat '^' symbol
   #The '^' is not required on *nix systems
-  :styles => {:thumb => ["193x120", :jpg], :medium => ["350x350", :jpg], :large => ["540x337", :jpg]},
+  :styles => {:thumb => ["193x120", :jpg], :medium => ["350x350", :jpg], :large => ["540x337", :jpg]}
 
   # Connection to S3
-  :storage => :s3,
-  :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
+  #:storage => :s3,
+  #:s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
   #:s3_options => {:proxy => {:host => 'proxy.abdn.ac.uk', :port => 8080} }, #note to team: if working from home
                                                                              #comment out :s3_options then restart server
   
   # A "canned" S3 access policy, authenticated read prevents unauthenticated
   # users from viewing assets.
-  :s3_permissions => 'authenticated-read',
-  :bucket => "survival-project"
+  #:s3_permissions => 'authenticated-read',
+  #:bucket => "survival-project"
 
   # Checking Filetypes
   validates_attachment_presence :data
